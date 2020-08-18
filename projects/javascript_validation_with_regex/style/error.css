@@ -1,0 +1,15 @@
+:root{
+    --input-background-color : white;
+    --error-input-format-background-color : rgb(255, 255, 116);
+    --error-text-color : rgb(75, 0, 0);
+    --error-input-input-background-color : rgb(255, 182, 182);
+}
+* {
+  box-sizing: border-box;
+}
+.error{
+    visibility: hidden;
+    color : var(--error-text-color);
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+}

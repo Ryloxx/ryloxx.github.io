@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Your First DB App</title>
+    <meta name="description" content="Your= First DB App" />
+    <meta name="author" content="Rylox" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        Your First DB App
+      </h1>
+    </header>
+    <main>
+      <div id="app">
+        <div id="leftPane">
+          <div id="controls">
+            <button id="loadButton">Load DB</button>
+            <button id="queryButton">Query DB</button>
+            <button id="clearButton">Clear DB</button>
+          </div>
+          <div id="addRowPane">
+            <div class="labeledInput">
+              Name
+              <input id="newname" type="text" />
+              <div id="nameError" class="error"></div>
+            </div>
+            <div class="labeledInput">
+              Email
+              <input id="newmail" type="text" />
+              <div id="emailError" class="error"></div>
+            </div>
+            <button id="adduserButton">Add User</button>
+          </div>
+
+          <div id="logPane"></div>
+        </div>
+        <div id="rightPane">
+          <div id="dataView"></div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Desinged by Rylox
+    </footer>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+:root{
+    --input-background-color : white;
+    --error-input-format-background-color : rgb(255, 255, 116);
+    --error-text-color : red;
+    --error-input-input-background-color : rgb(255, 182, 182);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  margin: 0;
+  padding: 0;
+  background-color: aliceblue;
+}
+header {
+  background-color: grey;
+}
+.error{
+    visibility: hidden;
+    color : var(--error-text-color);
+    position: absolute;
+}
+button{
+    background-color : rgb(167, 0, 167);
+    border-style: none;
+    padding : 1%;
+}
+button:hover{
+    background-color : rgb(209, 0, 209);
+    transition-duration: 100ms;
+}
+button:active{
+    background-color: rgb(94, 0, 94);
+}
+#app *{
+    border-radius: inherit;
+    font-size : inherit;
+}
+#app {
+    border-radius: 5px;
+    display: block;
+    font-size:18px;
+    margin: 5% 10%;
+}
+.inputField {
+    text-align : left;
+}
+.inputField input{
+    padding : 1%;
+}
+.inputPackage{
+    margin : 3% 0%;
+}
+.inputPackage input{
+    background-color : var(--input-background-color);
+}
