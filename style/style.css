@@ -8,8 +8,16 @@ body {
   margin: 0;
   background-color: grey;
   padding: 0;
+  font-size: max(2vh, 2vw);
 }
-main{
+main {
   background-color: aliceblue;
+  text-align: left;
+  min-height: 90vh;
 }
-
+ol {
+  list-style-type: none;
+}
+a:any-link {
+  text-decoration: none;
+}
