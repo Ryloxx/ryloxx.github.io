@@ -32,12 +32,17 @@
             <button id="add-coor-button">Add</button>
             <button id="calc-button">Calculate</button>
             <div id="load-stored-data-pane">
-              <select id="stored-dataset-select"
-                >Something</select
-              >
+              <select id="stored-dataset-select"></select>
               <button id="load-stored-data">Load Preset Dataset</button>
             </div>
             <button id="reset-button">Reset</button>
+          </div>
+          <div id="user-select-file-pane">
+            <input type="file" id="selected-file" accept=".csv" />
+            Select only label which contains numeric values.
+            <select id="select-x-label"></select>
+            <select id="select-y-label"></select>
+            <button id="load-user-select">Load</button>
           </div>
         </div>
       </div>

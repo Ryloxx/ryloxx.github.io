@@ -15,7 +15,15 @@ const calcButton = document.getElementById("calc-button");
 const loadStoredData = document.getElementById("load-stored-data");
 const selectStoredData = document.getElementById("stored-dataset-select");
 const restButton = document.getElementById("reset-button");
+const selectLocalStoredData = document.getElementById("selected-file");
+const selectXLocalStoredData = document.getElementById("select-x-label");
+const selectYLocalStoredData = document.getElementById("select-y-label");
+const loadUserLocalStoredDataButton = document.getElementById(
+  "load-user-select"
+);
+const selectUserDataset = {};
 calcButton.disabled = true;
+loadUserLocalStoredDataButton.disabled = true;
 const yCorrInputField = InputValidation.fieldFact(
   "y-coor",
   "y-input",
@@ -51,24 +59,42 @@ calcButton.addEventListener("click", (event) => {
 loadStoredData.addEventListener("click", (event) => {
   if (selectStoredData.value in storedDataSet) {
     let dataset = storedDataSet[selectStoredData.value];
-    reset();
     csv(dataset.path).then((res) => {
-      res.forEach((record) => {
-        let coor = {
-          x: parseInt(record[dataset.x], 10),
-          y: parseInt(record[dataset.y], 10),
-        };
-        if (!Number.isNaN(coor.x) && !Number.isNaN(coor.y)) {
-          model.addCoor(coor);
-          view.addCoor(coor);
-        }
-      });
-      view.setDataLabel(dataset.name);
-      view.setXLabel(dataset.x);
-      view.setYLabel(dataset.y);
-      calcButton.disabled = false;
+      load(res, dataset.name, dataset.x, dataset.y);
     });
   }
+});
+selectLocalStoredData.addEventListener("change", (event) => {
+  let path = selectLocalStoredData.files[0];
+  console.log(path);
+  if (path) {
+    csv(window.URL.createObjectURL(path)).then((textJSON) => {
+      for (let selector of [selectXLocalStoredData, selectYLocalStoredData]) {
+        while (selector.firstChild) {
+          selector.removeChild(selector.firstChild);
+        }
+        for (let colname in textJSON[0]) {
+          let option = document.createElement("option");
+          option.value = colname;
+          option.text = colname;
+          selector.appendChild(option);
+        }
+      }
+      if (selectXLocalStoredData.firstChild) {
+        loadUserLocalStoredDataButton.disabled = false;
+        selectUserDataset.name = path.name;
+        selectUserDataset.data = textJSON;
+      }
+    });
+  }
+});
+loadUserLocalStoredDataButton.addEventListener("click", (event) => {
+  load(
+    selectUserDataset.data,
+    selectUserDataset.name,
+    selectXLocalStoredData.value,
+    selectYLocalStoredData.value
+  );
 });
 restButton.addEventListener("click", (event) => {
   reset();
@@ -107,6 +133,23 @@ async function csv(path) {
     });
 }
 
+function load(res, dataname, xlab, ylab) {
+  reset();
+  res.forEach((record) => {
+    let coor = {
+      x: parseInt(record[xlab], 10),
+      y: parseInt(record[ylab], 10),
+    };
+    if (!Number.isNaN(coor.x) && !Number.isNaN(coor.y)) {
+      model.addCoor(coor);
+      view.addCoor(coor);
+    }
+  });
+  view.setDataLabel(dataname);
+  view.setXLabel(xlab);
+  view.setYLabel(ylab);
+  calcButton.disabled = false;
+}
 const storedDataSet = [
   {
     name: "Heart Failure Dataset",

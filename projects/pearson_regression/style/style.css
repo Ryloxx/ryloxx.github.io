@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: darkgray;
-  font-size: max(2vw, 2vh);
+  font-size: max(1.3vw, 15px);
 }
 header {
   background-color: grey;
@@ -28,7 +28,7 @@ main > * {
   padding: 5vh 1vw;
 }
 footer {
-  min-height: 20vh;
+  min-height: max(10vh, 100px);
   display: grid;
   place-items: center;
   border-top: 2px solid black;
@@ -51,16 +51,26 @@ input {
 #data-display > :not(:last-child) {
   border-bottom: 2px solid black;
   margin-bottom: 20px;
+  min-width: max(500px, 30vw);
 }
 #data-entry {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  grid-auto-flow: row;
   padding: 10px;
   text-align: left;
+  margin : auto 0;
+}
+#data-entry > * {
+  margin-bottom: 10px;
+  height: max(200px, 15vh);
 }
 #data-entry .inputField {
   display: grid;
   grid-auto-flow: dense;
   padding: 5px;
+  height: 100px;
+  
 }
 #data-entry .inputField input {
   text-align: center;
@@ -88,4 +98,15 @@ input {
 #load-stored-data-pane {
   display: grid;
   grid-auto-columns: 1fr 1fr;
+}
+#user-select-file-pane {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+#chart-display {
+  min-width: 30vw;
+  min-height: 20vh;
+}
+select, input{
+  max-height: 50px;
 }
