@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pearson Regression</title>
+    <meta
+      name="description"
+      content="Apply the Pearson Regression to two set of data to see highlight a potential correlation"
+    />
+    <meta name="author" content="Rylox" />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        Pearson Regression
+      </h1>
+    </header>
+    <main>
+      <div id="side">
+        <div id="data-entry">
+          <div class="inputField">
+            <span class="label x">X</span> <input id="x-input" type="number" />
+            <div class="error" id="x-input-error"></div>
+          </div>
+
+          <div class="inputField">
+            <span class="label y">Y</span> <input id="y-input" type="number" />
+            <div class="error" id="y-input-error"></div>
+          </div>
+          <div id="controls">
+            <button id="add-coor-button">Add</button>
+            <button id="calc-button">Calculate</button>
+            <div id="load-stored-data-pane">
+              <select id="stored-dataset-select"
+                >Something</select
+              >
+              <button id="load-stored-data">Load Preset Dataset</button>
+            </div>
+            <button id="reset-button">Reset</button>
+          </div>
+        </div>
+      </div>
+      <div id="data-display">
+        <div>
+          <span class="label"
+            >Points(<span class="label x">X</span>;<span class="label y">Y</span
+            >)</span
+          >
+          <ol id="coor-list"></ol>
+        </div>
+        <canvas id="chart-display"></canvas>
+        <div id="result-display"></div>
+      </div>
+    </main>
+    <footer>Designed by Rylox</footer>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
