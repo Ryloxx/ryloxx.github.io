@@ -20,7 +20,7 @@ const yCorrInputField = InputValidation.fieldFact(
   "y-coor",
   "y-input",
   "y-input-error",
-  [/0|[1-9]+[0-9]*/],
+  [/^0$|^[1-9]+[0-9]*$/],
   undefined,
   "Invalid Y coordinate",
   ""
@@ -29,7 +29,7 @@ const xCorrInputField = InputValidation.fieldFact(
   "x-coor",
   "x-input",
   "x-input-error",
-  [/0|[1-9]+[0-9]*/],
+  [/^0$|^[1-9]+[0-9]*$/],
   undefined,
   "Invalid X coordinate",
   ""
@@ -52,9 +52,6 @@ loadStoredData.addEventListener("click", (event) => {
   if (selectStoredData.value in storedDataSet) {
     let dataset = storedDataSet[selectStoredData.value];
     reset();
-    view.setDataLabel(dataset.name);
-    view.setXLabel(dataset.x);
-    view.setYLabel(dataset.y);
     csv(dataset.path).then((res) => {
       res.forEach((record) => {
         let coor = {
@@ -66,6 +63,9 @@ loadStoredData.addEventListener("click", (event) => {
           view.addCoor(coor);
         }
       });
+      view.setDataLabel(dataset.name);
+      view.setXLabel(dataset.x);
+      view.setYLabel(dataset.y);
       calcButton.disabled = false;
     });
   }

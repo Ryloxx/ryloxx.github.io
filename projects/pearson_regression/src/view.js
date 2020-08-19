@@ -1,4 +1,5 @@
 import ChartModule from "./Chart.js";
+import Chart from "./Chart.js";
 class View {
   constructor(
     coorListSelector,
@@ -12,8 +13,9 @@ class View {
     this.coorChartData = this.getDefaultChartConfig();
     this.dataLabelElemsX = document.querySelectorAll(dataLabelSelectorX);
     this.dataLabelElemsY = document.querySelectorAll(dataLabelSelectorY);
+    this.canvasChartElem = document.querySelector(chartCanvasSelector);
     this.chart = new ChartModule.Chart(
-      document.querySelector(chartCanvasSelector).getContext("2d"),
+      this.canvasChartElem.getContext("2d"),
       this.coorChartData
     );
   }
@@ -23,12 +25,14 @@ class View {
       this.coorListElem.removeChild(this.coorListElem.firstChild);
     }
     this.resultDisplayEleme.textContent = "";
-    let defaultChart = this.getDefaultChartConfig();
-    for (let key in defaultChart) {
-      this.coorChartData[key] = defaultChart[key];
-    }
-    this.setYLabel();
+    this.coorChartData = this.getDefaultChartConfig();
     this.setXLabel();
+    this.setYLabel();
+    this.chart.destroy();
+    this.chart = new ChartModule.Chart(
+      this.canvasChartElem.getContext("2d"),
+      this.coorChartData
+    );
   }
 
   addCoor(coor) {
@@ -87,23 +91,21 @@ class View {
     };
   }
   setXLabel(newlabel = "X") {
-    this.coorChartData.options.scales.xAxes[0].scaleLabel.labelString = String(
-      newlabel
-    );
+    newlabel = String(newlabel);
+    this.coorChartData.options.scales.xAxes[0].scaleLabel.labelString = newlabel;
 
     this.dataLabelElemsX.forEach((labelX) => {
-      labelX.textContent = this.coorChartData.options.scales.xAxes[0].scaleLabel.labelString;
+      labelX.textContent = newlabel;
     });
 
     this.chart.update();
   }
   setYLabel(newlable = "Y") {
-    this.coorChartData.options.scales.yAxes[0].scaleLabel.labelString = String(
-      newlable
-    );
+    newlable = String(newlable);
+    this.coorChartData.options.scales.yAxes[0].scaleLabel.labelString = newlabel;
 
     this.dataLabelElemsY.forEach((labelY) => {
-      labelY.textContent = this.coorChartData.options.scales.yAxes[0].scaleLabel.labelString;
+      labelY.textContent = newlabel;
     });
     this.chart.update();
   }
