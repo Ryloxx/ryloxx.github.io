@@ -110,13 +110,13 @@ async function csv(path) {
 const storedDataSet = [
   {
     name: "Heart Failure Dataset",
-    path: "../datasets/heart_failure_clinical_records_dataset.csv",
+    path: "./datasets/heart_failure_clinical_records_dataset.csv",
     x: "age",
     y: "creatinine_phosphokinase",
   },
   {
     name: "Students Performance",
-    path: "../datasets/StudentsPerformance.csv",
+    path: "./datasets/StudentsPerformance.csv",
     x: "reading score",
     y: "writing score",
   },
