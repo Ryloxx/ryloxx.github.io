@@ -56,6 +56,7 @@ class View {
   getDefaultChartConfig() {
     return {
       type: "scatter",
+      responsive: true,
       data: {
         datasets: [
           {
@@ -102,10 +103,10 @@ class View {
   }
   setYLabel(newlable = "Y") {
     newlable = String(newlable);
-    this.coorChartData.options.scales.yAxes[0].scaleLabel.labelString = newlabel;
+    this.coorChartData.options.scales.yAxes[0].scaleLabel.labelString = newlable;
 
     this.dataLabelElemsY.forEach((labelY) => {
-      labelY.textContent = newlabel;
+      labelY.textContent = newlable;
     });
     this.chart.update();
   }
