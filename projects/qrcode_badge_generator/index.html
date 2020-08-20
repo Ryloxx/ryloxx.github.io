@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>QRCode Badge Generator</title>
+    <meta
+      name="description"
+      content="Encode person related data into a QRCode"
+    />
+    <meta name="author" content="Rylox" />
+    <meta name="viewport" content="width=device-width, initial-scale=1," />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <header class="container-fluid my-5">
+      <h1>
+        QRCode Badge Generator
+      </h1>
+    </header>
+    <main class="container-fluid">
+      <div id="data-box-container" class="container justify-content-center">
+        <div
+          style="display: none;"
+          id="result"
+          class="row justify-content-center"
+        >
+          <div class="datalabel lead col-12 my-1">
+            Here's your encoded data!
+          </div>
+          <div
+            id="qr-code-display"
+            class="container col-xs-12 col-md-6 -col-lg-6 col-xl-6"
+          ></div>
+          <div
+            id="user-data-display"
+            class="col-xs-12 col-md-6 -col-lg-6 col-xl-6 p-5"
+          ></div>
+          <button
+            type="button"
+            id="addAnew"
+            class="btn btn-outline-dark btn-light col-xs-12 col-md-10 -col-lg-8 col-xl-6 m-2"
+          >
+            Encode again
+          </button>
+        </div>
+
+        <form id="data-entry" class="row justify-content-between row p-5">
+          <div class="datalabel lead col-12 my-1">
+            Enter your data
+          </div>
+          <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">FirstName</span>
+            </div>
+            <input id="firstname" class="form-control" type="text" />
+            <div id="firstname-error" class="invalid-feedback"></div>
+          </div>
+
+          <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Lastname</span>
+            </div>
+            <input id="lastname" class="form-control" type="text" />
+            <div id="lastname-error" class="invalid-feedback"></div>
+          </div>
+
+          <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">E-mail</span>
+            </div>
+            <input id="email" class="form-control" type="email" />
+            <div id="email-error" class="invalid-feedback"></div>
+          </div>
+
+          <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Twitter</span>
+            </div>
+            <input id="twitter" class="form-control" type="text" />
+            <div id="twitter-error" class="invalid-feedback"></div>
+          </div>
+
+          <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
+            <div class="input-group-prepend">
+              <span class="input-group-text">GitHub</span>
+            </div>
+            <input id="github" class="form-control" type="text" />
+            <div id="github-error" class="invalid-feedback"></div>
+          </div>
+
+          <div class="btn-block">
+            <button
+              type="button"
+              id="cancelButton"
+              class="btn btn-outline-dark btn-light m-1 col-xs-12 col-md-5 -col-lg-5 col-xl-5"
+            >
+              Cancel</button
+            ><button
+              type="button"
+              id="submitButton"
+              class="btn btn-outline-dark btn-light m-1 col-xs-12 col-md-5 -col-lg-5 col-xl-5"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer class="container-fluid my-5 py-5">Designed by Rylox</footer>
+    <script
+      type="text/javascript"
+      src="./modules/node_modules/qrcode-generator/qrcode.js"
+    ></script>
+    <script type="module" src="./src/main.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
