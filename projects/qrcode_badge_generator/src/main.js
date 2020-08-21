@@ -85,7 +85,6 @@ fields.forEach((field) => {
 
 //Submit button event handler
 submitButton.addEventListener("click", (event) => {
-  console.log(updateFields);
   //Iterate through the fields and check if they are valid
   if (InputValidation.validateFields(fields)) {
     setTimeout(() => {
