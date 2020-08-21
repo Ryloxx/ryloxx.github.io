@@ -102,8 +102,10 @@ function validateField(field) {
   if (field.isValidFormat()) {
     if (field.isValidInput()) {
       field.resetError();
-      if (field.elem.value) {
+      if (field.elem.value !== "") {
         field.elem.classList.add("is-valid");
+      } else {
+        field.elem.classList.remove("is-valid");
       }
       return true;
     } else {

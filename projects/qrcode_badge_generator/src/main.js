@@ -51,8 +51,8 @@ fields.push(
     "twitter-error",
     [],
     [/^$|^@.+/],
-    "Please provide a twitter account",
-    "You twitter account must start with the character '@'"
+    "You twitter account must start with the character '@'",
+    "Please provide a valid twitter account"
   )
 );
 fields.push(
@@ -119,9 +119,9 @@ addAgainButton.addEventListener("click", (event) => {
 });
 //Update the current displayed qr
 updateQrButton.addEventListener("click", (event) => {
-  let fields = Object.values(updateFields);
-  if (InputValidation.validateFields(fields)) {
-    let updatedQr = createQrcode(createString(fields));
+  let upFields = Object.values(updateFields);
+  if (InputValidation.validateFields(upFields)) {
+    let updatedQr = createQrcode(createString(upFields));
     transition(qrCodeHolder, qrCodeHolder, 0.5, () => {
       qrCodeHolder.innerHTML = updatedQr;
       updateQrButton.disabled = true;
