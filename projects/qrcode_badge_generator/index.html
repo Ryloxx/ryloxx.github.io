@@ -8,7 +8,7 @@
       content="Encode person related data into a QRCode"
     />
     <meta name="author" content="Rylox" />
-    <meta name="viewport" content="width=device-width, initial-scale=1," />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -18,19 +18,19 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <header class="container-fluid my-5">
+    <header class="container-fluid my-5 d-print-none">
       <h1>
         QRCode Badge Generator
       </h1>
     </header>
-    <main class="container-fluid">
-      <div id="data-box-container" class="container justify-content-center">
+    <main class="container">
+      <div id="data-box-container" class="container-fluid justify-content-center">
         <div
           style="display: none;"
           id="result"
-          class="row justify-content-center"
+          class="row justify-content-center d-print-flex"
         >
-          <div class="datalabel lead col-12 my-1">
+          <div class="datalabel col-12 my-1 d-print-none">
             Here's your encoded data!
           </div>
           <div
@@ -38,28 +38,96 @@
             class="container col-xs-12 col-md-6 -col-lg-6 col-xl-6"
           ></div>
           <div
-            id="user-data-display"
-            class="col-xs-12 col-md-6 -col-lg-6 col-xl-6 p-5"
-          ></div>
+            id="user-data-pane"
+            class="col-xs-12 col-md-6 -col-lg-6 col-xl-6 p-6"
+          >
+            <div id="user-data-display">
+              <ol class="list-group">
+                <li class="list-group-item">
+                  <div>Firstname</div>
+                  <input
+                    id="firstname-update"
+                    class="form-control"
+                    type="text"
+                  />
+                  <div
+                    id="firstname-error-update"
+                    class="invalid-feedback error"
+                  >
+                    Error
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div>Lastname</div>
+                  <input
+                    id="lastname-update"
+                    class="form-control"
+                    type="text"
+                  />
+                  <div
+                    id="lastname-error-update"
+                    class="invalid-feedback error"
+                  >
+                    Error
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div>E-mail</div>
+                  <input id="e-mail-update" class="form-control" type="text" />
+                  <div id="email-error-update" class="invalid-feedback error">
+                    Error
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div>Twitter</div>
+                  <input id="twitter-update" class="form-control" type="text" />
+                  <div id="twitter-error-update" class="invalid-feedback error">
+                    Error
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div>Github</div>
+                  <input id="github-update" class="form-control" type="text" />
+                  <div id="github-error-update" class="invalid-feedback error">
+                    Error
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <button
+              type="button"
+              id="update-qr"
+              class="container btn btn-outline-dark btn-light m-1 mb-2 mt-4 d-print-none"
+            >
+              Update QR
+            </button>
+            <button
+              type="button"
+              id="print-qr"
+              class="container btn btn-outline-dark btn-light m-1 mb-2 mt-4 d-print-none"
+            >
+              Print
+            </button>
+          </div>
           <button
             type="button"
             id="addAnew"
-            class="btn btn-outline-dark btn-light col-xs-12 col-md-10 -col-lg-8 col-xl-6 m-2"
+            class="btn btn-outline-dark btn-light col-xs-12 col-md-10 -col-lg-8 col-xl-6 m-4 d-print-none"
           >
             Encode again
           </button>
         </div>
 
         <form id="data-entry" class="row justify-content-between row p-5">
-          <div class="datalabel lead col-12 my-1">
+          <div class="datalabel col-12 my-1">
             Enter your data
           </div>
           <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
             <div class="input-group-prepend">
-              <span class="input-group-text">FirstName</span>
+              <span class="input-group-text">Firstname</span>
             </div>
             <input id="firstname" class="form-control" type="text" />
-            <div id="firstname-error" class="invalid-feedback"></div>
+            <div id="firstname-error" class="invalid-feedback error">Error</div>
           </div>
 
           <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
@@ -67,15 +135,15 @@
               <span class="input-group-text">Lastname</span>
             </div>
             <input id="lastname" class="form-control" type="text" />
-            <div id="lastname-error" class="invalid-feedback"></div>
+            <div id="lastname-error" class="invalid-feedback error">Error</div>
           </div>
 
           <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
             <div class="input-group-prepend">
               <span class="input-group-text">E-mail</span>
             </div>
-            <input id="email" class="form-control" type="email" />
-            <div id="email-error" class="invalid-feedback"></div>
+            <input id="e-mail" class="form-control" type="email" />
+            <div id="email-error" class="invalid-feedback error">Error</div>
           </div>
 
           <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
@@ -83,7 +151,7 @@
               <span class="input-group-text">Twitter</span>
             </div>
             <input id="twitter" class="form-control" type="text" />
-            <div id="twitter-error" class="invalid-feedback"></div>
+            <div id="twitter-error" class="invalid-feedback error">Error</div>
           </div>
 
           <div class="input-group p-3 col-xs-12 col-md-6 -col-lg-6 col-xl-6">
@@ -91,7 +159,7 @@
               <span class="input-group-text">GitHub</span>
             </div>
             <input id="github" class="form-control" type="text" />
-            <div id="github-error" class="invalid-feedback"></div>
+            <div id="github-error" class="invalid-feedback error">Error</div>
           </div>
 
           <div class="btn-block">
@@ -112,12 +180,14 @@
         </form>
       </div>
     </main>
-    <footer class="container-fluid my-5 py-5">Designed by Rylox</footer>
+    <footer class="container-fluid my-5 py-5 d-print-none">
+      Designed by Rylox
+    </footer>
     <script
       type="text/javascript"
       src="./modules/node_modules/qrcode-generator/qrcode.js"
     ></script>
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="

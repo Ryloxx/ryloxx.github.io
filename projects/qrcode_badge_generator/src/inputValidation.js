@@ -102,7 +102,9 @@ function validateField(field) {
   if (field.isValidFormat()) {
     if (field.isValidInput()) {
       field.resetError();
-      field.elem.classList.add("is-valid");
+      if (field.elem.value) {
+        field.elem.classList.add("is-valid");
+      }
       return true;
     } else {
       field.errorInput();
