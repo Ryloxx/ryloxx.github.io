@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Traduction</title>
+    <meta name="description" content="Traduction du français vers l'anglais" />
+    <meta name="author" content="Rylox" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.flaticon.com/download/icon/104081?icon_id=104081&author=1&team=1&keyword=Google+Translate&pack=112029&style=3&style_id=0&format=png&color=%23000000&colored=1&size=16&selection=1&premium=0&token=03AGdBq27bh8jkR5-g8QS0aTYwtutL0P3RfiPlUTHJ3cpC_M3eP3jWNg_WZNMqxdH3CQatJsawzlylufULqthyw76WV2OGQecYJWiqRokgV-tpqp_fFEHZs2-0SheAoZUbU6KZtbEfjQ4TTNxLilwZS-ePW-H7PR_9pVjTz3xgSOyuOzc542aFvoi30-H49HExSrerDtcTUzLDOMxiInLTv6yUoAltCndJFXiIsFyb_6UFAnzLe_KA8ZkSECSq4Rp8DmYcmTJsAClK8H_NaR4-0Fg9vE5DxuYLygDrOrPssEMEN9Q60N2iMZpHUWAQsslKkHinos0tgJyFilh59UJT_is4gqgKtZ5A3i5CnzHyo9C4FZ90eUJysUU2l635lPIO0LNcsZaf3D6P.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/superhero/bootstrap.min.css"
+    />
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      header,
+      footer {
+        text-align: center;
+      }
+      textarea {
+        resize: none;
+        border-radius: 5px;
+      }
+      #app * {
+        font-size: 1.2em;
+      }
+      #translate-button {
+        background-image: url("https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_1-512.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+      }
+      #loader {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 2s linear infinite;
+        display: none;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      #translate-button:hover {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      }
+      #translate-button:active {
+        box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
+      }
+      .translation-pane {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+      }
+      #error {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body class="p-0">
+    <header class="display-4 bg-secondary mb-5 p-3">Traduction</header>
+    <main id="app" , class="container row offset-1 col-10">
+      <div
+        id="error"
+        class="col-xs-12 col-md-6 alert alert-dismissible alert-danger my-3"
+      >
+        <strong>Erreur:</strong>
+        <p id="error-message">Une erreur est survenu</p>
+      </div>
+      <div class="col-12 row m-0 p-0" style="align-items: center">
+        <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
+          <label for="input-language-area">Français</label>
+          <textarea
+            class="form-control rounded"
+            id="input-language-area"
+            rows="8"
+          ></textarea>
+        </div>
+        <div style="text-align: center; margin: auto">
+          <button class="btn" id="translate-button"></button>
+          <div id="loader"></div>
+        </div>
+        <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
+          <label for="output-language-area">Anglais</label>
+          <textarea
+            readonly
+            class="form-control rounded"
+            id="output-language-area"
+            rows="8"
+          ></textarea>
+        </div>
+      </div>
+    </main>
+    <script>
+      const inputTextElem = document.getElementById("input-language-area");
+      const outputTextElem = document.getElementById("output-language-area");
+      const translateButton = document.getElementById("translate-button");
+      const errorElem = document.getElementById("error");
+      const errorMessageElem = document.getElementById("error-message");
+      const loaderElem = document.getElementById("loader");
+      const inputLanguage = "fr";
+      const outputLanguage = "en";
+      const API_URL =
+        "https://translate.google.com/translate_a/single?client=at&dt=t&dt=ld&dt=qca&dt=rm&dt=bd&dj=1&hl=%25s&ie=UTF-8&oe=UTF-8&inputm=2&otf=2&iid=1dd3b944-fa62-4b55-b330-74909a99969e&";
+      const requestHeader = new Headers();
+      requestHeader.append(
+        "User-Agent",
+        "AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1"
+      );
+      const CORS_PROXY_URL = "https://cors-anywhere.herokuapp.com/";
+      requestHeader.append("Content-Type", "application/x-www-form-urlencoded");
+      resetError();
+      function resetError() {
+        errorElem.style.display = "none";
+      }
+      function showError(message) {
+        errorMessageElem.textContent = message;
+        errorElem.style.display = "block";
+      }
+      translateButton.addEventListener("click", () => {
+        resetError();
+        let inputText = inputTextElem.value;
+        if (!inputText) {
+          showError("Veuillez entrer un texte à traduire s'il vous plaît.");
+          return;
+        }
+        let urlencoded = new URLSearchParams();
+        urlencoded.append("sl", inputLanguage);
+        urlencoded.append("tl", outputLanguage);
+        urlencoded.append("q", inputText);
+        let requestOptions = {
+          method: "POST",
+          headers: requestHeader,
+          body: urlencoded
+        };
+        startLoading();
+        fetch(`${CORS_PROXY_URL}${API_URL}`, requestOptions)
+          .then((response) => response.json())
+          .then((result) => apiResponseHandler(result))
+          .catch((error) => showError(error))
+          .finally(stopLoading);
+      });
+      function apiResponseHandler(response) {
+        if (response.sentences.length > 0) {
+          outputTextElem.value = response.sentences
+            .map((sentence) => sentence.trans)
+            .join("");
+        } else {
+          showError("Impossible de traduire votre demande.");
+        }
+      }
+      function startLoading() {
+        translateButton.style.display = "none";
+        loaderElem.style.display = "inline-block";
+      }
+      function stopLoading() {
+        loaderElem.style.display = "none";
+        translateButton.style.display = "inline-block";
+      }
+    </script>
+  </body>
+</html>
