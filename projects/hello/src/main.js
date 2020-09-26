@@ -1,4 +1,4 @@
-const ipAddresseApiUrl = 'http://ip-api.com/json';
+const ipAddresseApiUrl = 'https://ipapi.co/json';
 const helloTranslationApiUrl = {
   baseUrl: 'https://fourtonfish.com/hellosalut',
   proxy: 'https://cors-anywhere.herokuapp.com',
@@ -15,9 +15,9 @@ const sayHello = function (
 ) {
   fetch(`${ipAddresseApiUrl}`)
     .then((res) => res.json())
-    .then(({ query }) =>
+    .then(({ ip }) =>
       fetch(
-        `${helloTranslationApiUrl.proxy}/${helloTranslationApiUrl.baseUrl}?ip=${query}`,
+        `${helloTranslationApiUrl.proxy}/${helloTranslationApiUrl.baseUrl}?ip=${ip}`,
       ),
     )
     .then((res) => res.json())
