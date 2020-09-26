@@ -15,9 +15,11 @@ const sayHello = function (
 ) {
   fetch(`${ipAddresseApiUrl}`)
     .then((res) => res.json())
-    .then(({ ip }) =>
+    .then(({ country, ip }) =>
       fetch(
-        `${helloTranslationApiUrl.proxy}/${helloTranslationApiUrl.baseUrl}?ip=${ip}`,
+        `${helloTranslationApiUrl.proxy}/${helloTranslationApiUrl.baseUrl}?${
+          country ? `lang=${country.toLowerCase()}&` : ''
+        }${ip ? `ip=${ip.toLowerCase()}` : ''}`,
       ),
     )
     .then((res) => res.json())
