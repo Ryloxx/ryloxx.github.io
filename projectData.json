@@ -1,0 +1,264 @@
+[
+  {
+    "image": "./assets/images/movie_database.png",
+    "title": "Movie Database",
+    "body": "Website which present data on films, tv show, and people who have link with the film-tv industry.\nFeature: user auth, film review, watchlist, film/person/tvshow browsing.",
+    "techList": [
+      "ReactJS/Redux (Front)",
+      "NodeJS (Back)",
+      "MongoDB (Storage)",
+      "Cloudinary (Media Storage)",
+      "The Movie Database API (Main Data API)",
+      "Heroku (hosting)",
+      "Material-UI",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "foot": "REST API / Mobile Ready",
+    "link": "https://movie-database-rylox.herokuapp.com",
+    "theme": {
+      "primary": "#263238",
+      "secondary": "#1761a0",
+      "tertiary": "#86bff1",
+      "textMainHead": "#d67a04",
+      "textSubHead": "#917343",
+      "textBody": "#917343"
+    }
+  },
+  {
+    "image": "./assets/images/manga_reader.png",
+    "title": "Manga Reader",
+    "body": "This website gather manga data by scraping the website https://scantrad.net/, it was meant for personal use which is why registration are off.\nFeature: user auth, manga browsing, favorite.",
+    "techList": [
+      "ReactJS (Front)",
+      "NodeJS (Back)",
+      "MongoDB (Storage)",
+      "Scantrad.net (website data source)",
+      "Heroku (hosting)",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "foot": "Scraping / Mobile Ready",
+    "link": "https://manga-reader-rylox.herokuapp.com",
+    "theme": {
+      "primary": "#115fbf",
+      "secondary": "#2c806b",
+      "tertiary": "#72d4e0",
+      "textMainHead": "#ffffff",
+      "textSubHead": "#d3dee6",
+      "textBody": "#d3dee6"
+    }
+  },
+  {
+    "image": "./assets/images/trending_evil_alien.png",
+    "title": "Trending Evil Alien",
+    "body": "Made for a Topcoder.com challenge, it's basically a reddit search tool.",
+    "techList": [
+      "ReactJS (Front)",
+      "NodeJS (Back)",
+      "Heroku (hosting)",
+      "Reddit API",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "foot": "REST API / Mobile Ready",
+    "link": "https://trending-evil-alien.herokuapp.com",
+    "theme": {
+      "primary": "#2c3b53",
+      "secondary": "#767e92",
+      "tertiary": "#dc725a",
+      "textMainHead": "#fe3f06",
+      "textSubHead": "#fe6d06",
+      "textBody": "#fe6d06"
+    }
+  },
+  {
+    "image": "./assets/images/spell_it.png",
+    "title": "Spell it",
+    "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.\nFeature: difficulty selection, error and missed words feedback.",
+    "techList": [
+      "ReactJS/Redux",
+      "Heroku (hosting)",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "https://spell-it-rylox.herokuapp.com",
+    "theme": {
+      "primary": "#1f739c",
+      "secondary": "#6da2ac",
+      "tertiary": "#74cccb",
+      "textMainHead": "#da818a",
+      "textSubHead": "#dbbdbd",
+      "textBody": "#ffffff"
+    }
+  },
+  {
+    "image": "./assets/images/translation_app.png",
+    "title": "Translation App",
+    "body": "Basic one way translation app from French to English using Google Translate API.",
+    "techList": [
+      "Google Translate API",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "./projects/translation_app/index.html",
+    "theme": {
+      "primary": "#2c3b53",
+      "secondary": "#767e92",
+      "tertiary": "#e9e9e9",
+      "textMainHead": "#afb8c4",
+      "textSubHead": "#d9d9d9",
+      "textBody": "#ffffff"
+    }
+  },
+  {
+    "image": "./assets/images/battleship.png",
+    "title": "Battleship",
+    "body": "One Player battleship game.",
+    "techList": ["VueJS", "Bootstrap", "HTML", "CSS", "JavaScript"],
+    "link": "./projects/battleship_engine_x_bot/index.html",
+    "theme": {
+      "primary": "#002b36",
+      "secondary": "#14527b",
+      "tertiary": "#449cd7",
+      "textMainHead": "#afb8c4",
+      "textSubHead": "#d9d9d9",
+      "textBody": "#ffffff"
+    }
+  },
+  {
+    "image": "./assets/images/qrcode_badge_generator.png",
+    "title": "QRCode Badge Generator",
+    "body": "Website where you can enter predefined personal data which is converted into a QR code.\nFeature: print the qrcode, update the qrcode.",
+    "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
+    "link": "./projects/qrcode_badge_generator/index.html",
+    "theme": {
+      "primary": "#fabc73",
+      "secondary": "#869ccb",
+      "tertiary": "#f3f1ef",
+      "textMainHead": "#333333",
+      "textSubHead": "#424242",
+      "textBody": "#525252"
+    }
+  },
+  {
+    "image": "./assets/images/card_memory_game.png",
+    "title": "Card Game Memory",
+    "body": "The famous card memory game, nothing realy new about.\nFeature: difficulty selection, timing and best score.",
+    "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
+    "link": "./projects/card_memory_game/index.html",
+    "theme": {
+      "primary": "#fcc404",
+      "secondary": "#697077",
+      "tertiary": "#e8e8e7",
+      "textMainHead": "#333333",
+      "textSubHead": "#424242",
+      "textBody": "#525252"
+    }
+  },
+  {
+    "image": "./assets/images/pearson_regression.png",
+    "title": "Pearson Regression",
+    "body": "Website that allows you to calculate the pearson coefficient of a dataset, and visualize your data with a chart.\nFeature: manual data, csv file load and data preset for example.",
+    "techList": ["HTML", "CSS", "JavaScript"],
+    "link": "./projects/pearson_regression/index.html",
+    "theme": {
+      "primary": "#6c646f",
+      "secondary": "#4b8daf",
+      "tertiary": "#a348a3",
+      "textMainHead": "#a3e0ff",
+      "textSubHead": "#c4ebff",
+      "textBody": "#e0f5ff"
+    }
+  },
+  {
+    "image": "./assets/images/javascript_validation_with-regex.png",
+    "title": "Javascript Validation With Regex",
+    "body": "Basic input validation with regex.",
+    "techList": ["HTML", "CSS", "JavaScript"],
+    "link": "./projects/javascript_validation_with_regex/index.html",
+    "theme": {
+      "primary": "#6c646f",
+      "secondary": "#4b8daf",
+      "tertiary": "#a348a3",
+      "textMainHead": "#a3e0ff",
+      "textSubHead": "#c4ebff",
+      "textBody": "#e0f5ff"
+    }
+  },
+  {
+    "image": "./assets/images/hello.png",
+    "title": "Hello",
+    "body": "Website that say you hello in your language(depend of your ip location).",
+    "techList": [
+      "https://ip-api.com (IP Localisation API)",
+      "https://www.fourtonfish.com/hellosalut/hello (Hello API)",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "./projects/hello/index.html",
+    "theme": {
+      "primary": "#b4bcc4",
+      "secondary": "#dce2e4",
+      "tertiary": "#f3fbfb",
+      "textMainHead": "#222324",
+      "textSubHead": "#414345",
+      "textBody": "#585b5e"
+    }
+  },
+  {
+    "image": "./assets/images/christmas_light.png",
+    "title": "Christmas Light",
+    "body": "Christmas light animate using CSS.\nFeature: animation speed change and switch button.",
+    "techList": ["HTML", "CSS", "JavaScript"],
+    "link": "./projects/christmas_light/index.html",
+    "theme": {
+      "primary": "#313231",
+      "secondary": "#8c9e93",
+      "tertiary": "#ced6d1",
+      "textMainHead": "#bcd1c4",
+      "textSubHead": "#e6ffef",
+      "textBody": "#ffffff"
+    }
+  },
+  {
+    "image": "./assets/images/your_frist_db.png",
+    "title": "Your First DB App",
+    "body": "Website that use IndexedDB for storage.\nFeature: load database, query database, add to database and reset database.",
+    "techList": ["HTML", "CSS", "JavaScript"],
+    "link": "./projects/your_first_db_app/index.html",
+    "theme": {
+      "primary": "#6c646f",
+      "secondary": "#4b8daf",
+      "tertiary": "#a348a3",
+      "textMainHead": "#a3e0ff",
+      "textSubHead": "#c4ebff",
+      "textBody": "#e0f5ff"
+    }
+  },
+  {
+    "image": "./assets/images/notes.png",
+    "title": "Notes",
+    "body": "Website that permit you to write notes and they are saved in the localstorage.\nFeature: add/delete note.",
+    "techList": ["HTML", "CSS", "JavaScript"],
+    "link": "./projects/notes/index.html",
+    "theme": {
+      "primary": "#6c646f",
+      "secondary": "#4b8daf",
+      "tertiary": "#a348a3",
+      "textMainHead": "#a3e0ff",
+      "textSubHead": "#c4ebff",
+      "textBody": "#e0f5ff"
+    }
+  }
+]
