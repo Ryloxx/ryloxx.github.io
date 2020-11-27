@@ -74,6 +74,7 @@ function observerHandler(card) {
     if (entry.intersectionRatio < 1 - maxRatioThreshold) {
       card.classList.remove('expanded');
     }
+    console.log('something');
     const multi = getMultiplier(entry.intersectionRatio);
     const fixedTranslate = maxTranslate * (1 - translateVariant);
     const variableTranslate = maxTranslate - fixedTranslate;
@@ -114,9 +115,16 @@ function processCard(card) {
 }
 function makeGridCard(cardDataList) {
   const gridElem = document.createElement('div');
-  cardDataList.forEach((cardData) => {
+  cardDataList.forEach((cardData, index) => {
     const card = makeCard(cardData);
     processCard(card);
+    // workaround for the issue that hides the first card on page load even if it is inside viewport
+    if (index === 0) {
+      setTimeout(() => {
+        card.style.opacity = null;
+        card.style.transform = null;
+      });
+    }
     gridElem.appendChild(card);
   });
   gridElem.classList.add('card-grid');

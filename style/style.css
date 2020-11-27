@@ -19,20 +19,20 @@ body {
 a,
 a:visited {
   color: #1f2633;
-  font-size: 2.1vmax;
+  font-size: 1.8vmax;
   text-decoration: none;
   transition: all 100ms ease;
 }
 
 a:hover {
-  font-size: 2.1vmax;
+  font-size: 1.8vmax;
   font-weight: 800;
 }
 
 body {
   padding: 2rem;
   margin: 0;
-  font-size: 1.68vmax;
+  font-size: 1.44vmax;
   display: flex;
   justify-items: center;
   gap: 3rem;
@@ -48,7 +48,7 @@ header {
 }
 
 header .head-main {
-  font-size: 4.2vmax;
+  font-size: 3.6vmax;
 }
 
 header .head-side {
@@ -67,8 +67,8 @@ header .head-side .icon-field {
 }
 
 header .head-side .icon-field img {
-  height: 1.4vmax;
-  width: 1.4vmax;
+  height: 1.2vmax;
+  width: 1.2vmax;
   margin: 0.2rem 0.5rem;
 }
 
@@ -82,6 +82,8 @@ header .head-side .icon-field img {
 }
 
 .card-grid > * > * {
+  border: 1px;
+  border-radius: 10px;
   position: relative;
   display: flex;
   overflow: hidden;
@@ -90,7 +92,7 @@ header .head-side .icon-field img {
 }
 
 .card-grid > * > * *, .card-grid > * > *:before, .card-grid > * > *:after {
-  transition: all 300ms ease;
+  transition: all 400ms ease;
 }
 
 .card-grid > * > *:before {
@@ -107,7 +109,7 @@ header .head-side .icon-field img {
 }
 
 .card-grid > * > *:after {
-  transition: all 300ms ease;
+  transition: all 400ms ease;
   content: '';
   position: absolute;
   clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 55% 100%, 80% 50%, 55% 0);
@@ -155,7 +157,7 @@ header .head-side .icon-field img {
 }
 
 .card-grid > * > * > div:nth-child(2) * {
-  transition: all 400ms ease;
+  transition: all 500ms ease;
 }
 
 .card-grid > * > * > div:nth-child(2) > * {
@@ -163,18 +165,18 @@ header .head-side .icon-field img {
 }
 
 .card-grid > * > * > div:nth-child(2) > div:not(:first-child) {
-  transition: all 400ms ease;
+  transition: all 500ms ease;
 }
 
 .card-grid > * > * > div:nth-child(2) > div:first-child {
   font-weight: 600;
-  font-size: 4.2vmax;
+  font-size: 3.6vmax;
   margin-bottom: 1rem;
 }
 
 .card-grid > * > * > div:nth-child(2) > div:nth-child(3),
 .card-grid > * > * > div:nth-child(2) > div:nth-child(5) {
-  font-size: 1.68vmax;
+  font-size: 1.44vmax;
   font-weight: 300;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
@@ -182,7 +184,7 @@ header .head-side .icon-field img {
 
 .card-grid > * > * > div:nth-child(2) > div:nth-child(2),
 .card-grid > * > * > div:nth-child(2) > div:nth-child(4) {
-  font-size: 2.1vmax;
+  font-size: 1.8vmax;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -198,12 +200,11 @@ header .head-side .icon-field img {
   place-items: center;
   width: 100%;
   position: relative;
-  font-size: 1.68vmax;
-  transition: all 500ms ease;
+  font-size: 1.44vmax;
+  transition: all 1000ms ease, font-weight 100ms ease;
 }
 
 .card-grid > * > * > div:nth-child(3) > a {
-  opacity: 0;
   width: 100%;
   height: 20%;
   display: flex;
@@ -212,7 +213,7 @@ header .head-side .icon-field img {
   align-items: center;
   justify-content: center;
   clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%, 0% 50%);
-  transition: all 100ms ease;
+  transition: all 1000ms ease, font-weight 100ms ease;
 }
 
 .card-grid > * > *:hover > img:first-child {
@@ -254,7 +255,6 @@ header .head-side .icon-field img {
 }
 
 .card-grid > *.expanded > * > div:nth-child(3) > a {
-  opacity: 1;
   transform: translateX(-1%);
 }
 
@@ -276,6 +276,9 @@ header .head-side .icon-field img {
     width: 90vw;
     height: 45vw;
   }
+  #root {
+    padding: 0;
+  }
 }
 
 @media (min-width: 1000px) {
@@ -291,5 +294,8 @@ header .head-side .icon-field img {
   .card-grid > * {
     width: 65vw;
     height: 32.5vw;
+  }
+  #root {
+    padding: 5% 0;
   }
 }

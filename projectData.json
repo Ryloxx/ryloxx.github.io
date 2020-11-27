@@ -2,7 +2,7 @@
   {
     "image": "./assets/images/movie_database.png",
     "title": "Movie Database",
-    "body": "Website which present data on films, tv show, and people who have link with the film-tv industry.\nFeature: user auth, film review, watchlist, film/person/tvshow browsing.",
+    "body": "Website that present data on films, tv-shows and people who have link with the film/tv industry.\nFeatures: user auth, film review, watchlist, film/person/tvshow browsing.",
     "techList": [
       "ReactJS/Redux (Front)",
       "NodeJS (Back)",
@@ -29,7 +29,7 @@
   {
     "image": "./assets/images/manga_reader.png",
     "title": "Manga Reader",
-    "body": "This website gather manga data by scraping the website https://scantrad.net/, it was meant for personal use which is why registration are off.\nFeature: user auth, manga browsing, favorite.",
+    "body": "This website gather manga data by scraping the website https://scantrad.net/, it was meant for personal use which is why registration is off.\nFeatures: user auth, manga browsing, favorite.",
     "techList": [
       "ReactJS (Front)",
       "NodeJS (Back)",
@@ -80,7 +80,7 @@
   {
     "image": "./assets/images/spell_it.png",
     "title": "Spell it",
-    "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.\nFeature: difficulty selection, error and missed words feedback.",
+    "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.\nFeatures: difficulty selection, error and missed words feedback.",
     "techList": [
       "ReactJS/Redux",
       "Heroku (hosting)",
@@ -138,7 +138,7 @@
   {
     "image": "./assets/images/qrcode_badge_generator.png",
     "title": "QRCode Badge Generator",
-    "body": "Website where you can enter predefined personal data which is converted into a QR code.\nFeature: print the qrcode, update the qrcode.",
+    "body": "Website where you can enter predefined personal data which is converted into a QR code.\nFeatures: print the qrcode, update the qrcode.",
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
     "link": "./projects/qrcode_badge_generator/index.html",
     "theme": {
@@ -153,7 +153,7 @@
   {
     "image": "./assets/images/card_memory_game.png",
     "title": "Card Game Memory",
-    "body": "The famous card memory game, nothing realy new about.\nFeature: difficulty selection, timing and best score.",
+    "body": "The famous card memory game, nothing really new about.\nFeatures: difficulty selection, timing and best score.",
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
     "link": "./projects/card_memory_game/index.html",
     "theme": {
@@ -168,8 +168,8 @@
   {
     "image": "./assets/images/pearson_regression.png",
     "title": "Pearson Regression",
-    "body": "Website that allows you to calculate the pearson coefficient of a dataset, and visualize your data with a chart.\nFeature: manual data, csv file load and data preset for example.",
-    "techList": ["HTML", "CSS", "JavaScript"],
+    "body": "Website that allows you to calculate the pearson coefficient of a dataset, and visualize your data with a chart.\nFeatures: manual data, csv file load and data preset for example.",
+    "techList": ["ChartJS", "HTML", "CSS", "JavaScript"],
     "link": "./projects/pearson_regression/index.html",
     "theme": {
       "primary": "#6c646f",
@@ -198,7 +198,7 @@
   {
     "image": "./assets/images/hello.png",
     "title": "Hello",
-    "body": "Website that say you hello in your language(depend of your ip location).",
+    "body": "Website that says you hello in your language(depends on your ip location).",
     "techList": [
       "https://ip-api.com (IP Localisation API)",
       "https://www.fourtonfish.com/hellosalut/hello (Hello API)",
@@ -219,7 +219,7 @@
   {
     "image": "./assets/images/christmas_light.png",
     "title": "Christmas Light",
-    "body": "Christmas light animate using CSS.\nFeature: animation speed change and switch button.",
+    "body": "Christmas light animated using CSS.\nFeatures: animation speed change and switch button.",
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/christmas_light/index.html",
     "theme": {
@@ -234,7 +234,7 @@
   {
     "image": "./assets/images/your_frist_db.png",
     "title": "Your First DB App",
-    "body": "Website that use IndexedDB for storage.\nFeature: load database, query database, add to database and reset database.",
+    "body": "Website that use IndexedDB for storage.\nFeatures: load database, query database, add to database and reset database.",
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/your_first_db_app/index.html",
     "theme": {
@@ -249,7 +249,7 @@
   {
     "image": "./assets/images/notes.png",
     "title": "Notes",
-    "body": "Website that permit you to write notes and they are saved in the localstorage.\nFeature: add/delete note.",
+    "body": "Website that permit you to write notes.\nFeatures: add/delete note.",
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/notes/index.html",
     "theme": {
