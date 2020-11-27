@@ -19,20 +19,20 @@ body {
 a,
 a:visited {
   color: #1f2633;
-  font-size: 1.8vmax;
+  font-size: 1.875vmax;
   text-decoration: none;
   transition: all 100ms ease;
 }
 
 a:hover {
-  font-size: 1.8vmax;
+  font-size: 1.875vmax;
   font-weight: 800;
 }
 
 body {
   padding: 2rem;
   margin: 0;
-  font-size: 1.44vmax;
+  font-size: 1.5vmax;
   display: flex;
   justify-items: center;
   gap: 3rem;
@@ -48,7 +48,7 @@ header {
 }
 
 header .head-main {
-  font-size: 3.6vmax;
+  font-size: 3.75vmax;
 }
 
 header .head-side {
@@ -67,8 +67,8 @@ header .head-side .icon-field {
 }
 
 header .head-side .icon-field img {
-  height: 1.2vmax;
-  width: 1.2vmax;
+  height: 1.25vmax;
+  width: 1.25vmax;
   margin: 0.2rem 0.5rem;
 }
 
@@ -91,6 +91,7 @@ header .head-side .icon-field img {
   width: 100%;
 }
 
+.card-grid > * > *,
 .card-grid > * > * *, .card-grid > * > *:before, .card-grid > * > *:after {
   transition: all 400ms ease;
 }
@@ -170,13 +171,13 @@ header .head-side .icon-field img {
 
 .card-grid > * > * > div:nth-child(2) > div:first-child {
   font-weight: 600;
-  font-size: 3.6vmax;
+  font-size: 3.75vmax;
   margin-bottom: 1rem;
 }
 
 .card-grid > * > * > div:nth-child(2) > div:nth-child(3),
 .card-grid > * > * > div:nth-child(2) > div:nth-child(5) {
-  font-size: 1.44vmax;
+  font-size: 1.5vmax;
   font-weight: 300;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
@@ -184,7 +185,7 @@ header .head-side .icon-field img {
 
 .card-grid > * > * > div:nth-child(2) > div:nth-child(2),
 .card-grid > * > * > div:nth-child(2) > div:nth-child(4) {
-  font-size: 1.8vmax;
+  font-size: 1.875vmax;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -200,7 +201,7 @@ header .head-side .icon-field img {
   place-items: center;
   width: 100%;
   position: relative;
-  font-size: 1.44vmax;
+  font-size: 1.5vmax;
   transition: all 1000ms ease, font-weight 100ms ease;
 }
 
@@ -258,7 +259,7 @@ header .head-side .icon-field img {
   transform: translateX(-1%);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 575.98px) {
   body {
     flex-direction: column;
   }
@@ -281,7 +282,7 @@ header .head-side .icon-field img {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 575.98px) {
   body {
     flex-direction: row;
   }
