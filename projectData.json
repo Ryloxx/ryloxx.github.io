@@ -1,6 +1,6 @@
 [
   {
-    "image": "./assets/images/movie_database.png",
+    "image": "./assets/images/movie_database",
     "title": "Movie Database",
     "body": "Website that present data on films, tv-shows and people who have link with the film/tv industry.\nFeatures: user auth, film review, watchlist, film/person/tvshow browsing.",
     "techList": [
@@ -27,7 +27,7 @@
     }
   },
   {
-    "image": "./assets/images/manga_reader.png",
+    "image": "./assets/images/manga_reader",
     "title": "Manga Reader",
     "body": "This website gather manga data by scraping the website https://scantrad.net/, it was meant for personal use which is why registration is off.\nFeatures: user auth, manga browsing, favorite.",
     "techList": [
@@ -53,7 +53,7 @@
     }
   },
   {
-    "image": "./assets/images/trending_evil_alien.png",
+    "image": "./assets/images/trending_evil_alien",
     "title": "Trending Evil Alien",
     "body": "Made for a Topcoder.com challenge, it's basically a reddit search tool.",
     "techList": [
@@ -78,7 +78,7 @@
     }
   },
   {
-    "image": "./assets/images/spell_it.png",
+    "image": "./assets/images/spell_it",
     "title": "Spell it",
     "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.\nFeatures: difficulty selection, error and missed words feedback.",
     "techList": [
@@ -100,7 +100,7 @@
     }
   },
   {
-    "image": "./assets/images/translation_app.png",
+    "image": "./assets/images/translation_app",
     "title": "Translation App",
     "body": "Basic one way translation app from French to English using Google Translate API.",
     "techList": [
@@ -121,7 +121,7 @@
     }
   },
   {
-    "image": "./assets/images/battleship.png",
+    "image": "./assets/images/battleship",
     "title": "Battleship",
     "body": "One Player battleship game.",
     "techList": ["VueJS", "Bootstrap", "HTML", "CSS", "JavaScript"],
@@ -136,7 +136,7 @@
     }
   },
   {
-    "image": "./assets/images/qrcode_badge_generator.png",
+    "image": "./assets/images/qrcode_badge_generator",
     "title": "QRCode Badge Generator",
     "body": "Website where you can enter predefined personal data which is converted into a QR code.\nFeatures: print the qrcode, update the qrcode.",
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
@@ -151,7 +151,7 @@
     }
   },
   {
-    "image": "./assets/images/card_memory_game.png",
+    "image": "./assets/images/card_memory_game",
     "title": "Card Game Memory",
     "body": "The famous card memory game, nothing really new about.\nFeatures: difficulty selection, timing and best score.",
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
@@ -166,7 +166,7 @@
     }
   },
   {
-    "image": "./assets/images/pearson_regression.png",
+    "image": "./assets/images/pearson_regression",
     "title": "Pearson Regression",
     "body": "Website that allows you to calculate the pearson coefficient of a dataset, and visualize your data with a chart.\nFeatures: manual data, csv file load and data preset for example.",
     "techList": ["ChartJS", "HTML", "CSS", "JavaScript"],
@@ -181,7 +181,7 @@
     }
   },
   {
-    "image": "./assets/images/javascript_validation_with-regex.png",
+    "image": "./assets/images/javascript_validation_with-regex",
     "title": "Javascript Validation With Regex",
     "body": "Basic input validation with regex.",
     "techList": ["HTML", "CSS", "JavaScript"],
@@ -196,7 +196,7 @@
     }
   },
   {
-    "image": "./assets/images/hello.png",
+    "image": "./assets/images/hello",
     "title": "Hello",
     "body": "Website that says you hello in your language(depends on your ip location).",
     "techList": [
@@ -217,7 +217,7 @@
     }
   },
   {
-    "image": "./assets/images/christmas_light.png",
+    "image": "./assets/images/christmas_light",
     "title": "Christmas Light",
     "body": "Christmas light animated using CSS.\nFeatures: animation speed change and switch button.",
     "techList": ["HTML", "CSS", "JavaScript"],
@@ -232,7 +232,7 @@
     }
   },
   {
-    "image": "./assets/images/your_frist_db.png",
+    "image": "./assets/images/your_frist_db",
     "title": "Your First DB App",
     "body": "Website that use IndexedDB for storage.\nFeatures: load database, query database, add to database and reset database.",
     "techList": ["HTML", "CSS", "JavaScript"],
@@ -247,7 +247,7 @@
     }
   },
   {
-    "image": "./assets/images/notes.png",
+    "image": "./assets/images/notes",
     "title": "Notes",
     "body": "Website that permit you to write notes.\nFeatures: add/delete note.",
     "techList": ["HTML", "CSS", "JavaScript"],

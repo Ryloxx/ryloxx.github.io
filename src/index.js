@@ -8,17 +8,43 @@ function makeCard({ image, title, body, techList, link, theme }) {
     textBody,
   } = theme;
   const card = document.createElement('div');
+  card.className = 'card';
   const titleElem = document.createElement('div');
-  const imageElem = document.createElement('img');
+  titleElem.className = 'card-body-title';
+  const imageElem = document.createElement('picture');
   const bodyElem = document.createElement('div');
+  bodyElem.className = 'card-body-paragraph';
   const bodyWrapper = document.createElement('div');
+  bodyWrapper.className = 'card-body';
   const techElem = document.createElement('div');
+  techElem.className = 'card-body-paragraph';
   const linkElem = document.createElement('a');
+  linkElem.className = 'card-body-link';
   const buttonElem = document.createElement('div');
+  buttonElem.className = 'card-body-link--wrapper';
   const bodyHeaderelem = document.createElement('div');
+  bodyHeaderelem.className = 'card-body-title-paragraph';
   const techlsitHeaderElem = document.createElement('div');
+  techlsitHeaderElem.className = 'card-body-title-paragraph';
   linkElem.href = link;
-  imageElem.src = image;
+  const types = ['webp'];
+  types.forEach((type, index) => {
+    if (index === types.length - 1) {
+      const img = document.createElement('img');
+      img.src = `${image}.${type}`;
+      img.alt = title;
+      img.className = 'card-img';
+      imageElem.appendChild(img);
+    } else {
+      const source = document.createElement(
+        index === types.length - 1 ? 'img' : 'source',
+      );
+      source.srcset = `${image}.${type}`;
+      source.type = `$image/${type}`;
+      imageElem.appendChild(source);
+    }
+  });
+  imageElem.alt;
   techList.forEach((tech) => {
     const li = document.createElement('div');
     li.innerText = tech;
@@ -51,6 +77,7 @@ function makeCard({ image, title, body, techList, link, theme }) {
   card.appendChild(bodyWrapper);
   card.appendChild(buttonElem);
   const wrap = document.createElement('div');
+  wrap.className = 'card--wrapper';
   wrap.appendChild(card);
   return wrap;
 }
@@ -74,16 +101,17 @@ function observerHandler(card) {
     if (entry.intersectionRatio < 1 - maxRatioThreshold) {
       card.classList.remove('expanded');
     }
-    console.log('something');
     const multi = getMultiplier(entry.intersectionRatio);
     const fixedTranslate = maxTranslate * (1 - translateVariant);
     const variableTranslate = maxTranslate - fixedTranslate;
-    card.style.opacity = 1 - opacityVariant + opacityVariant * multi;
-    card.style.transform = `scale(${
-      1 - scaleVariant + scaleVariant * multi
-    }) translate(-${
-      maxTranslate - (fixedTranslate + variableTranslate * multi)
-    }%)`;
+    requestAnimationFrame(() => {
+      card.style.opacity = 1 - opacityVariant + opacityVariant * multi;
+      card.style.transform = `scale(${
+        1 - scaleVariant + scaleVariant * multi
+      }) translate(-${
+        maxTranslate - (fixedTranslate + variableTranslate * multi)
+      }%)`;
+    });
   };
 }
 function processCard(card) {
@@ -112,22 +140,26 @@ function processCard(card) {
     }
   });
   observer.observe(card);
+  requestAnimationFrame(() => {
+    card.style.opacity = 1;
+  });
+}
+function defer(fnc, timeout) {
+  setTimeout(() => {
+    fnc();
+  }, timeout);
 }
 function makeGridCard(cardDataList) {
   const gridElem = document.createElement('div');
   cardDataList.forEach((cardData, index) => {
-    const card = makeCard(cardData);
-    processCard(card);
-    // workaround for the issue that hides the first card on page load even if it is inside viewport
-    if (index === 0) {
-      setTimeout(() => {
-        card.style.opacity = null;
-        card.style.transform = null;
-      });
-    }
-    gridElem.appendChild(card);
+    defer(() => {
+      const card = makeCard(cardData);
+      processCard(card);
+      // workaround for the issue that hides the first card on page load even if it is inside viewport
+      requestAnimationFrame(() => gridElem.appendChild(card));
+    }, index * 100);
   });
-  gridElem.classList.add('card-grid');
+  requestAnimationFrame(() => gridElem.classList.add('card-grid'));
   return gridElem;
 }
 

@@ -7,7 +7,317 @@
   <meta name="description" content="Link Hub for my differents projects" />
   <meta name="author" content="Rylox" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <link rel="stylesheet" href="style/style.css" />
+  <!-- <link rel="stylesheet" href="style/style.css" /> -->
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+    body {
+      background: #5ab9ea;
+      color: #1f3333;
+    }
+
+    :root {
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    a,
+    a:visited {
+      color: #1f2633;
+      font-size: 1.875vmax;
+      text-decoration: none;
+      transition: all 100ms ease;
+    }
+
+    a:hover {
+      font-size: 1.875vmax;
+      font-weight: 800;
+    }
+
+    body {
+      padding: 2rem;
+      margin: 0;
+      font-size: 1.5vmax;
+      display: flex;
+      justify-items: center;
+      gap: 3rem;
+    }
+
+    header {
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-content: center;
+      position: relative;
+    }
+
+    header .head-main {
+      font-size: 3.75vmax;
+    }
+
+    header .head-side {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header .head-side>* {
+      padding: 0.2rem;
+    }
+
+    header .head-side .icon-field {
+      display: flex;
+      align-items: center;
+    }
+
+    header .head-side .icon-field img {
+      height: 1.25vmax;
+      width: 1.25vmax;
+      margin: 0.2rem 0.5rem;
+    }
+
+    #root {
+      min-height: 100vh;
+    }
+
+    .card-grid {
+      padding: 10% 0;
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      place-content: center;
+      place-items: center;
+    }
+
+    .card--wrapper {
+      overflow: hidden;
+    }
+
+    .card--wrapper.expanded .card {
+      transform: translateX(-100%);
+      border-radius: 0px;
+      box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card--wrapper.expanded .card:before {
+      opacity: 0;
+    }
+
+    .card--wrapper.expanded .card:after {
+      transform: translateX(100%);
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0.3) 90%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .card--wrapper.expanded .card .card-body {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .card--wrapper.expanded .card .card-body .card-body-title {
+      opacity: 1;
+    }
+
+    .card--wrapper.expanded .card .card-body-link--wrapper .card-body-link {
+      transform: translateX(-1%);
+    }
+
+    .card {
+      border: 1px;
+      border-radius: 10px;
+      position: relative;
+      display: flex;
+      height: 100%;
+      width: 100%;
+    }
+
+    .card,
+    .card *,
+    .card:before,
+    .card:after {
+      transition: all 400ms ease;
+    }
+
+    .card:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 54%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      transform: translateX(17%) skewX(-40deg);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), transparent);
+      box-shadow: 67px 0px 81px -146px white inset;
+    }
+
+    .card:after {
+      transition: all 400ms ease;
+      content: "";
+      position: absolute;
+      clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 55% 100%, 80% 50%, 55% 0);
+      background: inherit;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-80%);
+      z-index: 1;
+    }
+
+    .card .card-body {
+      overflow-y: auto;
+      transform: translateX(-240%);
+      height: 100%;
+      padding: 1rem 25% 1rem 2rem;
+      min-width: 75%;
+      direction: rtl;
+      opacity: 0;
+    }
+
+    .card .card-body::-webkit-scrollbar {
+      width: 5px;
+      display: initial;
+      border-radius: 3px;
+    }
+
+    .card .card-body::-webkit-scrollbar:horizontal {
+      height: 5px;
+    }
+
+    .card .card-body::-webkit-scrollbar-thumb {
+      background-color: currentColor;
+    }
+
+    .card .card-body::-webkit-scrollbar-thumb:hover,
+    .card .card-body::-webkit-scrollbar-thumb:active {
+      border-radius: 0px;
+    }
+
+    .card .card-body * {
+      transition: all 500ms ease;
+    }
+
+    .card .card-body>* {
+      direction: ltr;
+    }
+
+    .card .card-body .card-body-title {
+      font-weight: 600;
+      font-size: 3.75vmax;
+      margin-bottom: 1rem;
+    }
+
+    .card .card-body .card-body-paragraph {
+      font-size: 1.5vmax;
+      font-weight: 300;
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .card-body .card-body-title-paragraph {
+      font-size: 1.875vmax;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .card-body .card-body-paragraph>* {
+      list-style-type: square;
+      display: list-item;
+    }
+
+    .card .card-body-link--wrapper {
+      display: flex;
+      place-content: center;
+      place-items: center;
+      min-width: 25%;
+      position: relative;
+      font-size: 1.5vmax;
+      transition: all 1000ms ease, font-weight 100ms ease;
+    }
+
+    .card .card-body-link--wrapper .card-body-link {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      z-index: 2;
+      transform: translateX(-50%);
+      align-items: center;
+      justify-content: center;
+      clip-path: polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%, 0% 50%);
+      transition: all 1000ms ease, font-weight 100ms ease;
+    }
+
+    .card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .card:hover:before {
+      transform: translateX(167.1%) skewX(-9deg);
+    }
+
+    .card-img {
+      min-height: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    picture {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      max-width: fit-content;
+    }
+
+    @media (max-width: 575.98px) {
+      body {
+        flex-direction: column;
+      }
+
+      header {
+        width: 80vw;
+        position: relative;
+        text-align: center;
+        place-items: center;
+        align-self: center;
+      }
+
+      .head-side {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 90vw;
+        height: 45vw;
+      }
+    }
+
+    @media (min-width: 575.98px) {
+      body {
+        flex-direction: row;
+      }
+
+      header {
+        width: 25vw;
+        position: sticky;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .card {
+        width: 65vw;
+        height: 32.5vw;
+      }
+    }
+
+    /*# sourceMappingURL=style.css.map */
+  </style>
 </head>
 
 <body>
