@@ -73,21 +73,20 @@ header .head-side .icon-field img {
 
 .card-grid {
   padding: 10% 0;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  place-content: center;
-  place-items: center;
 }
 
 .card--wrapper {
+  margin: 2.5rem 0;
   overflow: hidden;
+  border-radius: 10px;
+  transition: border-radius 200ms ease;
+  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
+}
+.card--wrapper.expanded {
+  border-radius: 0px;
 }
 .card--wrapper.expanded .card {
   transform: translateX(-100%);
-  border-radius: 0px;
-  box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.3);
 }
 .card--wrapper.expanded .card:before {
   opacity: 0;
@@ -129,6 +128,7 @@ header .head-side .icon-field img {
   transform: translateX(17%) skewX(-40deg);
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), transparent);
   box-shadow: 67px 0px 81px -146px white inset;
+  pointer-events: none;
 }
 .card:after {
   transition: all 400ms ease;
@@ -140,6 +140,7 @@ header .head-side .icon-field img {
   height: 100%;
   transform: translateX(-80%);
   z-index: 1;
+  pointer-events: none;
 }
 .card .card-body {
   overflow-y: auto;
@@ -270,4 +271,3 @@ picture {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
