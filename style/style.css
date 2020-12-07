@@ -35,6 +35,7 @@ body {
   font-size: 1.5vmax;
   display: flex;
   justify-items: center;
+  place-content: center;
   gap: 3rem;
 }
 
@@ -146,7 +147,7 @@ header .head-side .icon-field img {
   overflow-y: auto;
   transform: translateX(-240%);
   height: 100%;
-  padding: 0.5rem 25% 0.5rem 0.7rem;
+  padding: 1vmax 25% 1vmax 2vmax;
   min-width: 75%;
   direction: rtl;
   opacity: 0;
