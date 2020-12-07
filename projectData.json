@@ -4,13 +4,12 @@
     "title": "Movie Database",
     "body": "Website that present data on films, tv-shows and people who have link with the film/tv industry.\nFeatures: user auth, film review, watchlist, film/person/tvshow browsing.",
     "techList": [
-      "ReactJS/Redux (Front)",
-      "NodeJS (Back)",
+      "ReactJS/Redux/Material-UI(Front)",
+      "NodeJS/ExpressJS (Back)",
       "MongoDB (Storage)",
       "Cloudinary (Media Storage)",
       "The Movie Database API (Main Data API)",
       "Heroku (hosting)",
-      "Material-UI",
       "HTML",
       "CSS",
       "JavaScript"
@@ -21,9 +20,9 @@
       "primary": "#263238",
       "secondary": "#1761a0",
       "tertiary": "#86bff1",
-      "textMainHead": "#d67a04",
-      "textSubHead": "#917343",
-      "textBody": "#917343"
+      "textMainHead": "#ffb454",
+      "textSubHead": "#de9840",
+      "textBody": "#bd8642"
     }
   },
   {
@@ -31,12 +30,11 @@
     "title": "Manga Reader",
     "body": "This website gather manga data by scraping the website https://scantrad.net/, it was meant for personal use which is why registration is off.\nFeatures: user auth, manga browsing, favorite.",
     "techList": [
-      "ReactJS (Front)",
-      "NodeJS (Back)",
+      "ReactJS/Bootstrap (Front)",
+      "NodeJS/ExpressJS (Back)",
       "MongoDB (Storage)",
       "Scantrad.net (website data source)",
       "Heroku (hosting)",
-      "Bootstrap",
       "HTML",
       "CSS",
       "JavaScript"
@@ -57,11 +55,10 @@
     "title": "Trending Evil Alien",
     "body": "Made for a Topcoder.com challenge, it's basically a reddit search tool.",
     "techList": [
-      "ReactJS (Front)",
-      "NodeJS (Back)",
+      "ReactJS/Bootstrap (Front)",
+      "NodeJS/ExpressJS (Back)",
       "Heroku (hosting)",
       "Reddit API",
-      "Bootstrap",
       "HTML",
       "CSS",
       "JavaScript"
@@ -72,9 +69,9 @@
       "primary": "#2c3b53",
       "secondary": "#767e92",
       "tertiary": "#dc725a",
-      "textMainHead": "#fe3f06",
-      "textSubHead": "#fe6d06",
-      "textBody": "#fe6d06"
+      "textMainHead": "#ff754a",
+      "textSubHead": "#eb653b",
+      "textBody": "#ff7145"
     }
   },
   {
@@ -82,9 +79,8 @@
     "title": "Spell it",
     "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.\nFeatures: difficulty selection, error and missed words feedback.",
     "techList": [
-      "ReactJS/Redux",
+      "ReactJS/Redux/Bootstrap (Front)",
       "Heroku (hosting)",
-      "Bootstrap",
       "HTML",
       "CSS",
       "JavaScript"
@@ -94,8 +90,8 @@
       "primary": "#1f739c",
       "secondary": "#6da2ac",
       "tertiary": "#74cccb",
-      "textMainHead": "#da818a",
-      "textSubHead": "#dbbdbd",
+      "textMainHead": "#ff5e6e",
+      "textSubHead": "#ff919c",
       "textBody": "#ffffff"
     }
   },
