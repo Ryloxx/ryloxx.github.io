@@ -90,8 +90,8 @@
       "primary": "#1f739c",
       "secondary": "#6da2ac",
       "tertiary": "#74cccb",
-      "textMainHead": "#ff5e6e",
-      "textSubHead": "#ff919c",
+      "textMainHead": "#e05297",
+      "textSubHead": "#f3bad6",
       "textBody": "#ffffff"
     }
   },
@@ -141,7 +141,7 @@
       "primary": "#fabc73",
       "secondary": "#869ccb",
       "tertiary": "#f3f1ef",
-      "textMainHead": "#333333",
+      "textMainHead": "#000000",
       "textSubHead": "#424242",
       "textBody": "#525252"
     }
@@ -153,10 +153,10 @@
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
     "link": "./projects/card_memory_game/index.html",
     "theme": {
-      "primary": "#fcc404",
+      "primary": "#fddb3a",
       "secondary": "#697077",
-      "tertiary": "#e8e8e7",
-      "textMainHead": "#333333",
+      "tertiary": "#52575d",
+      "textMainHead": "#000000",
       "textSubHead": "#424242",
       "textBody": "#525252"
     }
@@ -168,12 +168,12 @@
     "techList": ["ChartJS", "HTML", "CSS", "JavaScript"],
     "link": "./projects/pearson_regression/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   },
   {
@@ -183,12 +183,12 @@
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/javascript_validation_with_regex/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   },
   {
@@ -234,12 +234,12 @@
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/your_first_db_app/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   },
   {
@@ -249,12 +249,12 @@
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/notes/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   }
 ]
