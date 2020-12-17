@@ -45,6 +45,33 @@
   text-transform: none;
 }
 
+.card-picture:after {
+  will-change: transform;
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
+}
+.card-picture:hover:after {
+  transform: translateX(40%) scale(4) skewY(70deg);
+  opacity: 0;
+}
+
+.card-picture {
+  position: relative;
+  overflow: hidden;
+}
+.card-picture:after {
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.15) 3%, rgba(255, 255, 255, 0));
+  transform: translateX(-20%) scale(4) skewY(50deg);
+  background-repeat: no-repeat;
+  content: "";
+  background-size: cover;
+}
+
 :root {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
@@ -58,12 +85,13 @@
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-size: calc(0.7rem + 0.5vmax);
-  min-height: 100vh;
   min-width: 100vw;
   background-color: #0f122b;
+  -webkit-font-smoothing: antialiased;
 }
 
 a,
@@ -94,6 +122,7 @@ ul {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  will-change: transform;
 }
 
 #background--wrapper::after {
@@ -122,13 +151,9 @@ ul {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-items: center;
-}
-#main-nav > * {
-  width: 100%;
 }
 
 .nav-main * {
@@ -163,7 +188,7 @@ ul {
   flex: 10;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: calc(5px + 1vmax * 2);
+  padding-bottom: 10px;
 }
 
 #nav-footer {
@@ -238,9 +263,6 @@ ul {
 #main-view {
   transition: background-color 150ms ease-in;
   background-color: #0f122b;
-  min-height: 100vh;
-  height: 100%;
-  width: 100%;
 }
 
 /* MEDIA */
@@ -269,6 +291,7 @@ ul {
 
   #main-view-wrapper {
     width: 100vw;
+    overflow-x: hidden;
   }
 
   .nav-collapse--button {
@@ -286,42 +309,47 @@ ul {
   flex-direction: column;
 }
 
-picture {
-  height: calc(5px + 1vmax * 15);
+.card-picture {
+  max-height: calc(5px + 1vmax * 15);
   position: relative;
   display: block;
-  overflow: hidden;
-  transform: translateY(20px);
+  transition: filter 300ms ease-out;
+  filter: brightness(80%);
 }
-picture:after {
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  transform: translateX(17%) skewX(-40deg);
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.1), transparent);
-  box-shadow: 67px 0px 81px -146px white inset;
-  content: "";
+.card-picture + .card-content {
+  transition: box-shadow 300ms ease-out, transform 300ms ease-out, background-color 300ms ease-out;
 }
-picture img {
-  filter: brightness(0.7);
+.card-picture:hover {
+  filter: brightness(100%);
+}
+.card-picture:hover + .card-content {
+  box-shadow: none;
+  transform: translateY(10px);
+}
+.card-picture:hover img {
+  transform: scale(1.02);
+}
+.card-picture img {
+  transition: transform 300ms ease-out;
   object-fit: cover;
   object-position: 0 5%;
   width: 100%;
 }
 
 .card-content {
+  min-height: 100vh;
+  height: 100%;
   padding: calc(5px + 1vmax * 1);
   position: relative;
-  min-height: 100vh;
   background: url("../assets/images/noisy-texture.png") repeat;
   background-size: calc(5px + 1vmax * 5.5);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px -10px 20px 20px;
 }
 
 .card-title {
   font-size: calc(0.7rem + 3vmax);
+  max-width: calc(5px + 1vmax * 45);
+  min-width: 50%;
 }
 
 .card-paragraph-body,
@@ -342,10 +370,12 @@ picture img {
   display: flex;
   justify-content: space-between;
   justify-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
-.card * {
+.card,
+.card-content {
   transition: background-color 300ms ease-out;
 }
 
@@ -357,5 +387,7 @@ picture img {
   height: calc(5px + 1vmax * 3);
   width: calc(5px + 1vmax * 3);
 }
+
+/* ANIMATION */
 
 /*# sourceMappingURL=style.css.map */

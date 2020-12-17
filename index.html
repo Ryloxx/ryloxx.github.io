@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>My Projects</title>
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="style/style.css" />
   </link>
 </head>
+
 <body>
   <main v-cloak id="root">
     <div id='nav-collapse--button' @click='toggleNav()'>
@@ -51,13 +53,21 @@
     </div>
     <div id='main-view-wrapper'>
       <div id='main-view'>
-        <page v-if="selectedRoute==='front'" v-bind:title="'Welcome'" v-bind:paragraphs="[{title:``, content:`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus repellat corrupti totam
-            placeat error enim
-            expedita deserunt maxime laboriosam minima iste, ipsa ex incidunt eaque distinctio nulla. Saepe, dolor
-            cupiditate?`}]">
-        </page>
-        <div v-if="selectedRoute ==='card'" @touchstart='lock($event)' @touchend='end($event)'
-          @touchmove='move($event)'>
+        <fade-in v-if='selectedRoute === "front"' timeout='500'>
+          <div class='page'>
+            <div class='page-title'>Welcome</div>
+            <div class='page-paragraph'>
+              <p class='page-paragraph-body'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus repellat
+                corrupti totam
+                placeat error enim
+                expedita deserunt maxime laboriosam minima iste, ipsa ex incidunt eaque distinctio nulla. Saepe, dolor
+                cupiditate?</p>
+
+            </div>
+          </div>
+        </fade-in>
+
+        <div v-if="selectedRoute ==='card'" @touchstart='lock($event)' @touchend='end($event)'>
           <card v-bind:card="selectedCard" v-bind:index="selectedCardIndex" />
         </div>
       </div>

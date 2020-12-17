@@ -40,21 +40,20 @@ Vue.component('card', {
         .fromTo(
           this.mask,
           {
-            clipPath: 'circle(10% at 50% 50%)',
-            width: '100%',
-            height: '200vh',
-            overflow: 'hidden',
+            clipPath: 'circle(1% at 50% 100vh)',
           },
           {
-            clipPath: 'circle(100% at 50% 50%)',
-            ease: 'expo.in',
-            duration: 1,
-            onComplete: () => {
-              gsap.set(this.mask, { height: '100%' });
-            },
+            clipPath: 'circle(10% at 50% 100vh)',
+            ease: 'expo',
+            duration: 1.5,
           },
-          '-=0.5',
+          '-=1.3',
         )
+        .to(this.mask, {
+          clipPath: 'circle(141% at 50% 100vh)',
+          ease: 'expo.in',
+          duration: 1,
+        })
         .from(this.content, {
           backgroundPosition: '-100%',
           backgroundSize: 0,
@@ -66,18 +65,21 @@ Vue.component('card', {
             translateY: '100%',
           },
           {
-            translateY: '5%',
+            top: 10,
+            translateY: '0%',
             duration: 1,
             ease: 'expo',
           },
           '-=1',
         )
         .from(this.texts, {
-          translateX: -20,
+          skewY: '0.5deg',
+          translateY: -5,
+          translateX: -5,
           autoAlpha: 0,
           stagger: 0.05,
-          ease: 'expo',
-          duration: 0.2,
+          ease: 'expo.out',
+          duration: 0.3,
         })
         .from(this.slide, {
           translateX: -20,
@@ -103,7 +105,7 @@ Vue.component('card', {
   props: ['card', 'index'],
   template: `
   <transition  v-bind:css="false" @before-appear='beforeAppear' @appear='appear' v-on:leave='leave'>
-  <div class="animation--wrapper" :style="{width: '100%', height: '100%', position: 'relative'}">
+  <div class="animation--wrapper">
   <div class="animation--mask">
   <div class="card" :style="{backgroundColor: card.theme.secondary}">
   <picture class='card-picture' >
@@ -115,7 +117,7 @@ Vue.component('card', {
   <div class="card-title" >{{card.title}}</div>
   <div class="card-link--wrapper" @mouseenter="slide = true" @mouseleave="slide= false">
   <left-arrow v-bind:slide='slide' v-bind:color='card.theme.tertiary'/>
-  <a :href="card.link" class="card-link">Visit</a>
+  <a target='_blank':href="card.link" class="card-link">Visit</a>
   </div>
   </div>
   
@@ -153,11 +155,11 @@ Vue.component('left-arrow', {
     this.animation = gsap
       .timeline({ paused: true })
       .from(nodes, { translateX: -10, duration: 0.1, stagger: -0.1 });
-    const run = () => {
-      gsap.fromTo(nodes, { rotationX: 0 }, { rotationX: 180, stagger: -0.1 });
-      gsap.delayedCall(15, run);
-    };
-    gsap.delayedCall(10, run);
+    gsap.fromTo(
+      nodes,
+      { rotationX: 0 },
+      { rotationX: 180, stagger: -0.1, repeat: -1, repeatDelay: 15, delay: 10 },
+    );
   },
   template: `
   <span class='triple-arrow-right'>
@@ -182,25 +184,6 @@ Vue.component('fade-in', {
   },
   template: `<transition v-bind:css='false'  @appear="appear"><slot></slot></transition>`,
 });
-
-Vue.component('page', {
-  props: ['title', 'paragraphs'],
-  template: `
-  <fade-in timeout='500'>
-    <div class='page'>
-      <div v-bind:title="title" class='page-title'>{{title}}</div>
-      <div v-bind:paragraphs="paragraphs" v-for="paragraph in paragraphs">
-        <div class='page-paragraph-title'>{{paragraph.title}}</div>
-        <p class='page-paragraph-body'>{{paragraph.content}}</p>
-        <div class='page-paragraph-annex'>
-          <slot></slot>
-        </div>
-      </div>
-    </div>
-  </fade-in>
-      `,
-});
-
 const app = new Vue({
   el: '#root',
   data: {
@@ -213,7 +196,7 @@ const app = new Vue({
       paralaxIndex: null,
       paralaxElement: [],
     },
-    showNav: false,
+    showNav: true,
     navAnimation: null,
   },
   methods: {
@@ -248,6 +231,8 @@ const app = new Vue({
       this.paralax.paralaxIndex = index;
     },
     toggleNav() {
+      if (this.showNav && !window.matchMedia('(max-width: 575.98px').matches)
+        return;
       this.showNav = !this.showNav;
     },
   },
@@ -273,9 +258,9 @@ const app = new Vue({
   watch: {
     showNav: function (val) {
       if (this.navAnimation) {
-        !val && window.matchMedia('(max-width: 575.98px').matches
-          ? this.navAnimation.reverse()
-          : this.navAnimation.play();
+        val
+          ? this.navAnimation.timeScale(2).play()
+          : this.navAnimation.timeScale(1).reverse();
       }
     },
   },
@@ -289,10 +274,10 @@ const app = new Vue({
     this.navAnimation = gsap
       .timeline({ paused: true })
       .from(navElement, {
-        translateY: '100%',
-        ease: 'expo.in',
+        translateY: '120%',
+        ease: 'power4.in',
+        duration: 1,
         onComplete: () => {
-          console.log(background);
           if (background) {
             background.shift(0, -200, 200);
           }
@@ -303,14 +288,15 @@ const app = new Vue({
         {
           translateY: '-100%',
           rotationX: 180,
-          ease: 'expo.in',
+          ease: 'power4.in',
+          duration: 1,
         },
         0,
       );
     if (!xsDown.matches) {
+      this.showNav = true;
       this.navAnimation.progress(1, false);
       this.navAnimation.play();
-      this.showNav = false;
     }
   },
 });

@@ -3,175 +3,437 @@
   <head>
     <meta charset="utf-8" />
     <title>Traduction</title>
-    <meta name="description" content="Traduction du français vers l'anglais" />
+    <meta name="description" content="Application de traduction de langues" />
     <meta name="author" content="Rylox" />
-
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://www.flaticon.com/download/icon/104081?icon_id=104081&author=1&team=1&keyword=Google+Translate&pack=112029&style=3&style_id=0&format=png&color=%23000000&colored=1&size=16&selection=1&premium=0&token=03AGdBq27bh8jkR5-g8QS0aTYwtutL0P3RfiPlUTHJ3cpC_M3eP3jWNg_WZNMqxdH3CQatJsawzlylufULqthyw76WV2OGQecYJWiqRokgV-tpqp_fFEHZs2-0SheAoZUbU6KZtbEfjQ4TTNxLilwZS-ePW-H7PR_9pVjTz3xgSOyuOzc542aFvoi30-H49HExSrerDtcTUzLDOMxiInLTv6yUoAltCndJFXiIsFyb_6UFAnzLe_KA8ZkSECSq4Rp8DmYcmTJsAClK8H_NaR4-0Fg9vE5DxuYLygDrOrPssEMEN9Q60N2iMZpHUWAQsslKkHinos0tgJyFilh59UJT_is4gqgKtZ5A3i5CnzHyo9C4FZ90eUJysUU2l635lPIO0LNcsZaf3D6P.png"
-    />
+    <link rel="icon" type="image/ico" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://bootswatch.com/4/superhero/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="./style/bootswatch.css" />
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
       html {
         box-sizing: border-box;
       }
+
       header,
       footer {
         text-align: center;
       }
+
       textarea {
         resize: none;
         border-radius: 5px;
       }
-      #app * {
-        font-size: 1.2em;
+      select {
+        border: 0px !important;
+        outline: 0px !important;
+        max-width: fit-content;
+        min-width: calc(3vmax + 10px);
       }
-      #translate-button {
-        background-image: url("https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_1-512.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-      }
-      #loader {
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid #3498db;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        animation: spin 2s linear infinite;
-        display: none;
+      #logo {
+        max-width: 100%;
+        max-height: 100%;
+        height: calc(6vmax + 10px);
+        width: calc(6vmax + 10px);
       }
 
+      #app {
+        position: relative;
+        min-height: min(300px, 100vh);
+        background-color: white;
+      }
+      #app:not(.ready):not(.loading) > *:not(#error),
+      #app.loading > *:not(#initialloader) {
+        visibility: hidden;
+      }
+      #app:not(.loading) > #initialloader {
+        animation: fade-out 500ms 0ms 1 forwards;
+      }
+      #app.loading > #initialloader {
+        animation: fade-in 500ms 0ms 1 forwards;
+      }
+      #initialloader {
+        display: flex;
+        place-content: center;
+        padding-top: 10%;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: inherit;
+      }
+      .dot,
+      .dot::after {
+        border-radius: 50%;
+      }
+      .dot {
+        position: relative;
+        height: calc(1vmax + 10px);
+        width: calc(1vmax + 10px);
+        background-color: var(--gray);
+        margin: 0.2rem;
+      }
+      .dot::after {
+        animation: dot 2s infinite;
+        background-color: inherit;
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+      }
+      .dot.first::after {
+        animation-delay: 0s;
+      }
+      .dot.second::after {
+        animation-delay: 500ms;
+      }
+      .dot.third::after {
+        animation-delay: 1s;
+      }
+
+      #app * {
+        font-size: calc(1vmax + 10px);
+      }
+      #translate--wrapper {
+        position: relative;
+      }
+      @media (max-width: 768px) {
+        #translate-button {
+          transform: rotate(90deg);
+        }
+      }
+      #swap-button {
+        background-image: url('./assets/images/swap.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: calc(2vmax + 10px);
+        width: calc(2vmax + 10px);
+        transform: rotate(90deg);
+        transition: filter 150ms ease,
+          transform 0.2s cubic-bezier(0.17, 0.77, 0.31, 0.9);
+        filter: invert(55%) sepia(13%) saturate(296%) hue-rotate(135deg)
+          brightness(95%) contrast(82%);
+      }
+      #swap-button.swapping {
+        transform: rotate(-90deg);
+      }
+      #swap-button:hover {
+        filter: none;
+      }
+      #translate-button {
+        height: calc(4vmax + 10px);
+        width: calc(4vmax + 10px);
+        border-radius: 50%;
+      }
+
+      #translate-button.loading {
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #3498db;
+        animation: spin 2s linear infinite;
+      }
+      #translate-button:not(.loading) {
+        background-image: url('https://cdn2.iconfinder.com/data/icons/media-and-navigation-buttons-round/512/Button_1-512.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      #translate-button:not(.loading):hover {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      #translate-button:not(.loading):active {
+        box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .translation-pane textarea {
+        margin: 1rem 0;
+        font-family: Roboto;
+      }
+      #error.visible {
+        display: block;
+        animation: fade-in 300ms 0ms 1 forwards;
+      }
+      #error {
+        margin: auto;
+        display: none;
+      }
+      #app.ready #retry-button {
+        display: none;
+      }
       @keyframes spin {
         0% {
           transform: rotate(0deg);
         }
+
         100% {
           transform: rotate(360deg);
         }
       }
-      #translate-button:hover {
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      @keyframes dot {
+        from {
+          transform: scale(1);
+          opacity: 1;
+        }
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
       }
-      #translate-button:active {
-        box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          visibility: hidden;
+          transform: scale(0.8);
+        }
       }
-      .translation-pane {
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
-      }
-      #error {
-        margin: auto;
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          visibility: visible;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
     </style>
   </head>
   <body class="p-0">
-    <header class="display-4 bg-secondary mb-5 p-3">Traduction</header>
-    <main id="app" , class="container row offset-1 col-10">
-      <div
-        id="error"
-        class="col-xs-12 col-md-6 alert alert-dismissible alert-danger my-3"
-      >
-        <strong>Erreur:</strong>
-        <p id="error-message">Une erreur est survenu</p>
+    <header class="display-4 bg-light mb-5 p-3">
+      <img id="logo" src="./assets/images/translate.svg" alt="logo" />Traduction
+    </header>
+    <main id="app" class="container row offset-1 col-10">
+      <div id="initialloader">
+        <div class="dot first"></div>
+        <div class="dot second"></div>
+        <div class="dot third"></div>
       </div>
-      <div class="col-12 row m-0 p-0" style="align-items: center">
+      <div id="error" class="col-xs-12 col-md-6 alert alert-info my-3">
+        <strong id="error-message">Une erreur est survenu</strong>
+        <span id="retry-button" class="text-dark">Réessayer</span>
+      </div>
+      <div
+        id="translate--wrapper"
+        class="col-12 row m-0 p-0 justify-content-between"
+        style="align-items: center"
+      >
         <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
-          <label for="input-language-area">Français</label>
+          <div class="d-flex justify-content-between">
+            <select class="form-control" id="input-language"></select>
+            <button id="swap-button" class="btn"></button>
+          </div>
           <textarea
+            autofocus
             class="form-control rounded"
             id="input-language-area"
             rows="8"
           ></textarea>
         </div>
-        <div style="text-align: center; margin: auto">
+        <div
+          id="translate-button--wrapper"
+          style="text-align: center; margin: auto"
+        >
           <button class="btn" id="translate-button"></button>
-          <div id="loader"></div>
         </div>
         <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
-          <label for="output-language-area">Anglais</label>
+          <div>
+            <select class="form-control" id="output-language"></select>
+          </div>
           <textarea
             readonly
             class="form-control rounded"
             id="output-language-area"
+            style="cursor: default"
             rows="8"
           ></textarea>
         </div>
       </div>
     </main>
     <script>
-      const inputTextElem = document.getElementById("input-language-area");
-      const outputTextElem = document.getElementById("output-language-area");
-      const translateButton = document.getElementById("translate-button");
-      const errorElem = document.getElementById("error");
-      const errorMessageElem = document.getElementById("error-message");
-      const loaderElem = document.getElementById("loader");
-      const inputLanguage = "fr";
-      const outputLanguage = "en";
-      const API_URL =
-        "https://translate.google.com/translate_a/single?client=at&dt=t&dt=ld&dt=qca&dt=rm&dt=bd&dj=1&hl=%25s&ie=UTF-8&oe=UTF-8&inputm=2&otf=2&iid=1dd3b944-fa62-4b55-b330-74909a99969e&";
-      const requestHeader = new Headers();
-      requestHeader.append(
-        "User-Agent",
-        "AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1"
-      );
-      const CORS_PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-      requestHeader.append("Content-Type", "application/x-www-form-urlencoded");
-      resetError();
+      const app = document.getElementById('app');
+      const inputTextElem = document.getElementById('input-language-area');
+      const outputTextElem = document.getElementById('output-language-area');
+      const translateButton = document.getElementById('translate-button');
+      const swapButton = document.getElementById('swap-button');
+      const retryButton = document.getElementById('retry-button');
+      const errorElem = document.getElementById('error');
+      const errorMessageElem = document.getElementById('error-message');
+      const loaderElem = document.getElementById('loader');
+      const inputLanguage = document.getElementById('input-language');
+      const outputLanguage = document.getElementById('output-language');
+      let initilized = false;
       function resetError() {
-        errorElem.style.display = "none";
+        errorElem.classList.remove('visible');
       }
       function showError(message) {
         errorMessageElem.textContent = message;
-        errorElem.style.display = "block";
+        errorElem.classList.add('visible');
       }
-      translateButton.addEventListener("click", () => {
+      function apiTranslateResponseHandler(response) {
+        const { translations } = response;
+        if (translations.length > 0) {
+          outputTextElem.value = translations
+            .map(({ translation }) => translation)
+            .join('\n');
+        } else {
+          showError('Aucune traduction trouvée.');
+        }
+      }
+      function startLoading() {
+        translateButton.classList.add('loading');
+      }
+      function stopLoading() {
+        translateButton.classList.remove('loading');
+      }
+      async function translate({ text, source, target }) {
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append('Accept', 'application/json');
+        myHeaders.append(
+          'Authorization',
+          'Basic YXBpa2V5OlZMWFBZM1NKc3o1VkM0UlJJR05EQkR0ZFNCZ1BGYnpNeGp5WTlnMVRUX0Vs',
+        );
+
+        const raw = JSON.stringify({ text, model_id: `${source}-${target}` });
+
+        const requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow',
+        };
+
+        return fetch(
+          'https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/37077175-257d-4ed7-86ba-3c387ca1e3ef/v3/translate?version=2018-05-01',
+          requestOptions,
+        ).then((response) => response.json());
+      }
+      async function getLanguages() {
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append(
+          'Authorization',
+          'Basic YXBpa2V5OlZMWFBZM1NKc3o1VkM0UlJJR05EQkR0ZFNCZ1BGYnpNeGp5WTlnMVRUX0Vs',
+        );
+
+        const requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow',
+        };
+
+        return fetch(
+          'https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/37077175-257d-4ed7-86ba-3c387ca1e3ef/v3/languages?version=2018-05-01',
+          requestOptions,
+        ).then((response) => response.json());
+      }
+      function addLanguageOption({ language, code, isSource, isTarget }) {
+        function addOption(elem, value, name) {
+          const option = document.createElement('option');
+          option.value = value;
+          option.textContent = name;
+          elem.add(option);
+        }
+        isSource && addOption(inputLanguage, code, language);
+        isTarget && addOption(outputLanguage, code, language);
+      }
+      function set(select, value) {
+        Array.from(select.options).forEach(
+          (option) => (option.selected = value === option.value),
+        );
+      }
+      function loadSession() {
+        const session = localStorage.session
+          ? JSON.parse(localStorage.session)
+          : {
+              input: 'fr',
+              output: 'en',
+            };
+        set(inputLanguage, session.input);
+        set(outputLanguage, session.output);
+      }
+      function saveSession() {
+        localStorage.session = JSON.stringify({
+          input: inputLanguage.value,
+          output: outputLanguage.value,
+        });
+      }
+      function init() {
+        if (initilized) return;
+        app.classList.add('loading');
+        getLanguages()
+          .then(({ languages }) => {
+            languages.forEach(
+              ({
+                language,
+                language_name,
+                supported_as_source,
+                supported_as_target,
+              }) =>
+                addLanguageOption({
+                  language: language_name,
+                  code: language,
+                  isSource: supported_as_source,
+                  isTarget: supported_as_target,
+                }),
+            );
+          })
+          .then(() => {
+            loadSession();
+            window.addEventListener('beforeunload', () => saveSession());
+            app.classList.add('ready');
+            initilized = true;
+          })
+          .catch((reason) => {
+            showError("Impossible d'initialiser l'application");
+          })
+          .finally(() => app.classList.remove('loading'));
+      }
+      translateButton.addEventListener('click', () => {
         resetError();
         let inputText = inputTextElem.value;
         if (!inputText) {
           showError("Veuillez entrer un texte à traduire s'il vous plaît.");
           return;
         }
-        let urlencoded = new URLSearchParams();
-        urlencoded.append("sl", inputLanguage);
-        urlencoded.append("tl", outputLanguage);
-        urlencoded.append("q", inputText);
-        let requestOptions = {
-          method: "POST",
-          headers: requestHeader,
-          body: urlencoded
-        };
+        const input = inputLanguage.value;
+        const output = outputLanguage.value;
+        if (input === output) {
+          showError(
+            "Veuillez choisir une langue source et cible différente l'une de l'autre",
+          );
+          return;
+        }
         startLoading();
-        fetch(`${CORS_PROXY_URL}${API_URL}`, requestOptions)
-          .then((response) => response.json())
-          .then((result) => apiResponseHandler(result))
-          .catch((error) => showError(error))
+        translate({
+          text: inputText,
+          source: input,
+          target: output,
+        })
+          .then((result) => apiTranslateResponseHandler(result))
+          .catch((error) =>
+            showError('Impossible de traduire votre texte pour le moment.'),
+          )
           .finally(stopLoading);
       });
-      function apiResponseHandler(response) {
-        if (response.sentences.length > 0) {
-          outputTextElem.value = response.sentences
-            .map((sentence) => sentence.trans)
-            .join("");
-        } else {
-          showError("Impossible de traduire votre demande.");
-        }
-      }
-      function startLoading() {
-        translateButton.style.display = "none";
-        loaderElem.style.display = "inline-block";
-      }
-      function stopLoading() {
-        loaderElem.style.display = "none";
-        translateButton.style.display = "inline-block";
-      }
+      swapButton.addEventListener('click', () => {
+        const input = inputLanguage.value;
+        const output = outputLanguage.value;
+        set(inputLanguage, output);
+        set(outputLanguage, input);
+        swapButton.classList.toggle('swapping');
+      });
+      retryButton.addEventListener('click', () => {
+        resetError();
+        init();
+      });
+      init();
     </script>
   </body>
 </html>

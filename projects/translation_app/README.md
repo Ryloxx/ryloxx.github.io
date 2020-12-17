@@ -1,6 +1,6 @@
 # Translation App
 ## Specification
-This translation app only translate from french to english.
+Uses IBM Watson Cloud Translator.
 ## Usage
 - Open the 'index.html' file in a browser.
 - Fill in the text in the left text area with the text you want to translate. 

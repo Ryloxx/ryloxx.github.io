@@ -108,12 +108,12 @@
     ],
     "link": "./projects/translation_app/index.html",
     "theme": {
-      "primary": "#2c3b53",
+      "primary": "#ebebeb",
       "secondary": "#767e92",
-      "tertiary": "#e9e9e9",
-      "textMainHead": "#afb8c4",
-      "textSubHead": "#d9d9d9",
-      "textBody": "#ffffff"
+      "tertiary": "#909497",
+      "textMainHead": "#000000",
+      "textSubHead": "#373838",
+      "textBody": "#373838"
     }
   },
   {
