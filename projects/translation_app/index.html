@@ -92,6 +92,13 @@
       .dot.third::after {
         animation-delay: 1s;
       }
+      .spinner-border {
+        display: none;
+      }
+
+      .loading + .spinner-border {
+        display: block;
+      }
 
       #app * {
         font-size: calc(1vmax + 10px);
@@ -160,6 +167,9 @@
       }
       #app.ready #retry-button {
         display: none;
+      }
+      #retry-button {
+        cursor: pointer;
       }
       @keyframes spin {
         0% {
@@ -242,8 +252,9 @@
           <button class="btn" id="translate-button"></button>
         </div>
         <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
-          <div>
+          <div class="d-flex align-items-center" style="gap: 1rem">
             <select class="form-control" id="output-language"></select>
+            <div class="spinner-border spinner-border-sm"></div>
           </div>
           <textarea
             readonly
@@ -267,6 +278,7 @@
       const loaderElem = document.getElementById('loader');
       const inputLanguage = document.getElementById('input-language');
       const outputLanguage = document.getElementById('output-language');
+      const languageMap = new Map();
       let initilized = false;
       function resetError() {
         errorElem.classList.remove('visible');
@@ -312,6 +324,42 @@
         return fetch(
           'https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/37077175-257d-4ed7-86ba-3c387ca1e3ef/v3/translate?version=2018-05-01',
           requestOptions,
+        ).then((response) => {
+          switch (response.status) {
+            case 200:
+              return response.json();
+            case 404:
+              throw new Error(
+                'Impossible de traduire cette combinaison de langues, veuillez changer.',
+              );
+            case 413:
+              throw new Error(
+                'Le text est trop volumineux pour la traduction.',
+              );
+            default:
+              throw new Error(
+                'Impossible de traduire votre texte pour le moment.',
+              );
+          }
+        });
+      }
+      async function getTargetLanguagesFromSource(source) {
+        const myHeaders = new Headers();
+        myHeaders.append('Content-Type', 'application/json');
+        myHeaders.append(
+          'Authorization',
+          'Basic YXBpa2V5OlZMWFBZM1NKc3o1VkM0UlJJR05EQkR0ZFNCZ1BGYnpNeGp5WTlnMVRUX0Vs',
+        );
+
+        const requestOptions = {
+          method: 'GET',
+          headers: myHeaders,
+          redirect: 'follow',
+        };
+
+        return fetch(
+          `https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/37077175-257d-4ed7-86ba-3c387ca1e3ef/v3/models?version=2018-05-01&source=${source}`,
+          requestOptions,
         ).then((response) => response.json());
       }
       async function getLanguages() {
@@ -333,20 +381,30 @@
           requestOptions,
         ).then((response) => response.json());
       }
-      function addLanguageOption({ language, code, isSource, isTarget }) {
-        function addOption(elem, value, name) {
-          const option = document.createElement('option');
-          option.value = value;
-          option.textContent = name;
-          elem.add(option);
-        }
-        isSource && addOption(inputLanguage, code, language);
-        isTarget && addOption(outputLanguage, code, language);
+      function addLanguageOption(elem, code) {
+        const option = document.createElement('option');
+        option.value = code;
+        option.textContent = languageMap.get(code);
+        elem.add(option);
       }
       function set(select, value) {
-        Array.from(select.options).forEach(
-          (option) => (option.selected = value === option.value),
-        );
+        select.value = value;
+      }
+      async function setTargetOptions(source) {
+        outputLanguage.classList.add('loading');
+        while (outputLanguage.firstChild) {
+          outputLanguage.removeChild(outputLanguage.firstChild);
+        }
+        return getTargetLanguagesFromSource(source)
+          .then(({ models }) => {
+            for (const { target } of models) {
+              addLanguageOption(outputLanguage, target);
+            }
+          })
+          .catch(() =>
+            showError("Une erreur c'est produit veuillez réessayer."),
+          )
+          .finally(() => outputLanguage.classList.remove('loading'));
       }
       function loadSession() {
         const session = localStorage.session
@@ -370,22 +428,22 @@
         getLanguages()
           .then(({ languages }) => {
             languages.forEach(
-              ({
-                language,
-                language_name,
-                supported_as_source,
-                supported_as_target,
-              }) =>
-                addLanguageOption({
-                  language: language_name,
-                  code: language,
-                  isSource: supported_as_source,
-                  isTarget: supported_as_target,
-                }),
+              ({ language, language_name, supported_as_source }) => {
+                languageMap.set(language, language_name);
+                supported_as_source &&
+                  addLanguageOption(inputLanguage, language);
+              },
             );
           })
           .then(() => {
+            inputLanguage.addEventListener('input', (event) => {
+              const prev = outputLanguage.value;
+              setTargetOptions(event.target.value).then(() => {
+                set(outputLanguage, prev);
+              });
+            });
             loadSession();
+            if (inputLanguage.value) setTargetOptions(inputLanguage.value);
             window.addEventListener('beforeunload', () => saveSession());
             app.classList.add('ready');
             initilized = true;
@@ -411,22 +469,26 @@
           return;
         }
         startLoading();
+        translateButton.disabled = true;
         translate({
           text: inputText,
           source: input,
           target: output,
         })
           .then((result) => apiTranslateResponseHandler(result))
-          .catch((error) =>
-            showError('Impossible de traduire votre texte pour le moment.'),
-          )
-          .finally(stopLoading);
+          .catch((error) => showError(error.message))
+          .finally(() => {
+            translateButton.disabled = false;
+            stopLoading();
+          });
       });
       swapButton.addEventListener('click', () => {
         const input = inputLanguage.value;
         const output = outputLanguage.value;
         set(inputLanguage, output);
-        set(outputLanguage, input);
+        setTargetOptions(inputLanguage.value).then(() =>
+          set(outputLanguage, input),
+        );
         swapButton.classList.toggle('swapping');
       });
       retryButton.addEventListener('click', () => {

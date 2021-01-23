@@ -1,5 +1,27 @@
 [
   {
+    "image": "./assets/images/game-io",
+    "title": "Game IO",
+    "body": "Website that host lobbies where people can join and play games together, it is still WIP",
+    "techList": [
+      "Svelte/Smelte/Tailwind(Front)",
+      "NodeJS/ExpressJS/SocketIO (Back)",
+      "Surge(static), Glitch(server) (hosting",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "http://game-io.rylox.surge.sh",
+    "theme": {
+      "primary": "#dbdee0",
+      "secondary": "#ff3e00",
+      "tertiary": "#222222",
+      "textMainHead": "#080808",
+      "textSubHead": "#222222",
+      "textBody": "#222222"
+    }
+  },
+  {
     "image": "./assets/images/movie_database",
     "title": "Movie Database",
     "body": "Website that present data on films, tv-shows and people who have link with the film/tv industry.\nFeatures: user auth, film review, watchlist, film/person/tvshow browsing.",

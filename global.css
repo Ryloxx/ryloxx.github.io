@@ -92,6 +92,7 @@ body {
   min-width: 100vw;
   background-color: #0f122b;
   -webkit-font-smoothing: antialiased;
+  color: white;
 }
 
 a,
@@ -168,10 +169,12 @@ ul {
   border-radius: 10px 0 0 10px;
   transition: transform 50ms ease;
 }
-.nav-block-list-item:hover {
-  cursor: pointer;
+.nav-block-list-item:hover, .nav-block-list-item.active {
   transform: scale(1.1);
   background-color: #293277;
+}
+.nav-block-list-item:hover {
+  cursor: pointer;
 }
 
 .nav-top {
@@ -316,14 +319,14 @@ ul {
   transition: filter 300ms ease-out;
   filter: brightness(80%);
 }
-.card-picture + .card-content {
+.card-picture + div {
   transition: box-shadow 300ms ease-out, transform 300ms ease-out, background-color 300ms ease-out;
 }
 .card-picture:hover {
   filter: brightness(100%);
 }
-.card-picture:hover + .card-content {
-  box-shadow: none;
+.card-picture:hover + div {
+  box-shadow: none !important;
   transform: translateY(10px);
 }
 .card-picture:hover img {
@@ -343,7 +346,6 @@ ul {
   position: relative;
   background: url("../assets/images/noisy-texture.png") repeat;
   background-size: calc(5px + 1vmax * 5.5);
-  box-shadow: rgba(0, 0, 0, 0.5) 0px -10px 20px 20px;
 }
 
 .card-title {
@@ -390,4 +392,4 @@ ul {
 
 /* ANIMATION */
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=global.css.map */
