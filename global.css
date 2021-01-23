@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@600;900&display=swap");
+.page-title {
+  font-family: "Encode Sans", Lato, Helvetica, Arial, sans-serif;
+  font-size: calc(0.7rem + 3vmax);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.card-link--wrapper, .card-title, .nav-top {
+  font-family: "Encode Sans", Lato, Helvetica, Arial, sans-serif;
+  font-size: calc(0.7rem + 1.5vmax);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.nav-block-header {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: calc(0.7rem + 1.1vmax);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.card-paragraph-title, .card-content {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: calc(0.7rem + 1.1vmax);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.card-paragraph-body,
+.card-paragraph, .nav-block-list-item {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: calc(0.7rem + 0.5vmax);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.card-picture:after {
+  will-change: transform;
+  transition: transform 300ms ease-out, opacity 300ms ease-out;
+}
+.card-picture:hover:after {
+  transform: translateX(40%) scale(4) skewY(70deg);
+  opacity: 0;
+}
+
+.card-picture {
+  position: relative;
+  overflow: hidden;
+}
+.card-picture:after {
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.15) 3%, rgba(255, 255, 255, 0));
+  transform: translateX(-20%) scale(4) skewY(50deg);
+  background-repeat: no-repeat;
+  content: "";
+  background-size: cover;
+}
+
+:root {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: calc(0.7rem + 0.5vmax);
+  min-width: 100vw;
+  background-color: #0f122b;
+  -webkit-font-smoothing: antialiased;
+  color: white;
+}
+
+a,
+a:visited {
+  color: currentColor;
+  text-decoration: none;
+  transition: all 100ms ease;
+}
+
+ul {
+  padding-inline-start: calc(5px + 1vmax * 1.5);
+}
+
+/* SPECIFIC */
+/* ROOT */
+#root {
+  color: #f5e8c5;
+  position: relative;
+}
+
+[v-cloak] {
+  visibility: hidden;
+}
+
+/* BACKGROUND */
+#background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+#background--wrapper::after {
+  position: absolute;
+  content: "";
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9), transparent);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#background--wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -100;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #1c2251;
+}
+
+/* NAV */
+#main-nav {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.nav-main * {
+  padding: calc(5px + 1vmax * 0) calc(5px + 1vmax * 0) calc(5px + 1vmax * 0) calc(5px + 1vmax * 0.7);
+}
+
+.nav-block-header {
+  text-shadow: 1px 1px 5px black;
+}
+
+.nav-block-list-item {
+  border-radius: 10px 0 0 10px;
+  transition: transform 50ms ease;
+}
+.nav-block-list-item:hover, .nav-block-list-item.active {
+  transform: scale(1.1);
+  background-color: #293277;
+}
+.nav-block-list-item:hover {
+  cursor: pointer;
+}
+
+.nav-top {
+  flex: 1;
+  padding: 10px;
+  box-shadow: 0px 5px 37px -2px black;
+  text-align: center;
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
+.nav-main {
+  flex: 10;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 10px;
+}
+
+#nav-footer {
+  display: flex;
+  flex: 1;
+  box-shadow: 0px -5px 37px -2px black;
+  place-items: center;
+  place-content: center;
+}
+#nav-footer > * {
+  flex: 1;
+}
+#nav-footer *:first-child ~ * {
+  border-left: 1px solid white;
+}
+
+#nav-collapse--button {
+  transition: opacity 200ms ease;
+  height: calc(5px + 1vmax * 10);
+  width: calc(5px + 1vmax * 10);
+  border-radius: 50%;
+  opacity: 0.3;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+#nav-collapse--button:hover {
+  opacity: 0.7;
+}
+#nav-collapse--button img {
+  pointer-events: none;
+  filter: invert(100%) sepia(20%) saturate(0%) hue-rotate(246deg) brightness(106%) contrast(107%);
+  height: 50%;
+  width: 50%;
+}
+
+#main-nav--wrapper {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 90;
+  position: fixed;
+}
+
+.icon-field {
+  text-align: center;
+  padding: calc(5px + 1vmax * 0.5);
+  transition: filter 200ms ease, transform 100ms ease;
+}
+.icon-field a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: invert(98%) sepia(4%) saturate(349%) hue-rotate(171deg) brightness(99%) contrast(97%);
+}
+.icon-field a:hover {
+  filter: invert(16%) sepia(60%) saturate(2878%) hue-rotate(212deg) brightness(95%) contrast(95%) drop-shadow(0px 0px 1px black);
+  transform: scale(1.1);
+}
+.icon-field img {
+  width: calc(5px + 1vmax * 1.5);
+  height: calc(5px + 1vmax * 1.5);
+}
+
+/* MAIN VIEW */
+#main-view {
+  transition: background-color 150ms ease-in;
+  background-color: #0f122b;
+}
+
+/* MEDIA */
+@media (min-width: 575.98px) {
+  #main-view-wrapper {
+    margin-left: 25vmax;
+    width: calc(100vw - 25vmax);
+  }
+
+  #main-nav--wrapper {
+    width: 25vmax;
+  }
+
+  .nav-main {
+    padding-left: calc(5px + 1vmax * 0.5);
+  }
+
+  #nav-collapse--button {
+    visibility: hidden;
+  }
+}
+@media (max-width: 575.98px) {
+  #main-nav--wrapper {
+    width: 100%;
+  }
+
+  #main-view-wrapper {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .nav-collapse--button {
+    visibility: visible;
+  }
+}
+/* PAGE */
+.page {
+  padding: calc(5px + 1vmax * 2) calc(5px + 1vmax * 1);
+}
+
+/* CARD */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-picture {
+  max-height: calc(5px + 1vmax * 15);
+  position: relative;
+  display: block;
+  transition: filter 300ms ease-out;
+  filter: brightness(80%);
+}
+.card-picture + div {
+  transition: box-shadow 300ms ease-out, transform 300ms ease-out, background-color 300ms ease-out;
+}
+.card-picture:hover {
+  filter: brightness(100%);
+}
+.card-picture:hover + div {
+  box-shadow: none !important;
+  transform: translateY(10px);
+}
+.card-picture:hover img {
+  transform: scale(1.02);
+}
+.card-picture img {
+  transition: transform 300ms ease-out;
+  object-fit: cover;
+  object-position: 0 5%;
+  width: 100%;
+}
+
+.card-content {
+  min-height: 100vh;
+  height: 100%;
+  padding: calc(5px + 1vmax * 1);
+  position: relative;
+  background: url("../assets/images/noisy-texture.png") repeat;
+  background-size: calc(5px + 1vmax * 5.5);
+}
+
+.card-title {
+  font-size: calc(0.7rem + 3vmax);
+  max-width: calc(5px + 1vmax * 45);
+  min-width: 50%;
+}
+
+.card-paragraph-body,
+.card-paragraph {
+  margin: calc(5px + 1vmax * 1);
+}
+
+.card-link--wrapper {
+  margin: calc(5px + 1vmax * 1) calc(5px + 1vmax * 2) 0 calc(5px + 1vmax * 2);
+  top: calc(5px + 1vmax * 2);
+  right: calc(5px + 1vmax * 6);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.card,
+.card-content {
+  transition: background-color 300ms ease-out;
+}
+
+.triple-arrow-right {
+  display: flex;
+  margin-right: calc(5px + 1vmax * 0.5);
+}
+.triple-arrow-right * {
+  height: calc(5px + 1vmax * 3);
+  width: calc(5px + 1vmax * 3);
+}
+
+/* ANIMATION */
+
+/*# sourceMappingURL=global.css.map */

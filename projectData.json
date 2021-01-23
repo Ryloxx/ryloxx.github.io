@@ -1,5 +1,27 @@
 [
   {
+    "image": "./assets/images/game-io",
+    "title": "Game IO",
+    "body": "Website that host lobbies where people can join and play games together, it is still WIP",
+    "techList": [
+      "Svelte/Smelte/Tailwind(Front)",
+      "NodeJS/ExpressJS/SocketIO (Back)",
+      "Surge(static), Glitch(server) (hosting",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "http://game-io.rylox.surge.sh",
+    "theme": {
+      "primary": "#dbdee0",
+      "secondary": "#ff3e00",
+      "tertiary": "#222222",
+      "textMainHead": "#080808",
+      "textSubHead": "#222222",
+      "textBody": "#222222"
+    }
+  },
+  {
     "image": "./assets/images/movie_database",
     "title": "Movie Database",
     "body": "Website that present data on films, tv-shows and people who have link with the film/tv industry.\nFeatures: user auth, film review, watchlist, film/person/tvshow browsing.",
@@ -90,8 +112,8 @@
       "primary": "#1f739c",
       "secondary": "#6da2ac",
       "tertiary": "#74cccb",
-      "textMainHead": "#ff5e6e",
-      "textSubHead": "#ff919c",
+      "textMainHead": "#e05297",
+      "textSubHead": "#f3bad6",
       "textBody": "#ffffff"
     }
   },
@@ -108,12 +130,12 @@
     ],
     "link": "./projects/translation_app/index.html",
     "theme": {
-      "primary": "#2c3b53",
+      "primary": "#ebebeb",
       "secondary": "#767e92",
-      "tertiary": "#e9e9e9",
-      "textMainHead": "#afb8c4",
-      "textSubHead": "#d9d9d9",
-      "textBody": "#ffffff"
+      "tertiary": "#909497",
+      "textMainHead": "#000000",
+      "textSubHead": "#373838",
+      "textBody": "#373838"
     }
   },
   {
@@ -141,7 +163,7 @@
       "primary": "#fabc73",
       "secondary": "#869ccb",
       "tertiary": "#f3f1ef",
-      "textMainHead": "#333333",
+      "textMainHead": "#000000",
       "textSubHead": "#424242",
       "textBody": "#525252"
     }
@@ -153,10 +175,10 @@
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
     "link": "./projects/card_memory_game/index.html",
     "theme": {
-      "primary": "#fcc404",
+      "primary": "#fddb3a",
       "secondary": "#697077",
-      "tertiary": "#e8e8e7",
-      "textMainHead": "#333333",
+      "tertiary": "#52575d",
+      "textMainHead": "#000000",
       "textSubHead": "#424242",
       "textBody": "#525252"
     }
@@ -168,12 +190,12 @@
     "techList": ["ChartJS", "HTML", "CSS", "JavaScript"],
     "link": "./projects/pearson_regression/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   },
   {
@@ -183,12 +205,12 @@
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/javascript_validation_with_regex/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   },
   {
@@ -234,12 +256,12 @@
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/your_first_db_app/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   },
   {
@@ -249,12 +271,12 @@
     "techList": ["HTML", "CSS", "JavaScript"],
     "link": "./projects/notes/index.html",
     "theme": {
-      "primary": "#6c646f",
-      "secondary": "#4b8daf",
-      "tertiary": "#a348a3",
-      "textMainHead": "#a3e0ff",
-      "textSubHead": "#c4ebff",
-      "textBody": "#e0f5ff"
+      "primary": "#fff3b2",
+      "secondary": "#323232",
+      "tertiary": "#bc6ff1",
+      "textMainHead": "#000000",
+      "textSubHead": "#000000",
+      "textBody": "#232931"
     }
   }
 ]
