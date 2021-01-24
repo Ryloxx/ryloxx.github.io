@@ -26,8 +26,8 @@
       select {
         border: 0px !important;
         outline: 0px !important;
-        max-width: fit-content;
-        min-width: calc(3vmax + 10px);
+        min-width: fit-content;
+        width: calc(3vmax + 10px);
       }
       #logo {
         max-width: 100%;
@@ -94,6 +94,7 @@
       }
       .spinner-border {
         display: none;
+        color: var(--gray);
       }
 
       .loading + .spinner-border {
@@ -234,7 +235,10 @@
         style="align-items: center"
       >
         <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
-          <div class="d-flex justify-content-between">
+          <div
+            class="d-flex justify-content-between align-items-center"
+            style="gap: 1rem"
+          >
             <select class="form-control" id="input-language"></select>
             <button id="swap-button" class="btn"></button>
           </div>
@@ -252,9 +256,12 @@
           <button class="btn" id="translate-button"></button>
         </div>
         <div class="translation-pane form-group col-xs-12 col-md-5 p-3">
-          <div class="d-flex align-items-center" style="gap: 1rem">
+          <div
+            class="d-flex justify-content-between align-items-center"
+            style="gap: 1rem"
+          >
             <select class="form-control" id="output-language"></select>
-            <div class="spinner-border spinner-border-sm"></div>
+            <div class="spinner-border"></div>
           </div>
           <textarea
             readonly

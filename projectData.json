@@ -2,7 +2,7 @@
   {
     "image": "./assets/images/game-io",
     "title": "Game IO",
-    "body": "Website that host lobbies where people can join and play games together, it is still WIP",
+    "body": "Website that host lobbies where people can gather and play games together, it is still WIP",
     "techList": [
       "Svelte/Smelte/Tailwind(Front)",
       "NodeJS/ExpressJS/SocketIO (Back)",
@@ -175,12 +175,12 @@
     "techList": ["Bootstrap", "HTML", "CSS", "JavaScript"],
     "link": "./projects/card_memory_game/index.html",
     "theme": {
-      "primary": "#fddb3a",
-      "secondary": "#697077",
-      "tertiary": "#52575d",
+      "primary": "#ff5934",
+      "secondary": "#4d9fe2",
+      "tertiary": "#362a2c",
       "textMainHead": "#000000",
-      "textSubHead": "#424242",
-      "textBody": "#525252"
+      "textSubHead": "#362a2c",
+      "textBody": "#362a2c"
     }
   },
   {
@@ -198,42 +198,7 @@
       "textBody": "#232931"
     }
   },
-  {
-    "image": "./assets/images/javascript_validation_with-regex",
-    "title": "Javascript Validation With Regex",
-    "body": "Basic input validation with regex.",
-    "techList": ["HTML", "CSS", "JavaScript"],
-    "link": "./projects/javascript_validation_with_regex/index.html",
-    "theme": {
-      "primary": "#fff3b2",
-      "secondary": "#323232",
-      "tertiary": "#bc6ff1",
-      "textMainHead": "#000000",
-      "textSubHead": "#000000",
-      "textBody": "#232931"
-    }
-  },
-  {
-    "image": "./assets/images/hello",
-    "title": "Hello",
-    "body": "Website that says you hello in your language(depends on your ip location).",
-    "techList": [
-      "https://ip-api.com (IP Localisation API)",
-      "https://www.fourtonfish.com/hellosalut/hello (Hello API)",
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ],
-    "link": "./projects/hello/index.html",
-    "theme": {
-      "primary": "#b4bcc4",
-      "secondary": "#dce2e4",
-      "tertiary": "#f3fbfb",
-      "textMainHead": "#222324",
-      "textSubHead": "#414345",
-      "textBody": "#585b5e"
-    }
-  },
+
   {
     "image": "./assets/images/christmas_light",
     "title": "Christmas Light",
