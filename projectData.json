@@ -1,5 +1,26 @@
 [
   {
+    "image": "./assets/images/rock-paper-scissors",
+    "title": "Rock-Paper-Scissors",
+    "body": "Rock paper scissors game against AI",
+    "techList": [
+      "Svelte",
+      "Surge(host)",
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "link": "http://rps-rylox.surge.sh",
+    "theme": {
+      "primary": "#1a2849",
+      "secondary": "#64b8e9",
+      "tertiary": "#ffffff",
+      "textMainHead": "#ffffff",
+      "textSubHead": "#ffffff",
+      "textBody": "#ffffff"
+    }
+  },
+  {
     "image": "./assets/images/game-io",
     "title": "Game IO",
     "body": "Website that host lobbies where people can gather and play games together, it is still WIP",
