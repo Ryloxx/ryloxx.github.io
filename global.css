@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@600;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;500;600;900&display=swap");
 .page-title {
   font-family: "Encode Sans", Lato, Helvetica, Arial, sans-serif;
   font-size: calc(0.7rem + 3vmax);
@@ -137,6 +137,7 @@ ul {
 }
 
 #background--wrapper {
+  filter: blur(4px);
   position: absolute;
   height: 100%;
   width: 100%;
@@ -240,6 +241,7 @@ ul {
   left: 0;
   z-index: 90;
   position: fixed;
+  overflow: hidden;
 }
 
 .icon-field {
@@ -313,7 +315,7 @@ ul {
 }
 
 .card-picture {
-  max-height: calc(5px + 1vmax * 15);
+  height: calc(5px + 1vmax * 15);
   position: relative;
   display: block;
   transition: filter 300ms ease-out;
@@ -366,6 +368,11 @@ ul {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+}
+
+.card-link {
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .card-top {
