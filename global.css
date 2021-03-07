@@ -318,7 +318,7 @@ ul {
   height: calc(5px + 1vmax * 15);
   position: relative;
   display: block;
-  transition: filter 300ms ease-out;
+  transition: filter 300ms ease-out, transition, margin-top 500ms ease-out;
   filter: brightness(80%);
 }
 .card-picture + div {
