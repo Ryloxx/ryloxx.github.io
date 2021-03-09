@@ -3,14 +3,9 @@
     "image": "./assets/images/rock-paper-scissors",
     "title": "Rock-Paper-Scissors",
     "body": "Rock paper scissors game against AI",
-    "techList": [
-      "Svelte",
-      "Surge(host)",
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ],
+    "techList": ["Svelte", "Surge(host)", "HTML", "CSS", "JavaScript"],
     "link": "http://rps-rylox.surge.sh",
+    "logo": "./assets/images/rock-paper-scissors-logo.png",
     "theme": {
       "primary": "#1a2849",
       "secondary": "#64b8e9",
@@ -57,6 +52,7 @@
       "CSS",
       "JavaScript"
     ],
+    "logo": "./assets/images/movie-database-logo.png",
     "foot": "REST API / Mobile Ready",
     "link": "https://movie-database-rylox.herokuapp.com",
     "theme": {
@@ -82,6 +78,7 @@
       "CSS",
       "JavaScript"
     ],
+    "logo": "./assets/images/manga-reader-logo.png",
     "foot": "Scraping / Mobile Ready",
     "link": "https://manga-reader-rylox.herokuapp.com",
     "theme": {
@@ -97,6 +94,7 @@
     "image": "./assets/images/trending_evil_alien",
     "title": "Trending Evil Alien",
     "body": "Made for a Topcoder.com challenge, it's basically a reddit search tool.",
+    "logo": "./assets/images/trending-evil-alien-logo.png",
     "techList": [
       "ReactJS/Bootstrap (Front)",
       "NodeJS/ExpressJS (Back)",
@@ -128,6 +126,7 @@
       "CSS",
       "JavaScript"
     ],
+    "logo": "./assets/images/spell-it-logo.png",
     "link": "https://spell-it-rylox.herokuapp.com",
     "theme": {
       "primary": "#1f739c",
@@ -149,6 +148,7 @@
       "CSS",
       "JavaScript"
     ],
+    "logo": "./assets/images/translate-logo.png",
     "link": "./projects/translation_app/index.html",
     "theme": {
       "primary": "#ebebeb",
