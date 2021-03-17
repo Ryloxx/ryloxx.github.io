@@ -140,9 +140,9 @@
   {
     "image": "./assets/images/translation_app",
     "title": "Translation App",
-    "body": "Basic one way translation app from French to English using Google Translate API.",
+    "body": "Basic one way translation app from French to English using IBM Translate API.",
     "techList": [
-      "Google Translate API",
+      "IBM Translate API",
       "Bootstrap",
       "HTML",
       "CSS",
