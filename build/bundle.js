@@ -1,5 +1,1817 @@
-var app=function(){"use strict";function t(){}const e=t=>t;function n(t,e){for(const n in e)t[n]=e[n];return t}function r(t){return t()}function i(){return Object.create(null)}function s(t){t.forEach(r)}function o(t){return"function"==typeof t}function a(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function u(e,n,r){e.$$.on_destroy.push(function(e,...n){if(null==e)return t;const r=e.subscribe(...n);return r.unsubscribe?()=>r.unsubscribe():r}(n,r))}function l(t,e,n,r){if(t){const i=h(t,e,n,r);return t[0](i)}}function h(t,e,r,i){return t[1]&&i?n(r.ctx.slice(),t[1](i(e))):r.ctx}function c(t,e,n,r,i,s,o){const a=function(t,e,n,r){if(t[2]&&r){const i=t[2](r(n));if(void 0===e.dirty)return i;if("object"==typeof i){const t=[],n=Math.max(e.dirty.length,i.length);for(let r=0;r<n;r+=1)t[r]=e.dirty[r]|i[r];return t}return e.dirty|i}return e.dirty}(e,r,i,s);if(a){const i=h(e,n,r,o);t.p(i,a)}}function f(t,e,n=e){return t.set(n),e}const d="undefined"!=typeof window;let p=d?()=>window.performance.now():()=>Date.now(),_=d?t=>requestAnimationFrame(t):t;const m=new Set;function g(t){m.forEach((e=>{e.c(t)||(m.delete(e),e.f())})),0!==m.size&&_(g)}function v(t){let e;return 0===m.size&&_(g),{promise:new Promise((n=>{m.add(e={c:t,f:n})})),abort(){m.delete(e)}}}function y(t,e){t.appendChild(e)}function b(t,e,n){t.insertBefore(e,n||null)}function x(t){t.parentNode.removeChild(t)}function w(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}function $(t){return document.createElement(t)}function T(t){return document.createTextNode(t)}function k(){return T(" ")}function M(t,e,n,r){return t.addEventListener(e,n,r),()=>t.removeEventListener(e,n,r)}function C(t,e,n){null==n?t.removeAttribute(e):t.getAttribute(e)!==n&&t.setAttribute(e,n)}function O(t,e){e=""+e,t.wholeText!==e&&(t.data=e)}function A(t,e,n){t.classList[n?"add":"remove"](e)}const S=new Set;let D,E=0;function P(t,e){const n=(t.style.animation||"").split(", "),r=n.filter(e?t=>t.indexOf(e)<0:t=>-1===t.indexOf("__svelte")),i=n.length-r.length;i&&(t.style.animation=r.join(", "),E-=i,E||_((()=>{E||(S.forEach((t=>{const e=t.__svelte_stylesheet;let n=e.cssRules.length;for(;n--;)e.deleteRule(n);t.__svelte_rules={}})),S.clear())})))}function z(t){D=t}function F(t){(function(){if(!D)throw new Error("Function called outside component initialization");return D})().$$.on_mount.push(t)}const R=[],B=[],Y=[],X=[],I=Promise.resolve();let L=!1;function j(t){Y.push(t)}let N=!1;const U=new Set;function q(){if(!N){N=!0;do{for(let t=0;t<R.length;t+=1){const e=R[t];z(e),H(e.$$)}for(z(null),R.length=0;B.length;)B.pop()();for(let t=0;t<Y.length;t+=1){const e=Y[t];U.has(e)||(U.add(e),e())}Y.length=0}while(R.length);for(;X.length;)X.pop()();L=!1,N=!1,U.clear()}}function H(t){if(null!==t.fragment){t.update(),s(t.before_update);const e=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,e),t.after_update.forEach(j)}}let V;function W(t,e,n){t.dispatchEvent(function(t,e){const n=document.createEvent("CustomEvent");return n.initCustomEvent(t,!1,!1,e),n}(`${e?"intro":"outro"}${n}`))}const G=new Set;let Z;function Q(){Z={r:0,c:[],p:Z}}function J(){Z.r||s(Z.c),Z=Z.p}function K(t,e){t&&t.i&&(G.delete(t),t.i(e))}function tt(t,e,n,r){if(t&&t.o){if(G.has(t))return;G.add(t),Z.c.push((()=>{G.delete(t),r&&(n&&t.d(1),r())})),t.o(e)}}const et={duration:0};function nt(n,r,i){let s,a,u=r(n,i),l=!1,h=0;function c(){s&&P(n,s)}function f(){const{delay:r=0,duration:i=300,easing:o=e,tick:f=t,css:d}=u||et;d&&(s=function(t,e,n,r,i,s,o,a=0){const u=16.666/r;let l="{\n";for(let t=0;t<=1;t+=u){const r=e+(n-e)*s(t);l+=100*t+`%{${o(r,1-r)}}\n`}const h=l+`100% {${o(n,1-n)}}\n}`,c=`__svelte_${function(t){let e=5381,n=t.length;for(;n--;)e=(e<<5)-e^t.charCodeAt(n);return e>>>0}(h)}_${a}`,f=t.ownerDocument;S.add(f);const d=f.__svelte_stylesheet||(f.__svelte_stylesheet=f.head.appendChild($("style")).sheet),p=f.__svelte_rules||(f.__svelte_rules={});p[c]||(p[c]=!0,d.insertRule(`@keyframes ${c} ${h}`,d.cssRules.length));const _=t.style.animation||"";return t.style.animation=`${_?`${_}, `:""}${c} ${r}ms linear ${i}ms 1 both`,E+=1,c}(n,0,1,i,r,o,d,h++)),f(0,1);const _=p()+r,m=_+i;a&&a.abort(),l=!0,j((()=>W(n,!0,"start"))),a=v((t=>{if(l){if(t>=m)return f(1,0),W(n,!0,"end"),c(),l=!1;if(t>=_){const e=o((t-_)/i);f(e,1-e)}}return l}))}let d=!1;return{start(){d||(P(n),o(u)?(u=u(),(V||(V=Promise.resolve(),V.then((()=>{V=null}))),V).then(f)):f())},invalidate(){d=!1},end(){l&&(c(),l=!1)}}}function rt(t,e){tt(t,1,1,(()=>{e.delete(t.key)}))}function it(t){t&&t.c()}function st(t,e,n){const{fragment:i,on_mount:a,on_destroy:u,after_update:l}=t.$$;i&&i.m(e,n),j((()=>{const e=a.map(r).filter(o);u?u.push(...e):s(e),t.$$.on_mount=[]})),l.forEach(j)}function ot(t,e){const n=t.$$;null!==n.fragment&&(s(n.on_destroy),n.fragment&&n.fragment.d(e),n.on_destroy=n.fragment=null,n.ctx=[])}function at(t,e){-1===t.$$.dirty[0]&&(R.push(t),L||(L=!0,I.then(q)),t.$$.dirty.fill(0)),t.$$.dirty[e/31|0]|=1<<e%31}function ut(e,n,r,o,a,u,l=[-1]){const h=D;z(e);const c=n.props||{},f=e.$$={fragment:null,ctx:null,props:u,update:t,not_equal:a,bound:i(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(h?h.$$.context:[]),callbacks:i(),dirty:l,skip_bound:!1};let d=!1;if(f.ctx=r?r(e,c,((t,n,...r)=>{const i=r.length?r[0]:n;return f.ctx&&a(f.ctx[t],f.ctx[t]=i)&&(!f.skip_bound&&f.bound[t]&&f.bound[t](i),d&&at(e,t)),n})):[],f.update(),d=!0,s(f.before_update),f.fragment=!!o&&o(f.ctx),n.target){if(n.hydrate){const t=function(t){return Array.from(t.childNodes)}(n.target);f.fragment&&f.fragment.l(t),t.forEach(x)}else f.fragment&&f.fragment.c();n.intro&&K(e.$$.fragment),st(e,n.target,n.anchor),q()}z(h)}class lt{$destroy(){ot(this,1),this.$destroy=t}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(t){var e;this.$$set&&(e=t,0!==Object.keys(e).length)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}function ht(t){const e=t-1;return e*e*e+1}function ct(t){return 0===t||1===t?t:t<.5?.5*Math.pow(2,20*t-10):-.5*Math.pow(2,10-20*t)+1}function ft(t,{delay:e=0,duration:n=400,easing:r=ht,x:i=0,y:s=0,opacity:o=0}){const a=getComputedStyle(t),u=+a.opacity,l="none"===a.transform?"":a.transform,h=u*(1-o);return{delay:e,duration:n,easing:r,css:(t,e)=>`\n\t\t\ttransform: ${l} translate(${(1-t)*i}px, ${(1-t)*s}px);\n\t\t\topacity: ${u-h*e}`}}function dt(t,{delay:e=0,duration:n=400,easing:r=ht}){const i=getComputedStyle(t),s=+i.opacity,o=parseFloat(i.height),a=parseFloat(i.paddingTop),u=parseFloat(i.paddingBottom),l=parseFloat(i.marginTop),h=parseFloat(i.marginBottom),c=parseFloat(i.borderTopWidth),f=parseFloat(i.borderBottomWidth);return{delay:e,duration:n,easing:r,css:t=>`overflow: hidden;opacity: ${Math.min(20*t,1)*s};height: ${t*o}px;padding-top: ${t*a}px;padding-bottom: ${t*u}px;margin-top: ${t*l}px;margin-bottom: ${t*h}px;border-top-width: ${t*c}px;border-bottom-width: ${t*f}px;`}}const pt=[];function _t(e,n=t){let r;const i=[];function s(t){if(a(e,t)&&(e=t,r)){const t=!pt.length;for(let t=0;t<i.length;t+=1){const n=i[t];n[1](),pt.push(n,e)}if(t){for(let t=0;t<pt.length;t+=2)pt[t][0](pt[t+1]);pt.length=0}}}return{set:s,update:function(t){s(t(e))},subscribe:function(o,a=t){const u=[o,a];return i.push(u),1===i.length&&(r=n(s)||t),o(e),()=>{const t=i.indexOf(u);-1!==t&&i.splice(t,1),0===i.length&&(r(),r=null)}}}}function mt(t){return"[object Date]"===Object.prototype.toString.call(t)}function gt(t,e){if(t===e||t!=t)return()=>t;const n=typeof t;if(n!==typeof e||Array.isArray(t)!==Array.isArray(e))throw new Error("Cannot interpolate values of different type");if(Array.isArray(t)){const n=e.map(((e,n)=>gt(t[n],e)));return t=>n.map((e=>e(t)))}if("object"===n){if(!t||!e)throw new Error("Object cannot be null");if(mt(t)&&mt(e)){t=t.getTime();const n=(e=e.getTime())-t;return e=>new Date(t+e*n)}const n=Object.keys(e),r={};return n.forEach((n=>{r[n]=gt(t[n],e[n])})),t=>{const e={};return n.forEach((n=>{e[n]=r[n](t)})),e}}if("number"===n){const n=e-t;return e=>t+e*n}throw new Error(`Cannot interpolate ${n} values`)}function vt(t,r={}){const i=_t(t);let s,o=t;function a(a,u){if(null==t)return i.set(t=a),Promise.resolve();o=a;let l=s,h=!1,{delay:c=0,duration:f=400,easing:d=e,interpolate:_=gt}=n(n({},r),u);if(0===f)return l&&(l.abort(),l=null),i.set(t=o),Promise.resolve();const m=p()+c;let g;return s=v((e=>{if(e<m)return!0;h||(g=_(t,a),"function"==typeof f&&(f=f(t,a)),h=!0),l&&(l.abort(),l=null);const n=e-m;return n>f?(i.set(t=a),!1):(i.set(t=g(d(n/f))),!0)})),s.promise}return{set:a,update:(e,n)=>a(e(o,t),n),subscribe:i.subscribe}}function yt(t){let e,n,r;const i=t[14].default,s=l(i,t,t[13],null);return{c(){e=$("div"),s&&s.c(),C(e,"style",n=`clip-path:inset(${100-t[1]}% ${100-t[2]}% 0 0);`)},m(n,i){b(n,e,i),s&&s.m(e,null),t[15](e),r=!0},p(t,[o]){s&&s.p&&8192&o&&c(s,i,t,t[13],o,null,null),(!r||6&o&&n!==(n=`clip-path:inset(${100-t[1]}% ${100-t[2]}% 0 0);`))&&C(e,"style",n)},i(t){r||(K(s,t),r=!0)},o(t){tt(s,t),r=!1},d(n){n&&x(e),s&&s.d(n),t[15](null)}}}function bt(t,e,n){let r,i,s,o,{$$slots:a={},$$scope:l}=e,{timeout:h=150}=e,{onEnd:c=(()=>{})}=e,{onBeforeEnd:f=(()=>{})}=e,{onStep:d=(()=>{})}=e;h=Math.max(100,h);const p=[0,12.5,25,50,100];let _,m=0,g=0;const v={easing:ct,duration:h},y=vt(0,v);u(t,y,(t=>n(1,s=t)));const b=vt(0,v);function x(){r||(n(9,m+=1),y.update((()=>(d(),p[m]))).then(w))}function w(){i||g>=p.length-1||(n(10,g+=1),b.update((()=>(d(),p[g]))).then(x))}return u(t,b,(t=>n(2,o=t))),x(),t.$$set=t=>{"timeout"in t&&n(5,h=t.timeout),"onEnd"in t&&n(6,c=t.onEnd),"onBeforeEnd"in t&&n(7,f=t.onBeforeEnd),"onStep"in t&&n(8,d=t.onStep),"$$scope"in t&&n(13,l=t.$$scope)},t.$$.update=()=>{512&t.$$.dirty&&n(11,r=m>=p.length-1),1024&t.$$.dirty&&n(12,i=g>=p.length-1),6208&t.$$.dirty&&r&&i&&c(),6272&t.$$.dirty&&r&&!i&&f()},[_,s,o,y,b,h,c,f,d,m,g,r,i,l,a,function(t){B[t?"unshift":"push"]((()=>{_=t,n(0,_)}))}]}class xt extends lt{constructor(t){super(),ut(this,t,bt,yt,a,{timeout:5,onEnd:6,onBeforeEnd:7,onStep:8})}}function wt(e){let n;return document.title=n="My Projects "+(e[0]?`- ${e[0]}`:""),{c:t,m:t,p(t,[e]){1&e&&n!==(n="My Projects "+(t[0]?`- ${t[0]}`:""))&&(document.title=n)},i:t,o:t,d:t}}function $t(t,e,n){let{label:r}=e;return t.$$set=t=>{"label"in t&&n(0,r=t.label)},[r]}class Tt extends lt{constructor(t){super(),ut(this,t,$t,wt,a,{label:0})}}function kt(t){let e,n,r,i;return e=new Tt({props:{label:`${t[0][t[1]].title}`}}),r=new Ds({}),{c(){it(e.$$.fragment),n=k(),it(r.$$.fragment)},m(t,s){st(e,t,s),b(t,n,s),st(r,t,s),i=!0},p(t,[n]){const r={};3&n&&(r.label=`${t[0][t[1]].title}`),e.$set(r)},i(t){i||(K(e.$$.fragment,t),K(r.$$.fragment,t),i=!0)},o(t){tt(e.$$.fragment,t),tt(r.$$.fragment,t),i=!1},d(t){ot(e,t),t&&x(n),ot(r,t)}}}function Mt(t,e,n){let r,i;return u(t,At,(t=>n(0,r=t))),u(t,St,(t=>n(1,i=t))),[r,i]}function Ct(e){let n,r,i,s;return n=new Tt({props:{label:"About me"}}),{c(){it(n.$$.fragment),r=k(),i=$("div"),i.innerHTML='<div class="page-title">About me</div> \n  <div class="page-paragraph"><p class="page-paragraph-body">I&#39;m Alain, a 24 years old boy.</p></div>',C(i,"class","page")},m(t,e){st(n,t,e),b(t,r,e),b(t,i,e),s=!0},p:t,i(t){s||(K(n.$$.fragment,t),s=!0)},o(t){tt(n.$$.fragment,t),s=!1},d(t){ot(n,t),t&&x(r),t&&x(i)}}}function Ot(e){let n,r,i,s;return n=new Tt({}),{c(){it(n.$$.fragment),r=k(),i=$("div"),i.innerHTML='<div class="page-title">Welcome</div> \n  <div class="page-paragraph"><p class="page-paragraph-body">Pick a project in the navigation and see what it has to offer 😺</p></div>',C(i,"class","page")},m(t,e){st(n,t,e),b(t,r,e),b(t,i,e),s=!0},p:t,i(t){s||(K(n.$$.fragment,t),s=!0)},o(t){tt(n.$$.fragment,t),s=!1},d(t){ot(n,t),t&&x(r),t&&x(i)}}}const At={subscribe:_t([],(t=>{fetch("../projectData.json").then((t=>t.json())).then((e=>{(new Image).src="./assets/images/logo-backdrop.png",e.forEach((t=>{(new Image).src=`${t.image}.webp`,t.logo&&((new Image).src=t.logo)})),t(e)}))})).subscribe};const St=_t(null),Dt=_t(window.matchMedia("(max-width: 575.98px)").matches);window.matchMedia("(max-width: 575.98px)").addEventListener("change",(t=>{Dt.set(t.matches)}));const Et={card:class extends lt{constructor(t){super(),ut(this,t,Mt,kt,a,{})}},aboutMe:class extends lt{constructor(t){super(),ut(this,t,null,Ct,a,{})}},home:class extends lt{constructor(t){super(),ut(this,t,null,Ot,a,{})}}},Pt=_t("home");function zt(t){if(void 0===t)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return t}function Ft(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e}
-/*!
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    const identity = x => x;
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function validate_store(store, name) {
+        if (store != null && typeof store.subscribe !== 'function') {
+            throw new Error(`'${name}' is not a store with a 'subscribe' method`);
+        }
+    }
+    function subscribe(store, ...callbacks) {
+        if (store == null) {
+            return noop;
+        }
+        const unsub = store.subscribe(...callbacks);
+        return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+    }
+    function component_subscribe(component, store, callback) {
+        component.$$.on_destroy.push(subscribe(store, callback));
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot(slot, slot_definition, ctx, $$scope, dirty, get_slot_changes_fn, get_slot_context_fn) {
+        const slot_changes = get_slot_changes(slot_definition, $$scope, dirty, get_slot_changes_fn);
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function set_store_value(store, ret, value = ret) {
+        store.set(value);
+        return ret;
+    }
+    function action_destroyer(action_result) {
+        return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+    }
+
+    const is_client = typeof window !== 'undefined';
+    let now = is_client
+        ? () => window.performance.now()
+        : () => Date.now();
+    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+    const tasks = new Set();
+    function run_tasks(now) {
+        tasks.forEach(task => {
+            if (!task.c(now)) {
+                tasks.delete(task);
+                task.f();
+            }
+        });
+        if (tasks.size !== 0)
+            raf(run_tasks);
+    }
+    /**
+     * Creates a new task that runs on each raf frame
+     * until it returns a falsy value or is aborted
+     */
+    function loop(callback) {
+        let task;
+        if (tasks.size === 0)
+            raf(run_tasks);
+        return {
+            promise: new Promise(fulfill => {
+                tasks.add(task = { c: callback, f: fulfill });
+            }),
+            abort() {
+                tasks.delete(task);
+            }
+        };
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+
+    const active_docs = new Set();
+    let active = 0;
+    // https://github.com/darkskyapp/string-hash/blob/master/index.js
+    function hash(str) {
+        let hash = 5381;
+        let i = str.length;
+        while (i--)
+            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+        return hash >>> 0;
+    }
+    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+        const step = 16.666 / duration;
+        let keyframes = '{\n';
+        for (let p = 0; p <= 1; p += step) {
+            const t = a + (b - a) * ease(p);
+            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+        }
+        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+        const name = `__svelte_${hash(rule)}_${uid}`;
+        const doc = node.ownerDocument;
+        active_docs.add(doc);
+        const stylesheet = doc.__svelte_stylesheet || (doc.__svelte_stylesheet = doc.head.appendChild(element('style')).sheet);
+        const current_rules = doc.__svelte_rules || (doc.__svelte_rules = {});
+        if (!current_rules[name]) {
+            current_rules[name] = true;
+            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+        }
+        const animation = node.style.animation || '';
+        node.style.animation = `${animation ? `${animation}, ` : ''}${name} ${duration}ms linear ${delay}ms 1 both`;
+        active += 1;
+        return name;
+    }
+    function delete_rule(node, name) {
+        const previous = (node.style.animation || '').split(', ');
+        const next = previous.filter(name
+            ? anim => anim.indexOf(name) < 0 // remove specific animation
+            : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+        );
+        const deleted = previous.length - next.length;
+        if (deleted) {
+            node.style.animation = next.join(', ');
+            active -= deleted;
+            if (!active)
+                clear_rules();
+        }
+    }
+    function clear_rules() {
+        raf(() => {
+            if (active)
+                return;
+            active_docs.forEach(doc => {
+                const stylesheet = doc.__svelte_stylesheet;
+                let i = stylesheet.cssRules.length;
+                while (i--)
+                    stylesheet.deleteRule(i);
+                doc.__svelte_rules = {};
+            });
+            active_docs.clear();
+        });
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function tick() {
+        schedule_update();
+        return resolved_promise;
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    let flushing = false;
+    const seen_callbacks = new Set();
+    function flush() {
+        if (flushing)
+            return;
+        flushing = true;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            for (let i = 0; i < dirty_components.length; i += 1) {
+                const component = dirty_components[i];
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        flushing = false;
+        seen_callbacks.clear();
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+
+    let promise;
+    function wait() {
+        if (!promise) {
+            promise = Promise.resolve();
+            promise.then(() => {
+                promise = null;
+            });
+        }
+        return promise;
+    }
+    function dispatch(node, direction, kind) {
+        node.dispatchEvent(custom_event(`${direction ? 'intro' : 'outro'}${kind}`));
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+    const null_transition = { duration: 0 };
+    function create_in_transition(node, fn, params) {
+        let config = fn(node, params);
+        let running = false;
+        let animation_name;
+        let task;
+        let uid = 0;
+        function cleanup() {
+            if (animation_name)
+                delete_rule(node, animation_name);
+        }
+        function go() {
+            const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+            if (css)
+                animation_name = create_rule(node, 0, 1, duration, delay, easing, css, uid++);
+            tick(0, 1);
+            const start_time = now() + delay;
+            const end_time = start_time + duration;
+            if (task)
+                task.abort();
+            running = true;
+            add_render_callback(() => dispatch(node, true, 'start'));
+            task = loop(now => {
+                if (running) {
+                    if (now >= end_time) {
+                        tick(1, 0);
+                        dispatch(node, true, 'end');
+                        cleanup();
+                        return running = false;
+                    }
+                    if (now >= start_time) {
+                        const t = easing((now - start_time) / duration);
+                        tick(t, 1 - t);
+                    }
+                }
+                return running;
+            });
+        }
+        let started = false;
+        return {
+            start() {
+                if (started)
+                    return;
+                delete_rule(node);
+                if (is_function(config)) {
+                    config = config();
+                    wait().then(go);
+                }
+                else {
+                    go();
+                }
+            },
+            invalidate() {
+                started = false;
+            },
+            end() {
+                if (running) {
+                    cleanup();
+                    running = false;
+                }
+            }
+        };
+    }
+    function outro_and_destroy_block(block, lookup) {
+        transition_out(block, 1, 1, () => {
+            lookup.delete(block.key);
+        });
+    }
+    function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block, next, get_context) {
+        let o = old_blocks.length;
+        let n = list.length;
+        let i = o;
+        const old_indexes = {};
+        while (i--)
+            old_indexes[old_blocks[i].key] = i;
+        const new_blocks = [];
+        const new_lookup = new Map();
+        const deltas = new Map();
+        i = n;
+        while (i--) {
+            const child_ctx = get_context(ctx, list, i);
+            const key = get_key(child_ctx);
+            let block = lookup.get(key);
+            if (!block) {
+                block = create_each_block(key, child_ctx);
+                block.c();
+            }
+            else if (dynamic) {
+                block.p(child_ctx, dirty);
+            }
+            new_lookup.set(key, new_blocks[i] = block);
+            if (key in old_indexes)
+                deltas.set(key, Math.abs(i - old_indexes[key]));
+        }
+        const will_move = new Set();
+        const did_move = new Set();
+        function insert(block) {
+            transition_in(block, 1);
+            block.m(node, next);
+            lookup.set(block.key, block);
+            next = block.first;
+            n--;
+        }
+        while (o && n) {
+            const new_block = new_blocks[n - 1];
+            const old_block = old_blocks[o - 1];
+            const new_key = new_block.key;
+            const old_key = old_block.key;
+            if (new_block === old_block) {
+                // do nothing
+                next = new_block.first;
+                o--;
+                n--;
+            }
+            else if (!new_lookup.has(old_key)) {
+                // remove old block
+                destroy(old_block, lookup);
+                o--;
+            }
+            else if (!lookup.has(new_key) || will_move.has(new_key)) {
+                insert(new_block);
+            }
+            else if (did_move.has(old_key)) {
+                o--;
+            }
+            else if (deltas.get(new_key) > deltas.get(old_key)) {
+                did_move.add(new_key);
+                insert(new_block);
+            }
+            else {
+                will_move.add(old_key);
+                o--;
+            }
+        }
+        while (o--) {
+            const old_block = old_blocks[o];
+            if (!new_lookup.has(old_block.key))
+                destroy(old_block, lookup);
+        }
+        while (n)
+            insert(new_blocks[n - 1]);
+        return new_blocks;
+    }
+    function validate_each_keys(ctx, list, get_context, get_key) {
+        const keys = new Set();
+        for (let i = 0; i < list.length; i++) {
+            const key = get_key(get_context(ctx, list, i));
+            if (keys.has(key)) {
+                throw new Error('Cannot have duplicate keys in a keyed each');
+            }
+            keys.add(key);
+        }
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const prop_values = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, prop_values, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.31.2' }, detail)));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    /*
+    Adapted from https://github.com/mattdesl
+    Distributed under MIT License https://github.com/mattdesl/eases/blob/master/LICENSE.md
+    */
+    function backInOut(t) {
+        const s = 1.70158 * 1.525;
+        if ((t *= 2) < 1)
+            return 0.5 * (t * t * ((s + 1) * t - s));
+        return 0.5 * ((t -= 2) * t * ((s + 1) * t + s) + 2);
+    }
+    function backIn(t) {
+        const s = 1.70158;
+        return t * t * ((s + 1) * t - s);
+    }
+    function backOut(t) {
+        const s = 1.70158;
+        return --t * t * ((s + 1) * t + s) + 1;
+    }
+    function bounceOut(t) {
+        const a = 4.0 / 11.0;
+        const b = 8.0 / 11.0;
+        const c = 9.0 / 10.0;
+        const ca = 4356.0 / 361.0;
+        const cb = 35442.0 / 1805.0;
+        const cc = 16061.0 / 1805.0;
+        const t2 = t * t;
+        return t < a
+            ? 7.5625 * t2
+            : t < b
+                ? 9.075 * t2 - 9.9 * t + 3.4
+                : t < c
+                    ? ca * t2 - cb * t + cc
+                    : 10.8 * t * t - 20.52 * t + 10.72;
+    }
+    function bounceInOut(t) {
+        return t < 0.5
+            ? 0.5 * (1.0 - bounceOut(1.0 - t * 2.0))
+            : 0.5 * bounceOut(t * 2.0 - 1.0) + 0.5;
+    }
+    function bounceIn(t) {
+        return 1.0 - bounceOut(1.0 - t);
+    }
+    function circInOut(t) {
+        if ((t *= 2) < 1)
+            return -0.5 * (Math.sqrt(1 - t * t) - 1);
+        return 0.5 * (Math.sqrt(1 - (t -= 2) * t) + 1);
+    }
+    function circIn(t) {
+        return 1.0 - Math.sqrt(1.0 - t * t);
+    }
+    function circOut(t) {
+        return Math.sqrt(1 - --t * t);
+    }
+    function cubicInOut(t) {
+        return t < 0.5 ? 4.0 * t * t * t : 0.5 * Math.pow(2.0 * t - 2.0, 3.0) + 1.0;
+    }
+    function cubicIn(t) {
+        return t * t * t;
+    }
+    function cubicOut(t) {
+        const f = t - 1.0;
+        return f * f * f + 1.0;
+    }
+    function elasticInOut(t) {
+        return t < 0.5
+            ? 0.5 *
+                Math.sin(((+13.0 * Math.PI) / 2) * 2.0 * t) *
+                Math.pow(2.0, 10.0 * (2.0 * t - 1.0))
+            : 0.5 *
+                Math.sin(((-13.0 * Math.PI) / 2) * (2.0 * t - 1.0 + 1.0)) *
+                Math.pow(2.0, -10.0 * (2.0 * t - 1.0)) +
+                1.0;
+    }
+    function elasticIn(t) {
+        return Math.sin((13.0 * t * Math.PI) / 2) * Math.pow(2.0, 10.0 * (t - 1.0));
+    }
+    function elasticOut(t) {
+        return (Math.sin((-13.0 * (t + 1.0) * Math.PI) / 2) * Math.pow(2.0, -10.0 * t) + 1.0);
+    }
+    function expoInOut(t) {
+        return t === 0.0 || t === 1.0
+            ? t
+            : t < 0.5
+                ? +0.5 * Math.pow(2.0, 20.0 * t - 10.0)
+                : -0.5 * Math.pow(2.0, 10.0 - t * 20.0) + 1.0;
+    }
+    function expoIn(t) {
+        return t === 0.0 ? t : Math.pow(2.0, 10.0 * (t - 1.0));
+    }
+    function expoOut(t) {
+        return t === 1.0 ? t : 1.0 - Math.pow(2.0, -10.0 * t);
+    }
+    function quadInOut(t) {
+        t /= 0.5;
+        if (t < 1)
+            return 0.5 * t * t;
+        t--;
+        return -0.5 * (t * (t - 2) - 1);
+    }
+    function quadIn(t) {
+        return t * t;
+    }
+    function quadOut(t) {
+        return -t * (t - 2.0);
+    }
+    function quartInOut(t) {
+        return t < 0.5
+            ? +8.0 * Math.pow(t, 4.0)
+            : -8.0 * Math.pow(t - 1.0, 4.0) + 1.0;
+    }
+    function quartIn(t) {
+        return Math.pow(t, 4.0);
+    }
+    function quartOut(t) {
+        return Math.pow(t - 1.0, 3.0) * (1.0 - t) + 1.0;
+    }
+    function quintInOut(t) {
+        if ((t *= 2) < 1)
+            return 0.5 * t * t * t * t * t;
+        return 0.5 * ((t -= 2) * t * t * t * t + 2);
+    }
+    function quintIn(t) {
+        return t * t * t * t * t;
+    }
+    function quintOut(t) {
+        return --t * t * t * t * t + 1;
+    }
+    function sineInOut(t) {
+        return -0.5 * (Math.cos(Math.PI * t) - 1);
+    }
+    function sineIn(t) {
+        const v = Math.cos(t * Math.PI * 0.5);
+        if (Math.abs(v) < 1e-14)
+            return 1;
+        else
+            return 1 - v;
+    }
+    function sineOut(t) {
+        return Math.sin((t * Math.PI) / 2);
+    }
+
+    var ease = /*#__PURE__*/Object.freeze({
+        __proto__: null,
+        backIn: backIn,
+        backInOut: backInOut,
+        backOut: backOut,
+        bounceIn: bounceIn,
+        bounceInOut: bounceInOut,
+        bounceOut: bounceOut,
+        circIn: circIn,
+        circInOut: circInOut,
+        circOut: circOut,
+        cubicIn: cubicIn,
+        cubicInOut: cubicInOut,
+        cubicOut: cubicOut,
+        elasticIn: elasticIn,
+        elasticInOut: elasticInOut,
+        elasticOut: elasticOut,
+        expoIn: expoIn,
+        expoInOut: expoInOut,
+        expoOut: expoOut,
+        quadIn: quadIn,
+        quadInOut: quadInOut,
+        quadOut: quadOut,
+        quartIn: quartIn,
+        quartInOut: quartInOut,
+        quartOut: quartOut,
+        quintIn: quintIn,
+        quintInOut: quintInOut,
+        quintOut: quintOut,
+        sineIn: sineIn,
+        sineInOut: sineInOut,
+        sineOut: sineOut,
+        linear: identity
+    });
+
+    function fly(node, { delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0, opacity = 0 }) {
+        const style = getComputedStyle(node);
+        const target_opacity = +style.opacity;
+        const transform = style.transform === 'none' ? '' : style.transform;
+        const od = target_opacity * (1 - opacity);
+        return {
+            delay,
+            duration,
+            easing,
+            css: (t, u) => `
+			transform: ${transform} translate(${(1 - t) * x}px, ${(1 - t) * y}px);
+			opacity: ${target_opacity - (od * u)}`
+        };
+    }
+    function slide(node, { delay = 0, duration = 400, easing = cubicOut }) {
+        const style = getComputedStyle(node);
+        const opacity = +style.opacity;
+        const height = parseFloat(style.height);
+        const padding_top = parseFloat(style.paddingTop);
+        const padding_bottom = parseFloat(style.paddingBottom);
+        const margin_top = parseFloat(style.marginTop);
+        const margin_bottom = parseFloat(style.marginBottom);
+        const border_top_width = parseFloat(style.borderTopWidth);
+        const border_bottom_width = parseFloat(style.borderBottomWidth);
+        return {
+            delay,
+            duration,
+            easing,
+            css: t => 'overflow: hidden;' +
+                `opacity: ${Math.min(t * 20, 1) * opacity};` +
+                `height: ${t * height}px;` +
+                `padding-top: ${t * padding_top}px;` +
+                `padding-bottom: ${t * padding_bottom}px;` +
+                `margin-top: ${t * margin_top}px;` +
+                `margin-bottom: ${t * margin_bottom}px;` +
+                `border-top-width: ${t * border_top_width}px;` +
+                `border-bottom-width: ${t * border_bottom_width}px;`
+        };
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Creates a `Readable` store that allows reading by subscription.
+     * @param value initial value
+     * @param {StartStopNotifier}start start and stop notifications for subscriptions
+     */
+    function readable(value, start) {
+        return {
+            subscribe: writable(value, start).subscribe
+        };
+    }
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = [];
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (let i = 0; i < subscribers.length; i += 1) {
+                        const s = subscribers[i];
+                        s[1]();
+                        subscriber_queue.push(s, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.push(subscriber);
+            if (subscribers.length === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                const index = subscribers.indexOf(subscriber);
+                if (index !== -1) {
+                    subscribers.splice(index, 1);
+                }
+                if (subscribers.length === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    function is_date(obj) {
+        return Object.prototype.toString.call(obj) === '[object Date]';
+    }
+
+    function get_interpolator(a, b) {
+        if (a === b || a !== a)
+            return () => a;
+        const type = typeof a;
+        if (type !== typeof b || Array.isArray(a) !== Array.isArray(b)) {
+            throw new Error('Cannot interpolate values of different type');
+        }
+        if (Array.isArray(a)) {
+            const arr = b.map((bi, i) => {
+                return get_interpolator(a[i], bi);
+            });
+            return t => arr.map(fn => fn(t));
+        }
+        if (type === 'object') {
+            if (!a || !b)
+                throw new Error('Object cannot be null');
+            if (is_date(a) && is_date(b)) {
+                a = a.getTime();
+                b = b.getTime();
+                const delta = b - a;
+                return t => new Date(a + t * delta);
+            }
+            const keys = Object.keys(b);
+            const interpolators = {};
+            keys.forEach(key => {
+                interpolators[key] = get_interpolator(a[key], b[key]);
+            });
+            return t => {
+                const result = {};
+                keys.forEach(key => {
+                    result[key] = interpolators[key](t);
+                });
+                return result;
+            };
+        }
+        if (type === 'number') {
+            const delta = b - a;
+            return t => a + t * delta;
+        }
+        throw new Error(`Cannot interpolate ${type} values`);
+    }
+    function tweened(value, defaults = {}) {
+        const store = writable(value);
+        let task;
+        let target_value = value;
+        function set(new_value, opts) {
+            if (value == null) {
+                store.set(value = new_value);
+                return Promise.resolve();
+            }
+            target_value = new_value;
+            let previous_task = task;
+            let started = false;
+            let { delay = 0, duration = 400, easing = identity, interpolate = get_interpolator } = assign(assign({}, defaults), opts);
+            if (duration === 0) {
+                if (previous_task) {
+                    previous_task.abort();
+                    previous_task = null;
+                }
+                store.set(value = target_value);
+                return Promise.resolve();
+            }
+            const start = now() + delay;
+            let fn;
+            task = loop(now => {
+                if (now < start)
+                    return true;
+                if (!started) {
+                    fn = interpolate(value, new_value);
+                    if (typeof duration === 'function')
+                        duration = duration(value, new_value);
+                    started = true;
+                }
+                if (previous_task) {
+                    previous_task.abort();
+                    previous_task = null;
+                }
+                const elapsed = now - start;
+                if (elapsed > duration) {
+                    store.set(value = new_value);
+                    return false;
+                }
+                // @ts-ignore
+                store.set(value = fn(easing(elapsed / duration)));
+                return true;
+            });
+            return task.promise;
+        }
+        return {
+            set,
+            update: (fn, opts) => set(fn(target_value, value), opts),
+            subscribe: store.subscribe
+        };
+    }
+
+    /* src\components\animations\StairCase.svelte generated by Svelte v3.31.2 */
+    const file = "src\\components\\animations\\StairCase.svelte";
+
+    function create_fragment(ctx) {
+    	let div;
+    	let div_style_value;
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[14].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[13], null);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if (default_slot) default_slot.c();
+    			attr_dev(div, "style", div_style_value = `clip-path:inset(${100 - /*$x*/ ctx[1]}% ${100 - /*$y*/ ctx[2]}% 0 0);`);
+    			add_location(div, file, 46, 0, 1107);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			/*div_binding*/ ctx[15](div);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 8192) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[13], dirty, null, null);
+    				}
+    			}
+
+    			if (!current || dirty & /*$x, $y*/ 6 && div_style_value !== (div_style_value = `clip-path:inset(${100 - /*$x*/ ctx[1]}% ${100 - /*$y*/ ctx[2]}% 0 0);`)) {
+    				attr_dev(div, "style", div_style_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (default_slot) default_slot.d(detaching);
+    			/*div_binding*/ ctx[15](null);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let xDone;
+    	let yDone;
+    	let $x;
+    	let $y;
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("StairCase", slots, ['default']);
+    	let { timeout = 150 } = $$props;
+
+    	let { onEnd = () => {
+    		
+    	} } = $$props;
+
+    	let { onBeforeEnd = () => {
+    		
+    	} } = $$props;
+
+    	let { onStep = () => {
+    		
+    	} } = $$props;
+
+    	timeout = Math.max(100, timeout);
+    	const steps = [0, 12.5, 25, 50, 100];
+    	let container;
+    	let ix = 0;
+    	let iy = 0;
+
+    	const options = {
+    		easing: circInOut,
+    		duration: timeout,
+    		delay: timeout / 5
+    	};
+
+    	const x = tweened(0, options);
+    	validate_store(x, "x");
+    	component_subscribe($$self, x, value => $$invalidate(1, $x = value));
+    	const y = tweened(0, options);
+    	validate_store(y, "y");
+    	component_subscribe($$self, y, value => $$invalidate(2, $y = value));
+
+    	function updateX() {
+    		if (xDone) return;
+    		$$invalidate(9, ix += 1);
+
+    		x.update(() => {
+    			onStep();
+    			return steps[ix];
+    		}).then(updateY);
+    	}
+
+    	function updateY() {
+    		if (yDone) return;
+    		if (iy >= steps.length - 1) return;
+    		$$invalidate(10, iy += 1);
+
+    		y.update(() => {
+    			onStep();
+    			return steps[iy];
+    		}).then(updateX);
+    	}
+
+    	updateX();
+    	const writable_props = ["timeout", "onEnd", "onBeforeEnd", "onStep"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<StairCase> was created with unknown prop '${key}'`);
+    	});
+
+    	function div_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			container = $$value;
+    			$$invalidate(0, container);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("timeout" in $$props) $$invalidate(5, timeout = $$props.timeout);
+    		if ("onEnd" in $$props) $$invalidate(6, onEnd = $$props.onEnd);
+    		if ("onBeforeEnd" in $$props) $$invalidate(7, onBeforeEnd = $$props.onBeforeEnd);
+    		if ("onStep" in $$props) $$invalidate(8, onStep = $$props.onStep);
+    		if ("$$scope" in $$props) $$invalidate(13, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		backIn,
+    		ease,
+    		tweened,
+    		timeout,
+    		onEnd,
+    		onBeforeEnd,
+    		onStep,
+    		steps,
+    		container,
+    		ix,
+    		iy,
+    		options,
+    		x,
+    		y,
+    		updateX,
+    		updateY,
+    		xDone,
+    		yDone,
+    		$x,
+    		$y
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("timeout" in $$props) $$invalidate(5, timeout = $$props.timeout);
+    		if ("onEnd" in $$props) $$invalidate(6, onEnd = $$props.onEnd);
+    		if ("onBeforeEnd" in $$props) $$invalidate(7, onBeforeEnd = $$props.onBeforeEnd);
+    		if ("onStep" in $$props) $$invalidate(8, onStep = $$props.onStep);
+    		if ("container" in $$props) $$invalidate(0, container = $$props.container);
+    		if ("ix" in $$props) $$invalidate(9, ix = $$props.ix);
+    		if ("iy" in $$props) $$invalidate(10, iy = $$props.iy);
+    		if ("xDone" in $$props) $$invalidate(11, xDone = $$props.xDone);
+    		if ("yDone" in $$props) $$invalidate(12, yDone = $$props.yDone);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*ix*/ 512) {
+    			 $$invalidate(11, xDone = ix >= steps.length - 1);
+    		}
+
+    		if ($$self.$$.dirty & /*iy*/ 1024) {
+    			 $$invalidate(12, yDone = iy >= steps.length - 1);
+    		}
+
+    		if ($$self.$$.dirty & /*xDone, yDone, onEnd, timeout*/ 6240) {
+    			 xDone && yDone && setTimeout(onEnd, timeout);
+    		}
+
+    		if ($$self.$$.dirty & /*xDone, yDone, onBeforeEnd*/ 6272) {
+    			 xDone && yDone && onBeforeEnd();
+    		}
+    	};
+
+    	return [
+    		container,
+    		$x,
+    		$y,
+    		x,
+    		y,
+    		timeout,
+    		onEnd,
+    		onBeforeEnd,
+    		onStep,
+    		ix,
+    		iy,
+    		xDone,
+    		yDone,
+    		$$scope,
+    		slots,
+    		div_binding
+    	];
+    }
+
+    class StairCase extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance, create_fragment, safe_not_equal, {
+    			timeout: 5,
+    			onEnd: 6,
+    			onBeforeEnd: 7,
+    			onStep: 8
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "StairCase",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+
+    	get timeout() {
+    		throw new Error("<StairCase>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set timeout(value) {
+    		throw new Error("<StairCase>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onEnd() {
+    		throw new Error("<StairCase>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set onEnd(value) {
+    		throw new Error("<StairCase>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onBeforeEnd() {
+    		throw new Error("<StairCase>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set onBeforeEnd(value) {
+    		throw new Error("<StairCase>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onStep() {
+    		throw new Error("<StairCase>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set onStep(value) {
+    		throw new Error("<StairCase>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\nav\Title.svelte generated by Svelte v3.31.2 */
+
+    function create_fragment$1(ctx) {
+    	let title_value;
+    	document.title = title_value = "My Projects " + (/*label*/ ctx[0] ? `- ${/*label*/ ctx[0]}` : "");
+
+    	const block = {
+    		c: noop,
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: noop,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*label*/ 1 && title_value !== (title_value = "My Projects " + (/*label*/ ctx[0] ? `- ${/*label*/ ctx[0]}` : ""))) {
+    				document.title = title_value;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: noop
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Title", slots, []);
+    	let { label = "" } = $$props;
+    	const writable_props = ["label"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Title> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+    	};
+
+    	$$self.$capture_state = () => ({ label });
+
+    	$$self.$inject_state = $$props => {
+    		if ("label" in $$props) $$invalidate(0, label = $$props.label);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [label];
+    }
+
+    class Title extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { label: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Title",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+
+    	get label() {
+    		throw new Error("<Title>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set label(value) {
+    		throw new Error("<Title>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\views\CardView.svelte generated by Svelte v3.31.2 */
+
+    function create_fragment$2(ctx) {
+    	let title;
+    	let t;
+    	let card;
+    	let current;
+
+    	title = new Title({
+    			props: {
+    				label: `${/*$cardData*/ ctx[0][/*$selectedCard*/ ctx[1]].title}`
+    			},
+    			$$inline: true
+    		});
+
+    	card = new Card({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(title.$$.fragment);
+    			t = space();
+    			create_component(card.$$.fragment);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(title, target, anchor);
+    			insert_dev(target, t, anchor);
+    			mount_component(card, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const title_changes = {};
+    			if (dirty & /*$cardData, $selectedCard*/ 3) title_changes.label = `${/*$cardData*/ ctx[0][/*$selectedCard*/ ctx[1]].title}`;
+    			title.$set(title_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(title.$$.fragment, local);
+    			transition_in(card.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(title.$$.fragment, local);
+    			transition_out(card.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(title, detaching);
+    			if (detaching) detach_dev(t);
+    			destroy_component(card, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let $cardData;
+    	let $selectedCard;
+    	validate_store(cardData, "cardData");
+    	component_subscribe($$self, cardData, $$value => $$invalidate(0, $cardData = $$value));
+    	validate_store(selectedCard, "selectedCard");
+    	component_subscribe($$self, selectedCard, $$value => $$invalidate(1, $selectedCard = $$value));
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("CardView", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<CardView> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		Card,
+    		Title,
+    		cardData,
+    		selectedCard,
+    		$cardData,
+    		$selectedCard
+    	});
+
+    	return [$cardData, $selectedCard];
+    }
+
+    class CardView extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "CardView",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+    }
+
+    /* src\views\AboutMeView.svelte generated by Svelte v3.31.2 */
+    const file$1 = "src\\views\\AboutMeView.svelte";
+
+    function create_fragment$3(ctx) {
+    	let title;
+    	let t0;
+    	let div2;
+    	let div0;
+    	let t2;
+    	let div1;
+    	let p;
+    	let current;
+
+    	title = new Title({
+    			props: { label: "About me" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(title.$$.fragment);
+    			t0 = space();
+    			div2 = element("div");
+    			div0 = element("div");
+    			div0.textContent = "About me";
+    			t2 = space();
+    			div1 = element("div");
+    			p = element("p");
+    			p.textContent = "I'm Alain, a 24 years old boy.";
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$1, 6, 2, 133);
+    			attr_dev(p, "class", "page-paragraph-body");
+    			add_location(p, file$1, 8, 4, 207);
+    			attr_dev(div1, "class", "page-paragraph");
+    			add_location(div1, file$1, 7, 2, 174);
+    			attr_dev(div2, "class", "page");
+    			add_location(div2, file$1, 5, 0, 112);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(title, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, p);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(title.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(title.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(title, detaching);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("AboutMeView", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<AboutMeView> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({ Title });
+    	return [];
+    }
+
+    class AboutMeView extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "AboutMeView",
+    			options,
+    			id: create_fragment$3.name
+    		});
+    	}
+    }
+
+    /* src\views\HomeView.svelte generated by Svelte v3.31.2 */
+    const file$2 = "src\\views\\HomeView.svelte";
+
+    function create_fragment$4(ctx) {
+    	let title;
+    	let t0;
+    	let div2;
+    	let div0;
+    	let t2;
+    	let div1;
+    	let p;
+    	let current;
+    	title = new Title({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(title.$$.fragment);
+    			t0 = space();
+    			div2 = element("div");
+    			div0 = element("div");
+    			div0.textContent = "Welcome";
+    			t2 = space();
+    			div1 = element("div");
+    			p = element("p");
+    			p.textContent = "Pick a project in the navigation and see what it has to offer 😺";
+    			attr_dev(div0, "class", "page-title");
+    			add_location(div0, file$2, 5, 2, 113);
+    			attr_dev(p, "class", "page-paragraph-body");
+    			add_location(p, file$2, 7, 4, 186);
+    			attr_dev(div1, "class", "page-paragraph");
+    			add_location(div1, file$2, 6, 2, 153);
+    			attr_dev(div2, "class", "page");
+    			add_location(div2, file$2, 4, 0, 92);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(title, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			append_dev(div1, p);
+    			current = true;
+    		},
+    		p: noop,
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(title.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(title.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(title, detaching);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("HomeView", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<HomeView> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({ Title });
+    	return [];
+    }
+
+    class HomeView extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "HomeView",
+    			options,
+    			id: create_fragment$4.name
+    		});
+    	}
+    }
+
+    const cardData = readable([], (set) => {
+        fetch('../projectData.json')
+            .then((response) => response.json())
+            .then((json) => {
+            new Image().src = './assets/images/logo-backdrop.png';
+            json.forEach(data => {
+                new Image().src = `${data.image}.webp`;
+                if (data.logo) {
+                    new Image().src = data.logo;
+                }
+            });
+            set(json);
+        });
+    });
+    const selectedCard = writable(null);
+    const isSmallDevice = writable(window.matchMedia('(max-width: 575.98px)').matches);
+    window
+        .matchMedia('(max-width: 575.98px)')
+        .addEventListener('change', (query) => {
+        isSmallDevice.set(query.matches);
+    });
+    const router = {
+        card: CardView,
+        aboutMe: AboutMeView,
+        home: HomeView
+    };
+    const currentRoute = writable('home');
+
+    function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+    function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+    /*!
      * GSAP 3.6.0
      * https://greensock.com
      *
@@ -7,8 +1819,3805 @@ var app=function(){"use strict";function t(){}const e=t=>t;function n(t,e){for(c
      * Subject to the terms at https://greensock.com/standard-license or for
      * Club GreenSock members, the agreement issued with that membership.
      * @author: Jack Doyle, jack@greensock.com
-    */var Rt,Bt,Yt,Xt,It,Lt,jt,Nt,Ut,qt,Ht,Vt,Wt,Gt,Zt,Qt,Jt,Kt,te,ee,ne,re,ie,se,oe,ae,ue,le,he={autoSleep:120,force3D:"auto",nullTargetWarn:1,units:{lineHeight:""}},ce={duration:.5,overwrite:!1,delay:0},fe=1e8,de=1e-8,pe=2*Math.PI,_e=pe/4,me=0,ge=Math.sqrt,ve=Math.cos,ye=Math.sin,be=function(t){return"string"==typeof t},xe=function(t){return"function"==typeof t},we=function(t){return"number"==typeof t},$e=function(t){return void 0===t},Te=function(t){return"object"==typeof t},ke=function(t){return!1!==t},Me=function(){return"undefined"!=typeof window},Ce=function(t){return xe(t)||be(t)},Oe="function"==typeof ArrayBuffer&&ArrayBuffer.isView||function(){},Ae=Array.isArray,Se=/(?:-?\.?\d|\.)+/gi,De=/[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,Ee=/[-+=.]*\d+[.e-]*\d*[a-z%]*/g,Pe=/[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,ze=/[+-]=-?[.\d]+/,Fe=/[#\-+.]*\b[a-z\d-=+%.]+/gi,Re=/[\d.+\-=]+(?:e[-+]\d*)*/i,Be={},Ye={},Xe=function(t){return(Ye=fn(t,Be))&&Qr},Ie=function(t,e){return console.warn("Invalid property",t,"set to",e,"Missing plugin? gsap.registerPlugin()")},Le=function(t,e){return!e&&console.warn(t)},je=function(t,e){return t&&(Be[t]=e)&&Ye&&(Ye[t]=e)||Be},Ne=function(){return 0},Ue={},qe=[],He={},Ve={},We={},Ge=30,Ze=[],Qe="",Je=function(t){var e,n,r=t[0];if(Te(r)||xe(r)||(t=[t]),!(e=(r._gsap||{}).harness)){for(n=Ze.length;n--&&!Ze[n].targetTest(r););e=Ze[n]}for(n=t.length;n--;)t[n]&&(t[n]._gsap||(t[n]._gsap=new wr(t[n],e)))||t.splice(n,1);return t},Ke=function(t){return t._gsap||Je(Ln(t))[0]._gsap},tn=function(t,e,n){return(n=t[e])&&xe(n)?t[e]():$e(n)&&t.getAttribute&&t.getAttribute(e)||n},en=function(t,e){return(t=t.split(",")).forEach(e)||t},nn=function(t){return Math.round(1e5*t)/1e5||0},rn=function(t,e){for(var n=e.length,r=0;t.indexOf(e[r])<0&&++r<n;);return r<n},sn=function(t,e,n){var r,i=we(t[1]),s=(i?2:1)+(e<2?0:1),o=t[s];if(i&&(o.duration=t[1]),o.parent=n,e){for(r=o;n&&!("immediateRender"in r);)r=n.vars.defaults||{},n=ke(n.vars.inherit)&&n.parent;o.immediateRender=ke(r.immediateRender),e<2?o.runBackwards=1:o.startAt=t[s-1]}return o},on=function(){var t,e,n=qe.length,r=qe.slice(0);for(He={},qe.length=0,t=0;t<n;t++)(e=r[t])&&e._lazy&&(e.render(e._lazy[0],e._lazy[1],!0)._lazy=0)},an=function(t,e,n,r){qe.length&&on(),t.render(e,n,r),qe.length&&on()},un=function(t){var e=parseFloat(t);return(e||0===e)&&(t+"").match(Fe).length<2?e:be(t)?t.trim():t},ln=function(t){return t},hn=function(t,e){for(var n in e)n in t||(t[n]=e[n]);return t},cn=function(t,e){for(var n in e)n in t||"duration"===n||"ease"===n||(t[n]=e[n])},fn=function(t,e){for(var n in e)t[n]=e[n];return t},dn=function t(e,n){for(var r in n)"__proto__"!==r&&"constructor"!==r&&"prototype"!==r&&(e[r]=Te(n[r])?t(e[r]||(e[r]={}),n[r]):n[r]);return e},pn=function(t,e){var n,r={};for(n in t)n in e||(r[n]=t[n]);return r},_n=function(t){var e=t.parent||Bt,n=t.keyframes?cn:hn;if(ke(t.inherit))for(;e;)n(t,e.vars.defaults),e=e.parent||e._dp;return t},mn=function(t,e,n,r){void 0===n&&(n="_first"),void 0===r&&(r="_last");var i=e._prev,s=e._next;i?i._next=s:t[n]===e&&(t[n]=s),s?s._prev=i:t[r]===e&&(t[r]=i),e._next=e._prev=e.parent=null},gn=function(t,e){t.parent&&(!e||t.parent.autoRemoveChildren)&&t.parent.remove(t),t._act=0},vn=function(t,e){if(t&&(!e||e._end>t._dur||e._start<0))for(var n=t;n;)n._dirty=1,n=n.parent;return t},yn=function(t){for(var e=t.parent;e&&e.parent;)e._dirty=1,e.totalDuration(),e=e.parent;return t},bn=function t(e){return!e||e._ts&&t(e.parent)},xn=function(t){return t._repeat?wn(t._tTime,t=t.duration()+t._rDelay)*t:0},wn=function(t,e){var n=Math.floor(t/=e);return t&&n===t?n-1:n},$n=function(t,e){return(t-e._start)*e._ts+(e._ts>=0?0:e._dirty?e.totalDuration():e._tDur)},Tn=function(t){return t._end=nn(t._start+(t._tDur/Math.abs(t._ts||t._rts||de)||0))},kn=function(t,e){var n=t._dp;return n&&n.smoothChildTiming&&t._ts&&(t._start=nn(n._time-(t._ts>0?e/t._ts:((t._dirty?t.totalDuration():t._tDur)-e)/-t._ts)),Tn(t),n._dirty||vn(n,t)),t},Mn=function(t,e){var n;if((e._time||e._initted&&!e._dur)&&(n=$n(t.rawTime(),e),(!e._dur||Rn(0,e.totalDuration(),n)-e._tTime>de)&&e.render(n,!0)),vn(t,e)._dp&&t._initted&&t._time>=t._dur&&t._ts){if(t._dur<t.duration())for(n=t;n._dp;)n.rawTime()>=0&&n.totalTime(n._tTime),n=n._dp;t._zTime=-1e-8}},Cn=function(t,e,n,r){return e.parent&&gn(e),e._start=nn(n+e._delay),e._end=nn(e._start+(e.totalDuration()/Math.abs(e.timeScale())||0)),function(t,e,n,r,i){void 0===n&&(n="_first"),void 0===r&&(r="_last");var s,o=t[r];if(i)for(s=e[i];o&&o[i]>s;)o=o._prev;o?(e._next=o._next,o._next=e):(e._next=t[n],t[n]=e),e._next?e._next._prev=e:t[r]=e,e._prev=o,e.parent=e._dp=t}(t,e,"_first","_last",t._sort?"_start":0),t._recent=e,r||Mn(t,e),t},On=function(t,e){return(Be.ScrollTrigger||Ie("scrollTrigger",e))&&Be.ScrollTrigger.create(e,t)},An=function(t,e,n,r){return Ar(t,e),t._initted?!n&&t._pt&&(t._dur&&!1!==t.vars.lazy||!t._dur&&t.vars.lazy)&&jt!==lr.frame?(qe.push(t),t._lazy=[e,r],1):void 0:1},Sn=function t(e){var n=e.parent;return n&&n._ts&&n._initted&&!n._lock&&(n.rawTime()<0||t(n))},Dn=function(t,e,n,r){var i=t._repeat,s=nn(e)||0,o=t._tTime/t._tDur;return o&&!r&&(t._time*=s/t._dur),t._dur=s,t._tDur=i?i<0?1e10:nn(s*(i+1)+t._rDelay*i):s,o&&!r?kn(t,t._tTime=t._tDur*o):t.parent&&Tn(t),n||vn(t.parent,t),t},En=function(t){return t instanceof Tr?vn(t):Dn(t,t._dur)},Pn={_start:0,endTime:Ne},zn=function t(e,n){var r,i,s=e.labels,o=e._recent||Pn,a=e.duration()>=fe?o.endTime(!1):e._dur;return be(n)&&(isNaN(n)||n in s)?"<"===(r=n.charAt(0))||">"===r?("<"===r?o._start:o.endTime(o._repeat>=0))+(parseFloat(n.substr(1))||0):(r=n.indexOf("="))<0?(n in s||(s[n]=a),s[n]):(i=+(n.charAt(r-1)+n.substr(r+1)),r>1?t(e,n.substr(0,r-1))+i:a+i):null==n?a:+n},Fn=function(t,e){return t||0===t?e(t):e},Rn=function(t,e,n){return n<t?t:n>e?e:n},Bn=function(t){if("string"!=typeof t)return"";var e=Re.exec(t);return e?t.substr(e.index+e[0].length):""},Yn=[].slice,Xn=function(t,e){return t&&Te(t)&&"length"in t&&(!e&&!t.length||t.length-1 in t&&Te(t[0]))&&!t.nodeType&&t!==Yt},In=function(t,e,n){return void 0===n&&(n=[]),t.forEach((function(t){var r;return be(t)&&!e||Xn(t,1)?(r=n).push.apply(r,Ln(t)):n.push(t)}))||n},Ln=function(t,e){return!be(t)||e||!Xt&&hr()?Ae(t)?In(t,e):Xn(t)?Yn.call(t,0):t?[t]:[]:Yn.call(It.querySelectorAll(t),0)},jn=function(t){return t.sort((function(){return.5-Math.random()}))},Nn=function(t){if(xe(t))return t;var e=Te(t)?t:{each:t},n=gr(e.ease),r=e.from||0,i=parseFloat(e.base)||0,s={},o=r>0&&r<1,a=isNaN(r)||o,u=e.axis,l=r,h=r;return be(r)?l=h={center:.5,edges:.5,end:1}[r]||0:!o&&a&&(l=r[0],h=r[1]),function(t,o,c){var f,d,p,_,m,g,v,y,b,x=(c||e).length,w=s[x];if(!w){if(!(b="auto"===e.grid?0:(e.grid||[1,fe])[1])){for(v=-fe;v<(v=c[b++].getBoundingClientRect().left)&&b<x;);b--}for(w=s[x]=[],f=a?Math.min(b,x)*l-.5:r%b,d=a?x*h/b-.5:r/b|0,v=0,y=fe,g=0;g<x;g++)p=g%b-f,_=d-(g/b|0),w[g]=m=u?Math.abs("y"===u?_:p):ge(p*p+_*_),m>v&&(v=m),m<y&&(y=m);"random"===r&&jn(w),w.max=v-y,w.min=y,w.v=x=(parseFloat(e.amount)||parseFloat(e.each)*(b>x?x-1:u?"y"===u?x/b:b:Math.max(b,x/b))||0)*("edges"===r?-1:1),w.b=x<0?i-x:i,w.u=Bn(e.amount||e.each)||0,n=n&&x<0?_r(n):n}return x=(w[t]-w.min)/w.max||0,nn(w.b+(n?n(x):x)*w.v)+w.u}},Un=function(t){var e=t<1?Math.pow(10,(t+"").length-2):1;return function(n){var r=Math.round(parseFloat(n)/t)*t*e;return(r-r%1)/e+(we(n)?0:Bn(n))}},qn=function(t,e){var n,r,i=Ae(t);return!i&&Te(t)&&(n=i=t.radius||fe,t.values?(t=Ln(t.values),(r=!we(t[0]))&&(n*=n)):t=Un(t.increment)),Fn(e,i?xe(t)?function(e){return r=t(e),Math.abs(r-e)<=n?r:e}:function(e){for(var i,s,o=parseFloat(r?e.x:e),a=parseFloat(r?e.y:0),u=fe,l=0,h=t.length;h--;)(i=r?(i=t[h].x-o)*i+(s=t[h].y-a)*s:Math.abs(t[h]-o))<u&&(u=i,l=h);return l=!n||u<=n?t[l]:e,r||l===e||we(e)?l:l+Bn(e)}:Un(t))},Hn=function(t,e,n,r){return Fn(Ae(t)?!e:!0===n?!!(n=0):!r,(function(){return Ae(t)?t[~~(Math.random()*t.length)]:(n=n||1e-5)&&(r=n<1?Math.pow(10,(n+"").length-2):1)&&Math.floor(Math.round((t-n/2+Math.random()*(e-t+.99*n))/n)*n*r)/r}))},Vn=function(t,e,n){return Fn(n,(function(n){return t[~~e(n)]}))},Wn=function(t){for(var e,n,r,i,s=0,o="";~(e=t.indexOf("random(",s));)r=t.indexOf(")",e),i="["===t.charAt(e+7),n=t.substr(e+7,r-e-7).match(i?Fe:Se),o+=t.substr(s,e-s)+Hn(i?n:+n[0],i?0:+n[1],+n[2]||1e-5),s=r+1;return o+t.substr(s,t.length-s)},Gn=function(t,e,n,r,i){var s=e-t,o=r-n;return Fn(i,(function(e){return n+((e-t)/s*o||0)}))},Zn=function(t,e,n){var r,i,s,o=t.labels,a=fe;for(r in o)(i=o[r]-e)<0==!!n&&i&&a>(i=Math.abs(i))&&(s=r,a=i);return s},Qn=function(t,e,n){var r,i,s=t.vars,o=s[e];if(o)return r=s[e+"Params"],i=s.callbackScope||t,n&&qe.length&&on(),r?o.apply(i,r):o.call(i)},Jn=function(t){return gn(t),t.progress()<1&&Qn(t,"onInterrupt"),t},Kn=function(t){var e=(t=!t.name&&t.default||t).name,n=xe(t),r=e&&!n&&t.init?function(){this._props=[]}:t,i={init:Ne,render:jr,add:Cr,kill:Ur,modifier:Nr,rawVars:0},s={targetTest:0,get:0,getSetter:Yr,aliases:{},register:0};if(hr(),t!==r){if(Ve[e])return;hn(r,hn(pn(t,i),s)),fn(r.prototype,fn(i,pn(t,s))),Ve[r.prop=e]=r,t.targetTest&&(Ze.push(r),Ue[e]=1),e=("css"===e?"CSS":e.charAt(0).toUpperCase()+e.substr(1))+"Plugin"}je(e,r),t.register&&t.register(Qr,r,Vr)},tr=255,er={aqua:[0,tr,tr],lime:[0,tr,0],silver:[192,192,192],black:[0,0,0],maroon:[128,0,0],teal:[0,128,128],blue:[0,0,tr],navy:[0,0,128],white:[tr,tr,tr],olive:[128,128,0],yellow:[tr,tr,0],orange:[tr,165,0],gray:[128,128,128],purple:[128,0,128],green:[0,128,0],red:[tr,0,0],pink:[tr,192,203],cyan:[0,tr,tr],transparent:[tr,tr,tr,0]},nr=function(t,e,n){return(6*(t=t<0?t+1:t>1?t-1:t)<1?e+(n-e)*t*6:t<.5?n:3*t<2?e+(n-e)*(2/3-t)*6:e)*tr+.5|0},rr=function(t,e,n){var r,i,s,o,a,u,l,h,c,f,d=t?we(t)?[t>>16,t>>8&tr,t&tr]:0:er.black;if(!d){if(","===t.substr(-1)&&(t=t.substr(0,t.length-1)),er[t])d=er[t];else if("#"===t.charAt(0)){if(t.length<6&&(r=t.charAt(1),i=t.charAt(2),s=t.charAt(3),t="#"+r+r+i+i+s+s+(5===t.length?t.charAt(4)+t.charAt(4):"")),9===t.length)return[(d=parseInt(t.substr(1,6),16))>>16,d>>8&tr,d&tr,parseInt(t.substr(7),16)/255];d=[(t=parseInt(t.substr(1),16))>>16,t>>8&tr,t&tr]}else if("hsl"===t.substr(0,3))if(d=f=t.match(Se),e){if(~t.indexOf("="))return d=t.match(De),n&&d.length<4&&(d[3]=1),d}else o=+d[0]%360/360,a=+d[1]/100,r=2*(u=+d[2]/100)-(i=u<=.5?u*(a+1):u+a-u*a),d.length>3&&(d[3]*=1),d[0]=nr(o+1/3,r,i),d[1]=nr(o,r,i),d[2]=nr(o-1/3,r,i);else d=t.match(Se)||er.transparent;d=d.map(Number)}return e&&!f&&(r=d[0]/tr,i=d[1]/tr,s=d[2]/tr,u=((l=Math.max(r,i,s))+(h=Math.min(r,i,s)))/2,l===h?o=a=0:(c=l-h,a=u>.5?c/(2-l-h):c/(l+h),o=l===r?(i-s)/c+(i<s?6:0):l===i?(s-r)/c+2:(r-i)/c+4,o*=60),d[0]=~~(o+.5),d[1]=~~(100*a+.5),d[2]=~~(100*u+.5)),n&&d.length<4&&(d[3]=1),d},ir=function(t){var e=[],n=[],r=-1;return t.split(or).forEach((function(t){var i=t.match(Ee)||[];e.push.apply(e,i),n.push(r+=i.length+1)})),e.c=n,e},sr=function(t,e,n){var r,i,s,o,a="",u=(t+a).match(or),l=e?"hsla(":"rgba(",h=0;if(!u)return t;if(u=u.map((function(t){return(t=rr(t,e,1))&&l+(e?t[0]+","+t[1]+"%,"+t[2]+"%,"+t[3]:t.join(","))+")"})),n&&(s=ir(t),(r=n.c).join(a)!==s.c.join(a)))for(o=(i=t.replace(or,"1").split(Ee)).length-1;h<o;h++)a+=i[h]+(~r.indexOf(h)?u.shift()||l+"0,0,0,0)":(s.length?s:u.length?u:n).shift());if(!i)for(o=(i=t.split(or)).length-1;h<o;h++)a+=i[h]+u[h];return a+i[o]},or=function(){var t,e="(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b";for(t in er)e+="|"+t+"\\b";return new RegExp(e+")","gi")}(),ar=/hsl[a]?\(/,ur=function(t){var e,n=t.join(" ");if(or.lastIndex=0,or.test(n))return e=ar.test(n),t[1]=sr(t[1],e),t[0]=sr(t[0],e,ir(t[1])),!0},lr=(Qt=Date.now,Jt=500,Kt=33,te=Qt(),ee=te,re=ne=1e3/240,se=function t(e){var n,r,i,s,o=Qt()-ee,a=!0===e;if(o>Jt&&(te+=o-Kt),((n=(i=(ee+=o)-te)-re)>0||a)&&(s=++Wt.frame,Gt=i-1e3*Wt.time,Wt.time=i/=1e3,re+=n+(n>=ne?4:ne-n),r=1),a||(qt=Ht(t)),r)for(Zt=0;Zt<ie.length;Zt++)ie[Zt](i,Gt,s,e)},Wt={time:0,frame:0,tick:function(){se(!0)},deltaRatio:function(t){return Gt/(1e3/(t||60))},wake:function(){Lt&&(!Xt&&Me()&&(Yt=Xt=window,It=Yt.document||{},Be.gsap=Qr,(Yt.gsapVersions||(Yt.gsapVersions=[])).push(Qr.version),Xe(Ye||Yt.GreenSockGlobals||!Yt.gsap&&Yt||{}),Vt=Yt.requestAnimationFrame),qt&&Wt.sleep(),Ht=Vt||function(t){return setTimeout(t,re-1e3*Wt.time+1|0)},Ut=1,se(2))},sleep:function(){(Vt?Yt.cancelAnimationFrame:clearTimeout)(qt),Ut=0,Ht=Ne},lagSmoothing:function(t,e){Jt=t||1e8,Kt=Math.min(e,Jt,0)},fps:function(t){ne=1e3/(t||240),re=1e3*Wt.time+ne},add:function(t){ie.indexOf(t)<0&&ie.push(t),hr()},remove:function(t){var e;~(e=ie.indexOf(t))&&ie.splice(e,1)&&Zt>=e&&Zt--},_listeners:ie=[]}),hr=function(){return!Ut&&lr.wake()},cr={},fr=/^[\d.\-M][\d.\-,\s]/,dr=/["']/g,pr=function(t){for(var e,n,r,i={},s=t.substr(1,t.length-3).split(":"),o=s[0],a=1,u=s.length;a<u;a++)n=s[a],e=a!==u-1?n.lastIndexOf(","):n.length,r=n.substr(0,e),i[o]=isNaN(r)?r.replace(dr,"").trim():+r,o=n.substr(e+1).trim();return i},_r=function(t){return function(e){return 1-t(1-e)}},mr=function t(e,n){for(var r,i=e._first;i;)i instanceof Tr?t(i,n):!i.vars.yoyoEase||i._yoyo&&i._repeat||i._yoyo===n||(i.timeline?t(i.timeline,n):(r=i._ease,i._ease=i._yEase,i._yEase=r,i._yoyo=n)),i=i._next},gr=function(t,e){return t&&(xe(t)?t:cr[t]||function(t){var e=(t+"").split("("),n=cr[e[0]];return n&&e.length>1&&n.config?n.config.apply(null,~t.indexOf("{")?[pr(e[1])]:function(t){var e=t.indexOf("(")+1,n=t.indexOf(")"),r=t.indexOf("(",e);return t.substring(e,~r&&r<n?t.indexOf(")",n+1):n)}(t).split(",").map(un)):cr._CE&&fr.test(t)?cr._CE("",t):n}(t))||e},vr=function(t,e,n,r){void 0===n&&(n=function(t){return 1-e(1-t)}),void 0===r&&(r=function(t){return t<.5?e(2*t)/2:1-e(2*(1-t))/2});var i,s={easeIn:e,easeOut:n,easeInOut:r};return en(t,(function(t){for(var e in cr[t]=Be[t]=s,cr[i=t.toLowerCase()]=n,s)cr[i+("easeIn"===e?".in":"easeOut"===e?".out":".inOut")]=cr[t+"."+e]=s[e]})),s},yr=function(t){return function(e){return e<.5?(1-t(1-2*e))/2:.5+t(2*(e-.5))/2}},br=function t(e,n,r){var i=n>=1?n:1,s=(r||(e?.3:.45))/(n<1?n:1),o=s/pe*(Math.asin(1/i)||0),a=function(t){return 1===t?1:i*Math.pow(2,-10*t)*ye((t-o)*s)+1},u="out"===e?a:"in"===e?function(t){return 1-a(1-t)}:yr(a);return s=pe/s,u.config=function(n,r){return t(e,n,r)},u},xr=function t(e,n){void 0===n&&(n=1.70158);var r=function(t){return t?--t*t*((n+1)*t+n)+1:0},i="out"===e?r:"in"===e?function(t){return 1-r(1-t)}:yr(r);return i.config=function(n){return t(e,n)},i};en("Linear,Quad,Cubic,Quart,Quint,Strong",(function(t,e){var n=e<5?e+1:e;vr(t+",Power"+(n-1),e?function(t){return Math.pow(t,n)}:function(t){return t},(function(t){return 1-Math.pow(1-t,n)}),(function(t){return t<.5?Math.pow(2*t,n)/2:1-Math.pow(2*(1-t),n)/2}))})),cr.Linear.easeNone=cr.none=cr.Linear.easeIn,vr("Elastic",br("in"),br("out"),br()),oe=7.5625,ue=1/(ae=2.75),vr("Bounce",(function(t){return 1-le(1-t)}),le=function(t){return t<ue?oe*t*t:t<.7272727272727273?oe*Math.pow(t-1.5/ae,2)+.75:t<.9090909090909092?oe*(t-=2.25/ae)*t+.9375:oe*Math.pow(t-2.625/ae,2)+.984375}),vr("Expo",(function(t){return t?Math.pow(2,10*(t-1)):0})),vr("Circ",(function(t){return-(ge(1-t*t)-1)})),vr("Sine",(function(t){return 1===t?1:1-ve(t*_e)})),vr("Back",xr("in"),xr("out"),xr()),cr.SteppedEase=cr.steps=Be.SteppedEase={config:function(t,e){void 0===t&&(t=1);var n=1/t,r=t+(e?0:1),i=e?1:0;return function(t){return((r*Rn(0,.99999999,t)|0)+i)*n}}},ce.ease=cr["quad.out"],en("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt",(function(t){return Qe+=t+","+t+"Params,"}));var wr=function(t,e){this.id=me++,t._gsap=this,this.target=t,this.harness=e,this.get=e?e.get:tn,this.set=e?e.getSetter:Yr},$r=function(){function t(t,e){var n=t.parent||Bt;this.vars=t,this._delay=+t.delay||0,(this._repeat=t.repeat===1/0?-2:t.repeat||0)&&(this._rDelay=t.repeatDelay||0,this._yoyo=!!t.yoyo||!!t.yoyoEase),this._ts=1,Dn(this,+t.duration,1,1),this.data=t.data,Ut||lr.wake(),n&&Cn(n,this,e||0===e?e:n._time,1),t.reversed&&this.reverse(),t.paused&&this.paused(!0)}var e=t.prototype;return e.delay=function(t){return t||0===t?(this.parent&&this.parent.smoothChildTiming&&this.startTime(this._start+t-this._delay),this._delay=t,this):this._delay},e.duration=function(t){return arguments.length?this.totalDuration(this._repeat>0?t+(t+this._rDelay)*this._repeat:t):this.totalDuration()&&this._dur},e.totalDuration=function(t){return arguments.length?(this._dirty=0,Dn(this,this._repeat<0?t:(t-this._repeat*this._rDelay)/(this._repeat+1))):this._tDur},e.totalTime=function(t,e){if(hr(),!arguments.length)return this._tTime;var n=this._dp;if(n&&n.smoothChildTiming&&this._ts){for(kn(this,t),!n._dp||n.parent||Mn(n,this);n.parent;)n.parent._time!==n._start+(n._ts>=0?n._tTime/n._ts:(n.totalDuration()-n._tTime)/-n._ts)&&n.totalTime(n._tTime,!0),n=n.parent;!this.parent&&this._dp.autoRemoveChildren&&(this._ts>0&&t<this._tDur||this._ts<0&&t>0||!this._tDur&&!t)&&Cn(this._dp,this,this._start-this._delay)}return(this._tTime!==t||!this._dur&&!e||this._initted&&Math.abs(this._zTime)===de||!t&&!this._initted&&(this.add||this._ptLookup))&&(this._ts||(this._pTime=t),an(this,t,e)),this},e.time=function(t,e){return arguments.length?this.totalTime(Math.min(this.totalDuration(),t+xn(this))%this._dur||(t?this._dur:0),e):this._time},e.totalProgress=function(t,e){return arguments.length?this.totalTime(this.totalDuration()*t,e):this.totalDuration()?Math.min(1,this._tTime/this._tDur):this.ratio},e.progress=function(t,e){return arguments.length?this.totalTime(this.duration()*(!this._yoyo||1&this.iteration()?t:1-t)+xn(this),e):this.duration()?Math.min(1,this._time/this._dur):this.ratio},e.iteration=function(t,e){var n=this.duration()+this._rDelay;return arguments.length?this.totalTime(this._time+(t-1)*n,e):this._repeat?wn(this._tTime,n)+1:1},e.timeScale=function(t){if(!arguments.length)return-1e-8===this._rts?0:this._rts;if(this._rts===t)return this;var e=this.parent&&this._ts?$n(this.parent._time,this):this._tTime;return this._rts=+t||0,this._ts=this._ps||-1e-8===t?0:this._rts,yn(this.totalTime(Rn(-this._delay,this._tDur,e),!0))},e.paused=function(t){return arguments.length?(this._ps!==t&&(this._ps=t,t?(this._pTime=this._tTime||Math.max(-this._delay,this.rawTime()),this._ts=this._act=0):(hr(),this._ts=this._rts,this.totalTime(this.parent&&!this.parent.smoothChildTiming?this.rawTime():this._tTime||this._pTime,1===this.progress()&&(this._tTime-=de)&&Math.abs(this._zTime)!==de))),this):this._ps},e.startTime=function(t){if(arguments.length){this._start=t;var e=this.parent||this._dp;return e&&(e._sort||!this.parent)&&Cn(e,this,t-this._delay),this}return this._start},e.endTime=function(t){return this._start+(ke(t)?this.totalDuration():this.duration())/Math.abs(this._ts)},e.rawTime=function(t){var e=this.parent||this._dp;return e?t&&(!this._ts||this._repeat&&this._time&&this.totalProgress()<1)?this._tTime%(this._dur+this._rDelay):this._ts?$n(e.rawTime(t),this):this._tTime:this._tTime},e.globalTime=function(t){for(var e=this,n=arguments.length?t:e.rawTime();e;)n=e._start+n/(e._ts||1),e=e._dp;return n},e.repeat=function(t){return arguments.length?(this._repeat=t===1/0?-2:t,En(this)):-2===this._repeat?1/0:this._repeat},e.repeatDelay=function(t){return arguments.length?(this._rDelay=t,En(this)):this._rDelay},e.yoyo=function(t){return arguments.length?(this._yoyo=t,this):this._yoyo},e.seek=function(t,e){return this.totalTime(zn(this,t),ke(e))},e.restart=function(t,e){return this.play().totalTime(t?-this._delay:0,ke(e))},e.play=function(t,e){return null!=t&&this.seek(t,e),this.reversed(!1).paused(!1)},e.reverse=function(t,e){return null!=t&&this.seek(t||this.totalDuration(),e),this.reversed(!0).paused(!1)},e.pause=function(t,e){return null!=t&&this.seek(t,e),this.paused(!0)},e.resume=function(){return this.paused(!1)},e.reversed=function(t){return arguments.length?(!!t!==this.reversed()&&this.timeScale(-this._rts||(t?-1e-8:0)),this):this._rts<0},e.invalidate=function(){return this._initted=this._act=0,this._zTime=-1e-8,this},e.isActive=function(){var t,e=this.parent||this._dp,n=this._start;return!(e&&!(this._ts&&this._initted&&e.isActive()&&(t=e.rawTime(!0))>=n&&t<this.endTime(!0)-de))},e.eventCallback=function(t,e,n){var r=this.vars;return arguments.length>1?(e?(r[t]=e,n&&(r[t+"Params"]=n),"onUpdate"===t&&(this._onUpdate=e)):delete r[t],this):r[t]},e.then=function(t){var e=this;return new Promise((function(n){var r=xe(t)?t:ln,i=function(){var t=e.then;e.then=null,xe(r)&&(r=r(e))&&(r.then||r===e)&&(e.then=t),n(r),e.then=t};e._initted&&1===e.totalProgress()&&e._ts>=0||!e._tTime&&e._ts<0?i():e._prom=i}))},e.kill=function(){Jn(this)},t}();hn($r.prototype,{_time:0,_start:0,_end:0,_tTime:0,_tDur:0,_dirty:0,_repeat:0,_yoyo:!1,parent:null,_initted:!1,_rDelay:0,_ts:1,_dp:0,ratio:0,_zTime:-1e-8,_prom:0,_ps:!1,_rts:1});var Tr=function(t){function e(e,n){var r;return void 0===e&&(e={}),(r=t.call(this,e,n)||this).labels={},r.smoothChildTiming=!!e.smoothChildTiming,r.autoRemoveChildren=!!e.autoRemoveChildren,r._sort=ke(e.sortChildren),r.parent&&Mn(r.parent,zt(r)),e.scrollTrigger&&On(zt(r),e.scrollTrigger),r}Ft(e,t);var n=e.prototype;return n.to=function(t,e,n){return new Pr(t,sn(arguments,0,this),zn(this,we(e)?arguments[3]:n)),this},n.from=function(t,e,n){return new Pr(t,sn(arguments,1,this),zn(this,we(e)?arguments[3]:n)),this},n.fromTo=function(t,e,n,r){return new Pr(t,sn(arguments,2,this),zn(this,we(e)?arguments[4]:r)),this},n.set=function(t,e,n){return e.duration=0,e.parent=this,_n(e).repeatDelay||(e.repeat=0),e.immediateRender=!!e.immediateRender,new Pr(t,e,zn(this,n),1),this},n.call=function(t,e,n){return Cn(this,Pr.delayedCall(0,t,e),zn(this,n))},n.staggerTo=function(t,e,n,r,i,s,o){return n.duration=e,n.stagger=n.stagger||r,n.onComplete=s,n.onCompleteParams=o,n.parent=this,new Pr(t,n,zn(this,i)),this},n.staggerFrom=function(t,e,n,r,i,s,o){return n.runBackwards=1,_n(n).immediateRender=ke(n.immediateRender),this.staggerTo(t,e,n,r,i,s,o)},n.staggerFromTo=function(t,e,n,r,i,s,o,a){return r.startAt=n,_n(r).immediateRender=ke(r.immediateRender),this.staggerTo(t,e,r,i,s,o,a)},n.render=function(t,e,n){var r,i,s,o,a,u,l,h,c,f,d,p,_=this._time,m=this._dirty?this.totalDuration():this._tDur,g=this._dur,v=this!==Bt&&t>m-de&&t>=0?m:t<de?0:t,y=this._zTime<0!=t<0&&(this._initted||!g);if(v!==this._tTime||n||y){if(_!==this._time&&g&&(v+=this._time-_,t+=this._time-_),r=v,c=this._start,u=!(h=this._ts),y&&(g||(_=this._zTime),(t||!e)&&(this._zTime=t)),this._repeat){if(d=this._yoyo,a=g+this._rDelay,this._repeat<-1&&t<0)return this.totalTime(100*a+t,e,n);if(r=nn(v%a),v===m?(o=this._repeat,r=g):((o=~~(v/a))&&o===v/a&&(r=g,o--),r>g&&(r=g)),f=wn(this._tTime,a),!_&&this._tTime&&f!==o&&(f=o),d&&1&o&&(r=g-r,p=1),o!==f&&!this._lock){var b=d&&1&f,x=b===(d&&1&o);if(o<f&&(b=!b),_=b?0:g,this._lock=1,this.render(_||(p?0:nn(o*a)),e,!g)._lock=0,!e&&this.parent&&Qn(this,"onRepeat"),this.vars.repeatRefresh&&!p&&(this.invalidate()._lock=1),_!==this._time||u!==!this._ts)return this;if(g=this._dur,m=this._tDur,x&&(this._lock=2,_=b?g:-1e-4,this.render(_,!0),this.vars.repeatRefresh&&!p&&this.invalidate()),this._lock=0,!this._ts&&!u)return this;mr(this,p)}}if(this._hasPause&&!this._forcing&&this._lock<2&&(l=function(t,e,n){var r;if(n>e)for(r=t._first;r&&r._start<=n;){if(!r._dur&&"isPause"===r.data&&r._start>e)return r;r=r._next}else for(r=t._last;r&&r._start>=n;){if(!r._dur&&"isPause"===r.data&&r._start<e)return r;r=r._prev}}(this,nn(_),nn(r)))&&(v-=r-(r=l._start)),this._tTime=v,this._time=r,this._act=!h,this._initted||(this._onUpdate=this.vars.onUpdate,this._initted=1,this._zTime=t,_=0),!_&&(r||!g&&t>=0)&&!e&&Qn(this,"onStart"),r>=_&&t>=0)for(i=this._first;i;){if(s=i._next,(i._act||r>=i._start)&&i._ts&&l!==i){if(i.parent!==this)return this.render(t,e,n);if(i.render(i._ts>0?(r-i._start)*i._ts:(i._dirty?i.totalDuration():i._tDur)+(r-i._start)*i._ts,e,n),r!==this._time||!this._ts&&!u){l=0,s&&(v+=this._zTime=-1e-8);break}}i=s}else{i=this._last;for(var w=t<0?t:r;i;){if(s=i._prev,(i._act||w<=i._end)&&i._ts&&l!==i){if(i.parent!==this)return this.render(t,e,n);if(i.render(i._ts>0?(w-i._start)*i._ts:(i._dirty?i.totalDuration():i._tDur)+(w-i._start)*i._ts,e,n),r!==this._time||!this._ts&&!u){l=0,s&&(v+=this._zTime=w?-1e-8:de);break}}i=s}}if(l&&!e&&(this.pause(),l.render(r>=_?0:-1e-8)._zTime=r>=_?1:-1,this._ts))return this._start=c,Tn(this),this.render(t,e,n);this._onUpdate&&!e&&Qn(this,"onUpdate",!0),(v===m&&m>=this.totalDuration()||!v&&_)&&(c!==this._start&&Math.abs(h)===Math.abs(this._ts)||this._lock||((t||!g)&&(v===m&&this._ts>0||!v&&this._ts<0)&&gn(this,1),e||t<0&&!_||!v&&!_||(Qn(this,v===m?"onComplete":"onReverseComplete",!0),this._prom&&!(v<m&&this.timeScale()>0)&&this._prom())))}return this},n.add=function(t,e){var n=this;if(we(e)||(e=zn(this,e)),!(t instanceof $r)){if(Ae(t))return t.forEach((function(t){return n.add(t,e)})),this;if(be(t))return this.addLabel(t,e);if(!xe(t))return this;t=Pr.delayedCall(0,t)}return this!==t?Cn(this,t,e):this},n.getChildren=function(t,e,n,r){void 0===t&&(t=!0),void 0===e&&(e=!0),void 0===n&&(n=!0),void 0===r&&(r=-fe);for(var i=[],s=this._first;s;)s._start>=r&&(s instanceof Pr?e&&i.push(s):(n&&i.push(s),t&&i.push.apply(i,s.getChildren(!0,e,n)))),s=s._next;return i},n.getById=function(t){for(var e=this.getChildren(1,1,1),n=e.length;n--;)if(e[n].vars.id===t)return e[n]},n.remove=function(t){return be(t)?this.removeLabel(t):xe(t)?this.killTweensOf(t):(mn(this,t),t===this._recent&&(this._recent=this._last),vn(this))},n.totalTime=function(e,n){return arguments.length?(this._forcing=1,!this._dp&&this._ts&&(this._start=nn(lr.time-(this._ts>0?e/this._ts:(this.totalDuration()-e)/-this._ts))),t.prototype.totalTime.call(this,e,n),this._forcing=0,this):this._tTime},n.addLabel=function(t,e){return this.labels[t]=zn(this,e),this},n.removeLabel=function(t){return delete this.labels[t],this},n.addPause=function(t,e,n){var r=Pr.delayedCall(0,e||Ne,n);return r.data="isPause",this._hasPause=1,Cn(this,r,zn(this,t))},n.removePause=function(t){var e=this._first;for(t=zn(this,t);e;)e._start===t&&"isPause"===e.data&&gn(e),e=e._next},n.killTweensOf=function(t,e,n){for(var r=this.getTweensOf(t,n),i=r.length;i--;)kr!==r[i]&&r[i].kill(t,e);return this},n.getTweensOf=function(t,e){for(var n,r=[],i=Ln(t),s=this._first,o=we(e);s;)s instanceof Pr?rn(s._targets,i)&&(o?(!kr||s._initted&&s._ts)&&s.globalTime(0)<=e&&s.globalTime(s.totalDuration())>e:!e||s.isActive())&&r.push(s):(n=s.getTweensOf(i,e)).length&&r.push.apply(r,n),s=s._next;return r},n.tweenTo=function(t,e){e=e||{};var n=this,r=zn(n,t),i=e,s=i.startAt,o=i.onStart,a=i.onStartParams,u=i.immediateRender,l=Pr.to(n,hn({ease:"none",lazy:!1,immediateRender:!1,time:r,overwrite:"auto",duration:e.duration||Math.abs((r-(s&&"time"in s?s.time:n._time))/n.timeScale())||de,onStart:function(){n.pause();var t=e.duration||Math.abs((r-n._time)/n.timeScale());l._dur!==t&&Dn(l,t,0,1).render(l._time,!0,!0),o&&o.apply(l,a||[])}},e));return u?l.render(0):l},n.tweenFromTo=function(t,e,n){return this.tweenTo(e,hn({startAt:{time:zn(this,t)}},n))},n.recent=function(){return this._recent},n.nextLabel=function(t){return void 0===t&&(t=this._time),Zn(this,zn(this,t))},n.previousLabel=function(t){return void 0===t&&(t=this._time),Zn(this,zn(this,t),1)},n.currentLabel=function(t){return arguments.length?this.seek(t,!0):this.previousLabel(this._time+de)},n.shiftChildren=function(t,e,n){void 0===n&&(n=0);for(var r,i=this._first,s=this.labels;i;)i._start>=n&&(i._start+=t,i._end+=t),i=i._next;if(e)for(r in s)s[r]>=n&&(s[r]+=t);return vn(this)},n.invalidate=function(){var e=this._first;for(this._lock=0;e;)e.invalidate(),e=e._next;return t.prototype.invalidate.call(this)},n.clear=function(t){void 0===t&&(t=!0);for(var e,n=this._first;n;)e=n._next,this.remove(n),n=e;return this._dp&&(this._time=this._tTime=this._pTime=0),t&&(this.labels={}),vn(this)},n.totalDuration=function(t){var e,n,r,i=0,s=this,o=s._last,a=fe;if(arguments.length)return s.timeScale((s._repeat<0?s.duration():s.totalDuration())/(s.reversed()?-t:t));if(s._dirty){for(r=s.parent;o;)e=o._prev,o._dirty&&o.totalDuration(),(n=o._start)>a&&s._sort&&o._ts&&!s._lock?(s._lock=1,Cn(s,o,n-o._delay,1)._lock=0):a=n,n<0&&o._ts&&(i-=n,(!r&&!s._dp||r&&r.smoothChildTiming)&&(s._start+=n/s._ts,s._time-=n,s._tTime-=n),s.shiftChildren(-n,!1,-Infinity),a=0),o._end>i&&o._ts&&(i=o._end),o=e;Dn(s,s===Bt&&s._time>i?s._time:i,1,1),s._dirty=0}return s._tDur},e.updateRoot=function(t){if(Bt._ts&&(an(Bt,$n(t,Bt)),jt=lr.frame),lr.frame>=Ge){Ge+=he.autoSleep||120;var e=Bt._first;if((!e||!e._ts)&&he.autoSleep&&lr._listeners.length<2){for(;e&&!e._ts;)e=e._next;e||lr.sleep()}}},e}($r);hn(Tr.prototype,{_lock:0,_hasPause:0,_forcing:0});var kr,Mr=function(t,e,n,r,i,s,o){var a,u,l,h,c,f,d,p,_=new Vr(this._pt,t,e,0,1,Lr,null,i),m=0,g=0;for(_.b=n,_.e=r,n+="",(d=~(r+="").indexOf("random("))&&(r=Wn(r)),s&&(s(p=[n,r],t,e),n=p[0],r=p[1]),u=n.match(Pe)||[];a=Pe.exec(r);)h=a[0],c=r.substring(m,a.index),l?l=(l+1)%5:"rgba("===c.substr(-5)&&(l=1),h!==u[g++]&&(f=parseFloat(u[g-1])||0,_._pt={_next:_._pt,p:c||1===g?c:",",s:f,c:"="===h.charAt(1)?parseFloat(h.substr(2))*("-"===h.charAt(0)?-1:1):parseFloat(h)-f,m:l&&l<4?Math.round:0},m=Pe.lastIndex);return _.c=m<r.length?r.substring(m,r.length):"",_.fp=o,(ze.test(r)||d)&&(_.e=0),this._pt=_,_},Cr=function(t,e,n,r,i,s,o,a,u){xe(r)&&(r=r(i||0,t,s));var l,h=t[e],c="get"!==n?n:xe(h)?u?t[e.indexOf("set")||!xe(t["get"+e.substr(3)])?e:"get"+e.substr(3)](u):t[e]():h,f=xe(h)?u?Rr:Fr:zr;if(be(r)&&(~r.indexOf("random(")&&(r=Wn(r)),"="===r.charAt(1)&&(r=parseFloat(c)+parseFloat(r.substr(2))*("-"===r.charAt(0)?-1:1)+(Bn(c)||0))),c!==r)return isNaN(c*r)?(!h&&!(e in t)&&Ie(e,r),Mr.call(this,t,e,c,r,f,a||he.stringFilter,u)):(l=new Vr(this._pt,t,e,+c||0,r-(c||0),"boolean"==typeof h?Ir:Xr,0,f),u&&(l.fp=u),o&&l.modifier(o,this,t),this._pt=l)},Or=function(t,e,n,r,i,s){var o,a,u,l;if(Ve[t]&&!1!==(o=new Ve[t]).init(i,o.rawVars?e[t]:function(t,e,n,r,i){if(xe(t)&&(t=Sr(t,i,e,n,r)),!Te(t)||t.style&&t.nodeType||Ae(t)||Oe(t))return be(t)?Sr(t,i,e,n,r):t;var s,o={};for(s in t)o[s]=Sr(t[s],i,e,n,r);return o}(e[t],r,i,s,n),n,r,s)&&(n._pt=a=new Vr(n._pt,i,t,0,1,o.render,o,0,o.priority),n!==Nt))for(u=n._ptLookup[n._targets.indexOf(i)],l=o._props.length;l--;)u[o._props[l]]=a;return o},Ar=function t(e,n){var r,i,s,o,a,u,l,h,c,f,d,p,_,m=e.vars,g=m.ease,v=m.startAt,y=m.immediateRender,b=m.lazy,x=m.onUpdate,w=m.onUpdateParams,$=m.callbackScope,T=m.runBackwards,k=m.yoyoEase,M=m.keyframes,C=m.autoRevert,O=e._dur,A=e._startAt,S=e._targets,D=e.parent,E=D&&"nested"===D.data?D.parent._targets:S,P="auto"===e._overwrite&&!Rt,z=e.timeline;if(z&&(!M||!g)&&(g="none"),e._ease=gr(g,ce.ease),e._yEase=k?_r(gr(!0===k?g:k,ce.ease)):0,k&&e._yoyo&&!e._repeat&&(k=e._yEase,e._yEase=e._ease,e._ease=k),!z){if(p=(h=S[0]?Ke(S[0]).harness:0)&&m[h.prop],r=pn(m,Ue),A&&A.render(-1,!0).kill(),v){if(gn(e._startAt=Pr.set(S,hn({data:"isStart",overwrite:!1,parent:D,immediateRender:!0,lazy:ke(b),startAt:null,delay:0,onUpdate:x,onUpdateParams:w,callbackScope:$,stagger:0},v))),y)if(n>0)C||(e._startAt=0);else if(O&&!(n<0&&A))return void(n&&(e._zTime=n))}else if(T&&O)if(A)!C&&(e._startAt=0);else if(n&&(y=!1),s=hn({overwrite:!1,data:"isFromStart",lazy:y&&ke(b),immediateRender:y,stagger:0,parent:D},r),p&&(s[h.prop]=p),gn(e._startAt=Pr.set(S,s)),y){if(!n)return}else t(e._startAt,de);for(e._pt=0,b=O&&ke(b)||b&&!O,i=0;i<S.length;i++){if(l=(a=S[i])._gsap||Je(S)[i]._gsap,e._ptLookup[i]=f={},He[l.id]&&qe.length&&on(),d=E===S?i:E.indexOf(a),h&&!1!==(c=new h).init(a,p||r,e,d,E)&&(e._pt=o=new Vr(e._pt,a,c.name,0,1,c.render,c,0,c.priority),c._props.forEach((function(t){f[t]=o})),c.priority&&(u=1)),!h||p)for(s in r)Ve[s]&&(c=Or(s,r,e,d,a,E))?c.priority&&(u=1):f[s]=o=Cr.call(e,a,s,"get",r[s],d,E,0,m.stringFilter);e._op&&e._op[i]&&e.kill(a,e._op[i]),P&&e._pt&&(kr=e,Bt.killTweensOf(a,f,e.globalTime(0)),_=!e.parent,kr=0),e._pt&&b&&(He[l.id]=1)}u&&Hr(e),e._onInit&&e._onInit(e)}e._from=!z&&!!m.runBackwards,e._onUpdate=x,e._initted=(!e._op||e._pt)&&!_},Sr=function(t,e,n,r,i){return xe(t)?t.call(e,n,r,i):be(t)&&~t.indexOf("random(")?Wn(t):t},Dr=Qe+"repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase",Er=(Dr+",id,stagger,delay,duration,paused,scrollTrigger").split(","),Pr=function(t){function e(e,n,r,i){var s;"number"==typeof n&&(r.duration=n,n=r,r=null);var o,a,u,l,h,c,f,d,p=(s=t.call(this,i?n:_n(n),r)||this).vars,_=p.duration,m=p.delay,g=p.immediateRender,v=p.stagger,y=p.overwrite,b=p.keyframes,x=p.defaults,w=p.scrollTrigger,$=p.yoyoEase,T=s.parent,k=(Ae(e)||Oe(e)?we(e[0]):"length"in n)?[e]:Ln(e);if(s._targets=k.length?Je(k):Le("GSAP target "+e+" not found. https://greensock.com",!he.nullTargetWarn)||[],s._ptLookup=[],s._overwrite=y,b||v||Ce(_)||Ce(m)){if(n=s.vars,(o=s.timeline=new Tr({data:"nested",defaults:x||{}})).kill(),o.parent=o._dp=zt(s),o._start=0,b)hn(o.vars.defaults,{ease:"none"}),b.forEach((function(t){return o.to(k,t,">")}));else{if(l=k.length,f=v?Nn(v):Ne,Te(v))for(h in v)~Dr.indexOf(h)&&(d||(d={}),d[h]=v[h]);for(a=0;a<l;a++){for(h in u={},n)Er.indexOf(h)<0&&(u[h]=n[h]);u.stagger=0,$&&(u.yoyoEase=$),d&&fn(u,d),c=k[a],u.duration=+Sr(_,zt(s),a,c,k),u.delay=(+Sr(m,zt(s),a,c,k)||0)-s._delay,!v&&1===l&&u.delay&&(s._delay=m=u.delay,s._start+=m,u.delay=0),o.to(c,u,f(a,c,k))}o.duration()?_=m=0:s.timeline=0}_||s.duration(_=o.duration())}else s.timeline=0;return!0!==y||Rt||(kr=zt(s),Bt.killTweensOf(k),kr=0),T&&Mn(T,zt(s)),(g||!_&&!b&&s._start===nn(T._time)&&ke(g)&&bn(zt(s))&&"nested"!==T.data)&&(s._tTime=-1e-8,s.render(Math.max(0,-m))),w&&On(zt(s),w),s}Ft(e,t);var n=e.prototype;return n.render=function(t,e,n){var r,i,s,o,a,u,l,h,c,f=this._time,d=this._tDur,p=this._dur,_=t>d-de&&t>=0?d:t<de?0:t;if(p){if(_!==this._tTime||!t||n||!this._initted&&this._tTime||this._startAt&&this._zTime<0!=t<0){if(r=_,h=this.timeline,this._repeat){if(o=p+this._rDelay,this._repeat<-1&&t<0)return this.totalTime(100*o+t,e,n);if(r=nn(_%o),_===d?(s=this._repeat,r=p):((s=~~(_/o))&&s===_/o&&(r=p,s--),r>p&&(r=p)),(u=this._yoyo&&1&s)&&(c=this._yEase,r=p-r),a=wn(this._tTime,o),r===f&&!n&&this._initted)return this;s!==a&&(h&&this._yEase&&mr(h,u),!this.vars.repeatRefresh||u||this._lock||(this._lock=n=1,this.render(nn(o*s),!0).invalidate()._lock=0))}if(!this._initted){if(An(this,t<0?t:r,n,e))return this._tTime=0,this;if(p!==this._dur)return this.render(t,e,n)}for(this._tTime=_,this._time=r,!this._act&&this._ts&&(this._act=1,this._lazy=0),this.ratio=l=(c||this._ease)(r/p),this._from&&(this.ratio=l=1-l),r&&!f&&!e&&Qn(this,"onStart"),i=this._pt;i;)i.r(l,i.d),i=i._next;h&&h.render(t<0?t:!r&&u?-1e-8:h._dur*l,e,n)||this._startAt&&(this._zTime=t),this._onUpdate&&!e&&(t<0&&this._startAt&&this._startAt.render(t,!0,n),Qn(this,"onUpdate")),this._repeat&&s!==a&&this.vars.onRepeat&&!e&&this.parent&&Qn(this,"onRepeat"),_!==this._tDur&&_||this._tTime!==_||(t<0&&this._startAt&&!this._onUpdate&&this._startAt.render(t,!0,!0),(t||!p)&&(_===this._tDur&&this._ts>0||!_&&this._ts<0)&&gn(this,1),e||t<0&&!f||!_&&!f||(Qn(this,_===d?"onComplete":"onReverseComplete",!0),this._prom&&!(_<d&&this.timeScale()>0)&&this._prom()))}}else!function(t,e,n,r){var i,s,o,a=t.ratio,u=e<0||!e&&(!t._start&&Sn(t)||(t._ts<0||t._dp._ts<0)&&"isFromStart"!==t.data&&"isStart"!==t.data)?0:1,l=t._rDelay,h=0;if(l&&t._repeat&&(h=Rn(0,t._tDur,e),s=wn(h,l),o=wn(t._tTime,l),t._yoyo&&1&s&&(u=1-u),s!==o&&(a=1-u,t.vars.repeatRefresh&&t._initted&&t.invalidate())),u!==a||r||t._zTime===de||!e&&t._zTime){if(!t._initted&&An(t,e,r,n))return;for(o=t._zTime,t._zTime=e||(n?de:0),n||(n=e&&!o),t.ratio=u,t._from&&(u=1-u),t._time=0,t._tTime=h,n||Qn(t,"onStart"),i=t._pt;i;)i.r(u,i.d),i=i._next;t._startAt&&e<0&&t._startAt.render(e,!0,!0),t._onUpdate&&!n&&Qn(t,"onUpdate"),h&&t._repeat&&!n&&t.parent&&Qn(t,"onRepeat"),(e>=t._tDur||e<0)&&t.ratio===u&&(u&&gn(t,1),n||(Qn(t,u?"onComplete":"onReverseComplete",!0),t._prom&&t._prom()))}else t._zTime||(t._zTime=e)}(this,t,e,n);return this},n.targets=function(){return this._targets},n.invalidate=function(){return this._pt=this._op=this._startAt=this._onUpdate=this._lazy=this.ratio=0,this._ptLookup=[],this.timeline&&this.timeline.invalidate(),t.prototype.invalidate.call(this)},n.kill=function(t,e){if(void 0===e&&(e="all"),!(t||e&&"all"!==e))return this._lazy=this._pt=0,this.parent?Jn(this):this;if(this.timeline){var n=this.timeline.totalDuration();return this.timeline.killTweensOf(t,e,kr&&!0!==kr.vars.overwrite)._first||Jn(this),this.parent&&n!==this.timeline.totalDuration()&&Dn(this,this._dur*this.timeline._tDur/n,0,1),this}var r,i,s,o,a,u,l,h=this._targets,c=t?Ln(t):h,f=this._ptLookup,d=this._pt;if((!e||"all"===e)&&function(t,e){for(var n=t.length,r=n===e.length;r&&n--&&t[n]===e[n];);return n<0}(h,c))return"all"===e&&(this._pt=0),Jn(this);for(r=this._op=this._op||[],"all"!==e&&(be(e)&&(a={},en(e,(function(t){return a[t]=1})),e=a),e=function(t,e){var n,r,i,s,o=t[0]?Ke(t[0]).harness:0,a=o&&o.aliases;if(!a)return e;for(r in n=fn({},e),a)if(r in n)for(i=(s=a[r].split(",")).length;i--;)n[s[i]]=n[r];return n}(h,e)),l=h.length;l--;)if(~c.indexOf(h[l]))for(a in i=f[l],"all"===e?(r[l]=e,o=i,s={}):(s=r[l]=r[l]||{},o=e),o)(u=i&&i[a])&&("kill"in u.d&&!0!==u.d.kill(a)||mn(this,u,"_pt"),delete i[a]),"all"!==s&&(s[a]=1);return this._initted&&!this._pt&&d&&Jn(this),this},e.to=function(t,n){return new e(t,n,arguments[2])},e.from=function(t,n){return new e(t,sn(arguments,1))},e.delayedCall=function(t,n,r,i){return new e(n,0,{immediateRender:!1,lazy:!1,overwrite:!1,delay:t,onComplete:n,onReverseComplete:n,onCompleteParams:r,onReverseCompleteParams:r,callbackScope:i})},e.fromTo=function(t,n,r){return new e(t,sn(arguments,2))},e.set=function(t,n){return n.duration=0,n.repeatDelay||(n.repeat=0),new e(t,n)},e.killTweensOf=function(t,e,n){return Bt.killTweensOf(t,e,n)},e}($r);hn(Pr.prototype,{_targets:[],_lazy:0,_startAt:0,_op:0,_onInit:0}),en("staggerTo,staggerFrom,staggerFromTo",(function(t){Pr[t]=function(){var e=new Tr,n=Yn.call(arguments,0);return n.splice("staggerFromTo"===t?5:4,0,0),e[t].apply(e,n)}}));var zr=function(t,e,n){return t[e]=n},Fr=function(t,e,n){return t[e](n)},Rr=function(t,e,n,r){return t[e](r.fp,n)},Br=function(t,e,n){return t.setAttribute(e,n)},Yr=function(t,e){return xe(t[e])?Fr:$e(t[e])&&t.setAttribute?Br:zr},Xr=function(t,e){return e.set(e.t,e.p,Math.round(1e4*(e.s+e.c*t))/1e4,e)},Ir=function(t,e){return e.set(e.t,e.p,!!(e.s+e.c*t),e)},Lr=function(t,e){var n=e._pt,r="";if(!t&&e.b)r=e.b;else if(1===t&&e.e)r=e.e;else{for(;n;)r=n.p+(n.m?n.m(n.s+n.c*t):Math.round(1e4*(n.s+n.c*t))/1e4)+r,n=n._next;r+=e.c}e.set(e.t,e.p,r,e)},jr=function(t,e){for(var n=e._pt;n;)n.r(t,n.d),n=n._next},Nr=function(t,e,n,r){for(var i,s=this._pt;s;)i=s._next,s.p===r&&s.modifier(t,e,n),s=i},Ur=function(t){for(var e,n,r=this._pt;r;)n=r._next,r.p===t&&!r.op||r.op===t?mn(this,r,"_pt"):r.dep||(e=1),r=n;return!e},qr=function(t,e,n,r){r.mSet(t,e,r.m.call(r.tween,n,r.mt),r)},Hr=function(t){for(var e,n,r,i,s=t._pt;s;){for(e=s._next,n=r;n&&n.pr>s.pr;)n=n._next;(s._prev=n?n._prev:i)?s._prev._next=s:r=s,(s._next=n)?n._prev=s:i=s,s=e}t._pt=r},Vr=function(){function t(t,e,n,r,i,s,o,a,u){this.t=e,this.s=r,this.c=i,this.p=n,this.r=s||Xr,this.d=o||this,this.set=a||zr,this.pr=u||0,this._next=t,t&&(t._prev=this)}return t.prototype.modifier=function(t,e,n){this.mSet=this.mSet||this.set,this.set=qr,this.m=t,this.mt=n,this.tween=e},t}();en(Qe+"parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger",(function(t){return Ue[t]=1})),Be.TweenMax=Be.TweenLite=Pr,Be.TimelineLite=Be.TimelineMax=Tr,Bt=new Tr({sortChildren:!1,defaults:ce,autoRemoveChildren:!0,id:"root",smoothChildTiming:!0}),he.stringFilter=ur;var Wr={registerPlugin:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];e.forEach((function(t){return Kn(t)}))},timeline:function(t){return new Tr(t)},getTweensOf:function(t,e){return Bt.getTweensOf(t,e)},getProperty:function(t,e,n,r){be(t)&&(t=Ln(t)[0]);var i=Ke(t||{}).get,s=n?ln:un;return"native"===n&&(n=""),t?e?s((Ve[e]&&Ve[e].get||i)(t,e,n,r)):function(e,n,r){return s((Ve[e]&&Ve[e].get||i)(t,e,n,r))}:t},quickSetter:function(t,e,n){if((t=Ln(t)).length>1){var r=t.map((function(t){return Qr.quickSetter(t,e,n)})),i=r.length;return function(t){for(var e=i;e--;)r[e](t)}}t=t[0]||{};var s=Ve[e],o=Ke(t),a=o.harness&&(o.harness.aliases||{})[e]||e,u=s?function(e){var r=new s;Nt._pt=0,r.init(t,n?e+n:e,Nt,0,[t]),r.render(1,r),Nt._pt&&jr(1,Nt)}:o.set(t,a);return s?u:function(e){return u(t,a,n?e+n:e,o,1)}},isTweening:function(t){return Bt.getTweensOf(t,!0).length>0},defaults:function(t){return t&&t.ease&&(t.ease=gr(t.ease,ce.ease)),dn(ce,t||{})},config:function(t){return dn(he,t||{})},registerEffect:function(t){var e=t.name,n=t.effect,r=t.plugins,i=t.defaults,s=t.extendTimeline;(r||"").split(",").forEach((function(t){return t&&!Ve[t]&&!Be[t]&&Le(e+" effect requires "+t+" plugin.")})),We[e]=function(t,e,r){return n(Ln(t),hn(e||{},i),r)},s&&(Tr.prototype[e]=function(t,n,r){return this.add(We[e](t,Te(n)?n:(r=n)&&{},this),r)})},registerEase:function(t,e){cr[t]=gr(e)},parseEase:function(t,e){return arguments.length?gr(t,e):cr},getById:function(t){return Bt.getById(t)},exportRoot:function(t,e){void 0===t&&(t={});var n,r,i=new Tr(t);for(i.smoothChildTiming=ke(t.smoothChildTiming),Bt.remove(i),i._dp=0,i._time=i._tTime=Bt._time,n=Bt._first;n;)r=n._next,!e&&!n._dur&&n instanceof Pr&&n.vars.onComplete===n._targets[0]||Cn(i,n,n._start-n._delay),n=r;return Cn(Bt,i,0),i},utils:{wrap:function t(e,n,r){var i=n-e;return Ae(e)?Vn(e,t(0,e.length),n):Fn(r,(function(t){return(i+(t-e)%i)%i+e}))},wrapYoyo:function t(e,n,r){var i=n-e,s=2*i;return Ae(e)?Vn(e,t(0,e.length-1),n):Fn(r,(function(t){return e+((t=(s+(t-e)%s)%s||0)>i?s-t:t)}))},distribute:Nn,random:Hn,snap:qn,normalize:function(t,e,n){return Gn(t,e,0,1,n)},getUnit:Bn,clamp:function(t,e,n){return Fn(n,(function(n){return Rn(t,e,n)}))},splitColor:rr,toArray:Ln,mapRange:Gn,pipe:function(){for(var t=arguments.length,e=new Array(t),n=0;n<t;n++)e[n]=arguments[n];return function(t){return e.reduce((function(t,e){return e(t)}),t)}},unitize:function(t,e){return function(n){return t(parseFloat(n))+(e||Bn(n))}},interpolate:function t(e,n,r,i){var s=isNaN(e+n)?0:function(t){return(1-t)*e+t*n};if(!s){var o,a,u,l,h,c=be(e),f={};if(!0===r&&(i=1)&&(r=null),c)e={p:e},n={p:n};else if(Ae(e)&&!Ae(n)){for(u=[],l=e.length,h=l-2,a=1;a<l;a++)u.push(t(e[a-1],e[a]));l--,s=function(t){t*=l;var e=Math.min(h,~~t);return u[e](t-e)},r=n}else i||(e=fn(Ae(e)?[]:{},e));if(!u){for(o in n)Cr.call(f,e,o,"get",n[o]);s=function(t){return jr(t,f)||(c?e.p:e)}}}return Fn(r,s)},shuffle:jn},install:Xe,effects:We,ticker:lr,updateRoot:Tr.updateRoot,plugins:Ve,globalTimeline:Bt,core:{PropTween:Vr,globals:je,Tween:Pr,Timeline:Tr,Animation:$r,getCache:Ke,_removeLinkedListItem:mn,suppressOverwrites:function(t){return Rt=t}}};en("to,from,fromTo,delayedCall,set,killTweensOf",(function(t){return Wr[t]=Pr[t]})),lr.add(Tr.updateRoot),Nt=Wr.to({},{duration:0});var Gr=function(t,e){for(var n=t._pt;n&&n.p!==e&&n.op!==e&&n.fp!==e;)n=n._next;return n},Zr=function(t,e){return{name:t,rawVars:1,init:function(t,n,r){r._onInit=function(t){var r,i;if(be(n)&&(r={},en(n,(function(t){return r[t]=1})),n=r),e){for(i in r={},n)r[i]=e(n[i]);n=r}!function(t,e){var n,r,i,s=t._targets;for(n in e)for(r=s.length;r--;)(i=t._ptLookup[r][n])&&(i=i.d)&&(i._pt&&(i=Gr(i,n)),i&&i.modifier&&i.modifier(e[n],t,s[r],n))}(t,n)}}}},Qr=Wr.registerPlugin({name:"attr",init:function(t,e,n,r,i){var s,o;for(s in e)(o=this.add(t,"setAttribute",(t.getAttribute(s)||0)+"",e[s],r,i,0,0,s))&&(o.op=s),this._props.push(s)}},{name:"endArray",init:function(t,e){for(var n=e.length;n--;)this.add(t,n,t[n]||0,e[n])}},Zr("roundProps",Un),Zr("modifiers"),Zr("snap",qn))||Wr;Pr.version=Tr.version=Qr.version="3.6.0",Lt=1,Me()&&hr()
-/*!
+    */
+
+    /* eslint-disable */
+    var _config = {
+      autoSleep: 120,
+      force3D: "auto",
+      nullTargetWarn: 1,
+      units: {
+        lineHeight: ""
+      }
+    },
+        _defaults = {
+      duration: .5,
+      overwrite: false,
+      delay: 0
+    },
+        _suppressOverwrites,
+        _bigNum = 1e8,
+        _tinyNum = 1 / _bigNum,
+        _2PI = Math.PI * 2,
+        _HALF_PI = _2PI / 4,
+        _gsID = 0,
+        _sqrt = Math.sqrt,
+        _cos = Math.cos,
+        _sin = Math.sin,
+        _isString = function _isString(value) {
+      return typeof value === "string";
+    },
+        _isFunction = function _isFunction(value) {
+      return typeof value === "function";
+    },
+        _isNumber = function _isNumber(value) {
+      return typeof value === "number";
+    },
+        _isUndefined = function _isUndefined(value) {
+      return typeof value === "undefined";
+    },
+        _isObject = function _isObject(value) {
+      return typeof value === "object";
+    },
+        _isNotFalse = function _isNotFalse(value) {
+      return value !== false;
+    },
+        _windowExists = function _windowExists() {
+      return typeof window !== "undefined";
+    },
+        _isFuncOrString = function _isFuncOrString(value) {
+      return _isFunction(value) || _isString(value);
+    },
+        _isTypedArray = typeof ArrayBuffer === "function" && ArrayBuffer.isView || function () {},
+        // note: IE10 has ArrayBuffer, but NOT ArrayBuffer.isView().
+    _isArray = Array.isArray,
+        _strictNumExp = /(?:-?\.?\d|\.)+/gi,
+        //only numbers (including negatives and decimals) but NOT relative values.
+    _numExp = /[-+=.]*\d+[.e\-+]*\d*[e\-+]*\d*/g,
+        //finds any numbers, including ones that start with += or -=, negative numbers, and ones in scientific notation like 1e-8.
+    _numWithUnitExp = /[-+=.]*\d+[.e-]*\d*[a-z%]*/g,
+        _complexStringNumExp = /[-+=.]*\d+\.?\d*(?:e-|e\+)?\d*/gi,
+        //duplicate so that while we're looping through matches from exec(), it doesn't contaminate the lastIndex of _numExp which we use to search for colors too.
+    _relExp = /[+-]=-?[.\d]+/,
+        _delimitedValueExp = /[#\-+.]*\b[a-z\d-=+%.]+/gi,
+        _unitExp = /[\d.+\-=]+(?:e[-+]\d*)*/i,
+        _globalTimeline,
+        _win,
+        _coreInitted,
+        _doc,
+        _globals = {},
+        _installScope = {},
+        _coreReady,
+        _install = function _install(scope) {
+      return (_installScope = _merge(scope, _globals)) && gsap;
+    },
+        _missingPlugin = function _missingPlugin(property, value) {
+      return console.warn("Invalid property", property, "set to", value, "Missing plugin? gsap.registerPlugin()");
+    },
+        _warn = function _warn(message, suppress) {
+      return !suppress && console.warn(message);
+    },
+        _addGlobal = function _addGlobal(name, obj) {
+      return name && (_globals[name] = obj) && _installScope && (_installScope[name] = obj) || _globals;
+    },
+        _emptyFunc = function _emptyFunc() {
+      return 0;
+    },
+        _reservedProps = {},
+        _lazyTweens = [],
+        _lazyLookup = {},
+        _lastRenderedFrame,
+        _plugins = {},
+        _effects = {},
+        _nextGCFrame = 30,
+        _harnessPlugins = [],
+        _callbackNames = "",
+        _harness = function _harness(targets) {
+      var target = targets[0],
+          harnessPlugin,
+          i;
+      _isObject(target) || _isFunction(target) || (targets = [targets]);
+
+      if (!(harnessPlugin = (target._gsap || {}).harness)) {
+        // find the first target with a harness. We assume targets passed into an animation will be of similar type, meaning the same kind of harness can be used for them all (performance optimization)
+        i = _harnessPlugins.length;
+
+        while (i-- && !_harnessPlugins[i].targetTest(target)) {}
+
+        harnessPlugin = _harnessPlugins[i];
+      }
+
+      i = targets.length;
+
+      while (i--) {
+        targets[i] && (targets[i]._gsap || (targets[i]._gsap = new GSCache(targets[i], harnessPlugin))) || targets.splice(i, 1);
+      }
+
+      return targets;
+    },
+        _getCache = function _getCache(target) {
+      return target._gsap || _harness(toArray(target))[0]._gsap;
+    },
+        _getProperty = function _getProperty(target, property, v) {
+      return (v = target[property]) && _isFunction(v) ? target[property]() : _isUndefined(v) && target.getAttribute && target.getAttribute(property) || v;
+    },
+        _forEachName = function _forEachName(names, func) {
+      return (names = names.split(",")).forEach(func) || names;
+    },
+        //split a comma-delimited list of names into an array, then run a forEach() function and return the split array (this is just a way to consolidate/shorten some code).
+    _round = function _round(value) {
+      return Math.round(value * 100000) / 100000 || 0;
+    },
+        _arrayContainsAny = function _arrayContainsAny(toSearch, toFind) {
+      //searches one array to find matches for any of the items in the toFind array. As soon as one is found, it returns true. It does NOT return all the matches; it's simply a boolean search.
+      var l = toFind.length,
+          i = 0;
+
+      for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l;) {}
+
+      return i < l;
+    },
+        _parseVars = function _parseVars(params, type, parent) {
+      //reads the arguments passed to one of the key methods and figures out if the user is defining things with the OLD/legacy syntax where the duration is the 2nd parameter, and then it adjusts things accordingly and spits back the corrected vars object (with the duration added if necessary, as well as runBackwards or startAt or immediateRender). type 0 = to()/staggerTo(), 1 = from()/staggerFrom(), 2 = fromTo()/staggerFromTo()
+      var isLegacy = _isNumber(params[1]),
+          varsIndex = (isLegacy ? 2 : 1) + (type < 2 ? 0 : 1),
+          vars = params[varsIndex],
+          irVars;
+
+      isLegacy && (vars.duration = params[1]);
+      vars.parent = parent;
+
+      if (type) {
+        irVars = vars;
+
+        while (parent && !("immediateRender" in irVars)) {
+          // inheritance hasn't happened yet, but someone may have set a default in an ancestor timeline. We could do vars.immediateRender = _isNotFalse(_inheritDefaults(vars).immediateRender) but that'd exact a slight performance penalty because _inheritDefaults() also runs in the Tween constructor. We're paying a small kb price here to gain speed.
+          irVars = parent.vars.defaults || {};
+          parent = _isNotFalse(parent.vars.inherit) && parent.parent;
+        }
+
+        vars.immediateRender = _isNotFalse(irVars.immediateRender);
+        type < 2 ? vars.runBackwards = 1 : vars.startAt = params[varsIndex - 1]; // "from" vars
+      }
+
+      return vars;
+    },
+        _lazyRender = function _lazyRender() {
+      var l = _lazyTweens.length,
+          a = _lazyTweens.slice(0),
+          i,
+          tween;
+
+      _lazyLookup = {};
+      _lazyTweens.length = 0;
+
+      for (i = 0; i < l; i++) {
+        tween = a[i];
+        tween && tween._lazy && (tween.render(tween._lazy[0], tween._lazy[1], true)._lazy = 0);
+      }
+    },
+        _lazySafeRender = function _lazySafeRender(animation, time, suppressEvents, force) {
+      _lazyTweens.length && _lazyRender();
+      animation.render(time, suppressEvents, force);
+      _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when someone calls seek() or time() or progress(), they expect an immediate render.
+    },
+        _numericIfPossible = function _numericIfPossible(value) {
+      var n = parseFloat(value);
+      return (n || n === 0) && (value + "").match(_delimitedValueExp).length < 2 ? n : _isString(value) ? value.trim() : value;
+    },
+        _passThrough = function _passThrough(p) {
+      return p;
+    },
+        _setDefaults = function _setDefaults(obj, defaults) {
+      for (var p in defaults) {
+        p in obj || (obj[p] = defaults[p]);
+      }
+
+      return obj;
+    },
+        _setKeyframeDefaults = function _setKeyframeDefaults(obj, defaults) {
+      for (var p in defaults) {
+        p in obj || p === "duration" || p === "ease" || (obj[p] = defaults[p]);
+      }
+    },
+        _merge = function _merge(base, toMerge) {
+      for (var p in toMerge) {
+        base[p] = toMerge[p];
+      }
+
+      return base;
+    },
+        _mergeDeep = function _mergeDeep(base, toMerge) {
+      for (var p in toMerge) {
+        p !== "__proto__" && p !== "constructor" && p !== "prototype" && (base[p] = _isObject(toMerge[p]) ? _mergeDeep(base[p] || (base[p] = {}), toMerge[p]) : toMerge[p]);
+      }
+
+      return base;
+    },
+        _copyExcluding = function _copyExcluding(obj, excluding) {
+      var copy = {},
+          p;
+
+      for (p in obj) {
+        p in excluding || (copy[p] = obj[p]);
+      }
+
+      return copy;
+    },
+        _inheritDefaults = function _inheritDefaults(vars) {
+      var parent = vars.parent || _globalTimeline,
+          func = vars.keyframes ? _setKeyframeDefaults : _setDefaults;
+
+      if (_isNotFalse(vars.inherit)) {
+        while (parent) {
+          func(vars, parent.vars.defaults);
+          parent = parent.parent || parent._dp;
+        }
+      }
+
+      return vars;
+    },
+        _arraysMatch = function _arraysMatch(a1, a2) {
+      var i = a1.length,
+          match = i === a2.length;
+
+      while (match && i-- && a1[i] === a2[i]) {}
+
+      return i < 0;
+    },
+        _addLinkedListItem = function _addLinkedListItem(parent, child, firstProp, lastProp, sortBy) {
+      if (firstProp === void 0) {
+        firstProp = "_first";
+      }
+
+      if (lastProp === void 0) {
+        lastProp = "_last";
+      }
+
+      var prev = parent[lastProp],
+          t;
+
+      if (sortBy) {
+        t = child[sortBy];
+
+        while (prev && prev[sortBy] > t) {
+          prev = prev._prev;
+        }
+      }
+
+      if (prev) {
+        child._next = prev._next;
+        prev._next = child;
+      } else {
+        child._next = parent[firstProp];
+        parent[firstProp] = child;
+      }
+
+      if (child._next) {
+        child._next._prev = child;
+      } else {
+        parent[lastProp] = child;
+      }
+
+      child._prev = prev;
+      child.parent = child._dp = parent;
+      return child;
+    },
+        _removeLinkedListItem = function _removeLinkedListItem(parent, child, firstProp, lastProp) {
+      if (firstProp === void 0) {
+        firstProp = "_first";
+      }
+
+      if (lastProp === void 0) {
+        lastProp = "_last";
+      }
+
+      var prev = child._prev,
+          next = child._next;
+
+      if (prev) {
+        prev._next = next;
+      } else if (parent[firstProp] === child) {
+        parent[firstProp] = next;
+      }
+
+      if (next) {
+        next._prev = prev;
+      } else if (parent[lastProp] === child) {
+        parent[lastProp] = prev;
+      }
+
+      child._next = child._prev = child.parent = null; // don't delete the _dp just so we can revert if necessary. But parent should be null to indicate the item isn't in a linked list.
+    },
+        _removeFromParent = function _removeFromParent(child, onlyIfParentHasAutoRemove) {
+      child.parent && (!onlyIfParentHasAutoRemove || child.parent.autoRemoveChildren) && child.parent.remove(child);
+      child._act = 0;
+    },
+        _uncache = function _uncache(animation, child) {
+      if (animation && (!child || child._end > animation._dur || child._start < 0)) {
+        // performance optimization: if a child animation is passed in we should only uncache if that child EXTENDS the animation (its end time is beyond the end)
+        var a = animation;
+
+        while (a) {
+          a._dirty = 1;
+          a = a.parent;
+        }
+      }
+
+      return animation;
+    },
+        _recacheAncestors = function _recacheAncestors(animation) {
+      var parent = animation.parent;
+
+      while (parent && parent.parent) {
+        //sometimes we must force a re-sort of all children and update the duration/totalDuration of all ancestor timelines immediately in case, for example, in the middle of a render loop, one tween alters another tween's timeScale which shoves its startTime before 0, forcing the parent timeline to shift around and shiftChildren() which could affect that next tween's render (startTime). Doesn't matter for the root timeline though.
+        parent._dirty = 1;
+        parent.totalDuration();
+        parent = parent.parent;
+      }
+
+      return animation;
+    },
+        _hasNoPausedAncestors = function _hasNoPausedAncestors(animation) {
+      return !animation || animation._ts && _hasNoPausedAncestors(animation.parent);
+    },
+        _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
+      return animation._repeat ? _animationCycle(animation._tTime, animation = animation.duration() + animation._rDelay) * animation : 0;
+    },
+        // feed in the totalTime and cycleDuration and it'll return the cycle (iteration minus 1) and if the playhead is exactly at the very END, it will NOT bump up to the next cycle.
+    _animationCycle = function _animationCycle(tTime, cycleDuration) {
+      var whole = Math.floor(tTime /= cycleDuration);
+      return tTime && whole === tTime ? whole - 1 : whole;
+    },
+        _parentToChildTotalTime = function _parentToChildTotalTime(parentTime, child) {
+      return (parentTime - child._start) * child._ts + (child._ts >= 0 ? 0 : child._dirty ? child.totalDuration() : child._tDur);
+    },
+        _setEnd = function _setEnd(animation) {
+      return animation._end = _round(animation._start + (animation._tDur / Math.abs(animation._ts || animation._rts || _tinyNum) || 0));
+    },
+        _alignPlayhead = function _alignPlayhead(animation, totalTime) {
+      // adjusts the animation's _start and _end according to the provided totalTime (only if the parent's smoothChildTiming is true and the animation isn't paused). It doesn't do any rendering or forcing things back into parent timelines, etc. - that's what totalTime() is for.
+      var parent = animation._dp;
+
+      if (parent && parent.smoothChildTiming && animation._ts) {
+        animation._start = _round(parent._time - (animation._ts > 0 ? totalTime / animation._ts : ((animation._dirty ? animation.totalDuration() : animation._tDur) - totalTime) / -animation._ts));
+
+        _setEnd(animation);
+
+        parent._dirty || _uncache(parent, animation); //for performance improvement. If the parent's cache is already dirty, it already took care of marking the ancestors as dirty too, so skip the function call here.
+      }
+
+      return animation;
+    },
+
+    /*
+    _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
+    	let cycleDuration = duration + repeatDelay,
+    		time = _round(clampedTotalTime % cycleDuration);
+    	if (time > duration) {
+    		time = duration;
+    	}
+    	return (yoyo && (~~(clampedTotalTime / cycleDuration) & 1)) ? duration - time : time;
+    },
+    */
+    _postAddChecks = function _postAddChecks(timeline, child) {
+      var t;
+
+      if (child._time || child._initted && !child._dur) {
+        //in case, for example, the _start is moved on a tween that has already rendered. Imagine it's at its end state, then the startTime is moved WAY later (after the end of this timeline), it should render at its beginning.
+        t = _parentToChildTotalTime(timeline.rawTime(), child);
+
+        if (!child._dur || _clamp(0, child.totalDuration(), t) - child._tTime > _tinyNum) {
+          child.render(t, true);
+        }
+      } //if the timeline has already ended but the inserted tween/timeline extends the duration, we should enable this timeline again so that it renders properly. We should also align the playhead with the parent timeline's when appropriate.
+
+
+      if (_uncache(timeline, child)._dp && timeline._initted && timeline._time >= timeline._dur && timeline._ts) {
+        //in case any of the ancestors had completed but should now be enabled...
+        if (timeline._dur < timeline.duration()) {
+          t = timeline;
+
+          while (t._dp) {
+            t.rawTime() >= 0 && t.totalTime(t._tTime); //moves the timeline (shifts its startTime) if necessary, and also enables it. If it's currently zero, though, it may not be scheduled to render until later so there's no need to force it to align with the current playhead position. Only move to catch up with the playhead.
+
+            t = t._dp;
+          }
+        }
+
+        timeline._zTime = -_tinyNum; // helps ensure that the next render() will be forced (crossingStart = true in render()), even if the duration hasn't changed (we're adding a child which would need to get rendered). Definitely an edge case. Note: we MUST do this AFTER the loop above where the totalTime() might trigger a render() because this _addToTimeline() method gets called from the Animation constructor, BEFORE tweens even record their targets, etc. so we wouldn't want things to get triggered in the wrong order.
+      }
+    },
+        _addToTimeline = function _addToTimeline(timeline, child, position, skipChecks) {
+      child.parent && _removeFromParent(child);
+      child._start = _round(position + child._delay);
+      child._end = _round(child._start + (child.totalDuration() / Math.abs(child.timeScale()) || 0));
+
+      _addLinkedListItem(timeline, child, "_first", "_last", timeline._sort ? "_start" : 0);
+
+      timeline._recent = child;
+      skipChecks || _postAddChecks(timeline, child);
+      return timeline;
+    },
+        _scrollTrigger = function _scrollTrigger(animation, trigger) {
+      return (_globals.ScrollTrigger || _missingPlugin("scrollTrigger", trigger)) && _globals.ScrollTrigger.create(trigger, animation);
+    },
+        _attemptInitTween = function _attemptInitTween(tween, totalTime, force, suppressEvents) {
+      _initTween(tween, totalTime);
+
+      if (!tween._initted) {
+        return 1;
+      }
+
+      if (!force && tween._pt && (tween._dur && tween.vars.lazy !== false || !tween._dur && tween.vars.lazy) && _lastRenderedFrame !== _ticker.frame) {
+        _lazyTweens.push(tween);
+
+        tween._lazy = [totalTime, suppressEvents];
+        return 1;
+      }
+    },
+        _parentPlayheadIsBeforeStart = function _parentPlayheadIsBeforeStart(_ref) {
+      var parent = _ref.parent;
+      return parent && parent._ts && parent._initted && !parent._lock && (parent.rawTime() < 0 || _parentPlayheadIsBeforeStart(parent));
+    },
+        // check parent's _lock because when a timeline repeats/yoyos and does its artificial wrapping, we shouldn't force the ratio back to 0
+    _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, suppressEvents, force) {
+      var prevRatio = tween.ratio,
+          ratio = totalTime < 0 || !totalTime && (!tween._start && _parentPlayheadIsBeforeStart(tween) || (tween._ts < 0 || tween._dp._ts < 0) && tween.data !== "isFromStart" && tween.data !== "isStart") ? 0 : 1,
+          // if the tween or its parent is reversed and the totalTime is 0, we should go to a ratio of 0.
+      repeatDelay = tween._rDelay,
+          tTime = 0,
+          pt,
+          iteration,
+          prevIteration;
+
+      if (repeatDelay && tween._repeat) {
+        // in case there's a zero-duration tween that has a repeat with a repeatDelay
+        tTime = _clamp(0, tween._tDur, totalTime);
+        iteration = _animationCycle(tTime, repeatDelay);
+        prevIteration = _animationCycle(tween._tTime, repeatDelay);
+        tween._yoyo && iteration & 1 && (ratio = 1 - ratio);
+
+        if (iteration !== prevIteration) {
+          prevRatio = 1 - ratio;
+          tween.vars.repeatRefresh && tween._initted && tween.invalidate();
+        }
+      }
+
+      if (ratio !== prevRatio || force || tween._zTime === _tinyNum || !totalTime && tween._zTime) {
+        if (!tween._initted && _attemptInitTween(tween, totalTime, force, suppressEvents)) {
+          // if we render the very beginning (time == 0) of a fromTo(), we must force the render (normal tweens wouldn't need to render at a time of 0 when the prevTime was also 0). This is also mandatory to make sure overwriting kicks in immediately.
+          return;
+        }
+
+        prevIteration = tween._zTime;
+        tween._zTime = totalTime || (suppressEvents ? _tinyNum : 0); // when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration tween, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+        suppressEvents || (suppressEvents = totalTime && !prevIteration); // if it was rendered previously at exactly 0 (_zTime) and now the playhead is moving away, DON'T fire callbacks otherwise they'll seem like duplicates.
+
+        tween.ratio = ratio;
+        tween._from && (ratio = 1 - ratio);
+        tween._time = 0;
+        tween._tTime = tTime;
+        suppressEvents || _callback(tween, "onStart");
+        pt = tween._pt;
+
+        while (pt) {
+          pt.r(ratio, pt.d);
+          pt = pt._next;
+        }
+
+        tween._startAt && totalTime < 0 && tween._startAt.render(totalTime, true, true);
+        tween._onUpdate && !suppressEvents && _callback(tween, "onUpdate");
+        tTime && tween._repeat && !suppressEvents && tween.parent && _callback(tween, "onRepeat");
+
+        if ((totalTime >= tween._tDur || totalTime < 0) && tween.ratio === ratio) {
+          ratio && _removeFromParent(tween, 1);
+
+          if (!suppressEvents) {
+            _callback(tween, ratio ? "onComplete" : "onReverseComplete", true);
+
+            tween._prom && tween._prom();
+          }
+        }
+      } else if (!tween._zTime) {
+        tween._zTime = totalTime;
+      }
+    },
+        _findNextPauseTween = function _findNextPauseTween(animation, prevTime, time) {
+      var child;
+
+      if (time > prevTime) {
+        child = animation._first;
+
+        while (child && child._start <= time) {
+          if (!child._dur && child.data === "isPause" && child._start > prevTime) {
+            return child;
+          }
+
+          child = child._next;
+        }
+      } else {
+        child = animation._last;
+
+        while (child && child._start >= time) {
+          if (!child._dur && child.data === "isPause" && child._start < prevTime) {
+            return child;
+          }
+
+          child = child._prev;
+        }
+      }
+    },
+        _setDuration = function _setDuration(animation, duration, skipUncache, leavePlayhead) {
+      var repeat = animation._repeat,
+          dur = _round(duration) || 0,
+          totalProgress = animation._tTime / animation._tDur;
+      totalProgress && !leavePlayhead && (animation._time *= dur / animation._dur);
+      animation._dur = dur;
+      animation._tDur = !repeat ? dur : repeat < 0 ? 1e10 : _round(dur * (repeat + 1) + animation._rDelay * repeat);
+      totalProgress && !leavePlayhead ? _alignPlayhead(animation, animation._tTime = animation._tDur * totalProgress) : animation.parent && _setEnd(animation);
+      skipUncache || _uncache(animation.parent, animation);
+      return animation;
+    },
+        _onUpdateTotalDuration = function _onUpdateTotalDuration(animation) {
+      return animation instanceof Timeline ? _uncache(animation) : _setDuration(animation, animation._dur);
+    },
+        _zeroPosition = {
+      _start: 0,
+      endTime: _emptyFunc
+    },
+        _parsePosition = function _parsePosition(animation, position) {
+      var labels = animation.labels,
+          recent = animation._recent || _zeroPosition,
+          clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur,
+          //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's endTime should be used instead.
+      i,
+          offset;
+
+      if (_isString(position) && (isNaN(position) || position in labels)) {
+        //if the string is a number like "1", check to see if there's a label with that name, otherwise interpret it as a number (absolute value).
+        i = position.charAt(0);
+
+        if (i === "<" || i === ">") {
+          return (i === "<" ? recent._start : recent.endTime(recent._repeat >= 0)) + (parseFloat(position.substr(1)) || 0);
+        }
+
+        i = position.indexOf("=");
+
+        if (i < 0) {
+          position in labels || (labels[position] = clippedDuration);
+          return labels[position];
+        }
+
+        offset = +(position.charAt(i - 1) + position.substr(i + 1));
+        return i > 1 ? _parsePosition(animation, position.substr(0, i - 1)) + offset : clippedDuration + offset;
+      }
+
+      return position == null ? clippedDuration : +position;
+    },
+        _conditionalReturn = function _conditionalReturn(value, func) {
+      return value || value === 0 ? func(value) : func;
+    },
+        _clamp = function _clamp(min, max, value) {
+      return value < min ? min : value > max ? max : value;
+    },
+        getUnit = function getUnit(value) {
+      if (typeof value !== "string") {
+        return "";
+      }
+
+      var v = _unitExp.exec(value);
+
+      return v ? value.substr(v.index + v[0].length) : "";
+    },
+        // note: protect against padded numbers as strings, like "100.100". That shouldn't return "00" as the unit. If it's numeric, return no unit.
+    clamp = function clamp(min, max, value) {
+      return _conditionalReturn(value, function (v) {
+        return _clamp(min, max, v);
+      });
+    },
+        _slice = [].slice,
+        _isArrayLike = function _isArrayLike(value, nonEmpty) {
+      return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
+    },
+        _flatten = function _flatten(ar, leaveStrings, accumulator) {
+      if (accumulator === void 0) {
+        accumulator = [];
+      }
+
+      return ar.forEach(function (value) {
+        var _accumulator;
+
+        return _isString(value) && !leaveStrings || _isArrayLike(value, 1) ? (_accumulator = accumulator).push.apply(_accumulator, toArray(value)) : accumulator.push(value);
+      }) || accumulator;
+    },
+        //takes any value and returns an array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
+    toArray = function toArray(value, leaveStrings) {
+      return _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call(_doc.querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+    },
+        shuffle = function shuffle(a) {
+      return a.sort(function () {
+        return .5 - Math.random();
+      });
+    },
+        // alternative that's a bit faster and more reliably diverse but bigger:   for (let j, v, i = a.length; i; j = Math.floor(Math.random() * i), v = a[--i], a[i] = a[j], a[j] = v); return a;
+    //for distributing values across an array. Can accept a number, a function or (most commonly) a function which can contain the following properties: {base, amount, from, ease, grid, axis, length, each}. Returns a function that expects the following parameters: index, target, array. Recognizes the following
+    distribute = function distribute(v) {
+      if (_isFunction(v)) {
+        return v;
+      }
+
+      var vars = _isObject(v) ? v : {
+        each: v
+      },
+          //n:1 is just to indicate v was a number; we leverage that later to set v according to the length we get. If a number is passed in, we treat it like the old stagger value where 0.1, for example, would mean that things would be distributed with 0.1 between each element in the array rather than a total "amount" that's chunked out among them all.
+      ease = _parseEase(vars.ease),
+          from = vars.from || 0,
+          base = parseFloat(vars.base) || 0,
+          cache = {},
+          isDecimal = from > 0 && from < 1,
+          ratios = isNaN(from) || isDecimal,
+          axis = vars.axis,
+          ratioX = from,
+          ratioY = from;
+
+      if (_isString(from)) {
+        ratioX = ratioY = {
+          center: .5,
+          edges: .5,
+          end: 1
+        }[from] || 0;
+      } else if (!isDecimal && ratios) {
+        ratioX = from[0];
+        ratioY = from[1];
+      }
+
+      return function (i, target, a) {
+        var l = (a || vars).length,
+            distances = cache[l],
+            originX,
+            originY,
+            x,
+            y,
+            d,
+            j,
+            max,
+            min,
+            wrapAt;
+
+        if (!distances) {
+          wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
+
+          if (!wrapAt) {
+            max = -_bigNum;
+
+            while (max < (max = a[wrapAt++].getBoundingClientRect().left) && wrapAt < l) {}
+
+            wrapAt--;
+          }
+
+          distances = cache[l] = [];
+          originX = ratios ? Math.min(wrapAt, l) * ratioX - .5 : from % wrapAt;
+          originY = ratios ? l * ratioY / wrapAt - .5 : from / wrapAt | 0;
+          max = 0;
+          min = _bigNum;
+
+          for (j = 0; j < l; j++) {
+            x = j % wrapAt - originX;
+            y = originY - (j / wrapAt | 0);
+            distances[j] = d = !axis ? _sqrt(x * x + y * y) : Math.abs(axis === "y" ? y : x);
+            d > max && (max = d);
+            d < min && (min = d);
+          }
+
+          from === "random" && shuffle(distances);
+          distances.max = max - min;
+          distances.min = min;
+          distances.v = l = (parseFloat(vars.amount) || parseFloat(vars.each) * (wrapAt > l ? l - 1 : !axis ? Math.max(wrapAt, l / wrapAt) : axis === "y" ? l / wrapAt : wrapAt) || 0) * (from === "edges" ? -1 : 1);
+          distances.b = l < 0 ? base - l : base;
+          distances.u = getUnit(vars.amount || vars.each) || 0; //unit
+
+          ease = ease && l < 0 ? _invertEase(ease) : ease;
+        }
+
+        l = (distances[i] - distances.min) / distances.max || 0;
+        return _round(distances.b + (ease ? ease(l) : l) * distances.v) + distances.u; //round in order to work around floating point errors
+      };
+    },
+        _roundModifier = function _roundModifier(v) {
+      //pass in 0.1 get a function that'll round to the nearest tenth, or 5 to round to the closest 5, or 0.001 to the closest 1000th, etc.
+      var p = v < 1 ? Math.pow(10, (v + "").length - 2) : 1; //to avoid floating point math errors (like 24 * 0.1 == 2.4000000000000004), we chop off at a specific number of decimal places (much faster than toFixed()
+
+      return function (raw) {
+        var n = Math.round(parseFloat(raw) / v) * v * p;
+        return (n - n % 1) / p + (_isNumber(raw) ? 0 : getUnit(raw)); // n - n % 1 replaces Math.floor() in order to handle negative values properly. For example, Math.floor(-150.00000000000003) is 151!
+      };
+    },
+        snap = function snap(snapTo, value) {
+      var isArray = _isArray(snapTo),
+          radius,
+          is2D;
+
+      if (!isArray && _isObject(snapTo)) {
+        radius = isArray = snapTo.radius || _bigNum;
+
+        if (snapTo.values) {
+          snapTo = toArray(snapTo.values);
+
+          if (is2D = !_isNumber(snapTo[0])) {
+            radius *= radius; //performance optimization so we don't have to Math.sqrt() in the loop.
+          }
+        } else {
+          snapTo = _roundModifier(snapTo.increment);
+        }
+      }
+
+      return _conditionalReturn(value, !isArray ? _roundModifier(snapTo) : _isFunction(snapTo) ? function (raw) {
+        is2D = snapTo(raw);
+        return Math.abs(is2D - raw) <= radius ? is2D : raw;
+      } : function (raw) {
+        var x = parseFloat(is2D ? raw.x : raw),
+            y = parseFloat(is2D ? raw.y : 0),
+            min = _bigNum,
+            closest = 0,
+            i = snapTo.length,
+            dx,
+            dy;
+
+        while (i--) {
+          if (is2D) {
+            dx = snapTo[i].x - x;
+            dy = snapTo[i].y - y;
+            dx = dx * dx + dy * dy;
+          } else {
+            dx = Math.abs(snapTo[i] - x);
+          }
+
+          if (dx < min) {
+            min = dx;
+            closest = i;
+          }
+        }
+
+        closest = !radius || min <= radius ? snapTo[closest] : raw;
+        return is2D || closest === raw || _isNumber(raw) ? closest : closest + getUnit(raw);
+      });
+    },
+        random = function random(min, max, roundingIncrement, returnFunction) {
+      return _conditionalReturn(_isArray(min) ? !max : roundingIncrement === true ? !!(roundingIncrement = 0) : !returnFunction, function () {
+        return _isArray(min) ? min[~~(Math.random() * min.length)] : (roundingIncrement = roundingIncrement || 1e-5) && (returnFunction = roundingIncrement < 1 ? Math.pow(10, (roundingIncrement + "").length - 2) : 1) && Math.floor(Math.round((min - roundingIncrement / 2 + Math.random() * (max - min + roundingIncrement * .99)) / roundingIncrement) * roundingIncrement * returnFunction) / returnFunction;
+      });
+    },
+        pipe = function pipe() {
+      for (var _len = arguments.length, functions = new Array(_len), _key = 0; _key < _len; _key++) {
+        functions[_key] = arguments[_key];
+      }
+
+      return function (value) {
+        return functions.reduce(function (v, f) {
+          return f(v);
+        }, value);
+      };
+    },
+        unitize = function unitize(func, unit) {
+      return function (value) {
+        return func(parseFloat(value)) + (unit || getUnit(value));
+      };
+    },
+        normalize = function normalize(min, max, value) {
+      return mapRange(min, max, 0, 1, value);
+    },
+        _wrapArray = function _wrapArray(a, wrapper, value) {
+      return _conditionalReturn(value, function (index) {
+        return a[~~wrapper(index)];
+      });
+    },
+        wrap = function wrap(min, max, value) {
+      // NOTE: wrap() CANNOT be an arrow function! A very odd compiling bug causes problems (unrelated to GSAP).
+      var range = max - min;
+      return _isArray(min) ? _wrapArray(min, wrap(0, min.length), max) : _conditionalReturn(value, function (value) {
+        return (range + (value - min) % range) % range + min;
+      });
+    },
+        wrapYoyo = function wrapYoyo(min, max, value) {
+      var range = max - min,
+          total = range * 2;
+      return _isArray(min) ? _wrapArray(min, wrapYoyo(0, min.length - 1), max) : _conditionalReturn(value, function (value) {
+        value = (total + (value - min) % total) % total || 0;
+        return min + (value > range ? total - value : value);
+      });
+    },
+        _replaceRandom = function _replaceRandom(value) {
+      //replaces all occurrences of random(...) in a string with the calculated random value. can be a range like random(-100, 100, 5) or an array like random([0, 100, 500])
+      var prev = 0,
+          s = "",
+          i,
+          nums,
+          end,
+          isArray;
+
+      while (~(i = value.indexOf("random(", prev))) {
+        end = value.indexOf(")", i);
+        isArray = value.charAt(i + 7) === "[";
+        nums = value.substr(i + 7, end - i - 7).match(isArray ? _delimitedValueExp : _strictNumExp);
+        s += value.substr(prev, i - prev) + random(isArray ? nums : +nums[0], isArray ? 0 : +nums[1], +nums[2] || 1e-5);
+        prev = end + 1;
+      }
+
+      return s + value.substr(prev, value.length - prev);
+    },
+        mapRange = function mapRange(inMin, inMax, outMin, outMax, value) {
+      var inRange = inMax - inMin,
+          outRange = outMax - outMin;
+      return _conditionalReturn(value, function (value) {
+        return outMin + ((value - inMin) / inRange * outRange || 0);
+      });
+    },
+        interpolate = function interpolate(start, end, progress, mutate) {
+      var func = isNaN(start + end) ? 0 : function (p) {
+        return (1 - p) * start + p * end;
+      };
+
+      if (!func) {
+        var isString = _isString(start),
+            master = {},
+            p,
+            i,
+            interpolators,
+            l,
+            il;
+
+        progress === true && (mutate = 1) && (progress = null);
+
+        if (isString) {
+          start = {
+            p: start
+          };
+          end = {
+            p: end
+          };
+        } else if (_isArray(start) && !_isArray(end)) {
+          interpolators = [];
+          l = start.length;
+          il = l - 2;
+
+          for (i = 1; i < l; i++) {
+            interpolators.push(interpolate(start[i - 1], start[i])); //build the interpolators up front as a performance optimization so that when the function is called many times, it can just reuse them.
+          }
+
+          l--;
+
+          func = function func(p) {
+            p *= l;
+            var i = Math.min(il, ~~p);
+            return interpolators[i](p - i);
+          };
+
+          progress = end;
+        } else if (!mutate) {
+          start = _merge(_isArray(start) ? [] : {}, start);
+        }
+
+        if (!interpolators) {
+          for (p in end) {
+            _addPropTween.call(master, start, p, "get", end[p]);
+          }
+
+          func = function func(p) {
+            return _renderPropTweens(p, master) || (isString ? start.p : start);
+          };
+        }
+      }
+
+      return _conditionalReturn(progress, func);
+    },
+        _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
+      //used for nextLabel() and previousLabel()
+      var labels = timeline.labels,
+          min = _bigNum,
+          p,
+          distance,
+          label;
+
+      for (p in labels) {
+        distance = labels[p] - fromTime;
+
+        if (distance < 0 === !!backward && distance && min > (distance = Math.abs(distance))) {
+          label = p;
+          min = distance;
+        }
+      }
+
+      return label;
+    },
+        _callback = function _callback(animation, type, executeLazyFirst) {
+      var v = animation.vars,
+          callback = v[type],
+          params,
+          scope;
+
+      if (!callback) {
+        return;
+      }
+
+      params = v[type + "Params"];
+      scope = v.callbackScope || animation;
+      executeLazyFirst && _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when a timeline finishes, users expect things to have rendered fully. Imagine an onUpdate on a timeline that reports/checks tweened values.
+
+      return params ? callback.apply(scope, params) : callback.call(scope);
+    },
+        _interrupt = function _interrupt(animation) {
+      _removeFromParent(animation);
+
+      animation.progress() < 1 && _callback(animation, "onInterrupt");
+      return animation;
+    },
+        _quickTween,
+        _createPlugin = function _createPlugin(config) {
+      config = !config.name && config["default"] || config; //UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
+
+      var name = config.name,
+          isFunc = _isFunction(config),
+          Plugin = name && !isFunc && config.init ? function () {
+        this._props = [];
+      } : config,
+          //in case someone passes in an object that's not a plugin, like CustomEase
+      instanceDefaults = {
+        init: _emptyFunc,
+        render: _renderPropTweens,
+        add: _addPropTween,
+        kill: _killPropTweensOf,
+        modifier: _addPluginModifier,
+        rawVars: 0
+      },
+          statics = {
+        targetTest: 0,
+        get: 0,
+        getSetter: _getSetter,
+        aliases: {},
+        register: 0
+      };
+
+      _wake();
+
+      if (config !== Plugin) {
+        if (_plugins[name]) {
+          return;
+        }
+
+        _setDefaults(Plugin, _setDefaults(_copyExcluding(config, instanceDefaults), statics)); //static methods
+
+
+        _merge(Plugin.prototype, _merge(instanceDefaults, _copyExcluding(config, statics))); //instance methods
+
+
+        _plugins[Plugin.prop = name] = Plugin;
+
+        if (config.targetTest) {
+          _harnessPlugins.push(Plugin);
+
+          _reservedProps[name] = 1;
+        }
+
+        name = (name === "css" ? "CSS" : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
+      }
+
+      _addGlobal(name, Plugin);
+
+      config.register && config.register(gsap, Plugin, PropTween);
+    },
+
+    /*
+     * --------------------------------------------------------------------------------------
+     * COLORS
+     * --------------------------------------------------------------------------------------
+     */
+    _255 = 255,
+        _colorLookup = {
+      aqua: [0, _255, _255],
+      lime: [0, _255, 0],
+      silver: [192, 192, 192],
+      black: [0, 0, 0],
+      maroon: [128, 0, 0],
+      teal: [0, 128, 128],
+      blue: [0, 0, _255],
+      navy: [0, 0, 128],
+      white: [_255, _255, _255],
+      olive: [128, 128, 0],
+      yellow: [_255, _255, 0],
+      orange: [_255, 165, 0],
+      gray: [128, 128, 128],
+      purple: [128, 0, 128],
+      green: [0, 128, 0],
+      red: [_255, 0, 0],
+      pink: [_255, 192, 203],
+      cyan: [0, _255, _255],
+      transparent: [_255, _255, _255, 0]
+    },
+        _hue = function _hue(h, m1, m2) {
+      h = h < 0 ? h + 1 : h > 1 ? h - 1 : h;
+      return (h * 6 < 1 ? m1 + (m2 - m1) * h * 6 : h < .5 ? m2 : h * 3 < 2 ? m1 + (m2 - m1) * (2 / 3 - h) * 6 : m1) * _255 + .5 | 0;
+    },
+        splitColor = function splitColor(v, toHSL, forceAlpha) {
+      var a = !v ? _colorLookup.black : _isNumber(v) ? [v >> 16, v >> 8 & _255, v & _255] : 0,
+          r,
+          g,
+          b,
+          h,
+          s,
+          l,
+          max,
+          min,
+          d,
+          wasHSL;
+
+      if (!a) {
+        if (v.substr(-1) === ",") {
+          //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
+          v = v.substr(0, v.length - 1);
+        }
+
+        if (_colorLookup[v]) {
+          a = _colorLookup[v];
+        } else if (v.charAt(0) === "#") {
+          if (v.length < 6) {
+            //for shorthand like #9F0 or #9F0F (could have alpha)
+            r = v.charAt(1);
+            g = v.charAt(2);
+            b = v.charAt(3);
+            v = "#" + r + r + g + g + b + b + (v.length === 5 ? v.charAt(4) + v.charAt(4) : "");
+          }
+
+          if (v.length === 9) {
+            // hex with alpha, like #fd5e53ff
+            a = parseInt(v.substr(1, 6), 16);
+            return [a >> 16, a >> 8 & _255, a & _255, parseInt(v.substr(7), 16) / 255];
+          }
+
+          v = parseInt(v.substr(1), 16);
+          a = [v >> 16, v >> 8 & _255, v & _255];
+        } else if (v.substr(0, 3) === "hsl") {
+          a = wasHSL = v.match(_strictNumExp);
+
+          if (!toHSL) {
+            h = +a[0] % 360 / 360;
+            s = +a[1] / 100;
+            l = +a[2] / 100;
+            g = l <= .5 ? l * (s + 1) : l + s - l * s;
+            r = l * 2 - g;
+            a.length > 3 && (a[3] *= 1); //cast as number
+
+            a[0] = _hue(h + 1 / 3, r, g);
+            a[1] = _hue(h, r, g);
+            a[2] = _hue(h - 1 / 3, r, g);
+          } else if (~v.indexOf("=")) {
+            //if relative values are found, just return the raw strings with the relative prefixes in place.
+            a = v.match(_numExp);
+            forceAlpha && a.length < 4 && (a[3] = 1);
+            return a;
+          }
+        } else {
+          a = v.match(_strictNumExp) || _colorLookup.transparent;
+        }
+
+        a = a.map(Number);
+      }
+
+      if (toHSL && !wasHSL) {
+        r = a[0] / _255;
+        g = a[1] / _255;
+        b = a[2] / _255;
+        max = Math.max(r, g, b);
+        min = Math.min(r, g, b);
+        l = (max + min) / 2;
+
+        if (max === min) {
+          h = s = 0;
+        } else {
+          d = max - min;
+          s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+          h = max === r ? (g - b) / d + (g < b ? 6 : 0) : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+          h *= 60;
+        }
+
+        a[0] = ~~(h + .5);
+        a[1] = ~~(s * 100 + .5);
+        a[2] = ~~(l * 100 + .5);
+      }
+
+      forceAlpha && a.length < 4 && (a[3] = 1);
+      return a;
+    },
+        _colorOrderData = function _colorOrderData(v) {
+      // strips out the colors from the string, finds all the numeric slots (with units) and returns an array of those. The Array also has a "c" property which is an Array of the index values where the colors belong. This is to help work around issues where there's a mis-matched order of color/numeric data like drop-shadow(#f00 0px 1px 2px) and drop-shadow(0x 1px 2px #f00). This is basically a helper function used in _formatColors()
+      var values = [],
+          c = [],
+          i = -1;
+      v.split(_colorExp).forEach(function (v) {
+        var a = v.match(_numWithUnitExp) || [];
+        values.push.apply(values, a);
+        c.push(i += a.length + 1);
+      });
+      values.c = c;
+      return values;
+    },
+        _formatColors = function _formatColors(s, toHSL, orderMatchData) {
+      var result = "",
+          colors = (s + result).match(_colorExp),
+          type = toHSL ? "hsla(" : "rgba(",
+          i = 0,
+          c,
+          shell,
+          d,
+          l;
+
+      if (!colors) {
+        return s;
+      }
+
+      colors = colors.map(function (color) {
+        return (color = splitColor(color, toHSL, 1)) && type + (toHSL ? color[0] + "," + color[1] + "%," + color[2] + "%," + color[3] : color.join(",")) + ")";
+      });
+
+      if (orderMatchData) {
+        d = _colorOrderData(s);
+        c = orderMatchData.c;
+
+        if (c.join(result) !== d.c.join(result)) {
+          shell = s.replace(_colorExp, "1").split(_numWithUnitExp);
+          l = shell.length - 1;
+
+          for (; i < l; i++) {
+            result += shell[i] + (~c.indexOf(i) ? colors.shift() || type + "0,0,0,0)" : (d.length ? d : colors.length ? colors : orderMatchData).shift());
+          }
+        }
+      }
+
+      if (!shell) {
+        shell = s.split(_colorExp);
+        l = shell.length - 1;
+
+        for (; i < l; i++) {
+          result += shell[i] + colors[i];
+        }
+      }
+
+      return result + shell[l];
+    },
+        _colorExp = function () {
+      var s = "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b",
+          //we'll dynamically build this Regular Expression to conserve file size. After building it, it will be able to find rgb(), rgba(), # (hexadecimal), and named color values like red, blue, purple, etc.,
+      p;
+
+      for (p in _colorLookup) {
+        s += "|" + p + "\\b";
+      }
+
+      return new RegExp(s + ")", "gi");
+    }(),
+        _hslExp = /hsl[a]?\(/,
+        _colorStringFilter = function _colorStringFilter(a) {
+      var combined = a.join(" "),
+          toHSL;
+      _colorExp.lastIndex = 0;
+
+      if (_colorExp.test(combined)) {
+        toHSL = _hslExp.test(combined);
+        a[1] = _formatColors(a[1], toHSL);
+        a[0] = _formatColors(a[0], toHSL, _colorOrderData(a[1])); // make sure the order of numbers/colors match with the END value.
+
+        return true;
+      }
+    },
+
+    /*
+     * --------------------------------------------------------------------------------------
+     * TICKER
+     * --------------------------------------------------------------------------------------
+     */
+    _tickerActive,
+        _ticker = function () {
+      var _getTime = Date.now,
+          _lagThreshold = 500,
+          _adjustedLag = 33,
+          _startTime = _getTime(),
+          _lastUpdate = _startTime,
+          _gap = 1000 / 240,
+          _nextTime = _gap,
+          _listeners = [],
+          _id,
+          _req,
+          _raf,
+          _self,
+          _delta,
+          _i,
+          _tick = function _tick(v) {
+        var elapsed = _getTime() - _lastUpdate,
+            manual = v === true,
+            overlap,
+            dispatch,
+            time,
+            frame;
+
+        elapsed > _lagThreshold && (_startTime += elapsed - _adjustedLag);
+        _lastUpdate += elapsed;
+        time = _lastUpdate - _startTime;
+        overlap = time - _nextTime;
+
+        if (overlap > 0 || manual) {
+          frame = ++_self.frame;
+          _delta = time - _self.time * 1000;
+          _self.time = time = time / 1000;
+          _nextTime += overlap + (overlap >= _gap ? 4 : _gap - overlap);
+          dispatch = 1;
+        }
+
+        manual || (_id = _req(_tick)); //make sure the request is made before we dispatch the "tick" event so that timing is maintained. Otherwise, if processing the "tick" requires a bunch of time (like 15ms) and we're using a setTimeout() that's based on 16.7ms, it'd technically take 31.7ms between frames otherwise.
+
+        if (dispatch) {
+          for (_i = 0; _i < _listeners.length; _i++) {
+            // use _i and check _listeners.length instead of a variable because a listener could get removed during the loop, and if that happens to an element less than the current index, it'd throw things off in the loop.
+            _listeners[_i](time, _delta, frame, v);
+          }
+        }
+      };
+
+      _self = {
+        time: 0,
+        frame: 0,
+        tick: function tick() {
+          _tick(true);
+        },
+        deltaRatio: function deltaRatio(fps) {
+          return _delta / (1000 / (fps || 60));
+        },
+        wake: function wake() {
+          if (_coreReady) {
+            if (!_coreInitted && _windowExists()) {
+              _win = _coreInitted = window;
+              _doc = _win.document || {};
+              _globals.gsap = gsap;
+              (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
+
+              _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
+
+              _raf = _win.requestAnimationFrame;
+            }
+
+            _id && _self.sleep();
+
+            _req = _raf || function (f) {
+              return setTimeout(f, _nextTime - _self.time * 1000 + 1 | 0);
+            };
+
+            _tickerActive = 1;
+
+            _tick(2);
+          }
+        },
+        sleep: function sleep() {
+          (_raf ? _win.cancelAnimationFrame : clearTimeout)(_id);
+          _tickerActive = 0;
+          _req = _emptyFunc;
+        },
+        lagSmoothing: function lagSmoothing(threshold, adjustedLag) {
+          _lagThreshold = threshold || 1 / _tinyNum; //zero should be interpreted as basically unlimited
+
+          _adjustedLag = Math.min(adjustedLag, _lagThreshold, 0);
+        },
+        fps: function fps(_fps) {
+          _gap = 1000 / (_fps || 240);
+          _nextTime = _self.time * 1000 + _gap;
+        },
+        add: function add(callback) {
+          _listeners.indexOf(callback) < 0 && _listeners.push(callback);
+
+          _wake();
+        },
+        remove: function remove(callback) {
+          var i;
+          ~(i = _listeners.indexOf(callback)) && _listeners.splice(i, 1) && _i >= i && _i--;
+        },
+        _listeners: _listeners
+      };
+      return _self;
+    }(),
+        _wake = function _wake() {
+      return !_tickerActive && _ticker.wake();
+    },
+        //also ensures the core classes are initialized.
+
+    /*
+    * -------------------------------------------------
+    * EASING
+    * -------------------------------------------------
+    */
+    _easeMap = {},
+        _customEaseExp = /^[\d.\-M][\d.\-,\s]/,
+        _quotesExp = /["']/g,
+        _parseObjectInString = function _parseObjectInString(value) {
+      //takes a string like "{wiggles:10, type:anticipate})" and turns it into a real object. Notice it ends in ")" and includes the {} wrappers. This is because we only use this function for parsing ease configs and prioritized optimization rather than reusability.
+      var obj = {},
+          split = value.substr(1, value.length - 3).split(":"),
+          key = split[0],
+          i = 1,
+          l = split.length,
+          index,
+          val,
+          parsedVal;
+
+      for (; i < l; i++) {
+        val = split[i];
+        index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
+        parsedVal = val.substr(0, index);
+        obj[key] = isNaN(parsedVal) ? parsedVal.replace(_quotesExp, "").trim() : +parsedVal;
+        key = val.substr(index + 1).trim();
+      }
+
+      return obj;
+    },
+        _valueInParentheses = function _valueInParentheses(value) {
+      var open = value.indexOf("(") + 1,
+          close = value.indexOf(")"),
+          nested = value.indexOf("(", open);
+      return value.substring(open, ~nested && nested < close ? value.indexOf(")", close + 1) : close);
+    },
+        _configEaseFromString = function _configEaseFromString(name) {
+      //name can be a string like "elastic.out(1,0.5)", and pass in _easeMap as obj and it'll parse it out and call the actual function like _easeMap.Elastic.easeOut.config(1,0.5). It will also parse custom ease strings as long as CustomEase is loaded and registered (internally as _easeMap._CE).
+      var split = (name + "").split("("),
+          ease = _easeMap[split[0]];
+      return ease && split.length > 1 && ease.config ? ease.config.apply(null, ~name.indexOf("{") ? [_parseObjectInString(split[1])] : _valueInParentheses(name).split(",").map(_numericIfPossible)) : _easeMap._CE && _customEaseExp.test(name) ? _easeMap._CE("", name) : ease;
+    },
+        _invertEase = function _invertEase(ease) {
+      return function (p) {
+        return 1 - ease(1 - p);
+      };
+    },
+        // allow yoyoEase to be set in children and have those affected when the parent/ancestor timeline yoyos.
+    _propagateYoyoEase = function _propagateYoyoEase(timeline, isYoyo) {
+      var child = timeline._first,
+          ease;
+
+      while (child) {
+        if (child instanceof Timeline) {
+          _propagateYoyoEase(child, isYoyo);
+        } else if (child.vars.yoyoEase && (!child._yoyo || !child._repeat) && child._yoyo !== isYoyo) {
+          if (child.timeline) {
+            _propagateYoyoEase(child.timeline, isYoyo);
+          } else {
+            ease = child._ease;
+            child._ease = child._yEase;
+            child._yEase = ease;
+            child._yoyo = isYoyo;
+          }
+        }
+
+        child = child._next;
+      }
+    },
+        _parseEase = function _parseEase(ease, defaultEase) {
+      return !ease ? defaultEase : (_isFunction(ease) ? ease : _easeMap[ease] || _configEaseFromString(ease)) || defaultEase;
+    },
+        _insertEase = function _insertEase(names, easeIn, easeOut, easeInOut) {
+      if (easeOut === void 0) {
+        easeOut = function easeOut(p) {
+          return 1 - easeIn(1 - p);
+        };
+      }
+
+      if (easeInOut === void 0) {
+        easeInOut = function easeInOut(p) {
+          return p < .5 ? easeIn(p * 2) / 2 : 1 - easeIn((1 - p) * 2) / 2;
+        };
+      }
+
+      var ease = {
+        easeIn: easeIn,
+        easeOut: easeOut,
+        easeInOut: easeInOut
+      },
+          lowercaseName;
+
+      _forEachName(names, function (name) {
+        _easeMap[name] = _globals[name] = ease;
+        _easeMap[lowercaseName = name.toLowerCase()] = easeOut;
+
+        for (var p in ease) {
+          _easeMap[lowercaseName + (p === "easeIn" ? ".in" : p === "easeOut" ? ".out" : ".inOut")] = _easeMap[name + "." + p] = ease[p];
+        }
+      });
+
+      return ease;
+    },
+        _easeInOutFromOut = function _easeInOutFromOut(easeOut) {
+      return function (p) {
+        return p < .5 ? (1 - easeOut(1 - p * 2)) / 2 : .5 + easeOut((p - .5) * 2) / 2;
+      };
+    },
+        _configElastic = function _configElastic(type, amplitude, period) {
+      var p1 = amplitude >= 1 ? amplitude : 1,
+          //note: if amplitude is < 1, we simply adjust the period for a more natural feel. Otherwise the math doesn't work right and the curve starts at 1.
+      p2 = (period || (type ? .3 : .45)) / (amplitude < 1 ? amplitude : 1),
+          p3 = p2 / _2PI * (Math.asin(1 / p1) || 0),
+          easeOut = function easeOut(p) {
+        return p === 1 ? 1 : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
+      },
+          ease = type === "out" ? easeOut : type === "in" ? function (p) {
+        return 1 - easeOut(1 - p);
+      } : _easeInOutFromOut(easeOut);
+
+      p2 = _2PI / p2; //precalculate to optimize
+
+      ease.config = function (amplitude, period) {
+        return _configElastic(type, amplitude, period);
+      };
+
+      return ease;
+    },
+        _configBack = function _configBack(type, overshoot) {
+      if (overshoot === void 0) {
+        overshoot = 1.70158;
+      }
+
+      var easeOut = function easeOut(p) {
+        return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
+      },
+          ease = type === "out" ? easeOut : type === "in" ? function (p) {
+        return 1 - easeOut(1 - p);
+      } : _easeInOutFromOut(easeOut);
+
+      ease.config = function (overshoot) {
+        return _configBack(type, overshoot);
+      };
+
+      return ease;
+    }; // a cheaper (kb and cpu) but more mild way to get a parameterized weighted ease by feeding in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+    // _weightedEase = ratio => {
+    // 	let y = 0.5 + ratio / 2;
+    // 	return p => (2 * (1 - p) * p * y + p * p);
+    // },
+    // a stronger (but more expensive kb/cpu) parameterized weighted ease that lets you feed in a value between -1 (easeIn) and 1 (easeOut) where 0 is linear.
+    // _weightedEaseStrong = ratio => {
+    // 	ratio = .5 + ratio / 2;
+    // 	let o = 1 / 3 * (ratio < .5 ? ratio : 1 - ratio),
+    // 		b = ratio - o,
+    // 		c = ratio + o;
+    // 	return p => p === 1 ? p : 3 * b * (1 - p) * (1 - p) * p + 3 * c * (1 - p) * p * p + p * p * p;
+    // };
+
+
+    _forEachName("Linear,Quad,Cubic,Quart,Quint,Strong", function (name, i) {
+      var power = i < 5 ? i + 1 : i;
+
+      _insertEase(name + ",Power" + (power - 1), i ? function (p) {
+        return Math.pow(p, power);
+      } : function (p) {
+        return p;
+      }, function (p) {
+        return 1 - Math.pow(1 - p, power);
+      }, function (p) {
+        return p < .5 ? Math.pow(p * 2, power) / 2 : 1 - Math.pow((1 - p) * 2, power) / 2;
+      });
+    });
+
+    _easeMap.Linear.easeNone = _easeMap.none = _easeMap.Linear.easeIn;
+
+    _insertEase("Elastic", _configElastic("in"), _configElastic("out"), _configElastic());
+
+    (function (n, c) {
+      var n1 = 1 / c,
+          n2 = 2 * n1,
+          n3 = 2.5 * n1,
+          easeOut = function easeOut(p) {
+        return p < n1 ? n * p * p : p < n2 ? n * Math.pow(p - 1.5 / c, 2) + .75 : p < n3 ? n * (p -= 2.25 / c) * p + .9375 : n * Math.pow(p - 2.625 / c, 2) + .984375;
+      };
+
+      _insertEase("Bounce", function (p) {
+        return 1 - easeOut(1 - p);
+      }, easeOut);
+    })(7.5625, 2.75);
+
+    _insertEase("Expo", function (p) {
+      return p ? Math.pow(2, 10 * (p - 1)) : 0;
+    });
+
+    _insertEase("Circ", function (p) {
+      return -(_sqrt(1 - p * p) - 1);
+    });
+
+    _insertEase("Sine", function (p) {
+      return p === 1 ? 1 : -_cos(p * _HALF_PI) + 1;
+    });
+
+    _insertEase("Back", _configBack("in"), _configBack("out"), _configBack());
+
+    _easeMap.SteppedEase = _easeMap.steps = _globals.SteppedEase = {
+      config: function config(steps, immediateStart) {
+        if (steps === void 0) {
+          steps = 1;
+        }
+
+        var p1 = 1 / steps,
+            p2 = steps + (immediateStart ? 0 : 1),
+            p3 = immediateStart ? 1 : 0,
+            max = 1 - _tinyNum;
+        return function (p) {
+          return ((p2 * _clamp(0, max, p) | 0) + p3) * p1;
+        };
+      }
+    };
+    _defaults.ease = _easeMap["quad.out"];
+
+    _forEachName("onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt", function (name) {
+      return _callbackNames += name + "," + name + "Params,";
+    });
+    /*
+     * --------------------------------------------------------------------------------------
+     * CACHE
+     * --------------------------------------------------------------------------------------
+     */
+
+
+    var GSCache = function GSCache(target, harness) {
+      this.id = _gsID++;
+      target._gsap = this;
+      this.target = target;
+      this.harness = harness;
+      this.get = harness ? harness.get : _getProperty;
+      this.set = harness ? harness.getSetter : _getSetter;
+    };
+    /*
+     * --------------------------------------------------------------------------------------
+     * ANIMATION
+     * --------------------------------------------------------------------------------------
+     */
+
+    var Animation = /*#__PURE__*/function () {
+      function Animation(vars, time) {
+        var parent = vars.parent || _globalTimeline;
+        this.vars = vars;
+        this._delay = +vars.delay || 0;
+
+        if (this._repeat = vars.repeat === Infinity ? -2 : vars.repeat || 0) {
+          // TODO: repeat: Infinity on a timeline's children must flag that timeline internally and affect its totalDuration, otherwise it'll stop in the negative direction when reaching the start.
+          this._rDelay = vars.repeatDelay || 0;
+          this._yoyo = !!vars.yoyo || !!vars.yoyoEase;
+        }
+
+        this._ts = 1;
+
+        _setDuration(this, +vars.duration, 1, 1);
+
+        this.data = vars.data;
+        _tickerActive || _ticker.wake();
+        parent && _addToTimeline(parent, this, time || time === 0 ? time : parent._time, 1);
+        vars.reversed && this.reverse();
+        vars.paused && this.paused(true);
+      }
+
+      var _proto = Animation.prototype;
+
+      _proto.delay = function delay(value) {
+        if (value || value === 0) {
+          this.parent && this.parent.smoothChildTiming && this.startTime(this._start + value - this._delay);
+          this._delay = value;
+          return this;
+        }
+
+        return this._delay;
+      };
+
+      _proto.duration = function duration(value) {
+        return arguments.length ? this.totalDuration(this._repeat > 0 ? value + (value + this._rDelay) * this._repeat : value) : this.totalDuration() && this._dur;
+      };
+
+      _proto.totalDuration = function totalDuration(value) {
+        if (!arguments.length) {
+          return this._tDur;
+        }
+
+        this._dirty = 0;
+        return _setDuration(this, this._repeat < 0 ? value : (value - this._repeat * this._rDelay) / (this._repeat + 1));
+      };
+
+      _proto.totalTime = function totalTime(_totalTime, suppressEvents) {
+        _wake();
+
+        if (!arguments.length) {
+          return this._tTime;
+        }
+
+        var parent = this._dp;
+
+        if (parent && parent.smoothChildTiming && this._ts) {
+          _alignPlayhead(this, _totalTime);
+
+          !parent._dp || parent.parent || _postAddChecks(parent, this); // edge case: if this is a child of a timeline that already completed, for example, we must re-activate the parent.
+          //in case any of the ancestor timelines had completed but should now be enabled, we should reset their totalTime() which will also ensure that they're lined up properly and enabled. Skip for animations that are on the root (wasteful). Example: a TimelineLite.exportRoot() is performed when there's a paused tween on the root, the export will not complete until that tween is unpaused, but imagine a child gets restarted later, after all [unpaused] tweens have completed. The start of that child would get pushed out, but one of the ancestors may have completed.
+
+          while (parent.parent) {
+            if (parent.parent._time !== parent._start + (parent._ts >= 0 ? parent._tTime / parent._ts : (parent.totalDuration() - parent._tTime) / -parent._ts)) {
+              parent.totalTime(parent._tTime, true);
+            }
+
+            parent = parent.parent;
+          }
+
+          if (!this.parent && this._dp.autoRemoveChildren && (this._ts > 0 && _totalTime < this._tDur || this._ts < 0 && _totalTime > 0 || !this._tDur && !_totalTime)) {
+            //if the animation doesn't have a parent, put it back into its last parent (recorded as _dp for exactly cases like this). Limit to parents with autoRemoveChildren (like globalTimeline) so that if the user manually removes an animation from a timeline and then alters its playhead, it doesn't get added back in.
+            _addToTimeline(this._dp, this, this._start - this._delay);
+          }
+        }
+
+        if (this._tTime !== _totalTime || !this._dur && !suppressEvents || this._initted && Math.abs(this._zTime) === _tinyNum || !_totalTime && !this._initted && (this.add || this._ptLookup)) {
+          // check for _ptLookup on a Tween instance to ensure it has actually finished being instantiated, otherwise if this.reverse() gets called in the Animation constructor, it could trigger a render() here even though the _targets weren't populated, thus when _init() is called there won't be any PropTweens (it'll act like the tween is non-functional)
+          this._ts || (this._pTime = _totalTime); // otherwise, if an animation is paused, then the playhead is moved back to zero, then resumed, it'd revert back to the original time at the pause
+          //if (!this._lock) { // avoid endless recursion (not sure we need this yet or if it's worth the performance hit)
+          //   this._lock = 1;
+
+          _lazySafeRender(this, _totalTime, suppressEvents); //   this._lock = 0;
+          //}
+
+        }
+
+        return this;
+      };
+
+      _proto.time = function time(value, suppressEvents) {
+        return arguments.length ? this.totalTime(Math.min(this.totalDuration(), value + _elapsedCycleDuration(this)) % this._dur || (value ? this._dur : 0), suppressEvents) : this._time; // note: if the modulus results in 0, the playhead could be exactly at the end or the beginning, and we always defer to the END with a non-zero value, otherwise if you set the time() to the very end (duration()), it would render at the START!
+      };
+
+      _proto.totalProgress = function totalProgress(value, suppressEvents) {
+        return arguments.length ? this.totalTime(this.totalDuration() * value, suppressEvents) : this.totalDuration() ? Math.min(1, this._tTime / this._tDur) : this.ratio;
+      };
+
+      _proto.progress = function progress(value, suppressEvents) {
+        return arguments.length ? this.totalTime(this.duration() * (this._yoyo && !(this.iteration() & 1) ? 1 - value : value) + _elapsedCycleDuration(this), suppressEvents) : this.duration() ? Math.min(1, this._time / this._dur) : this.ratio;
+      };
+
+      _proto.iteration = function iteration(value, suppressEvents) {
+        var cycleDuration = this.duration() + this._rDelay;
+
+        return arguments.length ? this.totalTime(this._time + (value - 1) * cycleDuration, suppressEvents) : this._repeat ? _animationCycle(this._tTime, cycleDuration) + 1 : 1;
+      } // potential future addition:
+      // isPlayingBackwards() {
+      // 	let animation = this,
+      // 		orientation = 1; // 1 = forward, -1 = backward
+      // 	while (animation) {
+      // 		orientation *= animation.reversed() || (animation.repeat() && !(animation.iteration() & 1)) ? -1 : 1;
+      // 		animation = animation.parent;
+      // 	}
+      // 	return orientation < 0;
+      // }
+      ;
+
+      _proto.timeScale = function timeScale(value) {
+        if (!arguments.length) {
+          return this._rts === -_tinyNum ? 0 : this._rts; // recorded timeScale. Special case: if someone calls reverse() on an animation with timeScale of 0, we assign it -_tinyNum to remember it's reversed.
+        }
+
+        if (this._rts === value) {
+          return this;
+        }
+
+        var tTime = this.parent && this._ts ? _parentToChildTotalTime(this.parent._time, this) : this._tTime; // make sure to do the parentToChildTotalTime() BEFORE setting the new _ts because the old one must be used in that calculation.
+        // prioritize rendering where the parent's playhead lines up instead of this._tTime because there could be a tween that's animating another tween's timeScale in the same rendering loop (same parent), thus if the timeScale tween renders first, it would alter _start BEFORE _tTime was set on that tick (in the rendering loop), effectively freezing it until the timeScale tween finishes.
+
+        this._rts = +value || 0;
+        this._ts = this._ps || value === -_tinyNum ? 0 : this._rts; // _ts is the functional timeScale which would be 0 if the animation is paused.
+
+        return _recacheAncestors(this.totalTime(_clamp(-this._delay, this._tDur, tTime), true));
+      };
+
+      _proto.paused = function paused(value) {
+        if (!arguments.length) {
+          return this._ps;
+        }
+
+        if (this._ps !== value) {
+          this._ps = value;
+
+          if (value) {
+            this._pTime = this._tTime || Math.max(-this._delay, this.rawTime()); // if the pause occurs during the delay phase, make sure that's factored in when resuming.
+
+            this._ts = this._act = 0; // _ts is the functional timeScale, so a paused tween would effectively have a timeScale of 0. We record the "real" timeScale as _rts (recorded time scale)
+          } else {
+            _wake();
+
+            this._ts = this._rts; //only defer to _pTime (pauseTime) if tTime is zero. Remember, someone could pause() an animation, then scrub the playhead and resume(). If the parent doesn't have smoothChildTiming, we render at the rawTime() because the startTime won't get updated.
+
+            this.totalTime(this.parent && !this.parent.smoothChildTiming ? this.rawTime() : this._tTime || this._pTime, this.progress() === 1 && (this._tTime -= _tinyNum) && Math.abs(this._zTime) !== _tinyNum); // edge case: animation.progress(1).pause().play() wouldn't render again because the playhead is already at the end, but the call to totalTime() below will add it back to its parent...and not remove it again (since removing only happens upon rendering at a new time). Offsetting the _tTime slightly is done simply to cause the final render in totalTime() that'll pop it off its timeline (if autoRemoveChildren is true, of course). Check to make sure _zTime isn't -_tinyNum to avoid an edge case where the playhead is pushed to the end but INSIDE a tween/callback, the timeline itself is paused thus halting rendering and leaving a few unrendered. When resuming, it wouldn't render those otherwise.
+          }
+        }
+
+        return this;
+      };
+
+      _proto.startTime = function startTime(value) {
+        if (arguments.length) {
+          this._start = value;
+          var parent = this.parent || this._dp;
+          parent && (parent._sort || !this.parent) && _addToTimeline(parent, this, value - this._delay);
+          return this;
+        }
+
+        return this._start;
+      };
+
+      _proto.endTime = function endTime(includeRepeats) {
+        return this._start + (_isNotFalse(includeRepeats) ? this.totalDuration() : this.duration()) / Math.abs(this._ts);
+      };
+
+      _proto.rawTime = function rawTime(wrapRepeats) {
+        var parent = this.parent || this._dp; // _dp = detatched parent
+
+        return !parent ? this._tTime : wrapRepeats && (!this._ts || this._repeat && this._time && this.totalProgress() < 1) ? this._tTime % (this._dur + this._rDelay) : !this._ts ? this._tTime : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
+      };
+
+      _proto.globalTime = function globalTime(rawTime) {
+        var animation = this,
+            time = arguments.length ? rawTime : animation.rawTime();
+
+        while (animation) {
+          time = animation._start + time / (animation._ts || 1);
+          animation = animation._dp;
+        }
+
+        return time;
+      };
+
+      _proto.repeat = function repeat(value) {
+        if (arguments.length) {
+          this._repeat = value === Infinity ? -2 : value;
+          return _onUpdateTotalDuration(this);
+        }
+
+        return this._repeat === -2 ? Infinity : this._repeat;
+      };
+
+      _proto.repeatDelay = function repeatDelay(value) {
+        if (arguments.length) {
+          this._rDelay = value;
+          return _onUpdateTotalDuration(this);
+        }
+
+        return this._rDelay;
+      };
+
+      _proto.yoyo = function yoyo(value) {
+        if (arguments.length) {
+          this._yoyo = value;
+          return this;
+        }
+
+        return this._yoyo;
+      };
+
+      _proto.seek = function seek(position, suppressEvents) {
+        return this.totalTime(_parsePosition(this, position), _isNotFalse(suppressEvents));
+      };
+
+      _proto.restart = function restart(includeDelay, suppressEvents) {
+        return this.play().totalTime(includeDelay ? -this._delay : 0, _isNotFalse(suppressEvents));
+      };
+
+      _proto.play = function play(from, suppressEvents) {
+        from != null && this.seek(from, suppressEvents);
+        return this.reversed(false).paused(false);
+      };
+
+      _proto.reverse = function reverse(from, suppressEvents) {
+        from != null && this.seek(from || this.totalDuration(), suppressEvents);
+        return this.reversed(true).paused(false);
+      };
+
+      _proto.pause = function pause(atTime, suppressEvents) {
+        atTime != null && this.seek(atTime, suppressEvents);
+        return this.paused(true);
+      };
+
+      _proto.resume = function resume() {
+        return this.paused(false);
+      };
+
+      _proto.reversed = function reversed(value) {
+        if (arguments.length) {
+          !!value !== this.reversed() && this.timeScale(-this._rts || (value ? -_tinyNum : 0)); // in case timeScale is zero, reversing would have no effect so we use _tinyNum.
+
+          return this;
+        }
+
+        return this._rts < 0;
+      };
+
+      _proto.invalidate = function invalidate() {
+        this._initted = this._act = 0;
+        this._zTime = -_tinyNum;
+        return this;
+      };
+
+      _proto.isActive = function isActive() {
+        var parent = this.parent || this._dp,
+            start = this._start,
+            rawTime;
+        return !!(!parent || this._ts && this._initted && parent.isActive() && (rawTime = parent.rawTime(true)) >= start && rawTime < this.endTime(true) - _tinyNum);
+      };
+
+      _proto.eventCallback = function eventCallback(type, callback, params) {
+        var vars = this.vars;
+
+        if (arguments.length > 1) {
+          if (!callback) {
+            delete vars[type];
+          } else {
+            vars[type] = callback;
+            params && (vars[type + "Params"] = params);
+            type === "onUpdate" && (this._onUpdate = callback);
+          }
+
+          return this;
+        }
+
+        return vars[type];
+      };
+
+      _proto.then = function then(onFulfilled) {
+        var self = this;
+        return new Promise(function (resolve) {
+          var f = _isFunction(onFulfilled) ? onFulfilled : _passThrough,
+              _resolve = function _resolve() {
+            var _then = self.then;
+            self.then = null; // temporarily null the then() method to avoid an infinite loop (see https://github.com/greensock/GSAP/issues/322)
+
+            _isFunction(f) && (f = f(self)) && (f.then || f === self) && (self.then = _then);
+            resolve(f);
+            self.then = _then;
+          };
+
+          if (self._initted && self.totalProgress() === 1 && self._ts >= 0 || !self._tTime && self._ts < 0) {
+            _resolve();
+          } else {
+            self._prom = _resolve;
+          }
+        });
+      };
+
+      _proto.kill = function kill() {
+        _interrupt(this);
+      };
+
+      return Animation;
+    }();
+
+    _setDefaults(Animation.prototype, {
+      _time: 0,
+      _start: 0,
+      _end: 0,
+      _tTime: 0,
+      _tDur: 0,
+      _dirty: 0,
+      _repeat: 0,
+      _yoyo: false,
+      parent: null,
+      _initted: false,
+      _rDelay: 0,
+      _ts: 1,
+      _dp: 0,
+      ratio: 0,
+      _zTime: -_tinyNum,
+      _prom: 0,
+      _ps: false,
+      _rts: 1
+    });
+    /*
+     * -------------------------------------------------
+     * TIMELINE
+     * -------------------------------------------------
+     */
+
+
+    var Timeline = /*#__PURE__*/function (_Animation) {
+      _inheritsLoose(Timeline, _Animation);
+
+      function Timeline(vars, time) {
+        var _this;
+
+        if (vars === void 0) {
+          vars = {};
+        }
+
+        _this = _Animation.call(this, vars, time) || this;
+        _this.labels = {};
+        _this.smoothChildTiming = !!vars.smoothChildTiming;
+        _this.autoRemoveChildren = !!vars.autoRemoveChildren;
+        _this._sort = _isNotFalse(vars.sortChildren);
+        _this.parent && _postAddChecks(_this.parent, _assertThisInitialized(_this));
+        vars.scrollTrigger && _scrollTrigger(_assertThisInitialized(_this), vars.scrollTrigger);
+        return _this;
+      }
+
+      var _proto2 = Timeline.prototype;
+
+      _proto2.to = function to(targets, vars, position) {
+        new Tween(targets, _parseVars(arguments, 0, this), _parsePosition(this, _isNumber(vars) ? arguments[3] : position));
+        return this;
+      };
+
+      _proto2.from = function from(targets, vars, position) {
+        new Tween(targets, _parseVars(arguments, 1, this), _parsePosition(this, _isNumber(vars) ? arguments[3] : position));
+        return this;
+      };
+
+      _proto2.fromTo = function fromTo(targets, fromVars, toVars, position) {
+        new Tween(targets, _parseVars(arguments, 2, this), _parsePosition(this, _isNumber(fromVars) ? arguments[4] : position));
+        return this;
+      };
+
+      _proto2.set = function set(targets, vars, position) {
+        vars.duration = 0;
+        vars.parent = this;
+        _inheritDefaults(vars).repeatDelay || (vars.repeat = 0);
+        vars.immediateRender = !!vars.immediateRender;
+        new Tween(targets, vars, _parsePosition(this, position), 1);
+        return this;
+      };
+
+      _proto2.call = function call(callback, params, position) {
+        return _addToTimeline(this, Tween.delayedCall(0, callback, params), _parsePosition(this, position));
+      } //ONLY for backward compatibility! Maybe delete?
+      ;
+
+      _proto2.staggerTo = function staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+        vars.duration = duration;
+        vars.stagger = vars.stagger || stagger;
+        vars.onComplete = onCompleteAll;
+        vars.onCompleteParams = onCompleteAllParams;
+        vars.parent = this;
+        new Tween(targets, vars, _parsePosition(this, position));
+        return this;
+      };
+
+      _proto2.staggerFrom = function staggerFrom(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams) {
+        vars.runBackwards = 1;
+        _inheritDefaults(vars).immediateRender = _isNotFalse(vars.immediateRender);
+        return this.staggerTo(targets, duration, vars, stagger, position, onCompleteAll, onCompleteAllParams);
+      };
+
+      _proto2.staggerFromTo = function staggerFromTo(targets, duration, fromVars, toVars, stagger, position, onCompleteAll, onCompleteAllParams) {
+        toVars.startAt = fromVars;
+        _inheritDefaults(toVars).immediateRender = _isNotFalse(toVars.immediateRender);
+        return this.staggerTo(targets, duration, toVars, stagger, position, onCompleteAll, onCompleteAllParams);
+      };
+
+      _proto2.render = function render(totalTime, suppressEvents, force) {
+        var prevTime = this._time,
+            tDur = this._dirty ? this.totalDuration() : this._tDur,
+            dur = this._dur,
+            tTime = this !== _globalTimeline && totalTime > tDur - _tinyNum && totalTime >= 0 ? tDur : totalTime < _tinyNum ? 0 : totalTime,
+            crossingStart = this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
+            time,
+            child,
+            next,
+            iteration,
+            cycleDuration,
+            prevPaused,
+            pauseTween,
+            timeScale,
+            prevStart,
+            prevIteration,
+            yoyo,
+            isYoyo;
+
+        if (tTime !== this._tTime || force || crossingStart) {
+          if (prevTime !== this._time && dur) {
+            //if totalDuration() finds a child with a negative startTime and smoothChildTiming is true, things get shifted around internally so we need to adjust the time accordingly. For example, if a tween starts at -30 we must shift EVERYTHING forward 30 seconds and move this timeline's startTime backward by 30 seconds so that things align with the playhead (no jump).
+            tTime += this._time - prevTime;
+            totalTime += this._time - prevTime;
+          }
+
+          time = tTime;
+          prevStart = this._start;
+          timeScale = this._ts;
+          prevPaused = !timeScale;
+
+          if (crossingStart) {
+            dur || (prevTime = this._zTime); //when the playhead arrives at EXACTLY time 0 (right on top) of a zero-duration timeline, we need to discern if events are suppressed so that when the playhead moves again (next time), it'll trigger the callback. If events are NOT suppressed, obviously the callback would be triggered in this render. Basically, the callback should fire either when the playhead ARRIVES or LEAVES this exact spot, not both. Imagine doing a timeline.seek(0) and there's a callback that sits at 0. Since events are suppressed on that seek() by default, nothing will fire, but when the playhead moves off of that position, the callback should fire. This behavior is what people intuitively expect.
+
+            (totalTime || !suppressEvents) && (this._zTime = totalTime);
+          }
+
+          if (this._repeat) {
+            //adjust the time for repeats and yoyos
+            yoyo = this._yoyo;
+            cycleDuration = dur + this._rDelay;
+
+            if (this._repeat < -1 && totalTime < 0) {
+              return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+            }
+
+            time = _round(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+            if (tTime === tDur) {
+              // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+              iteration = this._repeat;
+              time = dur;
+            } else {
+              iteration = ~~(tTime / cycleDuration);
+
+              if (iteration && iteration === tTime / cycleDuration) {
+                time = dur;
+                iteration--;
+              }
+
+              time > dur && (time = dur);
+            }
+
+            prevIteration = _animationCycle(this._tTime, cycleDuration);
+            !prevTime && this._tTime && prevIteration !== iteration && (prevIteration = iteration); // edge case - if someone does addPause() at the very beginning of a repeating timeline, that pause is technically at the same spot as the end which causes this._time to get set to 0 when the totalTime would normally place the playhead at the end. See https://greensock.com/forums/topic/23823-closing-nav-animation-not-working-on-ie-and-iphone-6-maybe-other-older-browser/?tab=comments#comment-113005
+
+            if (yoyo && iteration & 1) {
+              time = dur - time;
+              isYoyo = 1;
+            }
+            /*
+            make sure children at the end/beginning of the timeline are rendered properly. If, for example,
+            a 3-second long timeline rendered at 2.9 seconds previously, and now renders at 3.2 seconds (which
+            would get translated to 2.8 seconds if the timeline yoyos or 0.2 seconds if it just repeats), there
+            could be a callback or a short tween that's at 2.95 or 3 seconds in which wouldn't render. So
+            we need to push the timeline to the end (and/or beginning depending on its yoyo value). Also we must
+            ensure that zero-duration tweens at the very beginning or end of the Timeline work.
+            */
+
+
+            if (iteration !== prevIteration && !this._lock) {
+              var rewinding = yoyo && prevIteration & 1,
+                  doesWrap = rewinding === (yoyo && iteration & 1);
+              iteration < prevIteration && (rewinding = !rewinding);
+              prevTime = rewinding ? 0 : dur;
+              this._lock = 1;
+              this.render(prevTime || (isYoyo ? 0 : _round(iteration * cycleDuration)), suppressEvents, !dur)._lock = 0;
+              !suppressEvents && this.parent && _callback(this, "onRepeat");
+              this.vars.repeatRefresh && !isYoyo && (this.invalidate()._lock = 1);
+
+              if (prevTime !== this._time || prevPaused !== !this._ts) {
+                return this;
+              }
+
+              dur = this._dur; // in case the duration changed in the onRepeat
+
+              tDur = this._tDur;
+
+              if (doesWrap) {
+                this._lock = 2;
+                prevTime = rewinding ? dur : -0.0001;
+                this.render(prevTime, true);
+                this.vars.repeatRefresh && !isYoyo && this.invalidate();
+              }
+
+              this._lock = 0;
+
+              if (!this._ts && !prevPaused) {
+                return this;
+              } //in order for yoyoEase to work properly when there's a stagger, we must swap out the ease in each sub-tween.
+
+
+              _propagateYoyoEase(this, isYoyo);
+            }
+          }
+
+          if (this._hasPause && !this._forcing && this._lock < 2) {
+            pauseTween = _findNextPauseTween(this, _round(prevTime), _round(time));
+
+            if (pauseTween) {
+              tTime -= time - (time = pauseTween._start);
+            }
+          }
+
+          this._tTime = tTime;
+          this._time = time;
+          this._act = !timeScale; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+          if (!this._initted) {
+            this._onUpdate = this.vars.onUpdate;
+            this._initted = 1;
+            this._zTime = totalTime;
+            prevTime = 0; // upon init, the playhead should always go forward; someone could invalidate() a completed timeline and then if they restart(), that would make child tweens render in reverse order which could lock in the wrong starting values if they build on each other, like tl.to(obj, {x: 100}).to(obj, {x: 0}).
+          }
+
+          !prevTime && (time || !dur && totalTime >= 0) && !suppressEvents && _callback(this, "onStart");
+
+          if (time >= prevTime && totalTime >= 0) {
+            child = this._first;
+
+            while (child) {
+              next = child._next;
+
+              if ((child._act || time >= child._start) && child._ts && pauseTween !== child) {
+                if (child.parent !== this) {
+                  // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+                  return this.render(totalTime, suppressEvents, force);
+                }
+
+                child.render(child._ts > 0 ? (time - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (time - child._start) * child._ts, suppressEvents, force);
+
+                if (time !== this._time || !this._ts && !prevPaused) {
+                  //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+                  pauseTween = 0;
+                  next && (tTime += this._zTime = -_tinyNum); // it didn't finish rendering, so flag zTime as negative so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+                  break;
+                }
+              }
+
+              child = next;
+            }
+          } else {
+            child = this._last;
+            var adjustedTime = totalTime < 0 ? totalTime : time; //when the playhead goes backward beyond the start of this timeline, we must pass that information down to the child animations so that zero-duration tweens know whether to render their starting or ending values.
+
+            while (child) {
+              next = child._prev;
+
+              if ((child._act || adjustedTime <= child._end) && child._ts && pauseTween !== child) {
+                if (child.parent !== this) {
+                  // an extreme edge case - the child's render could do something like kill() the "next" one in the linked list, or reparent it. In that case we must re-initiate the whole render to be safe.
+                  return this.render(totalTime, suppressEvents, force);
+                }
+
+                child.render(child._ts > 0 ? (adjustedTime - child._start) * child._ts : (child._dirty ? child.totalDuration() : child._tDur) + (adjustedTime - child._start) * child._ts, suppressEvents, force);
+
+                if (time !== this._time || !this._ts && !prevPaused) {
+                  //in case a tween pauses or seeks the timeline when rendering, like inside of an onUpdate/onComplete
+                  pauseTween = 0;
+                  next && (tTime += this._zTime = adjustedTime ? -_tinyNum : _tinyNum); // it didn't finish rendering, so adjust zTime so that so that the next time render() is called it'll be forced (to render any remaining children)
+
+                  break;
+                }
+              }
+
+              child = next;
+            }
+          }
+
+          if (pauseTween && !suppressEvents) {
+            this.pause();
+            pauseTween.render(time >= prevTime ? 0 : -_tinyNum)._zTime = time >= prevTime ? 1 : -1;
+
+            if (this._ts) {
+              //the callback resumed playback! So since we may have held back the playhead due to where the pause is positioned, go ahead and jump to where it's SUPPOSED to be (if no pause happened).
+              this._start = prevStart; //if the pause was at an earlier time and the user resumed in the callback, it could reposition the timeline (changing its startTime), throwing things off slightly, so we make sure the _start doesn't shift.
+
+              _setEnd(this);
+
+              return this.render(totalTime, suppressEvents, force);
+            }
+          }
+
+          this._onUpdate && !suppressEvents && _callback(this, "onUpdate", true);
+          if (tTime === tDur && tDur >= this.totalDuration() || !tTime && prevTime) if (prevStart === this._start || Math.abs(timeScale) !== Math.abs(this._ts)) if (!this._lock) {
+            (totalTime || !dur) && (tTime === tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+            if (!suppressEvents && !(totalTime < 0 && !prevTime) && (tTime || prevTime)) {
+              _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+
+              this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+            }
+          }
+        }
+
+        return this;
+      };
+
+      _proto2.add = function add(child, position) {
+        var _this2 = this;
+
+        _isNumber(position) || (position = _parsePosition(this, position));
+
+        if (!(child instanceof Animation)) {
+          if (_isArray(child)) {
+            child.forEach(function (obj) {
+              return _this2.add(obj, position);
+            });
+            return this;
+          }
+
+          if (_isString(child)) {
+            return this.addLabel(child, position);
+          }
+
+          if (_isFunction(child)) {
+            child = Tween.delayedCall(0, child);
+          } else {
+            return this;
+          }
+        }
+
+        return this !== child ? _addToTimeline(this, child, position) : this; //don't allow a timeline to be added to itself as a child!
+      };
+
+      _proto2.getChildren = function getChildren(nested, tweens, timelines, ignoreBeforeTime) {
+        if (nested === void 0) {
+          nested = true;
+        }
+
+        if (tweens === void 0) {
+          tweens = true;
+        }
+
+        if (timelines === void 0) {
+          timelines = true;
+        }
+
+        if (ignoreBeforeTime === void 0) {
+          ignoreBeforeTime = -_bigNum;
+        }
+
+        var a = [],
+            child = this._first;
+
+        while (child) {
+          if (child._start >= ignoreBeforeTime) {
+            if (child instanceof Tween) {
+              tweens && a.push(child);
+            } else {
+              timelines && a.push(child);
+              nested && a.push.apply(a, child.getChildren(true, tweens, timelines));
+            }
+          }
+
+          child = child._next;
+        }
+
+        return a;
+      };
+
+      _proto2.getById = function getById(id) {
+        var animations = this.getChildren(1, 1, 1),
+            i = animations.length;
+
+        while (i--) {
+          if (animations[i].vars.id === id) {
+            return animations[i];
+          }
+        }
+      };
+
+      _proto2.remove = function remove(child) {
+        if (_isString(child)) {
+          return this.removeLabel(child);
+        }
+
+        if (_isFunction(child)) {
+          return this.killTweensOf(child);
+        }
+
+        _removeLinkedListItem(this, child);
+
+        if (child === this._recent) {
+          this._recent = this._last;
+        }
+
+        return _uncache(this);
+      };
+
+      _proto2.totalTime = function totalTime(_totalTime2, suppressEvents) {
+        if (!arguments.length) {
+          return this._tTime;
+        }
+
+        this._forcing = 1;
+
+        if (!this._dp && this._ts) {
+          //special case for the global timeline (or any other that has no parent or detached parent).
+          this._start = _round(_ticker.time - (this._ts > 0 ? _totalTime2 / this._ts : (this.totalDuration() - _totalTime2) / -this._ts));
+        }
+
+        _Animation.prototype.totalTime.call(this, _totalTime2, suppressEvents);
+
+        this._forcing = 0;
+        return this;
+      };
+
+      _proto2.addLabel = function addLabel(label, position) {
+        this.labels[label] = _parsePosition(this, position);
+        return this;
+      };
+
+      _proto2.removeLabel = function removeLabel(label) {
+        delete this.labels[label];
+        return this;
+      };
+
+      _proto2.addPause = function addPause(position, callback, params) {
+        var t = Tween.delayedCall(0, callback || _emptyFunc, params);
+        t.data = "isPause";
+        this._hasPause = 1;
+        return _addToTimeline(this, t, _parsePosition(this, position));
+      };
+
+      _proto2.removePause = function removePause(position) {
+        var child = this._first;
+        position = _parsePosition(this, position);
+
+        while (child) {
+          if (child._start === position && child.data === "isPause") {
+            _removeFromParent(child);
+          }
+
+          child = child._next;
+        }
+      };
+
+      _proto2.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+        var tweens = this.getTweensOf(targets, onlyActive),
+            i = tweens.length;
+
+        while (i--) {
+          _overwritingTween !== tweens[i] && tweens[i].kill(targets, props);
+        }
+
+        return this;
+      };
+
+      _proto2.getTweensOf = function getTweensOf(targets, onlyActive) {
+        var a = [],
+            parsedTargets = toArray(targets),
+            child = this._first,
+            isGlobalTime = _isNumber(onlyActive),
+            // a number is interpreted as a global time. If the animation spans
+        children;
+
+        while (child) {
+          if (child instanceof Tween) {
+            if (_arrayContainsAny(child._targets, parsedTargets) && (isGlobalTime ? (!_overwritingTween || child._initted && child._ts) && child.globalTime(0) <= onlyActive && child.globalTime(child.totalDuration()) > onlyActive : !onlyActive || child.isActive())) {
+              // note: if this is for overwriting, it should only be for tweens that aren't paused and are initted.
+              a.push(child);
+            }
+          } else if ((children = child.getTweensOf(parsedTargets, onlyActive)).length) {
+            a.push.apply(a, children);
+          }
+
+          child = child._next;
+        }
+
+        return a;
+      } // potential future feature - targets() on timelines
+      // targets() {
+      // 	let result = [];
+      // 	this.getChildren(true, true, false).forEach(t => result.push(...t.targets()));
+      // 	return result;
+      // }
+      ;
+
+      _proto2.tweenTo = function tweenTo(position, vars) {
+        vars = vars || {};
+
+        var tl = this,
+            endTime = _parsePosition(tl, position),
+            _vars = vars,
+            startAt = _vars.startAt,
+            _onStart = _vars.onStart,
+            onStartParams = _vars.onStartParams,
+            immediateRender = _vars.immediateRender,
+            tween = Tween.to(tl, _setDefaults({
+          ease: "none",
+          lazy: false,
+          immediateRender: false,
+          time: endTime,
+          overwrite: "auto",
+          duration: vars.duration || Math.abs((endTime - (startAt && "time" in startAt ? startAt.time : tl._time)) / tl.timeScale()) || _tinyNum,
+          onStart: function onStart() {
+            tl.pause();
+            var duration = vars.duration || Math.abs((endTime - tl._time) / tl.timeScale());
+            tween._dur !== duration && _setDuration(tween, duration, 0, 1).render(tween._time, true, true);
+            _onStart && _onStart.apply(tween, onStartParams || []); //in case the user had an onStart in the vars - we don't want to overwrite it.
+          }
+        }, vars));
+
+        return immediateRender ? tween.render(0) : tween;
+      };
+
+      _proto2.tweenFromTo = function tweenFromTo(fromPosition, toPosition, vars) {
+        return this.tweenTo(toPosition, _setDefaults({
+          startAt: {
+            time: _parsePosition(this, fromPosition)
+          }
+        }, vars));
+      };
+
+      _proto2.recent = function recent() {
+        return this._recent;
+      };
+
+      _proto2.nextLabel = function nextLabel(afterTime) {
+        if (afterTime === void 0) {
+          afterTime = this._time;
+        }
+
+        return _getLabelInDirection(this, _parsePosition(this, afterTime));
+      };
+
+      _proto2.previousLabel = function previousLabel(beforeTime) {
+        if (beforeTime === void 0) {
+          beforeTime = this._time;
+        }
+
+        return _getLabelInDirection(this, _parsePosition(this, beforeTime), 1);
+      };
+
+      _proto2.currentLabel = function currentLabel(value) {
+        return arguments.length ? this.seek(value, true) : this.previousLabel(this._time + _tinyNum);
+      };
+
+      _proto2.shiftChildren = function shiftChildren(amount, adjustLabels, ignoreBeforeTime) {
+        if (ignoreBeforeTime === void 0) {
+          ignoreBeforeTime = 0;
+        }
+
+        var child = this._first,
+            labels = this.labels,
+            p;
+
+        while (child) {
+          if (child._start >= ignoreBeforeTime) {
+            child._start += amount;
+            child._end += amount;
+          }
+
+          child = child._next;
+        }
+
+        if (adjustLabels) {
+          for (p in labels) {
+            if (labels[p] >= ignoreBeforeTime) {
+              labels[p] += amount;
+            }
+          }
+        }
+
+        return _uncache(this);
+      };
+
+      _proto2.invalidate = function invalidate() {
+        var child = this._first;
+        this._lock = 0;
+
+        while (child) {
+          child.invalidate();
+          child = child._next;
+        }
+
+        return _Animation.prototype.invalidate.call(this);
+      };
+
+      _proto2.clear = function clear(includeLabels) {
+        if (includeLabels === void 0) {
+          includeLabels = true;
+        }
+
+        var child = this._first,
+            next;
+
+        while (child) {
+          next = child._next;
+          this.remove(child);
+          child = next;
+        }
+
+        this._dp && (this._time = this._tTime = this._pTime = 0);
+        includeLabels && (this.labels = {});
+        return _uncache(this);
+      };
+
+      _proto2.totalDuration = function totalDuration(value) {
+        var max = 0,
+            self = this,
+            child = self._last,
+            prevStart = _bigNum,
+            prev,
+            start,
+            parent;
+
+        if (arguments.length) {
+          return self.timeScale((self._repeat < 0 ? self.duration() : self.totalDuration()) / (self.reversed() ? -value : value));
+        }
+
+        if (self._dirty) {
+          parent = self.parent;
+
+          while (child) {
+            prev = child._prev; //record it here in case the tween changes position in the sequence...
+
+            child._dirty && child.totalDuration(); //could change the tween._startTime, so make sure the animation's cache is clean before analyzing it.
+
+            start = child._start;
+
+            if (start > prevStart && self._sort && child._ts && !self._lock) {
+              //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
+              self._lock = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add().
+
+              _addToTimeline(self, child, start - child._delay, 1)._lock = 0;
+            } else {
+              prevStart = start;
+            }
+
+            if (start < 0 && child._ts) {
+              //children aren't allowed to have negative startTimes unless smoothChildTiming is true, so adjust here if one is found.
+              max -= start;
+
+              if (!parent && !self._dp || parent && parent.smoothChildTiming) {
+                self._start += start / self._ts;
+                self._time -= start;
+                self._tTime -= start;
+              }
+
+              self.shiftChildren(-start, false, -1e999);
+              prevStart = 0;
+            }
+
+            child._end > max && child._ts && (max = child._end);
+            child = prev;
+          }
+
+          _setDuration(self, self === _globalTimeline && self._time > max ? self._time : max, 1, 1);
+
+          self._dirty = 0;
+        }
+
+        return self._tDur;
+      };
+
+      Timeline.updateRoot = function updateRoot(time) {
+        if (_globalTimeline._ts) {
+          _lazySafeRender(_globalTimeline, _parentToChildTotalTime(time, _globalTimeline));
+
+          _lastRenderedFrame = _ticker.frame;
+        }
+
+        if (_ticker.frame >= _nextGCFrame) {
+          _nextGCFrame += _config.autoSleep || 120;
+          var child = _globalTimeline._first;
+          if (!child || !child._ts) if (_config.autoSleep && _ticker._listeners.length < 2) {
+            while (child && !child._ts) {
+              child = child._next;
+            }
+
+            child || _ticker.sleep();
+          }
+        }
+      };
+
+      return Timeline;
+    }(Animation);
+
+    _setDefaults(Timeline.prototype, {
+      _lock: 0,
+      _hasPause: 0,
+      _forcing: 0
+    });
+
+    var _addComplexStringPropTween = function _addComplexStringPropTween(target, prop, start, end, setter, stringFilter, funcParam) {
+      //note: we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+      var pt = new PropTween(this._pt, target, prop, 0, 1, _renderComplexString, null, setter),
+          index = 0,
+          matchIndex = 0,
+          result,
+          startNums,
+          color,
+          endNum,
+          chunk,
+          startNum,
+          hasRandom,
+          a;
+      pt.b = start;
+      pt.e = end;
+      start += ""; //ensure values are strings
+
+      end += "";
+
+      if (hasRandom = ~end.indexOf("random(")) {
+        end = _replaceRandom(end);
+      }
+
+      if (stringFilter) {
+        a = [start, end];
+        stringFilter(a, target, prop); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+
+        start = a[0];
+        end = a[1];
+      }
+
+      startNums = start.match(_complexStringNumExp) || [];
+
+      while (result = _complexStringNumExp.exec(end)) {
+        endNum = result[0];
+        chunk = end.substring(index, result.index);
+
+        if (color) {
+          color = (color + 1) % 5;
+        } else if (chunk.substr(-5) === "rgba(") {
+          color = 1;
+        }
+
+        if (endNum !== startNums[matchIndex++]) {
+          startNum = parseFloat(startNums[matchIndex - 1]) || 0; //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+          pt._pt = {
+            _next: pt._pt,
+            p: chunk || matchIndex === 1 ? chunk : ",",
+            //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+            s: startNum,
+            c: endNum.charAt(1) === "=" ? parseFloat(endNum.substr(2)) * (endNum.charAt(0) === "-" ? -1 : 1) : parseFloat(endNum) - startNum,
+            m: color && color < 4 ? Math.round : 0
+          };
+          index = _complexStringNumExp.lastIndex;
+        }
+      }
+
+      pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+
+      pt.fp = funcParam;
+
+      if (_relExp.test(end) || hasRandom) {
+        pt.e = 0; //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+      }
+
+      this._pt = pt; //start the linked list with this new PropTween. Remember, we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+
+      return pt;
+    },
+        _addPropTween = function _addPropTween(target, prop, start, end, index, targets, modifier, stringFilter, funcParam) {
+      _isFunction(end) && (end = end(index || 0, target, targets));
+      var currentValue = target[prop],
+          parsedStart = start !== "get" ? start : !_isFunction(currentValue) ? currentValue : funcParam ? target[prop.indexOf("set") || !_isFunction(target["get" + prop.substr(3)]) ? prop : "get" + prop.substr(3)](funcParam) : target[prop](),
+          setter = !_isFunction(currentValue) ? _setterPlain : funcParam ? _setterFuncWithParam : _setterFunc,
+          pt;
+
+      if (_isString(end)) {
+        if (~end.indexOf("random(")) {
+          end = _replaceRandom(end);
+        }
+
+        if (end.charAt(1) === "=") {
+          end = parseFloat(parsedStart) + parseFloat(end.substr(2)) * (end.charAt(0) === "-" ? -1 : 1) + (getUnit(parsedStart) || 0);
+        }
+      }
+
+      if (parsedStart !== end) {
+        if (!isNaN(parsedStart * end)) {
+          pt = new PropTween(this._pt, target, prop, +parsedStart || 0, end - (parsedStart || 0), typeof currentValue === "boolean" ? _renderBoolean : _renderPlain, 0, setter);
+          funcParam && (pt.fp = funcParam);
+          modifier && pt.modifier(modifier, this, target);
+          return this._pt = pt;
+        }
+
+        !currentValue && !(prop in target) && _missingPlugin(prop, end);
+        return _addComplexStringPropTween.call(this, target, prop, parsedStart, end, setter, stringFilter || _config.stringFilter, funcParam);
+      }
+    },
+        //creates a copy of the vars object and processes any function-based values (putting the resulting values directly into the copy) as well as strings with "random()" in them. It does NOT process relative values.
+    _processVars = function _processVars(vars, index, target, targets, tween) {
+      _isFunction(vars) && (vars = _parseFuncOrString(vars, tween, index, target, targets));
+
+      if (!_isObject(vars) || vars.style && vars.nodeType || _isArray(vars) || _isTypedArray(vars)) {
+        return _isString(vars) ? _parseFuncOrString(vars, tween, index, target, targets) : vars;
+      }
+
+      var copy = {},
+          p;
+
+      for (p in vars) {
+        copy[p] = _parseFuncOrString(vars[p], tween, index, target, targets);
+      }
+
+      return copy;
+    },
+        _checkPlugin = function _checkPlugin(property, vars, tween, index, target, targets) {
+      var plugin, pt, ptLookup, i;
+
+      if (_plugins[property] && (plugin = new _plugins[property]()).init(target, plugin.rawVars ? vars[property] : _processVars(vars[property], index, target, targets, tween), tween, index, targets) !== false) {
+        tween._pt = pt = new PropTween(tween._pt, target, property, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+        if (tween !== _quickTween) {
+          ptLookup = tween._ptLookup[tween._targets.indexOf(target)]; //note: we can't use tween._ptLookup[index] because for staggered tweens, the index from the fullTargets array won't match what it is in each individual tween that spawns from the stagger.
+
+          i = plugin._props.length;
+
+          while (i--) {
+            ptLookup[plugin._props[i]] = pt;
+          }
+        }
+      }
+
+      return plugin;
+    },
+        _overwritingTween,
+        //store a reference temporarily so we can avoid overwriting itself.
+    _initTween = function _initTween(tween, time) {
+      var vars = tween.vars,
+          ease = vars.ease,
+          startAt = vars.startAt,
+          immediateRender = vars.immediateRender,
+          lazy = vars.lazy,
+          onUpdate = vars.onUpdate,
+          onUpdateParams = vars.onUpdateParams,
+          callbackScope = vars.callbackScope,
+          runBackwards = vars.runBackwards,
+          yoyoEase = vars.yoyoEase,
+          keyframes = vars.keyframes,
+          autoRevert = vars.autoRevert,
+          dur = tween._dur,
+          prevStartAt = tween._startAt,
+          targets = tween._targets,
+          parent = tween.parent,
+          fullTargets = parent && parent.data === "nested" ? parent.parent._targets : targets,
+          autoOverwrite = tween._overwrite === "auto" && !_suppressOverwrites,
+          tl = tween.timeline,
+          cleanVars,
+          i,
+          p,
+          pt,
+          target,
+          hasPriority,
+          gsData,
+          harness,
+          plugin,
+          ptLookup,
+          index,
+          harnessVars,
+          overwritten;
+      tl && (!keyframes || !ease) && (ease = "none");
+      tween._ease = _parseEase(ease, _defaults.ease);
+      tween._yEase = yoyoEase ? _invertEase(_parseEase(yoyoEase === true ? ease : yoyoEase, _defaults.ease)) : 0;
+
+      if (yoyoEase && tween._yoyo && !tween._repeat) {
+        //there must have been a parent timeline with yoyo:true that is currently in its yoyo phase, so flip the eases.
+        yoyoEase = tween._yEase;
+        tween._yEase = tween._ease;
+        tween._ease = yoyoEase;
+      }
+
+      if (!tl) {
+        //if there's an internal timeline, skip all the parsing because we passed that task down the chain.
+        harness = targets[0] ? _getCache(targets[0]).harness : 0;
+        harnessVars = harness && vars[harness.prop]; //someone may need to specify CSS-specific values AND non-CSS values, like if the element has an "x" property plus it's a standard DOM element. We allow people to distinguish by wrapping plugin-specific stuff in a css:{} object for example.
+
+        cleanVars = _copyExcluding(vars, _reservedProps);
+        prevStartAt && prevStartAt.render(-1, true).kill();
+
+        if (startAt) {
+          _removeFromParent(tween._startAt = Tween.set(targets, _setDefaults({
+            data: "isStart",
+            overwrite: false,
+            parent: parent,
+            immediateRender: true,
+            lazy: _isNotFalse(lazy),
+            startAt: null,
+            delay: 0,
+            onUpdate: onUpdate,
+            onUpdateParams: onUpdateParams,
+            callbackScope: callbackScope,
+            stagger: 0
+          }, startAt))); //copy the properties/values into a new object to avoid collisions, like var to = {x:0}, from = {x:500}; timeline.fromTo(e, from, to).fromTo(e, to, from);
+
+
+          if (immediateRender) {
+            if (time > 0) {
+              autoRevert || (tween._startAt = 0); //tweens that render immediately (like most from() and fromTo() tweens) shouldn't revert when their parent timeline's playhead goes backward past the startTime because the initial render could have happened anytime and it shouldn't be directly correlated to this tween's startTime. Imagine setting up a complex animation where the beginning states of various objects are rendered immediately but the tween doesn't happen for quite some time - if we revert to the starting values as soon as the playhead goes backward past the tween's startTime, it will throw things off visually. Reversion should only happen in Timeline instances where immediateRender was false or when autoRevert is explicitly set to true.
+            } else if (dur && !(time < 0 && prevStartAt)) {
+              time && (tween._zTime = time);
+              return; //we skip initialization here so that overwriting doesn't occur until the tween actually begins. Otherwise, if you create several immediateRender:true tweens of the same target/properties to drop into a Timeline, the last one created would overwrite the first ones because they didn't get placed into the timeline yet before the first render occurs and kicks in overwriting.
+            }
+          }
+        } else if (runBackwards && dur) {
+          //from() tweens must be handled uniquely: their beginning values must be rendered but we don't want overwriting to occur yet (when time is still 0). Wait until the tween actually begins before doing all the routines like overwriting. At that time, we should render at the END of the tween to ensure that things initialize correctly (remember, from() tweens go backwards)
+          if (prevStartAt) {
+            !autoRevert && (tween._startAt = 0);
+          } else {
+            time && (immediateRender = false); //in rare cases (like if a from() tween runs and then is invalidate()-ed), immediateRender could be true but the initial forced-render gets skipped, so there's no need to force the render in this context when the _time is greater than 0
+
+            p = _setDefaults({
+              overwrite: false,
+              data: "isFromStart",
+              //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
+              lazy: immediateRender && _isNotFalse(lazy),
+              immediateRender: immediateRender,
+              //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
+              stagger: 0,
+              parent: parent //ensures that nested tweens that had a stagger are handled properly, like gsap.from(".class", {y:gsap.utils.wrap([-100,100])})
+
+            }, cleanVars);
+            harnessVars && (p[harness.prop] = harnessVars); // in case someone does something like .from(..., {css:{}})
+
+            _removeFromParent(tween._startAt = Tween.set(targets, p));
+
+            if (!immediateRender) {
+              _initTween(tween._startAt, _tinyNum); //ensures that the initial values are recorded
+
+            } else if (!time) {
+              return;
+            }
+          }
+        }
+
+        tween._pt = 0;
+        lazy = dur && _isNotFalse(lazy) || lazy && !dur;
+
+        for (i = 0; i < targets.length; i++) {
+          target = targets[i];
+          gsData = target._gsap || _harness(targets)[i]._gsap;
+          tween._ptLookup[i] = ptLookup = {};
+          _lazyLookup[gsData.id] && _lazyTweens.length && _lazyRender(); //if other tweens of the same target have recently initted but haven't rendered yet, we've got to force the render so that the starting values are correct (imagine populating a timeline with a bunch of sequential tweens and then jumping to the end)
+
+          index = fullTargets === targets ? i : fullTargets.indexOf(target);
+
+          if (harness && (plugin = new harness()).init(target, harnessVars || cleanVars, tween, index, fullTargets) !== false) {
+            tween._pt = pt = new PropTween(tween._pt, target, plugin.name, 0, 1, plugin.render, plugin, 0, plugin.priority);
+
+            plugin._props.forEach(function (name) {
+              ptLookup[name] = pt;
+            });
+
+            plugin.priority && (hasPriority = 1);
+          }
+
+          if (!harness || harnessVars) {
+            for (p in cleanVars) {
+              if (_plugins[p] && (plugin = _checkPlugin(p, cleanVars, tween, index, target, fullTargets))) {
+                plugin.priority && (hasPriority = 1);
+              } else {
+                ptLookup[p] = pt = _addPropTween.call(tween, target, p, "get", cleanVars[p], index, fullTargets, 0, vars.stringFilter);
+              }
+            }
+          }
+
+          tween._op && tween._op[i] && tween.kill(target, tween._op[i]);
+
+          if (autoOverwrite && tween._pt) {
+            _overwritingTween = tween;
+
+            _globalTimeline.killTweensOf(target, ptLookup, tween.globalTime(0)); //Also make sure the overwriting doesn't overwrite THIS tween!!!
+
+
+            overwritten = !tween.parent;
+            _overwritingTween = 0;
+          }
+
+          tween._pt && lazy && (_lazyLookup[gsData.id] = 1);
+        }
+
+        hasPriority && _sortPropTweensByPriority(tween);
+        tween._onInit && tween._onInit(tween); //plugins like RoundProps must wait until ALL of the PropTweens are instantiated. In the plugin's init() function, it sets the _onInit on the tween instance. May not be pretty/intuitive, but it's fast and keeps file size down.
+      }
+
+      tween._from = !tl && !!vars.runBackwards; //nested timelines should never run backwards - the backwards-ness is in the child tweens.
+
+      tween._onUpdate = onUpdate;
+      tween._initted = (!tween._op || tween._pt) && !overwritten; // if overwrittenProps resulted in the entire tween being killed, do NOT flag it as initted or else it may render for one tick.
+    },
+        _addAliasesToVars = function _addAliasesToVars(targets, vars) {
+      var harness = targets[0] ? _getCache(targets[0]).harness : 0,
+          propertyAliases = harness && harness.aliases,
+          copy,
+          p,
+          i,
+          aliases;
+
+      if (!propertyAliases) {
+        return vars;
+      }
+
+      copy = _merge({}, vars);
+
+      for (p in propertyAliases) {
+        if (p in copy) {
+          aliases = propertyAliases[p].split(",");
+          i = aliases.length;
+
+          while (i--) {
+            copy[aliases[i]] = copy[p];
+          }
+        }
+      }
+
+      return copy;
+    },
+        _parseFuncOrString = function _parseFuncOrString(value, tween, i, target, targets) {
+      return _isFunction(value) ? value.call(tween, i, target, targets) : _isString(value) && ~value.indexOf("random(") ? _replaceRandom(value) : value;
+    },
+        _staggerTweenProps = _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase",
+        _staggerPropsToSkip = (_staggerTweenProps + ",id,stagger,delay,duration,paused,scrollTrigger").split(",");
+    /*
+     * --------------------------------------------------------------------------------------
+     * TWEEN
+     * --------------------------------------------------------------------------------------
+     */
+
+
+    var Tween = /*#__PURE__*/function (_Animation2) {
+      _inheritsLoose(Tween, _Animation2);
+
+      function Tween(targets, vars, time, skipInherit) {
+        var _this3;
+
+        if (typeof vars === "number") {
+          time.duration = vars;
+          vars = time;
+          time = null;
+        }
+
+        _this3 = _Animation2.call(this, skipInherit ? vars : _inheritDefaults(vars), time) || this;
+        var _this3$vars = _this3.vars,
+            duration = _this3$vars.duration,
+            delay = _this3$vars.delay,
+            immediateRender = _this3$vars.immediateRender,
+            stagger = _this3$vars.stagger,
+            overwrite = _this3$vars.overwrite,
+            keyframes = _this3$vars.keyframes,
+            defaults = _this3$vars.defaults,
+            scrollTrigger = _this3$vars.scrollTrigger,
+            yoyoEase = _this3$vars.yoyoEase,
+            parent = _this3.parent,
+            parsedTargets = (_isArray(targets) || _isTypedArray(targets) ? _isNumber(targets[0]) : "length" in vars) ? [targets] : toArray(targets),
+            tl,
+            i,
+            copy,
+            l,
+            p,
+            curTarget,
+            staggerFunc,
+            staggerVarsToMerge;
+        _this3._targets = parsedTargets.length ? _harness(parsedTargets) : _warn("GSAP target " + targets + " not found. https://greensock.com", !_config.nullTargetWarn) || [];
+        _this3._ptLookup = []; //PropTween lookup. An array containing an object for each target, having keys for each tweening property
+
+        _this3._overwrite = overwrite;
+
+        if (keyframes || stagger || _isFuncOrString(duration) || _isFuncOrString(delay)) {
+          vars = _this3.vars;
+          tl = _this3.timeline = new Timeline({
+            data: "nested",
+            defaults: defaults || {}
+          });
+          tl.kill();
+          tl.parent = tl._dp = _assertThisInitialized(_this3);
+          tl._start = 0;
+
+          if (keyframes) {
+            _setDefaults(tl.vars.defaults, {
+              ease: "none"
+            });
+
+            keyframes.forEach(function (frame) {
+              return tl.to(parsedTargets, frame, ">");
+            });
+          } else {
+            l = parsedTargets.length;
+            staggerFunc = stagger ? distribute(stagger) : _emptyFunc;
+
+            if (_isObject(stagger)) {
+              //users can pass in callbacks like onStart/onComplete in the stagger object. These should fire with each individual tween.
+              for (p in stagger) {
+                if (~_staggerTweenProps.indexOf(p)) {
+                  staggerVarsToMerge || (staggerVarsToMerge = {});
+                  staggerVarsToMerge[p] = stagger[p];
+                }
+              }
+            }
+
+            for (i = 0; i < l; i++) {
+              copy = {};
+
+              for (p in vars) {
+                if (_staggerPropsToSkip.indexOf(p) < 0) {
+                  copy[p] = vars[p];
+                }
+              }
+
+              copy.stagger = 0;
+              yoyoEase && (copy.yoyoEase = yoyoEase);
+              staggerVarsToMerge && _merge(copy, staggerVarsToMerge);
+              curTarget = parsedTargets[i]; //don't just copy duration or delay because if they're a string or function, we'd end up in an infinite loop because _isFuncOrString() would evaluate as true in the child tweens, entering this loop, etc. So we parse the value straight from vars and default to 0.
+
+              copy.duration = +_parseFuncOrString(duration, _assertThisInitialized(_this3), i, curTarget, parsedTargets);
+              copy.delay = (+_parseFuncOrString(delay, _assertThisInitialized(_this3), i, curTarget, parsedTargets) || 0) - _this3._delay;
+
+              if (!stagger && l === 1 && copy.delay) {
+                // if someone does delay:"random(1, 5)", repeat:-1, for example, the delay shouldn't be inside the repeat.
+                _this3._delay = delay = copy.delay;
+                _this3._start += delay;
+                copy.delay = 0;
+              }
+
+              tl.to(curTarget, copy, staggerFunc(i, curTarget, parsedTargets));
+            }
+
+            tl.duration() ? duration = delay = 0 : _this3.timeline = 0; // if the timeline's duration is 0, we don't need a timeline internally!
+          }
+
+          duration || _this3.duration(duration = tl.duration());
+        } else {
+          _this3.timeline = 0; //speed optimization, faster lookups (no going up the prototype chain)
+        }
+
+        if (overwrite === true && !_suppressOverwrites) {
+          _overwritingTween = _assertThisInitialized(_this3);
+
+          _globalTimeline.killTweensOf(parsedTargets);
+
+          _overwritingTween = 0;
+        }
+
+        parent && _postAddChecks(parent, _assertThisInitialized(_this3));
+
+        if (immediateRender || !duration && !keyframes && _this3._start === _round(parent._time) && _isNotFalse(immediateRender) && _hasNoPausedAncestors(_assertThisInitialized(_this3)) && parent.data !== "nested") {
+          _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
+
+          _this3.render(Math.max(0, -delay)); //in case delay is negative
+
+        }
+
+        scrollTrigger && _scrollTrigger(_assertThisInitialized(_this3), scrollTrigger);
+        return _this3;
+      }
+
+      var _proto3 = Tween.prototype;
+
+      _proto3.render = function render(totalTime, suppressEvents, force) {
+        var prevTime = this._time,
+            tDur = this._tDur,
+            dur = this._dur,
+            tTime = totalTime > tDur - _tinyNum && totalTime >= 0 ? tDur : totalTime < _tinyNum ? 0 : totalTime,
+            time,
+            pt,
+            iteration,
+            cycleDuration,
+            prevIteration,
+            isYoyo,
+            ratio,
+            timeline,
+            yoyoEase;
+
+        if (!dur) {
+          _renderZeroDurationTween(this, totalTime, suppressEvents, force);
+        } else if (tTime !== this._tTime || !totalTime || force || !this._initted && this._tTime || this._startAt && this._zTime < 0 !== totalTime < 0) {
+          //this senses if we're crossing over the start time, in which case we must record _zTime and force the render, but we do it in this lengthy conditional way for performance reasons (usually we can skip the calculations): this._initted && (this._zTime < 0) !== (totalTime < 0)
+          time = tTime;
+          timeline = this.timeline;
+
+          if (this._repeat) {
+            //adjust the time for repeats and yoyos
+            cycleDuration = dur + this._rDelay;
+
+            if (this._repeat < -1 && totalTime < 0) {
+              return this.totalTime(cycleDuration * 100 + totalTime, suppressEvents, force);
+            }
+
+            time = _round(tTime % cycleDuration); //round to avoid floating point errors. (4 % 0.8 should be 0 but some browsers report it as 0.79999999!)
+
+            if (tTime === tDur) {
+              // the tDur === tTime is for edge cases where there's a lengthy decimal on the duration and it may reach the very end but the time is rendered as not-quite-there (remember, tDur is rounded to 4 decimals whereas dur isn't)
+              iteration = this._repeat;
+              time = dur;
+            } else {
+              iteration = ~~(tTime / cycleDuration);
+
+              if (iteration && iteration === tTime / cycleDuration) {
+                time = dur;
+                iteration--;
+              }
+
+              time > dur && (time = dur);
+            }
+
+            isYoyo = this._yoyo && iteration & 1;
+
+            if (isYoyo) {
+              yoyoEase = this._yEase;
+              time = dur - time;
+            }
+
+            prevIteration = _animationCycle(this._tTime, cycleDuration);
+
+            if (time === prevTime && !force && this._initted) {
+              //could be during the repeatDelay part. No need to render and fire callbacks.
+              return this;
+            }
+
+            if (iteration !== prevIteration) {
+              timeline && this._yEase && _propagateYoyoEase(timeline, isYoyo); //repeatRefresh functionality
+
+              if (this.vars.repeatRefresh && !isYoyo && !this._lock) {
+                this._lock = force = 1; //force, otherwise if lazy is true, the _attemptInitTween() will return and we'll jump out and get caught bouncing on each tick.
+
+                this.render(_round(cycleDuration * iteration), true).invalidate()._lock = 0;
+              }
+            }
+          }
+
+          if (!this._initted) {
+            if (_attemptInitTween(this, totalTime < 0 ? totalTime : time, force, suppressEvents)) {
+              this._tTime = 0; // in constructor if immediateRender is true, we set _tTime to -_tinyNum to have the playhead cross the starting point but we can't leave _tTime as a negative number.
+
+              return this;
+            }
+
+            if (dur !== this._dur) {
+              // while initting, a plugin like InertiaPlugin might alter the duration, so rerun from the start to ensure everything renders as it should.
+              return this.render(totalTime, suppressEvents, force);
+            }
+          }
+
+          this._tTime = tTime;
+          this._time = time;
+
+          if (!this._act && this._ts) {
+            this._act = 1; //as long as it's not paused, force it to be active so that if the user renders independent of the parent timeline, it'll be forced to re-render on the next tick.
+
+            this._lazy = 0;
+          }
+
+          this.ratio = ratio = (yoyoEase || this._ease)(time / dur);
+
+          if (this._from) {
+            this.ratio = ratio = 1 - ratio;
+          }
+
+          time && !prevTime && !suppressEvents && _callback(this, "onStart");
+          pt = this._pt;
+
+          while (pt) {
+            pt.r(ratio, pt.d);
+            pt = pt._next;
+          }
+
+          timeline && timeline.render(totalTime < 0 ? totalTime : !time && isYoyo ? -_tinyNum : timeline._dur * ratio, suppressEvents, force) || this._startAt && (this._zTime = totalTime);
+
+          if (this._onUpdate && !suppressEvents) {
+            totalTime < 0 && this._startAt && this._startAt.render(totalTime, true, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
+
+            _callback(this, "onUpdate");
+          }
+
+          this._repeat && iteration !== prevIteration && this.vars.onRepeat && !suppressEvents && this.parent && _callback(this, "onRepeat");
+
+          if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
+            totalTime < 0 && this._startAt && !this._onUpdate && this._startAt.render(totalTime, true, true);
+            (totalTime || !dur) && (tTime === this._tDur && this._ts > 0 || !tTime && this._ts < 0) && _removeFromParent(this, 1); // don't remove if we're rendering at exactly a time of 0, as there could be autoRevert values that should get set on the next tick (if the playhead goes backward beyond the startTime, negative totalTime). Don't remove if the timeline is reversed and the playhead isn't at 0, otherwise tl.progress(1).reverse() won't work. Only remove if the playhead is at the end and timeScale is positive, or if the playhead is at 0 and the timeScale is negative.
+
+            if (!suppressEvents && !(totalTime < 0 && !prevTime) && (tTime || prevTime)) {
+              // if prevTime and tTime are zero, we shouldn't fire the onReverseComplete. This could happen if you gsap.to(... {paused:true}).play();
+              _callback(this, tTime === tDur ? "onComplete" : "onReverseComplete", true);
+
+              this._prom && !(tTime < tDur && this.timeScale() > 0) && this._prom();
+            }
+          }
+        }
+
+        return this;
+      };
+
+      _proto3.targets = function targets() {
+        return this._targets;
+      };
+
+      _proto3.invalidate = function invalidate() {
+        this._pt = this._op = this._startAt = this._onUpdate = this._lazy = this.ratio = 0;
+        this._ptLookup = [];
+        this.timeline && this.timeline.invalidate();
+        return _Animation2.prototype.invalidate.call(this);
+      };
+
+      _proto3.kill = function kill(targets, vars) {
+        if (vars === void 0) {
+          vars = "all";
+        }
+
+        if (!targets && (!vars || vars === "all")) {
+          this._lazy = this._pt = 0;
+          return this.parent ? _interrupt(this) : this;
+        }
+
+        if (this.timeline) {
+          var tDur = this.timeline.totalDuration();
+          this.timeline.killTweensOf(targets, vars, _overwritingTween && _overwritingTween.vars.overwrite !== true)._first || _interrupt(this); // if nothing is left tweening, interrupt.
+
+          this.parent && tDur !== this.timeline.totalDuration() && _setDuration(this, this._dur * this.timeline._tDur / tDur, 0, 1); // if a nested tween is killed that changes the duration, it should affect this tween's duration. We must use the ratio, though, because sometimes the internal timeline is stretched like for keyframes where they don't all add up to whatever the parent tween's duration was set to.
+
+          return this;
+        }
+
+        var parsedTargets = this._targets,
+            killingTargets = targets ? toArray(targets) : parsedTargets,
+            propTweenLookup = this._ptLookup,
+            firstPT = this._pt,
+            overwrittenProps,
+            curLookup,
+            curOverwriteProps,
+            props,
+            p,
+            pt,
+            i;
+
+        if ((!vars || vars === "all") && _arraysMatch(parsedTargets, killingTargets)) {
+          vars === "all" && (this._pt = 0);
+          return _interrupt(this);
+        }
+
+        overwrittenProps = this._op = this._op || [];
+
+        if (vars !== "all") {
+          //so people can pass in a comma-delimited list of property names
+          if (_isString(vars)) {
+            p = {};
+
+            _forEachName(vars, function (name) {
+              return p[name] = 1;
+            });
+
+            vars = p;
+          }
+
+          vars = _addAliasesToVars(parsedTargets, vars);
+        }
+
+        i = parsedTargets.length;
+
+        while (i--) {
+          if (~killingTargets.indexOf(parsedTargets[i])) {
+            curLookup = propTweenLookup[i];
+
+            if (vars === "all") {
+              overwrittenProps[i] = vars;
+              props = curLookup;
+              curOverwriteProps = {};
+            } else {
+              curOverwriteProps = overwrittenProps[i] = overwrittenProps[i] || {};
+              props = vars;
+            }
+
+            for (p in props) {
+              pt = curLookup && curLookup[p];
+
+              if (pt) {
+                if (!("kill" in pt.d) || pt.d.kill(p) === true) {
+                  _removeLinkedListItem(this, pt, "_pt");
+                }
+
+                delete curLookup[p];
+              }
+
+              if (curOverwriteProps !== "all") {
+                curOverwriteProps[p] = 1;
+              }
+            }
+          }
+        }
+
+        this._initted && !this._pt && firstPT && _interrupt(this); //if all tweening properties are killed, kill the tween. Without this line, if there's a tween with multiple targets and then you killTweensOf() each target individually, the tween would technically still remain active and fire its onComplete even though there aren't any more properties tweening.
+
+        return this;
+      };
+
+      Tween.to = function to(targets, vars) {
+        return new Tween(targets, vars, arguments[2]);
+      };
+
+      Tween.from = function from(targets, vars) {
+        return new Tween(targets, _parseVars(arguments, 1));
+      };
+
+      Tween.delayedCall = function delayedCall(delay, callback, params, scope) {
+        return new Tween(callback, 0, {
+          immediateRender: false,
+          lazy: false,
+          overwrite: false,
+          delay: delay,
+          onComplete: callback,
+          onReverseComplete: callback,
+          onCompleteParams: params,
+          onReverseCompleteParams: params,
+          callbackScope: scope
+        });
+      };
+
+      Tween.fromTo = function fromTo(targets, fromVars, toVars) {
+        return new Tween(targets, _parseVars(arguments, 2));
+      };
+
+      Tween.set = function set(targets, vars) {
+        vars.duration = 0;
+        vars.repeatDelay || (vars.repeat = 0);
+        return new Tween(targets, vars);
+      };
+
+      Tween.killTweensOf = function killTweensOf(targets, props, onlyActive) {
+        return _globalTimeline.killTweensOf(targets, props, onlyActive);
+      };
+
+      return Tween;
+    }(Animation);
+
+    _setDefaults(Tween.prototype, {
+      _targets: [],
+      _lazy: 0,
+      _startAt: 0,
+      _op: 0,
+      _onInit: 0
+    }); //add the pertinent timeline methods to Tween instances so that users can chain conveniently and create a timeline automatically. (removed due to concerns that it'd ultimately add to more confusion especially for beginners)
+    // _forEachName("to,from,fromTo,set,call,add,addLabel,addPause", name => {
+    // 	Tween.prototype[name] = function() {
+    // 		let tl = new Timeline();
+    // 		return _addToTimeline(tl, this)[name].apply(tl, toArray(arguments));
+    // 	}
+    // });
+    //for backward compatibility. Leverage the timeline calls.
+
+
+    _forEachName("staggerTo,staggerFrom,staggerFromTo", function (name) {
+      Tween[name] = function () {
+        var tl = new Timeline(),
+            params = _slice.call(arguments, 0);
+
+        params.splice(name === "staggerFromTo" ? 5 : 4, 0, 0);
+        return tl[name].apply(tl, params);
+      };
+    });
+    /*
+     * --------------------------------------------------------------------------------------
+     * PROPTWEEN
+     * --------------------------------------------------------------------------------------
+     */
+
+
+    var _setterPlain = function _setterPlain(target, property, value) {
+      return target[property] = value;
+    },
+        _setterFunc = function _setterFunc(target, property, value) {
+      return target[property](value);
+    },
+        _setterFuncWithParam = function _setterFuncWithParam(target, property, value, data) {
+      return target[property](data.fp, value);
+    },
+        _setterAttribute = function _setterAttribute(target, property, value) {
+      return target.setAttribute(property, value);
+    },
+        _getSetter = function _getSetter(target, property) {
+      return _isFunction(target[property]) ? _setterFunc : _isUndefined(target[property]) && target.setAttribute ? _setterAttribute : _setterPlain;
+    },
+        _renderPlain = function _renderPlain(ratio, data) {
+      return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000, data);
+    },
+        _renderBoolean = function _renderBoolean(ratio, data) {
+      return data.set(data.t, data.p, !!(data.s + data.c * ratio), data);
+    },
+        _renderComplexString = function _renderComplexString(ratio, data) {
+      var pt = data._pt,
+          s = "";
+
+      if (!ratio && data.b) {
+        //b = beginning string
+        s = data.b;
+      } else if (ratio === 1 && data.e) {
+        //e = ending string
+        s = data.e;
+      } else {
+        while (pt) {
+          s = pt.p + (pt.m ? pt.m(pt.s + pt.c * ratio) : Math.round((pt.s + pt.c * ratio) * 10000) / 10000) + s; //we use the "p" property for the text inbetween (like a suffix). And in the context of a complex string, the modifier (m) is typically just Math.round(), like for RGB colors.
+
+          pt = pt._next;
+        }
+
+        s += data.c; //we use the "c" of the PropTween to store the final chunk of non-numeric text.
+      }
+
+      data.set(data.t, data.p, s, data);
+    },
+        _renderPropTweens = function _renderPropTweens(ratio, data) {
+      var pt = data._pt;
+
+      while (pt) {
+        pt.r(ratio, pt.d);
+        pt = pt._next;
+      }
+    },
+        _addPluginModifier = function _addPluginModifier(modifier, tween, target, property) {
+      var pt = this._pt,
+          next;
+
+      while (pt) {
+        next = pt._next;
+        pt.p === property && pt.modifier(modifier, tween, target);
+        pt = next;
+      }
+    },
+        _killPropTweensOf = function _killPropTweensOf(property) {
+      var pt = this._pt,
+          hasNonDependentRemaining,
+          next;
+
+      while (pt) {
+        next = pt._next;
+
+        if (pt.p === property && !pt.op || pt.op === property) {
+          _removeLinkedListItem(this, pt, "_pt");
+        } else if (!pt.dep) {
+          hasNonDependentRemaining = 1;
+        }
+
+        pt = next;
+      }
+
+      return !hasNonDependentRemaining;
+    },
+        _setterWithModifier = function _setterWithModifier(target, property, value, data) {
+      data.mSet(target, property, data.m.call(data.tween, value, data.mt), data);
+    },
+        _sortPropTweensByPriority = function _sortPropTweensByPriority(parent) {
+      var pt = parent._pt,
+          next,
+          pt2,
+          first,
+          last; //sorts the PropTween linked list in order of priority because some plugins need to do their work after ALL of the PropTweens were created (like RoundPropsPlugin and ModifiersPlugin)
+
+      while (pt) {
+        next = pt._next;
+        pt2 = first;
+
+        while (pt2 && pt2.pr > pt.pr) {
+          pt2 = pt2._next;
+        }
+
+        if (pt._prev = pt2 ? pt2._prev : last) {
+          pt._prev._next = pt;
+        } else {
+          first = pt;
+        }
+
+        if (pt._next = pt2) {
+          pt2._prev = pt;
+        } else {
+          last = pt;
+        }
+
+        pt = next;
+      }
+
+      parent._pt = first;
+    }; //PropTween key: t = target, p = prop, r = renderer, d = data, s = start, c = change, op = overwriteProperty (ONLY populated when it's different than p), pr = priority, _next/_prev for the linked list siblings, set = setter, m = modifier, mSet = modifierSetter (the original setter, before a modifier was added)
+
+
+    var PropTween = /*#__PURE__*/function () {
+      function PropTween(next, target, prop, start, change, renderer, data, setter, priority) {
+        this.t = target;
+        this.s = start;
+        this.c = change;
+        this.p = prop;
+        this.r = renderer || _renderPlain;
+        this.d = data || this;
+        this.set = setter || _setterPlain;
+        this.pr = priority || 0;
+        this._next = next;
+
+        if (next) {
+          next._prev = this;
+        }
+      }
+
+      var _proto4 = PropTween.prototype;
+
+      _proto4.modifier = function modifier(func, tween, target) {
+        this.mSet = this.mSet || this.set; //in case it was already set (a PropTween can only have one modifier)
+
+        this.set = _setterWithModifier;
+        this.m = func;
+        this.mt = target; //modifier target
+
+        this.tween = tween;
+      };
+
+      return PropTween;
+    }(); //Initialization tasks
+
+    _forEachName(_callbackNames + "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger", function (name) {
+      return _reservedProps[name] = 1;
+    });
+
+    _globals.TweenMax = _globals.TweenLite = Tween;
+    _globals.TimelineLite = _globals.TimelineMax = Timeline;
+    _globalTimeline = new Timeline({
+      sortChildren: false,
+      defaults: _defaults,
+      autoRemoveChildren: true,
+      id: "root",
+      smoothChildTiming: true
+    });
+    _config.stringFilter = _colorStringFilter;
+    /*
+     * --------------------------------------------------------------------------------------
+     * GSAP
+     * --------------------------------------------------------------------------------------
+     */
+
+    var _gsap = {
+      registerPlugin: function registerPlugin() {
+        for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+          args[_key2] = arguments[_key2];
+        }
+
+        args.forEach(function (config) {
+          return _createPlugin(config);
+        });
+      },
+      timeline: function timeline(vars) {
+        return new Timeline(vars);
+      },
+      getTweensOf: function getTweensOf(targets, onlyActive) {
+        return _globalTimeline.getTweensOf(targets, onlyActive);
+      },
+      getProperty: function getProperty(target, property, unit, uncache) {
+        _isString(target) && (target = toArray(target)[0]); //in case selector text or an array is passed in
+
+        var getter = _getCache(target || {}).get,
+            format = unit ? _passThrough : _numericIfPossible;
+
+        unit === "native" && (unit = "");
+        return !target ? target : !property ? function (property, unit, uncache) {
+          return format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+        } : format((_plugins[property] && _plugins[property].get || getter)(target, property, unit, uncache));
+      },
+      quickSetter: function quickSetter(target, property, unit) {
+        target = toArray(target);
+
+        if (target.length > 1) {
+          var setters = target.map(function (t) {
+            return gsap.quickSetter(t, property, unit);
+          }),
+              l = setters.length;
+          return function (value) {
+            var i = l;
+
+            while (i--) {
+              setters[i](value);
+            }
+          };
+        }
+
+        target = target[0] || {};
+
+        var Plugin = _plugins[property],
+            cache = _getCache(target),
+            p = cache.harness && (cache.harness.aliases || {})[property] || property,
+            // in case it's an alias, like "rotate" for "rotation".
+        setter = Plugin ? function (value) {
+          var p = new Plugin();
+          _quickTween._pt = 0;
+          p.init(target, unit ? value + unit : value, _quickTween, 0, [target]);
+          p.render(1, p);
+          _quickTween._pt && _renderPropTweens(1, _quickTween);
+        } : cache.set(target, p);
+
+        return Plugin ? setter : function (value) {
+          return setter(target, p, unit ? value + unit : value, cache, 1);
+        };
+      },
+      isTweening: function isTweening(targets) {
+        return _globalTimeline.getTweensOf(targets, true).length > 0;
+      },
+      defaults: function defaults(value) {
+        value && value.ease && (value.ease = _parseEase(value.ease, _defaults.ease));
+        return _mergeDeep(_defaults, value || {});
+      },
+      config: function config(value) {
+        return _mergeDeep(_config, value || {});
+      },
+      registerEffect: function registerEffect(_ref2) {
+        var name = _ref2.name,
+            effect = _ref2.effect,
+            plugins = _ref2.plugins,
+            defaults = _ref2.defaults,
+            extendTimeline = _ref2.extendTimeline;
+        (plugins || "").split(",").forEach(function (pluginName) {
+          return pluginName && !_plugins[pluginName] && !_globals[pluginName] && _warn(name + " effect requires " + pluginName + " plugin.");
+        });
+
+        _effects[name] = function (targets, vars, tl) {
+          return effect(toArray(targets), _setDefaults(vars || {}, defaults), tl);
+        };
+
+        if (extendTimeline) {
+          Timeline.prototype[name] = function (targets, vars, position) {
+            return this.add(_effects[name](targets, _isObject(vars) ? vars : (position = vars) && {}, this), position);
+          };
+        }
+      },
+      registerEase: function registerEase(name, ease) {
+        _easeMap[name] = _parseEase(ease);
+      },
+      parseEase: function parseEase(ease, defaultEase) {
+        return arguments.length ? _parseEase(ease, defaultEase) : _easeMap;
+      },
+      getById: function getById(id) {
+        return _globalTimeline.getById(id);
+      },
+      exportRoot: function exportRoot(vars, includeDelayedCalls) {
+        if (vars === void 0) {
+          vars = {};
+        }
+
+        var tl = new Timeline(vars),
+            child,
+            next;
+        tl.smoothChildTiming = _isNotFalse(vars.smoothChildTiming);
+
+        _globalTimeline.remove(tl);
+
+        tl._dp = 0; //otherwise it'll get re-activated when adding children and be re-introduced into _globalTimeline's linked list (then added to itself).
+
+        tl._time = tl._tTime = _globalTimeline._time;
+        child = _globalTimeline._first;
+
+        while (child) {
+          next = child._next;
+
+          if (includeDelayedCalls || !(!child._dur && child instanceof Tween && child.vars.onComplete === child._targets[0])) {
+            _addToTimeline(tl, child, child._start - child._delay);
+          }
+
+          child = next;
+        }
+
+        _addToTimeline(_globalTimeline, tl, 0);
+
+        return tl;
+      },
+      utils: {
+        wrap: wrap,
+        wrapYoyo: wrapYoyo,
+        distribute: distribute,
+        random: random,
+        snap: snap,
+        normalize: normalize,
+        getUnit: getUnit,
+        clamp: clamp,
+        splitColor: splitColor,
+        toArray: toArray,
+        mapRange: mapRange,
+        pipe: pipe,
+        unitize: unitize,
+        interpolate: interpolate,
+        shuffle: shuffle
+      },
+      install: _install,
+      effects: _effects,
+      ticker: _ticker,
+      updateRoot: Timeline.updateRoot,
+      plugins: _plugins,
+      globalTimeline: _globalTimeline,
+      core: {
+        PropTween: PropTween,
+        globals: _addGlobal,
+        Tween: Tween,
+        Timeline: Timeline,
+        Animation: Animation,
+        getCache: _getCache,
+        _removeLinkedListItem: _removeLinkedListItem,
+        suppressOverwrites: function suppressOverwrites(value) {
+          return _suppressOverwrites = value;
+        }
+      }
+    };
+
+    _forEachName("to,from,fromTo,delayedCall,set,killTweensOf", function (name) {
+      return _gsap[name] = Tween[name];
+    });
+
+    _ticker.add(Timeline.updateRoot);
+
+    _quickTween = _gsap.to({}, {
+      duration: 0
+    }); // ---- EXTRA PLUGINS --------------------------------------------------------
+
+    var _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
+      var pt = plugin._pt;
+
+      while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
+        pt = pt._next;
+      }
+
+      return pt;
+    },
+        _addModifiers = function _addModifiers(tween, modifiers) {
+      var targets = tween._targets,
+          p,
+          i,
+          pt;
+
+      for (p in modifiers) {
+        i = targets.length;
+
+        while (i--) {
+          pt = tween._ptLookup[i][p];
+
+          if (pt && (pt = pt.d)) {
+            if (pt._pt) {
+              // is a plugin
+              pt = _getPluginPropTween(pt, p);
+            }
+
+            pt && pt.modifier && pt.modifier(modifiers[p], tween, targets[i], p);
+          }
+        }
+      }
+    },
+        _buildModifierPlugin = function _buildModifierPlugin(name, modifier) {
+      return {
+        name: name,
+        rawVars: 1,
+        //don't pre-process function-based values or "random()" strings.
+        init: function init(target, vars, tween) {
+          tween._onInit = function (tween) {
+            var temp, p;
+
+            if (_isString(vars)) {
+              temp = {};
+
+              _forEachName(vars, function (name) {
+                return temp[name] = 1;
+              }); //if the user passes in a comma-delimited list of property names to roundProps, like "x,y", we round to whole numbers.
+
+
+              vars = temp;
+            }
+
+            if (modifier) {
+              temp = {};
+
+              for (p in vars) {
+                temp[p] = modifier(vars[p]);
+              }
+
+              vars = temp;
+            }
+
+            _addModifiers(tween, vars);
+          };
+        }
+      };
+    }; //register core plugins
+
+
+    var gsap = _gsap.registerPlugin({
+      name: "attr",
+      init: function init(target, vars, tween, index, targets) {
+        var p, pt;
+
+        for (p in vars) {
+          pt = this.add(target, "setAttribute", (target.getAttribute(p) || 0) + "", vars[p], index, targets, 0, 0, p);
+          pt && (pt.op = p);
+
+          this._props.push(p);
+        }
+      }
+    }, {
+      name: "endArray",
+      init: function init(target, value) {
+        var i = value.length;
+
+        while (i--) {
+          this.add(target, i, target[i] || 0, value[i]);
+        }
+      }
+    }, _buildModifierPlugin("roundProps", _roundModifier), _buildModifierPlugin("modifiers"), _buildModifierPlugin("snap", snap)) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
+
+    Tween.version = Timeline.version = gsap.version = "3.6.0";
+    _coreReady = 1;
+
+    if (_windowExists()) {
+      _wake();
+    }
+
+    /*!
      * CSSPlugin 3.6.0
      * https://greensock.com
      *
@@ -16,4 +5625,3576 @@ var app=function(){"use strict";function t(){}const e=t=>t;function n(t,e){for(c
      * Subject to the terms at https://greensock.com/standard-license or for
      * Club GreenSock members, the agreement issued with that membership.
      * @author: Jack Doyle, jack@greensock.com
-    */;var Jr,Kr,ti,ei,ni,ri,ii,si,oi={},ai=180/Math.PI,ui=Math.PI/180,li=Math.atan2,hi=/([A-Z])/g,ci=/(?:left|right|width|margin|padding|x)/i,fi=/[\s,\(]\S/,di={autoAlpha:"opacity,visibility",scale:"scaleX,scaleY",alpha:"opacity"},pi=function(t,e){return e.set(e.t,e.p,Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},_i=function(t,e){return e.set(e.t,e.p,1===t?e.e:Math.round(1e4*(e.s+e.c*t))/1e4+e.u,e)},mi=function(t,e){return e.set(e.t,e.p,t?Math.round(1e4*(e.s+e.c*t))/1e4+e.u:e.b,e)},gi=function(t,e){var n=e.s+e.c*t;e.set(e.t,e.p,~~(n+(n<0?-.5:.5))+e.u,e)},vi=function(t,e){return e.set(e.t,e.p,t?e.e:e.b,e)},yi=function(t,e){return e.set(e.t,e.p,1!==t?e.b:e.e,e)},bi=function(t,e,n){return t.style[e]=n},xi=function(t,e,n){return t.style.setProperty(e,n)},wi=function(t,e,n){return t._gsap[e]=n},$i=function(t,e,n){return t._gsap.scaleX=t._gsap.scaleY=n},Ti=function(t,e,n,r,i){var s=t._gsap;s.scaleX=s.scaleY=n,s.renderTransform(i,s)},ki=function(t,e,n,r,i){var s=t._gsap;s[e]=n,s.renderTransform(i,s)},Mi="transform",Ci=Mi+"Origin",Oi=function(t,e){var n=Kr.createElementNS?Kr.createElementNS((e||"http://www.w3.org/1999/xhtml").replace(/^https/,"http"),t):Kr.createElement(t);return n.style?n:Kr.createElement(t)},Ai=function t(e,n,r){var i=getComputedStyle(e);return i[n]||i.getPropertyValue(n.replace(hi,"-$1").toLowerCase())||i.getPropertyValue(n)||!r&&t(e,Di(n)||n,1)||""},Si="O,Moz,ms,Ms,Webkit".split(","),Di=function(t,e,n){var r=(e||ni).style,i=5;if(t in r&&!n)return t;for(t=t.charAt(0).toUpperCase()+t.substr(1);i--&&!(Si[i]+t in r););return i<0?null:(3===i?"ms":i>=0?Si[i]:"")+t},Ei=function(){"undefined"!=typeof window&&window.document&&(Jr=window,Kr=Jr.document,ti=Kr.documentElement,ni=Oi("div")||{style:{}},ri=Oi("div"),Mi=Di(Mi),Ci=Mi+"Origin",ni.style.cssText="border-width:0;line-height:0;position:absolute;padding:0",si=!!Di("perspective"),ei=1)},Pi=function t(e){var n,r=Oi("svg",this.ownerSVGElement&&this.ownerSVGElement.getAttribute("xmlns")||"http://www.w3.org/2000/svg"),i=this.parentNode,s=this.nextSibling,o=this.style.cssText;if(ti.appendChild(r),r.appendChild(this),this.style.display="block",e)try{n=this.getBBox(),this._gsapBBox=this.getBBox,this.getBBox=t}catch(t){}else this._gsapBBox&&(n=this._gsapBBox());return i&&(s?i.insertBefore(this,s):i.appendChild(this)),ti.removeChild(r),this.style.cssText=o,n},zi=function(t,e){for(var n=e.length;n--;)if(t.hasAttribute(e[n]))return t.getAttribute(e[n])},Fi=function(t){var e;try{e=t.getBBox()}catch(n){e=Pi.call(t,!0)}return e&&(e.width||e.height)||t.getBBox===Pi||(e=Pi.call(t,!0)),!e||e.width||e.x||e.y?e:{x:+zi(t,["x","cx","x1"])||0,y:+zi(t,["y","cy","y1"])||0,width:0,height:0}},Ri=function(t){return!(!t.getCTM||t.parentNode&&!t.ownerSVGElement||!Fi(t))},Bi=function(t,e){if(e){var n=t.style;e in oi&&e!==Ci&&(e=Mi),n.removeProperty?("ms"!==e.substr(0,2)&&"webkit"!==e.substr(0,6)||(e="-"+e),n.removeProperty(e.replace(hi,"-$1").toLowerCase())):n.removeAttribute(e)}},Yi=function(t,e,n,r,i,s){var o=new Vr(t._pt,e,n,0,1,s?yi:vi);return t._pt=o,o.b=r,o.e=i,t._props.push(n),o},Xi={deg:1,rad:1,turn:1},Ii=function t(e,n,r,i){var s,o,a,u,l=parseFloat(r)||0,h=(r+"").trim().substr((l+"").length)||"px",c=ni.style,f=ci.test(n),d="svg"===e.tagName.toLowerCase(),p=(d?"client":"offset")+(f?"Width":"Height"),_=100,m="px"===i,g="%"===i;return i===h||!l||Xi[i]||Xi[h]?l:("px"!==h&&!m&&(l=t(e,n,r,"px")),u=e.getCTM&&Ri(e),!g&&"%"!==h||!oi[n]&&!~n.indexOf("adius")?(c[f?"width":"height"]=_+(m?h:i),o=~n.indexOf("adius")||"em"===i&&e.appendChild&&!d?e:e.parentNode,u&&(o=(e.ownerSVGElement||{}).parentNode),o&&o!==Kr&&o.appendChild||(o=Kr.body),(a=o._gsap)&&g&&a.width&&f&&a.time===lr.time?nn(l/a.width*_):((g||"%"===h)&&(c.position=Ai(e,"position")),o===e&&(c.position="static"),o.appendChild(ni),s=ni[p],o.removeChild(ni),c.position="absolute",f&&g&&((a=Ke(o)).time=lr.time,a.width=o[p]),nn(m?s*l/_:s&&l?_/s*l:0))):(s=u?e.getBBox()[f?"width":"height"]:e[p],nn(g?l/s*_:l/100*s)))},Li=function(t,e,n,r){var i;return ei||Ei(),e in di&&"transform"!==e&&~(e=di[e]).indexOf(",")&&(e=e.split(",")[0]),oi[e]&&"transform"!==e?(i=Ki(t,r),i="transformOrigin"!==e?i[e]:ts(Ai(t,Ci))+" "+i.zOrigin+"px"):(!(i=t.style[e])||"auto"===i||r||~(i+"").indexOf("calc("))&&(i=Hi[e]&&Hi[e](t,e,n)||Ai(t,e)||tn(t,e)||("opacity"===e?1:0)),n&&!~(i+"").trim().indexOf(" ")?Ii(t,e,i,n)+n:i},ji=function(t,e,n,r){if(!n||"none"===n){var i=Di(e,t,1),s=i&&Ai(t,i,1);s&&s!==n?(e=i,n=s):"borderColor"===e&&(n=Ai(t,"borderTopColor"))}var o,a,u,l,h,c,f,d,p,_,m,g,v=new Vr(this._pt,t.style,e,0,1,Lr),y=0,b=0;if(v.b=n,v.e=r,n+="","auto"===(r+="")&&(t.style[e]=r,r=Ai(t,e)||r,t.style[e]=n),ur(o=[n,r]),r=o[1],u=(n=o[0]).match(Ee)||[],(r.match(Ee)||[]).length){for(;a=Ee.exec(r);)f=a[0],p=r.substring(y,a.index),h?h=(h+1)%5:"rgba("!==p.substr(-5)&&"hsla("!==p.substr(-5)||(h=1),f!==(c=u[b++]||"")&&(l=parseFloat(c)||0,m=c.substr((l+"").length),(g="="===f.charAt(1)?+(f.charAt(0)+"1"):0)&&(f=f.substr(2)),d=parseFloat(f),_=f.substr((d+"").length),y=Ee.lastIndex-_.length,_||(_=_||he.units[e]||m,y===r.length&&(r+=_,v.e+=_)),m!==_&&(l=Ii(t,e,c,_)||0),v._pt={_next:v._pt,p:p||1===b?p:",",s:l,c:g?g*d:d-l,m:h&&h<4||"zIndex"===e?Math.round:0});v.c=y<r.length?r.substring(y,r.length):""}else v.r="display"===e&&"none"===r?yi:vi;return ze.test(r)&&(v.e=0),this._pt=v,v},Ni={top:"0%",bottom:"100%",left:"0%",right:"100%",center:"50%"},Ui=function(t){var e=t.split(" "),n=e[0],r=e[1]||"50%";return"top"!==n&&"bottom"!==n&&"left"!==r&&"right"!==r||(t=n,n=r,r=t),e[0]=Ni[n]||n,e[1]=Ni[r]||r,e.join(" ")},qi=function(t,e){if(e.tween&&e.tween._time===e.tween._dur){var n,r,i,s=e.t,o=s.style,a=e.u,u=s._gsap;if("all"===a||!0===a)o.cssText="",r=1;else for(i=(a=a.split(",")).length;--i>-1;)n=a[i],oi[n]&&(r=1,n="transformOrigin"===n?Ci:Mi),Bi(s,n);r&&(Bi(s,Mi),u&&(u.svg&&s.removeAttribute("transform"),Ki(s,1),u.uncache=1))}},Hi={clearProps:function(t,e,n,r,i){if("isFromStart"!==i.data){var s=t._pt=new Vr(t._pt,e,n,0,0,qi);return s.u=r,s.pr=-10,s.tween=i,t._props.push(n),1}}},Vi=[1,0,0,1,0,0],Wi={},Gi=function(t){return"matrix(1, 0, 0, 1, 0, 0)"===t||"none"===t||!t},Zi=function(t){var e=Ai(t,Mi);return Gi(e)?Vi:e.substr(7).match(De).map(nn)},Qi=function(t,e){var n,r,i,s,o=t._gsap||Ke(t),a=t.style,u=Zi(t);return o.svg&&t.getAttribute("transform")?"1,0,0,1,0,0"===(u=[(i=t.transform.baseVal.consolidate().matrix).a,i.b,i.c,i.d,i.e,i.f]).join(",")?Vi:u:(u!==Vi||t.offsetParent||t===ti||o.svg||(i=a.display,a.display="block",(n=t.parentNode)&&t.offsetParent||(s=1,r=t.nextSibling,ti.appendChild(t)),u=Zi(t),i?a.display=i:Bi(t,"display"),s&&(r?n.insertBefore(t,r):n?n.appendChild(t):ti.removeChild(t))),e&&u.length>6?[u[0],u[1],u[4],u[5],u[12],u[13]]:u)},Ji=function(t,e,n,r,i,s){var o,a,u,l=t._gsap,h=i||Qi(t,!0),c=l.xOrigin||0,f=l.yOrigin||0,d=l.xOffset||0,p=l.yOffset||0,_=h[0],m=h[1],g=h[2],v=h[3],y=h[4],b=h[5],x=e.split(" "),w=parseFloat(x[0])||0,$=parseFloat(x[1])||0;n?h!==Vi&&(a=_*v-m*g)&&(u=w*(-m/a)+$*(_/a)-(_*b-m*y)/a,w=w*(v/a)+$*(-g/a)+(g*b-v*y)/a,$=u):(w=(o=Fi(t)).x+(~x[0].indexOf("%")?w/100*o.width:w),$=o.y+(~(x[1]||x[0]).indexOf("%")?$/100*o.height:$)),r||!1!==r&&l.smooth?(y=w-c,b=$-f,l.xOffset=d+(y*_+b*g)-y,l.yOffset=p+(y*m+b*v)-b):l.xOffset=l.yOffset=0,l.xOrigin=w,l.yOrigin=$,l.smooth=!!r,l.origin=e,l.originIsAbsolute=!!n,t.style[Ci]="0px 0px",s&&(Yi(s,l,"xOrigin",c,w),Yi(s,l,"yOrigin",f,$),Yi(s,l,"xOffset",d,l.xOffset),Yi(s,l,"yOffset",p,l.yOffset)),t.setAttribute("data-svg-origin",w+" "+$)},Ki=function(t,e){var n=t._gsap||new wr(t);if("x"in n&&!e&&!n.uncache)return n;var r,i,s,o,a,u,l,h,c,f,d,p,_,m,g,v,y,b,x,w,$,T,k,M,C,O,A,S,D,E,P,z,F=t.style,R=n.scaleX<0,B="px",Y="deg",X=Ai(t,Ci)||"0";return r=i=s=u=l=h=c=f=d=0,o=a=1,n.svg=!(!t.getCTM||!Ri(t)),m=Qi(t,n.svg),n.svg&&(M=!n.uncache&&t.getAttribute("data-svg-origin"),Ji(t,M||X,!!M||n.originIsAbsolute,!1!==n.smooth,m)),p=n.xOrigin||0,_=n.yOrigin||0,m!==Vi&&(b=m[0],x=m[1],w=m[2],$=m[3],r=T=m[4],i=k=m[5],6===m.length?(o=Math.sqrt(b*b+x*x),a=Math.sqrt($*$+w*w),u=b||x?li(x,b)*ai:0,(c=w||$?li(w,$)*ai+u:0)&&(a*=Math.cos(c*ui)),n.svg&&(r-=p-(p*b+_*w),i-=_-(p*x+_*$))):(z=m[6],E=m[7],A=m[8],S=m[9],D=m[10],P=m[11],r=m[12],i=m[13],s=m[14],l=(g=li(z,D))*ai,g&&(M=T*(v=Math.cos(-g))+A*(y=Math.sin(-g)),C=k*v+S*y,O=z*v+D*y,A=T*-y+A*v,S=k*-y+S*v,D=z*-y+D*v,P=E*-y+P*v,T=M,k=C,z=O),h=(g=li(-w,D))*ai,g&&(v=Math.cos(-g),P=$*(y=Math.sin(-g))+P*v,b=M=b*v-A*y,x=C=x*v-S*y,w=O=w*v-D*y),u=(g=li(x,b))*ai,g&&(M=b*(v=Math.cos(g))+x*(y=Math.sin(g)),C=T*v+k*y,x=x*v-b*y,k=k*v-T*y,b=M,T=C),l&&Math.abs(l)+Math.abs(u)>359.9&&(l=u=0,h=180-h),o=nn(Math.sqrt(b*b+x*x+w*w)),a=nn(Math.sqrt(k*k+z*z)),g=li(T,k),c=Math.abs(g)>2e-4?g*ai:0,d=P?1/(P<0?-P:P):0),n.svg&&(M=t.getAttribute("transform"),n.forceCSS=t.setAttribute("transform","")||!Gi(Ai(t,Mi)),M&&t.setAttribute("transform",M))),Math.abs(c)>90&&Math.abs(c)<270&&(R?(o*=-1,c+=u<=0?180:-180,u+=u<=0?180:-180):(a*=-1,c+=c<=0?180:-180)),n.x=r-((n.xPercent=r&&(n.xPercent||(Math.round(t.offsetWidth/2)===Math.round(-r)?-50:0)))?t.offsetWidth*n.xPercent/100:0)+B,n.y=i-((n.yPercent=i&&(n.yPercent||(Math.round(t.offsetHeight/2)===Math.round(-i)?-50:0)))?t.offsetHeight*n.yPercent/100:0)+B,n.z=s+B,n.scaleX=nn(o),n.scaleY=nn(a),n.rotation=nn(u)+Y,n.rotationX=nn(l)+Y,n.rotationY=nn(h)+Y,n.skewX=c+Y,n.skewY=f+Y,n.transformPerspective=d+B,(n.zOrigin=parseFloat(X.split(" ")[2])||0)&&(F[Ci]=ts(X)),n.xOffset=n.yOffset=0,n.force3D=he.force3D,n.renderTransform=n.svg?as:si?os:ns,n.uncache=0,n},ts=function(t){return(t=t.split(" "))[0]+" "+t[1]},es=function(t,e,n){var r=Bn(e);return nn(parseFloat(e)+parseFloat(Ii(t,"x",n+"px",r)))+r},ns=function(t,e){e.z="0px",e.rotationY=e.rotationX="0deg",e.force3D=0,os(t,e)},rs="0deg",is="0px",ss=") ",os=function(t,e){var n=e||this,r=n.xPercent,i=n.yPercent,s=n.x,o=n.y,a=n.z,u=n.rotation,l=n.rotationY,h=n.rotationX,c=n.skewX,f=n.skewY,d=n.scaleX,p=n.scaleY,_=n.transformPerspective,m=n.force3D,g=n.target,v=n.zOrigin,y="",b="auto"===m&&t&&1!==t||!0===m;if(v&&(h!==rs||l!==rs)){var x,w=parseFloat(l)*ui,$=Math.sin(w),T=Math.cos(w);w=parseFloat(h)*ui,x=Math.cos(w),s=es(g,s,$*x*-v),o=es(g,o,-Math.sin(w)*-v),a=es(g,a,T*x*-v+v)}_!==is&&(y+="perspective("+_+ss),(r||i)&&(y+="translate("+r+"%, "+i+"%) "),(b||s!==is||o!==is||a!==is)&&(y+=a!==is||b?"translate3d("+s+", "+o+", "+a+") ":"translate("+s+", "+o+ss),u!==rs&&(y+="rotate("+u+ss),l!==rs&&(y+="rotateY("+l+ss),h!==rs&&(y+="rotateX("+h+ss),c===rs&&f===rs||(y+="skew("+c+", "+f+ss),1===d&&1===p||(y+="scale("+d+", "+p+ss),g.style[Mi]=y||"translate(0, 0)"},as=function(t,e){var n,r,i,s,o,a=e||this,u=a.xPercent,l=a.yPercent,h=a.x,c=a.y,f=a.rotation,d=a.skewX,p=a.skewY,_=a.scaleX,m=a.scaleY,g=a.target,v=a.xOrigin,y=a.yOrigin,b=a.xOffset,x=a.yOffset,w=a.forceCSS,$=parseFloat(h),T=parseFloat(c);f=parseFloat(f),d=parseFloat(d),(p=parseFloat(p))&&(d+=p=parseFloat(p),f+=p),f||d?(f*=ui,d*=ui,n=Math.cos(f)*_,r=Math.sin(f)*_,i=Math.sin(f-d)*-m,s=Math.cos(f-d)*m,d&&(p*=ui,o=Math.tan(d-p),i*=o=Math.sqrt(1+o*o),s*=o,p&&(o=Math.tan(p),n*=o=Math.sqrt(1+o*o),r*=o)),n=nn(n),r=nn(r),i=nn(i),s=nn(s)):(n=_,s=m,r=i=0),($&&!~(h+"").indexOf("px")||T&&!~(c+"").indexOf("px"))&&($=Ii(g,"x",h,"px"),T=Ii(g,"y",c,"px")),(v||y||b||x)&&($=nn($+v-(v*n+y*i)+b),T=nn(T+y-(v*r+y*s)+x)),(u||l)&&(o=g.getBBox(),$=nn($+u/100*o.width),T=nn(T+l/100*o.height)),o="matrix("+n+","+r+","+i+","+s+","+$+","+T+")",g.setAttribute("transform",o),w&&(g.style[Mi]=o)},us=function(t,e,n,r,i,s){var o,a,u=360,l=be(i),h=parseFloat(i)*(l&&~i.indexOf("rad")?ai:1),c=s?h*s:h-r,f=r+c+"deg";return l&&("short"===(o=i.split("_")[1])&&(c%=u)!==c%180&&(c+=c<0?u:-360),"cw"===o&&c<0?c=(c+36e9)%u-~~(c/u)*u:"ccw"===o&&c>0&&(c=(c-36e9)%u-~~(c/u)*u)),t._pt=a=new Vr(t._pt,e,n,r,c,_i),a.e=f,a.u="deg",t._props.push(n),a},ls=function(t,e,n){var r,i,s,o,a,u,l,h=ri.style,c=n._gsap;for(i in h.cssText=getComputedStyle(n).cssText+";position:absolute;display:block;",h[Mi]=e,Kr.body.appendChild(ri),r=Ki(ri,1),oi)(s=c[i])!==(o=r[i])&&"perspective,force3D,transformOrigin,svgOrigin".indexOf(i)<0&&(a=Bn(s)!==(l=Bn(o))?Ii(n,i,s,l):parseFloat(s),u=parseFloat(o),t._pt=new Vr(t._pt,c,i,a,u-a,pi),t._pt.u=l||0,t._props.push(i));Kr.body.removeChild(ri)};en("padding,margin,Width,Radius",(function(t,e){var n="Top",r="Right",i="Bottom",s="Left",o=(e<3?[n,r,i,s]:[n+s,n+r,i+r,i+s]).map((function(n){return e<2?t+n:"border"+n+t}));Hi[e>1?"border"+t:t]=function(t,e,n,r,i){var s,a;if(arguments.length<4)return s=o.map((function(e){return Li(t,e,n)})),5===(a=s.join(" ")).split(s[0]).length?s[0]:a;s=(r+"").split(" "),a={},o.forEach((function(t,e){return a[t]=s[e]=s[e]||s[(e-1)/2|0]})),t.init(e,a,i)}}));var hs,cs,fs,ds={name:"css",register:Ei,targetTest:function(t){return t.style&&t.nodeType},init:function(t,e,n,r,i){var s,o,a,u,l,h,c,f,d,p,_,m,g,v,y,b=this._props,x=t.style,w=n.vars.startAt;for(c in ei||Ei(),e)if("autoRound"!==c&&(o=e[c],!Ve[c]||!Or(c,e,n,r,t,i)))if(l=typeof o,h=Hi[c],"function"===l&&(l=typeof(o=o.call(n,r,t,i))),"string"===l&&~o.indexOf("random(")&&(o=Wn(o)),h)h(this,t,c,o,n)&&(y=1);else if("--"===c.substr(0,2))s=(getComputedStyle(t).getPropertyValue(c)+"").trim(),o+="",f=Bn(s),(d=Bn(o))?f!==d&&(s=Ii(t,c,s,d)+d):f&&(o+=f),this.add(x,"setProperty",s,o,r,i,0,0,c);else if("undefined"!==l){if(w&&c in w?(s="function"==typeof w[c]?w[c].call(n,r,t,i):w[c],c in he.units&&!Bn(s)&&(s+=he.units[c]),"="===(s+"").charAt(1)&&(s=Li(t,c))):s=Li(t,c),u=parseFloat(s),(p="string"===l&&"="===o.charAt(1)?+(o.charAt(0)+"1"):0)&&(o=o.substr(2)),a=parseFloat(o),c in di&&("autoAlpha"===c&&(1===u&&"hidden"===Li(t,"visibility")&&a&&(u=0),Yi(this,x,"visibility",u?"inherit":"hidden",a?"inherit":"hidden",!a)),"scale"!==c&&"transform"!==c&&~(c=di[c]).indexOf(",")&&(c=c.split(",")[0])),_=c in oi)if(m||((g=t._gsap).renderTransform&&!e.parseTransform||Ki(t,e.parseTransform),v=!1!==e.smoothOrigin&&g.smooth,(m=this._pt=new Vr(this._pt,x,Mi,0,1,g.renderTransform,g,0,-1)).dep=1),"scale"===c)this._pt=new Vr(this._pt,g,"scaleY",g.scaleY,p?p*a:a-g.scaleY),b.push("scaleY",c),c+="X";else{if("transformOrigin"===c){o=Ui(o),g.svg?Ji(t,o,0,v,0,this):((d=parseFloat(o.split(" ")[2])||0)!==g.zOrigin&&Yi(this,g,"zOrigin",g.zOrigin,d),Yi(this,x,c,ts(s),ts(o)));continue}if("svgOrigin"===c){Ji(t,o,1,v,0,this);continue}if(c in Wi){us(this,g,c,u,o,p);continue}if("smoothOrigin"===c){Yi(this,g,"smooth",g.smooth,o);continue}if("force3D"===c){g[c]=o;continue}if("transform"===c){ls(this,o,t);continue}}else c in x||(c=Di(c)||c);if(_||(a||0===a)&&(u||0===u)&&!fi.test(o)&&c in x)a||(a=0),(f=(s+"").substr((u+"").length))!==(d=Bn(o)||(c in he.units?he.units[c]:f))&&(u=Ii(t,c,s,d)),this._pt=new Vr(this._pt,_?g:x,c,u,p?p*a:a-u,_||"px"!==d&&"zIndex"!==c||!1===e.autoRound?pi:gi),this._pt.u=d||0,f!==d&&(this._pt.b=s,this._pt.r=mi);else if(c in x)ji.call(this,t,c,s,o);else{if(!(c in t)){Ie(c,o);continue}this.add(t,c,t[c],o,r,i)}b.push(c)}y&&Hr(this)},get:Li,aliases:di,getSetter:function(t,e,n){var r=di[e];return r&&r.indexOf(",")<0&&(e=r),e in oi&&e!==Ci&&(t._gsap.x||Li(t,"x"))?n&&ii===n?"scale"===e?$i:wi:(ii=n||{})&&("scale"===e?Ti:ki):t.style&&!$e(t.style[e])?bi:~e.indexOf("-")?xi:Yr(t,e)},core:{_removeProperty:Bi,_getMatrix:Qi}};Qr.utils.checkPrefix=Di,fs=en((hs="x,y,z,scale,scaleX,scaleY,xPercent,yPercent")+","+(cs="rotation,rotationX,rotationY,skewX,skewY")+",transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective",(function(t){oi[t]=1})),en(cs,(function(t){he.units[t]="deg",Wi[t]=1})),di[fs[13]]=hs+","+cs,en("0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY",(function(t){var e=t.split(":");di[e[1]]=fs[e[0]]})),en("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective",(function(t){he.units[t]="px"})),Qr.registerPlugin(ds);var ps=Qr.registerPlugin(ds)||Qr;ps.core.Tween;function _s(t,e,n){const r=t.slice();return r[5]=e[n],r}function ms(t){let e,n;return{c(){e=$("div"),C(e,"class","arrow svelte-1c7m0z6"),C(e,"style",n=`background:${t[0]};`)},m(t,n){b(t,e,n)},p(t,r){1&r&&n!==(n=`background:${t[0]};`)&&C(e,"style",n)},d(t){t&&x(e)}}}function gs(e){let n,r=Array.from({length:vs}),i=[];for(let t=0;t<r.length;t+=1)i[t]=ms(_s(e,r,t));return{c(){n=$("span");for(let t=0;t<i.length;t+=1)i[t].c();C(n,"class","triple-arrow-right")},m(t,r){b(t,n,r);for(let t=0;t<i.length;t+=1)i[t].m(n,null);e[4](n)},p(t,[e]){if(1&e){let s;for(r=Array.from({length:vs}),s=0;s<r.length;s+=1){const o=_s(t,r,s);i[s]?i[s].p(o,e):(i[s]=ms(o),i[s].c(),i[s].m(n,null))}for(;s<i.length;s+=1)i[s].d(1);i.length=r.length}},i:t,o:t,d(t){t&&x(n),w(i,t),e[4](null)}}}const vs=3;function ys(t,e,n){let r,i,{color:s}=e,{hover:o=!1}=e;return F((()=>{const t=r.querySelectorAll(".arrow");n(3,i=ps.timeline({paused:!0}).from(t,{translateX:-10,duration:.1,stagger:-.1})),ps.fromTo(t,{rotationX:0},{rotationX:180,stagger:-.1,repeat:-1,repeatDelay:15,delay:10})})),t.$$set=t=>{"color"in t&&n(0,s=t.color),"hover"in t&&n(2,o=t.hover)},t.$$.update=()=>{12&t.$$.dirty&&(o?null==i||i.play():null==i||i.reverse())},[s,r,o,i,function(t){B[t?"unshift":"push"]((()=>{r=t,n(1,r)}))}]}class bs extends lt{constructor(t){super(),ut(this,t,ys,gs,a,{color:0,hover:2})}}function xs(t,e,n){const r=t.slice();return r[5]=e[n],r}function ws(t){let e,n,r,i,o,a,u,l,h,c,f,d,p,_,m,g,v,A,S,D,E,P,z,F,R,B,Y,X,I,L,N,U,q=t[0].title+"",H=t[0].body+"";a=new bs({props:{hover:t[2],color:`linear-gradient(45deg, ${t[0].theme.tertiary}, transparent);`}});let V=t[0].techList,W=[];for(let e=0;e<V.length;e+=1)W[e]=$s(xs(t,V,e));return{c(){e=$("div"),n=$("div"),r=T(q),i=k(),o=$("div"),it(a.$$.fragment),u=k(),l=$("a"),h=T("Visit"),p=k(),_=$("div"),m=$("div"),g=T("Summary"),A=k(),S=$("div"),D=T(H),E=k(),P=$("div"),z=T("Techlist/Source"),R=k(),B=$("div"),Y=$("ul");for(let t=0;t<W.length;t+=1)W[t].c();C(n,"class","card-title"),C(l,"target","_blank"),C(l,"href",c=t[0].link),C(l,"class","card-link"),C(o,"class","card-link--wrapper"),C(e,"class","card-top"),C(e,"style",f=`color:${t[0].theme.textMainHead}`),C(m,"class","card-paragraph-title"),C(m,"style",v=`color:${t[0].theme.textSubHead}`),C(S,"class","card-paragraph-body"),C(P,"class","card-paragraph-title"),C(P,"style",F=`color:${t[0].theme.textSubHead}`),C(Y,"class","card-paragraph-body-list"),C(B,"class","card-paragraph-body"),C(_,"class","card-paragraph"),C(_,"style",X=`color:${t[0].theme.textBody}`)},m(s,c){b(s,e,c),y(e,n),y(n,r),y(e,i),y(e,o),st(a,o,null),y(o,u),y(o,l),y(l,h),b(s,p,c),b(s,_,c),y(_,m),y(m,g),y(_,A),y(_,S),y(S,D),y(_,E),y(_,P),y(P,z),y(_,R),y(_,B),y(B,Y);for(let t=0;t<W.length;t+=1)W[t].m(Y,null);L=!0,N||(U=[M(o,"mouseenter",t[3]),M(o,"mouseleave",t[4])],N=!0)},p(t,n){(!L||1&n)&&q!==(q=t[0].title+"")&&O(r,q);const i={};if(4&n&&(i.hover=t[2]),1&n&&(i.color=`linear-gradient(45deg, ${t[0].theme.tertiary}, transparent);`),a.$set(i),(!L||1&n&&c!==(c=t[0].link))&&C(l,"href",c),(!L||1&n&&f!==(f=`color:${t[0].theme.textMainHead}`))&&C(e,"style",f),(!L||1&n&&v!==(v=`color:${t[0].theme.textSubHead}`))&&C(m,"style",v),(!L||1&n)&&H!==(H=t[0].body+"")&&O(D,H),(!L||1&n&&F!==(F=`color:${t[0].theme.textSubHead}`))&&C(P,"style",F),1&n){let e;for(V=t[0].techList,e=0;e<V.length;e+=1){const r=xs(t,V,e);W[e]?W[e].p(r,n):(W[e]=$s(r),W[e].c(),W[e].m(Y,null))}for(;e<W.length;e+=1)W[e].d(1);W.length=V.length}(!L||1&n&&X!==(X=`color:${t[0].theme.textBody}`))&&C(_,"style",X)},i(t){L||(K(a.$$.fragment,t),d||j((()=>{d=nt(e,ft,{x:-30}),d.start()})),I||j((()=>{I=nt(_,ft,{x:-30,delay:150}),I.start()})),L=!0)},o(t){tt(a.$$.fragment,t),L=!1},d(t){t&&x(e),ot(a),t&&x(p),t&&x(_),w(W,t),N=!1,s(U)}}}function $s(t){let e,n,r=t[5]+"";return{c(){e=$("li"),n=T(r)},m(t,r){b(t,e,r),y(e,n)},p(t,e){1&e&&r!==(r=t[5]+"")&&O(n,r)},d(t){t&&x(e)}}}function Ts(t){let e,n,r,i=t[1]&&ws(t);return{c(){e=$("div"),i&&i.c(),C(e,"style",n=`--color:${t[0].theme.primary};--image:url(.${t[0].logo||ks})`),C(e,"class","card-content svelte-oujfak"),A(e,"show",t[1])},m(t,n){b(t,e,n),i&&i.m(e,null),r=!0},p(t,[s]){t[1]?i?(i.p(t,s),2&s&&K(i,1)):(i=ws(t),i.c(),K(i,1),i.m(e,null)):i&&(Q(),tt(i,1,1,(()=>{i=null})),J()),(!r||1&s&&n!==(n=`--color:${t[0].theme.primary};--image:url(.${t[0].logo||ks})`))&&C(e,"style",n),2&s&&A(e,"show",t[1])},i(t){r||(K(i),r=!0)},o(t){tt(i),r=!1},d(t){t&&x(e),i&&i.d()}}}const ks="./assets/images/logo-backdrop.png";function Ms(t,e,n){let{info:r}=e,{show:i=!0}=e,s=!1;return t.$$set=t=>{"info"in t&&n(0,r=t.info),"show"in t&&n(1,i=t.show)},[r,i,s,()=>n(2,s=!0),()=>n(2,s=!1)]}class Cs extends lt{constructor(t){super(),ut(this,t,Ms,Ts,a,{info:0,show:1})}}function Os(t){let e,n;return e=new Cs({props:{info:t[2],show:t[1]}}),{c(){it(e.$$.fragment)},m(t,r){st(e,t,r),n=!0},p(t,n){const r={};4&n&&(r.info=t[2]),2&n&&(r.show=t[1]),e.$set(r)},i(t){n||(K(e.$$.fragment,t),n=!0)},o(t){tt(e.$$.fragment,t),n=!1},d(t){ot(e,t)}}}function As(t){let e,n,r,i,s,o,a,u,l,h,c,f,d,p,_;return f=new xt({props:{onEnd:t[5],$$slots:{default:[Os]},$$scope:{ctx:t}}}),{c(){e=$("div"),n=$("picture"),r=$("source"),s=k(),o=$("img"),h=k(),c=$("div"),it(f.$$.fragment),C(r,"srcset",i=t[2].image+".webp"),o.src!==(a="../"+t[2].image+".png")&&C(o,"src",a),C(o,"alt",u=t[2].title),C(n,"class","card-picture svelte-jfv01k"),A(n,"hidden",t[0]),C(c,"class","outer-body svelte-jfv01k"),A(c,"hidden",!t[1]),C(e,"class","card"),C(e,"style",d=`background-color:${t[2].theme.tertiary}`)},m(t,i){b(t,e,i),y(e,n),y(n,r),y(n,s),y(n,o),y(e,h),y(e,c),st(f,c,null),_=!0},p(t,[s]){(!_||4&s&&i!==(i=t[2].image+".webp"))&&C(r,"srcset",i),(!_||4&s&&o.src!==(a="../"+t[2].image+".png"))&&C(o,"src",a),(!_||4&s&&u!==(u=t[2].title))&&C(o,"alt",u),1&s&&A(n,"hidden",t[0]);const l={};3&s&&(l.onEnd=t[5]),70&s&&(l.$$scope={dirty:s,ctx:t}),f.$set(l),2&s&&A(c,"hidden",!t[1]),(!_||4&s&&d!==(d=`background-color:${t[2].theme.tertiary}`))&&C(e,"style",d)},i(t){_||(l||j((()=>{l=nt(n,dt,{}),l.start()})),K(f.$$.fragment,t),p||j((()=>{p=nt(e,ft,{x:300,duration:500}),p.start()})),_=!0)},o(t){tt(f.$$.fragment,t),_=!1},d(t){t&&x(e),ot(f)}}}function Ss(t,e,n){let r,i,s;u(t,At,(t=>n(3,i=t))),u(t,St,(t=>n(4,s=t)));let o=!0,a=!1;return t.$$.update=()=>{24&t.$$.dirty&&n(2,r=i[s]||{body:"",foot:"",image:"",link:"",title:"",logo:"",techList:[],theme:{primary:"",secondary:"",tertiary:"",textBody:"",textMainHead:"",textSubHead:""}})},[o,a,r,i,s,()=>setTimeout((()=>{n(0,o=!1),setTimeout((()=>{n(1,a=!0)}),500)}),250)]}class Ds extends lt{constructor(t){super(),ut(this,t,Ss,As,a,{})}}class Es{constructor({canvas:t,colors:e=["white","red","yellow","green","blue","pink"],bgcolor:n,scale:r=1,speed:i=1,sctickCountFactor:s=3,fps:o=60,offset:a=300}){const u=t.getContext("2d");if(!(u&&u instanceof CanvasRenderingContext2D))throw new Error("Invalid canvas provided");this.cv=t,this.cxt=u,this.speed=i,this.colors=e,this.bgcolor=n,this.scale=r,this.sctickCountFactor=s,this.fps=o,this.nextFrame=0,this.offset=a,this.w=this.cv.width,this.h=this.cv.height}init(){this.sticksCount=Math.round(this.sctickCountFactor/100*this.offset*9);const t=Array(this.sticksCount).fill().map((()=>new Ps({...this.getRandomPositionAndSpeed(-this.offset,-this.offset,this.scale,this.w+2*this.offset,this.h+2*this.offset,-this.speed,+this.speed),angle:-Math.PI/4,brightnessFactor:this.scale})));t.sort(((t,e)=>t.z<e.z?-1:1)),this.positions=t,this.sticks=t.map((t=>new zs({color:this.colors[Math.max(0,Math.min(this.colors.length-1,Math.floor(Math.random()*this.colors.length)))],position:t})))}getRandomPositionAndSpeed=function(t,e,n,r,i,s,o){const a=.5+.5*Math.random(),u=.1+.9*Math.random();return{x:t+Math.random()*r,y:e+Math.random()*i,z:n*u,speedX:s*a,speedY:o*a,directionX:Math.random()>.5?1:-1,directionY:Math.random()>.5?1:-1}};draw(){this.init(),requestAnimationFrame((()=>this.loop()))}loop(){this.sticks.forEach((t=>t.position.update(this.w,this.h,this.offset))),this.nextFrame+=this.unit,this.nextFrame>=1&&(this.nextFrame-=1,this.bgcolor?(this.cxt.fillStyle=this.bgcolor,this.cxt.fillRect(0,0,this.w,this.h)):this.cxt.clearRect(0,0,this.w,this.h),this.sticks.forEach((t=>{this.cxt.save(),t.draw(this.cxt)}))),requestAnimationFrame((()=>this.loop()))}shift(t,e,n){const r=Math.abs(n);this.positions.forEach((n=>{n.deltaX=Math.min(Math.max(t+n.deltaX,-r),r),n.deltaY=Math.min(Math.max(e+n.deltaY,-r),r)}))}get unit(){return Math.abs(this.fps/60)}}const Ps=function({x:t,y:e,z:n,speedX:r,speedY:i,angle:s,brightnessFactor:o=1,directionX:a=1,directionY:u=1}){this.x=t,this.y=e,this.z=n,this.speedX=r,this.speedY=i,this.angle=s,this.deltaX=0,this.deltaY=0,this.brightness=.2+.8*Fs(this.z,1/o),this.shiftAnimationId=null,this.directionX=a,this.directionY=u};Ps.prototype.update=function(t,e,n){this.deltaX+=.5*this.speedX*this.directionX,this.deltaY+=.5*this.speedY*this.directionY;const r=.07*this.deltaX*Fs(this.z,5),i=.07*this.deltaY*Fs(this.z,5);this.deltaX-=r,this.deltaY-=i,this.x+=r,this.y+=i,this.x+=this.speedX,this.y+=this.speedY,this.x<-n?this.x=t+n:this.x>t+n&&(this.x=-n),this.y<-n?this.y=e+n:this.y>e+n&&(this.y=-n)},Ps.prototype.apply=function(t){t.translate(this.x,this.y),t.rotate(this.angle),t.scale(this.z,this.z)};const zs=function({color:t,position:e}){this.color=t,this.x=t,this.position=e,this.path=new Path2D("M407,76H105C47.109,76,0,123.109,0,181v150c0,57.891,47.109,105,105,105h302c57.891,0,105-47.109,105-105V181\nC512,123.109,464.891,76,407,76z")};function Fs(t,e){const n=Math.E;return Math.abs((1-n**(e*t))/(1+n**(e*t)))}let Rs;zs.prototype.draw=function(t){t.fillStyle=this.color,this.position.apply(t),t.fill(this.path),t.restore()};let Bs=null;function Ys(t,e,n){Rs&&Rs.shift(t,e,n)}function Xs(){Bs=null}function Is(t,[e,n]){let r=n;const i=t=>ps.fromTo(t,{translateY:0,rotationX:0,ease:"power4.in",duration:1},{translateY:"-100%",rotationX:180,ease:"power4.in",duration:1}).pause();let s=r&&i(r),o=ps.from(t,{translateY:"120%",ease:"power4.in",duration:1,onComplete:()=>{Ys(0,-200,200)}}).pause();const a=()=>{o.timeScale(2).play(),null==s||s.timeScale(2).play()};return e&&a(),{update:([t,e])=>{r!==e&&(r=e,s=i(r)),t?a():(o.timeScale(1).reverse(),null==s||s.timeScale(1).reverse())}}}function Ls(t){let e,n,r,i;const o=t[6].default,a=l(o,t,t[5],null);return{c(){e=$("div"),a&&a.c(),C(e,"class","nav-block-list-item"),A(e,"active",t[3])},m(s,o){b(s,e,o),a&&a.m(e,null),n=!0,r||(i=[M(e,"mouseenter",t[7]),M(e,"click",t[8])],r=!0)},p(t,[n]){a&&a.p&&32&n&&c(a,o,t,t[5],n,null,null),8&n&&A(e,"active",t[3])},i(t){n||(K(a,t),n=!0)},o(t){tt(a,t),n=!1},d(t){t&&x(e),a&&a.d(t),r=!1,s(i)}}}function js(t,e,n){let r;u(t,Pt,(t=>n(4,r=t)));let{$$slots:i={},$$scope:s}=e,{index:o}=e,{to:a="default"}=e,{onClick:l=(()=>{})}=e,{active:h=!1}=e;return t.$$set=t=>{"index"in t&&n(0,o=t.index),"to"in t&&n(1,a=t.to),"onClick"in t&&n(2,l=t.onClick),"active"in t&&n(3,h=t.active),"$$scope"in t&&n(5,s=t.$$scope)},[o,a,l,h,r,s,i,()=>function(t){null!==Bs&&Ys(0,80*(t-Bs),100),Bs=t}(o),()=>{l(),f(Pt,r=a,r)}]}class Ns extends lt{constructor(t){super(),ut(this,t,js,Ls,a,{index:0,to:1,onClick:2,active:3})}}function Us(t,e,n){const r=t.slice();return r[14]=e[n],r[16]=n,r}function qs(t){let e,n,r=t[14].title+"";return{c(){e=T(r),n=k()},m(t,r){b(t,e,r),b(t,n,r)},p(t,n){32&n&&r!==(r=t[14].title+"")&&O(e,r)},d(t){t&&x(e),t&&x(n)}}}function Hs(t,e){let n,r,i;function s(){return e[12](e[16])}return r=new Ns({props:{active:"card"===e[6]&&e[16]===e[4],index:e[16],to:"card",onClick:s,$$slots:{default:[qs]},$$scope:{ctx:e}}}),{key:t,first:null,c(){n=T(""),it(r.$$.fragment),this.first=n},m(t,e){b(t,n,e),st(r,t,e),i=!0},p(t,n){e=t;const i={};112&n&&(i.active="card"===e[6]&&e[16]===e[4]),32&n&&(i.index=e[16]),32&n&&(i.onClick=s),131104&n&&(i.$$scope={dirty:n,ctx:e}),r.$set(i)},i(t){i||(K(r.$$.fragment,t),i=!0)},o(t){tt(r.$$.fragment,t),i=!1},d(t){t&&x(n),ot(r,t)}}}function Vs(t){let e;return{c(){e=T("Home")},m(t,n){b(t,e,n)},d(t){t&&x(e)}}}function Ws(t){let e;return{c(){e=T("About Me")},m(t,n){b(t,e,n)},d(t){t&&x(e)}}}function Gs(e){let n,r,i,a,u,l,h,c,f,d,p,_,m,g,v,w,T,O,A,S,D,E,P,z,F,R,B,Y,X,I,L,j=[],N=new Map,U=e[5];const q=t=>t[14].title;for(let t=0;t<U.length;t+=1){let n=Us(e,U,t),r=q(n);N.set(r,j[t]=Hs(r,n))}return P=new Ns({props:{index:e[5].length,onClick:e[8],to:"home",active:"home"===e[6],$$slots:{default:[Vs]},$$scope:{ctx:e}}}),F=new Ns({props:{index:e[5].length+1,onClick:e[8],to:"aboutMe",active:"aboutMe"===e[6],$$slots:{default:[Ws]},$$scope:{ctx:e}}}),{c(){n=$("div"),r=$("img"),u=k(),l=$("div"),h=$("div"),c=$("canvas"),f=k(),d=$("nav"),p=$("div"),p.textContent="My Portfolio",_=k(),m=$("div"),g=$("div"),v=$("div"),v.textContent="Projects",w=k(),T=$("div");for(let t=0;t<j.length;t+=1)j[t].c();O=k(),A=$("div"),S=$("div"),S.textContent="Other",D=k(),E=$("div"),it(P.$$.fragment),z=k(),it(F.$$.fragment),R=k(),B=$("div"),B.innerHTML='<div class="icon-field"><a href="mailto:ah.alain.digmail.com"><img src="./assets/images/at.png" alt="mail"/></a></div>',r.src!==(i="./assets/images/double-up-arrow.png")&&C(r,"src","./assets/images/double-up-arrow.png"),C(r,"alt",""),C(n,"style",a="visibility:"+(e[1]?"visible":"hidden")),C(n,"id","nav-collapse--button"),C(c,"id","background"),C(c,"width","464"),C(c,"height","1000"),C(h,"id","background--wrapper"),C(p,"class","nav-top"),C(v,"class","nav-block-header"),C(T,"class","nav-block-list"),C(g,"class","nav-block"),C(S,"class","nav-block-header"),C(E,"class","nav-block-list"),C(A,"class","nav-block"),C(m,"class","nav-main"),C(B,"id","nav-footer"),C(d,"id","main-nav"),C(l,"id","main-nav--wrapper")},m(i,s){b(i,n,s),y(n,r),e[10](n),b(i,u,s),b(i,l,s),y(l,h),y(h,c),e[11](c),y(l,f),y(l,d),y(d,p),y(d,_),y(d,m),y(m,g),y(g,v),y(g,w),y(g,T);for(let t=0;t<j.length;t+=1)j[t].m(T,null);var a;y(m,O),y(m,A),y(A,S),y(A,D),y(A,E),st(P,E,null),y(E,z),st(F,E,null),y(d,R),y(d,B),X=!0,I||(L=[M(n,"click",e[9]),M(d,"mouseleave",Xs),(a=Y=Is.call(null,l,[e[0],e[3]]),a&&o(a.destroy)?a.destroy:t)],I=!0)},p(t,[e]){(!X||2&e&&a!==(a="visibility:"+(t[1]?"visible":"hidden")))&&C(n,"style",a),496&e&&(U=t[5],Q(),j=function(t,e,n,r,i,s,o,a,u,l,h,c){let f=t.length,d=s.length,p=f;const _={};for(;p--;)_[t[p].key]=p;const m=[],g=new Map,v=new Map;for(p=d;p--;){const t=c(i,s,p),a=n(t);let u=o.get(a);u?r&&u.p(t,e):(u=l(a,t),u.c()),g.set(a,m[p]=u),a in _&&v.set(a,Math.abs(p-_[a]))}const y=new Set,b=new Set;function x(t){K(t,1),t.m(a,h),o.set(t.key,t),h=t.first,d--}for(;f&&d;){const e=m[d-1],n=t[f-1],r=e.key,i=n.key;e===n?(h=e.first,f--,d--):g.has(i)?!o.has(r)||y.has(r)?x(e):b.has(i)?f--:v.get(r)>v.get(i)?(b.add(r),x(e)):(y.add(i),f--):(u(n,o),f--)}for(;f--;){const e=t[f];g.has(e.key)||u(e,o)}for(;d;)x(m[d-1]);return m}(j,e,q,1,t,U,N,T,rt,Hs,null,Us),J());const r={};32&e&&(r.index=t[5].length),64&e&&(r.active="home"===t[6]),131072&e&&(r.$$scope={dirty:e,ctx:t}),P.$set(r);const i={};32&e&&(i.index=t[5].length+1),64&e&&(i.active="aboutMe"===t[6]),131072&e&&(i.$$scope={dirty:e,ctx:t}),F.$set(i),Y&&o(Y.update)&&9&e&&Y.update.call(null,[t[0],t[3]])},i(t){if(!X){for(let t=0;t<U.length;t+=1)K(j[t]);K(P.$$.fragment,t),K(F.$$.fragment,t),X=!0}},o(t){for(let t=0;t<j.length;t+=1)tt(j[t]);tt(P.$$.fragment,t),tt(F.$$.fragment,t),X=!1},d(t){t&&x(n),e[10](null),t&&x(u),t&&x(l),e[11](null);for(let t=0;t<j.length;t+=1)j[t].d();ot(P),ot(F),I=!1,s(L)}}}function Zs(t,e,n){let r,i,s,o,a,l,h,c;function d(t){f(St,r=t,r)}function p(){i&&n(0,a=!1)}u(t,St,(t=>n(4,r=t))),u(t,Dt,(t=>n(13,i=t))),u(t,At,(t=>n(5,s=t))),u(t,Pt,(t=>n(6,o=t))),Dt.subscribe((t=>{n(0,a=!t),n(1,l=t)})),F((()=>{At.subscribe((t=>{if(t.length){const n=new Set(t.map((t=>t.theme.primary)));e={bgcolor:null,canvas:h,colors:Array.from(n.values()),offset:300,scale:.5,speed:.3,sctickCountFactor:.8,fps:60},Rs||(Rs=new Es(e),Rs.draw())}var e}))}));return[a,l,h,c,r,s,o,d,p,()=>n(0,a=!a),function(t){B[t?"unshift":"push"]((()=>{c=t,n(3,c)}))},function(t){B[t?"unshift":"push"]((()=>{h=t,n(2,h)}))},t=>{p(),d(t)}]}class Qs extends lt{constructor(t){super(),ut(this,t,Zs,Gs,a,{})}}function Js(t){let e,n,r,i,s,o;e=new Qs({});var a=Et[t[0]];return a&&(s=new a({})),{c(){it(e.$$.fragment),n=k(),r=$("div"),i=$("div"),s&&it(s.$$.fragment),C(i,"id","main-view"),C(r,"id","main-view-wrapper")},m(t,a){st(e,t,a),b(t,n,a),b(t,r,a),y(r,i),s&&st(s,i,null),o=!0},p(t,[e]){if(a!==(a=Et[t[0]])){if(s){Q();const t=s;tt(t.$$.fragment,1,0,(()=>{ot(t,1)})),J()}a?(s=new a({}),it(s.$$.fragment),K(s.$$.fragment,1),st(s,i,null)):s=null}},i(t){o||(K(e.$$.fragment,t),s&&K(s.$$.fragment,t),o=!0)},o(t){tt(e.$$.fragment,t),s&&tt(s.$$.fragment,t),o=!1},d(t){ot(e,t),t&&x(n),t&&x(r),s&&ot(s)}}}function Ks(t,e,n){let r;return u(t,Pt,(t=>n(0,r=t))),[r]}return new class extends lt{constructor(t){super(),ut(this,t,Ks,Js,a,{})}}({target:document.body,intro:!0})}();
+    */
+
+    var _win$1,
+        _doc$1,
+        _docElement,
+        _pluginInitted,
+        _tempDiv,
+        _tempDivStyler,
+        _recentSetterPlugin,
+        _windowExists$1 = function _windowExists() {
+      return typeof window !== "undefined";
+    },
+        _transformProps = {},
+        _RAD2DEG = 180 / Math.PI,
+        _DEG2RAD = Math.PI / 180,
+        _atan2 = Math.atan2,
+        _bigNum$1 = 1e8,
+        _capsExp = /([A-Z])/g,
+        _horizontalExp = /(?:left|right|width|margin|padding|x)/i,
+        _complexExp = /[\s,\(]\S/,
+        _propertyAliases = {
+      autoAlpha: "opacity,visibility",
+      scale: "scaleX,scaleY",
+      alpha: "opacity"
+    },
+        _renderCSSProp = function _renderCSSProp(ratio, data) {
+      return data.set(data.t, data.p, Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+    },
+        _renderPropWithEnd = function _renderPropWithEnd(ratio, data) {
+      return data.set(data.t, data.p, ratio === 1 ? data.e : Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u, data);
+    },
+        _renderCSSPropWithBeginning = function _renderCSSPropWithBeginning(ratio, data) {
+      return data.set(data.t, data.p, ratio ? Math.round((data.s + data.c * ratio) * 10000) / 10000 + data.u : data.b, data);
+    },
+        //if units change, we need a way to render the original unit/value when the tween goes all the way back to the beginning (ratio:0)
+    _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
+      var value = data.s + data.c * ratio;
+      data.set(data.t, data.p, ~~(value + (value < 0 ? -.5 : .5)) + data.u, data);
+    },
+        _renderNonTweeningValue = function _renderNonTweeningValue(ratio, data) {
+      return data.set(data.t, data.p, ratio ? data.e : data.b, data);
+    },
+        _renderNonTweeningValueOnlyAtEnd = function _renderNonTweeningValueOnlyAtEnd(ratio, data) {
+      return data.set(data.t, data.p, ratio !== 1 ? data.b : data.e, data);
+    },
+        _setterCSSStyle = function _setterCSSStyle(target, property, value) {
+      return target.style[property] = value;
+    },
+        _setterCSSProp = function _setterCSSProp(target, property, value) {
+      return target.style.setProperty(property, value);
+    },
+        _setterTransform = function _setterTransform(target, property, value) {
+      return target._gsap[property] = value;
+    },
+        _setterScale = function _setterScale(target, property, value) {
+      return target._gsap.scaleX = target._gsap.scaleY = value;
+    },
+        _setterScaleWithRender = function _setterScaleWithRender(target, property, value, data, ratio) {
+      var cache = target._gsap;
+      cache.scaleX = cache.scaleY = value;
+      cache.renderTransform(ratio, cache);
+    },
+        _setterTransformWithRender = function _setterTransformWithRender(target, property, value, data, ratio) {
+      var cache = target._gsap;
+      cache[property] = value;
+      cache.renderTransform(ratio, cache);
+    },
+        _transformProp = "transform",
+        _transformOriginProp = _transformProp + "Origin",
+        _supports3D,
+        _createElement = function _createElement(type, ns) {
+      var e = _doc$1.createElementNS ? _doc$1.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc$1.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
+
+      return e.style ? e : _doc$1.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://greensock.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
+    },
+        _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
+      var cs = getComputedStyle(target);
+      return cs[property] || cs.getPropertyValue(property.replace(_capsExp, "-$1").toLowerCase()) || cs.getPropertyValue(property) || !skipPrefixFallback && _getComputedProperty(target, _checkPropPrefix(property) || property, 1) || ""; //css variables may not need caps swapped out for dashes and lowercase.
+    },
+        _prefixes = "O,Moz,ms,Ms,Webkit".split(","),
+        _checkPropPrefix = function _checkPropPrefix(property, element, preferPrefix) {
+      var e = element || _tempDiv,
+          s = e.style,
+          i = 5;
+
+      if (property in s && !preferPrefix) {
+        return property;
+      }
+
+      property = property.charAt(0).toUpperCase() + property.substr(1);
+
+      while (i-- && !(_prefixes[i] + property in s)) {}
+
+      return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
+    },
+        _initCore = function _initCore() {
+      if (_windowExists$1() && window.document) {
+        _win$1 = window;
+        _doc$1 = _win$1.document;
+        _docElement = _doc$1.documentElement;
+        _tempDiv = _createElement("div") || {
+          style: {}
+        };
+        _tempDivStyler = _createElement("div");
+        _transformProp = _checkPropPrefix(_transformProp);
+        _transformOriginProp = _transformProp + "Origin";
+        _tempDiv.style.cssText = "border-width:0;line-height:0;position:absolute;padding:0"; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
+
+        _supports3D = !!_checkPropPrefix("perspective");
+        _pluginInitted = 1;
+      }
+    },
+        _getBBoxHack = function _getBBoxHack(swapIfPossible) {
+      //works around issues in some browsers (like Firefox) that don't correctly report getBBox() on SVG elements inside a <defs> element and/or <mask>. We try creating an SVG, adding it to the documentElement and toss the element in there so that it's definitely part of the rendering tree, then grab the bbox and if it works, we actually swap out the original getBBox() method for our own that does these extra steps whenever getBBox is needed. This helps ensure that performance is optimal (only do all these extra steps when absolutely necessary...most elements don't need it).
+      var svg = _createElement("svg", this.ownerSVGElement && this.ownerSVGElement.getAttribute("xmlns") || "http://www.w3.org/2000/svg"),
+          oldParent = this.parentNode,
+          oldSibling = this.nextSibling,
+          oldCSS = this.style.cssText,
+          bbox;
+
+      _docElement.appendChild(svg);
+
+      svg.appendChild(this);
+      this.style.display = "block";
+
+      if (swapIfPossible) {
+        try {
+          bbox = this.getBBox();
+          this._gsapBBox = this.getBBox; //store the original
+
+          this.getBBox = _getBBoxHack;
+        } catch (e) {}
+      } else if (this._gsapBBox) {
+        bbox = this._gsapBBox();
+      }
+
+      if (oldParent) {
+        if (oldSibling) {
+          oldParent.insertBefore(this, oldSibling);
+        } else {
+          oldParent.appendChild(this);
+        }
+      }
+
+      _docElement.removeChild(svg);
+
+      this.style.cssText = oldCSS;
+      return bbox;
+    },
+        _getAttributeFallbacks = function _getAttributeFallbacks(target, attributesArray) {
+      var i = attributesArray.length;
+
+      while (i--) {
+        if (target.hasAttribute(attributesArray[i])) {
+          return target.getAttribute(attributesArray[i]);
+        }
+      }
+    },
+        _getBBox = function _getBBox(target) {
+      var bounds;
+
+      try {
+        bounds = target.getBBox(); //Firefox throws errors if you try calling getBBox() on an SVG element that's not rendered (like in a <symbol> or <defs>). https://bugzilla.mozilla.org/show_bug.cgi?id=612118
+      } catch (error) {
+        bounds = _getBBoxHack.call(target, true);
+      }
+
+      bounds && (bounds.width || bounds.height) || target.getBBox === _getBBoxHack || (bounds = _getBBoxHack.call(target, true)); //some browsers (like Firefox) misreport the bounds if the element has zero width and height (it just assumes it's at x:0, y:0), thus we need to manually grab the position in that case.
+
+      return bounds && !bounds.width && !bounds.x && !bounds.y ? {
+        x: +_getAttributeFallbacks(target, ["x", "cx", "x1"]) || 0,
+        y: +_getAttributeFallbacks(target, ["y", "cy", "y1"]) || 0,
+        width: 0,
+        height: 0
+      } : bounds;
+    },
+        _isSVG = function _isSVG(e) {
+      return !!(e.getCTM && (!e.parentNode || e.ownerSVGElement) && _getBBox(e));
+    },
+        //reports if the element is an SVG on which getBBox() actually works
+    _removeProperty = function _removeProperty(target, property) {
+      if (property) {
+        var style = target.style;
+
+        if (property in _transformProps && property !== _transformOriginProp) {
+          property = _transformProp;
+        }
+
+        if (style.removeProperty) {
+          if (property.substr(0, 2) === "ms" || property.substr(0, 6) === "webkit") {
+            //Microsoft and some Webkit browsers don't conform to the standard of capitalizing the first prefix character, so we adjust so that when we prefix the caps with a dash, it's correct (otherwise it'd be "ms-transform" instead of "-ms-transform" for IE9, for example)
+            property = "-" + property;
+          }
+
+          style.removeProperty(property.replace(_capsExp, "-$1").toLowerCase());
+        } else {
+          //note: old versions of IE use "removeAttribute()" instead of "removeProperty()"
+          style.removeAttribute(property);
+        }
+      }
+    },
+        _addNonTweeningPT = function _addNonTweeningPT(plugin, target, property, beginning, end, onlySetAtEnd) {
+      var pt = new PropTween(plugin._pt, target, property, 0, 1, onlySetAtEnd ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue);
+      plugin._pt = pt;
+      pt.b = beginning;
+      pt.e = end;
+
+      plugin._props.push(property);
+
+      return pt;
+    },
+        _nonConvertibleUnits = {
+      deg: 1,
+      rad: 1,
+      turn: 1
+    },
+        //takes a single value like 20px and converts it to the unit specified, like "%", returning only the numeric amount.
+    _convertToUnit = function _convertToUnit(target, property, value, unit) {
+      var curValue = parseFloat(value) || 0,
+          curUnit = (value + "").trim().substr((curValue + "").length) || "px",
+          // some browsers leave extra whitespace at the beginning of CSS variables, hence the need to trim()
+      style = _tempDiv.style,
+          horizontal = _horizontalExp.test(property),
+          isRootSVG = target.tagName.toLowerCase() === "svg",
+          measureProperty = (isRootSVG ? "client" : "offset") + (horizontal ? "Width" : "Height"),
+          amount = 100,
+          toPixels = unit === "px",
+          toPercent = unit === "%",
+          px,
+          parent,
+          cache,
+          isSVG;
+
+      if (unit === curUnit || !curValue || _nonConvertibleUnits[unit] || _nonConvertibleUnits[curUnit]) {
+        return curValue;
+      }
+
+      curUnit !== "px" && !toPixels && (curValue = _convertToUnit(target, property, value, "px"));
+      isSVG = target.getCTM && _isSVG(target);
+
+      if ((toPercent || curUnit === "%") && (_transformProps[property] || ~property.indexOf("adius"))) {
+        px = isSVG ? target.getBBox()[horizontal ? "width" : "height"] : target[measureProperty];
+        return _round(toPercent ? curValue / px * amount : curValue / 100 * px);
+      }
+
+      style[horizontal ? "width" : "height"] = amount + (toPixels ? curUnit : unit);
+      parent = ~property.indexOf("adius") || unit === "em" && target.appendChild && !isRootSVG ? target : target.parentNode;
+
+      if (isSVG) {
+        parent = (target.ownerSVGElement || {}).parentNode;
+      }
+
+      if (!parent || parent === _doc$1 || !parent.appendChild) {
+        parent = _doc$1.body;
+      }
+
+      cache = parent._gsap;
+
+      if (cache && toPercent && cache.width && horizontal && cache.time === _ticker.time) {
+        return _round(curValue / cache.width * amount);
+      } else {
+        (toPercent || curUnit === "%") && (style.position = _getComputedProperty(target, "position"));
+        parent === target && (style.position = "static"); // like for borderRadius, if it's a % we must have it relative to the target itself but that may not have position: relative or position: absolute in which case it'd go up the chain until it finds its offsetParent (bad). position: static protects against that.
+
+        parent.appendChild(_tempDiv);
+        px = _tempDiv[measureProperty];
+        parent.removeChild(_tempDiv);
+        style.position = "absolute";
+
+        if (horizontal && toPercent) {
+          cache = _getCache(parent);
+          cache.time = _ticker.time;
+          cache.width = parent[measureProperty];
+        }
+      }
+
+      return _round(toPixels ? px * curValue / amount : px && curValue ? amount / px * curValue : 0);
+    },
+        _get = function _get(target, property, unit, uncache) {
+      var value;
+      _pluginInitted || _initCore();
+
+      if (property in _propertyAliases && property !== "transform") {
+        property = _propertyAliases[property];
+
+        if (~property.indexOf(",")) {
+          property = property.split(",")[0];
+        }
+      }
+
+      if (_transformProps[property] && property !== "transform") {
+        value = _parseTransform(target, uncache);
+        value = property !== "transformOrigin" ? value[property] : _firstTwoOnly(_getComputedProperty(target, _transformOriginProp)) + " " + value.zOrigin + "px";
+      } else {
+        value = target.style[property];
+
+        if (!value || value === "auto" || uncache || ~(value + "").indexOf("calc(")) {
+          value = _specialProps[property] && _specialProps[property](target, property, unit) || _getComputedProperty(target, property) || _getProperty(target, property) || (property === "opacity" ? 1 : 0); // note: some browsers, like Firefox, don't report borderRadius correctly! Instead, it only reports every corner like  borderTopLeftRadius
+        }
+      }
+
+      return unit && !~(value + "").trim().indexOf(" ") ? _convertToUnit(target, property, value, unit) + unit : value;
+    },
+        _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
+      //note: we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+      if (!start || start === "none") {
+        // some browsers like Safari actually PREFER the prefixed property and mis-report the unprefixed value like clipPath (BUG). In other words, even though clipPath exists in the style ("clipPath" in target.style) and it's set in the CSS properly (along with -webkit-clip-path), Safari reports clipPath as "none" whereas WebkitClipPath reports accurately like "ellipse(100% 0% at 50% 0%)", so in this case we must SWITCH to using the prefixed property instead. See https://greensock.com/forums/topic/18310-clippath-doesnt-work-on-ios/
+        var p = _checkPropPrefix(prop, target, 1),
+            s = p && _getComputedProperty(target, p, 1);
+
+        if (s && s !== start) {
+          prop = p;
+          start = s;
+        } else if (prop === "borderColor") {
+          start = _getComputedProperty(target, "borderTopColor"); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://greensock.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
+        }
+      }
+
+      var pt = new PropTween(this._pt, target.style, prop, 0, 1, _renderComplexString),
+          index = 0,
+          matchIndex = 0,
+          a,
+          result,
+          startValues,
+          startNum,
+          color,
+          startValue,
+          endValue,
+          endNum,
+          chunk,
+          endUnit,
+          startUnit,
+          relative,
+          endValues;
+      pt.b = start;
+      pt.e = end;
+      start += ""; //ensure values are strings
+
+      end += "";
+
+      if (end === "auto") {
+        target.style[prop] = end;
+        end = _getComputedProperty(target, prop) || end;
+        target.style[prop] = start;
+      }
+
+      a = [start, end];
+
+      _colorStringFilter(a); //pass an array with the starting and ending values and let the filter do whatever it needs to the values. If colors are found, it returns true and then we must match where the color shows up order-wise because for things like boxShadow, sometimes the browser provides the computed values with the color FIRST, but the user provides it with the color LAST, so flip them if necessary. Same for drop-shadow().
+
+
+      start = a[0];
+      end = a[1];
+      startValues = start.match(_numWithUnitExp) || [];
+      endValues = end.match(_numWithUnitExp) || [];
+
+      if (endValues.length) {
+        while (result = _numWithUnitExp.exec(end)) {
+          endValue = result[0];
+          chunk = end.substring(index, result.index);
+
+          if (color) {
+            color = (color + 1) % 5;
+          } else if (chunk.substr(-5) === "rgba(" || chunk.substr(-5) === "hsla(") {
+            color = 1;
+          }
+
+          if (endValue !== (startValue = startValues[matchIndex++] || "")) {
+            startNum = parseFloat(startValue) || 0;
+            startUnit = startValue.substr((startNum + "").length);
+            relative = endValue.charAt(1) === "=" ? +(endValue.charAt(0) + "1") : 0;
+
+            if (relative) {
+              endValue = endValue.substr(2);
+            }
+
+            endNum = parseFloat(endValue);
+            endUnit = endValue.substr((endNum + "").length);
+            index = _numWithUnitExp.lastIndex - endUnit.length;
+
+            if (!endUnit) {
+              //if something like "perspective:300" is passed in and we must add a unit to the end
+              endUnit = endUnit || _config.units[prop] || startUnit;
+
+              if (index === end.length) {
+                end += endUnit;
+                pt.e += endUnit;
+              }
+            }
+
+            if (startUnit !== endUnit) {
+              startNum = _convertToUnit(target, prop, startValue, endUnit) || 0;
+            } //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+
+
+            pt._pt = {
+              _next: pt._pt,
+              p: chunk || matchIndex === 1 ? chunk : ",",
+              //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+              s: startNum,
+              c: relative ? relative * endNum : endNum - startNum,
+              m: color && color < 4 || prop === "zIndex" ? Math.round : 0
+            };
+          }
+        }
+
+        pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+      } else {
+        pt.r = prop === "display" && end === "none" ? _renderNonTweeningValueOnlyAtEnd : _renderNonTweeningValue;
+      }
+
+      _relExp.test(end) && (pt.e = 0); //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+
+      this._pt = pt; //start the linked list with this new PropTween. Remember, we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within another plugin too, thus "this" would refer to the plugin.
+
+      return pt;
+    },
+        _keywordToPercent = {
+      top: "0%",
+      bottom: "100%",
+      left: "0%",
+      right: "100%",
+      center: "50%"
+    },
+        _convertKeywordsToPercentages = function _convertKeywordsToPercentages(value) {
+      var split = value.split(" "),
+          x = split[0],
+          y = split[1] || "50%";
+
+      if (x === "top" || x === "bottom" || y === "left" || y === "right") {
+        //the user provided them in the wrong order, so flip them
+        value = x;
+        x = y;
+        y = value;
+      }
+
+      split[0] = _keywordToPercent[x] || x;
+      split[1] = _keywordToPercent[y] || y;
+      return split.join(" ");
+    },
+        _renderClearProps = function _renderClearProps(ratio, data) {
+      if (data.tween && data.tween._time === data.tween._dur) {
+        var target = data.t,
+            style = target.style,
+            props = data.u,
+            cache = target._gsap,
+            prop,
+            clearTransforms,
+            i;
+
+        if (props === "all" || props === true) {
+          style.cssText = "";
+          clearTransforms = 1;
+        } else {
+          props = props.split(",");
+          i = props.length;
+
+          while (--i > -1) {
+            prop = props[i];
+
+            if (_transformProps[prop]) {
+              clearTransforms = 1;
+              prop = prop === "transformOrigin" ? _transformOriginProp : _transformProp;
+            }
+
+            _removeProperty(target, prop);
+          }
+        }
+
+        if (clearTransforms) {
+          _removeProperty(target, _transformProp);
+
+          if (cache) {
+            cache.svg && target.removeAttribute("transform");
+
+            _parseTransform(target, 1); // force all the cached values back to "normal"/identity, otherwise if there's another tween that's already set to render transforms on this element, it could display the wrong values.
+
+
+            cache.uncache = 1;
+          }
+        }
+      }
+    },
+        // note: specialProps should return 1 if (and only if) they have a non-zero priority. It indicates we need to sort the linked list.
+    _specialProps = {
+      clearProps: function clearProps(plugin, target, property, endValue, tween) {
+        if (tween.data !== "isFromStart") {
+          var pt = plugin._pt = new PropTween(plugin._pt, target, property, 0, 0, _renderClearProps);
+          pt.u = endValue;
+          pt.pr = -10;
+          pt.tween = tween;
+
+          plugin._props.push(property);
+
+          return 1;
+        }
+      }
+      /* className feature (about 0.4kb gzipped).
+      , className(plugin, target, property, endValue, tween) {
+      	let _renderClassName = (ratio, data) => {
+      			data.css.render(ratio, data.css);
+      			if (!ratio || ratio === 1) {
+      				let inline = data.rmv,
+      					target = data.t,
+      					p;
+      				target.setAttribute("class", ratio ? data.e : data.b);
+      				for (p in inline) {
+      					_removeProperty(target, p);
+      				}
+      			}
+      		},
+      		_getAllStyles = (target) => {
+      			let styles = {},
+      				computed = getComputedStyle(target),
+      				p;
+      			for (p in computed) {
+      				if (isNaN(p) && p !== "cssText" && p !== "length") {
+      					styles[p] = computed[p];
+      				}
+      			}
+      			_setDefaults(styles, _parseTransform(target, 1));
+      			return styles;
+      		},
+      		startClassList = target.getAttribute("class"),
+      		style = target.style,
+      		cssText = style.cssText,
+      		cache = target._gsap,
+      		classPT = cache.classPT,
+      		inlineToRemoveAtEnd = {},
+      		data = {t:target, plugin:plugin, rmv:inlineToRemoveAtEnd, b:startClassList, e:(endValue.charAt(1) !== "=") ? endValue : startClassList.replace(new RegExp("(?:\\s|^)" + endValue.substr(2) + "(?![\\w-])"), "") + ((endValue.charAt(0) === "+") ? " " + endValue.substr(2) : "")},
+      		changingVars = {},
+      		startVars = _getAllStyles(target),
+      		transformRelated = /(transform|perspective)/i,
+      		endVars, p;
+      	if (classPT) {
+      		classPT.r(1, classPT.d);
+      		_removeLinkedListItem(classPT.d.plugin, classPT, "_pt");
+      	}
+      	target.setAttribute("class", data.e);
+      	endVars = _getAllStyles(target, true);
+      	target.setAttribute("class", startClassList);
+      	for (p in endVars) {
+      		if (endVars[p] !== startVars[p] && !transformRelated.test(p)) {
+      			changingVars[p] = endVars[p];
+      			if (!style[p] && style[p] !== "0") {
+      				inlineToRemoveAtEnd[p] = 1;
+      			}
+      		}
+      	}
+      	cache.classPT = plugin._pt = new PropTween(plugin._pt, target, "className", 0, 0, _renderClassName, data, 0, -11);
+      	if (style.cssText !== cssText) { //only apply if things change. Otherwise, in cases like a background-image that's pulled dynamically, it could cause a refresh. See https://greensock.com/forums/topic/20368-possible-gsap-bug-switching-classnames-in-chrome/.
+      		style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
+      	}
+      	_parseTransform(target, true); //to clear the caching of transforms
+      	data.css = new gsap.plugins.css();
+      	data.css.init(target, changingVars, tween);
+      	plugin._props.push(...data.css._props);
+      	return 1;
+      }
+      */
+
+    },
+
+    /*
+     * --------------------------------------------------------------------------------------
+     * TRANSFORMS
+     * --------------------------------------------------------------------------------------
+     */
+    _identity2DMatrix = [1, 0, 0, 1, 0, 0],
+        _rotationalProperties = {},
+        _isNullTransform = function _isNullTransform(value) {
+      return value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value;
+    },
+        _getComputedTransformMatrixAsArray = function _getComputedTransformMatrixAsArray(target) {
+      var matrixString = _getComputedProperty(target, _transformProp);
+
+      return _isNullTransform(matrixString) ? _identity2DMatrix : matrixString.substr(7).match(_numExp).map(_round);
+    },
+        _getMatrix = function _getMatrix(target, force2D) {
+      var cache = target._gsap || _getCache(target),
+          style = target.style,
+          matrix = _getComputedTransformMatrixAsArray(target),
+          parent,
+          nextSibling,
+          temp,
+          addedToDOM;
+
+      if (cache.svg && target.getAttribute("transform")) {
+        temp = target.transform.baseVal.consolidate().matrix; //ensures that even complex values like "translate(50,60) rotate(135,0,0)" are parsed because it mashes it into a matrix.
+
+        matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
+        return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
+      } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
+        //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+        //browsers don't report transforms accurately unless the element is in the DOM and has a display value that's not "none". Firefox and Microsoft browsers have a partial bug where they'll report transforms even if display:none BUT not any percentage-based values like translate(-50%, 8px) will be reported as if it's translate(0, 8px).
+        temp = style.display;
+        style.display = "block";
+        parent = target.parentNode;
+
+        if (!parent || !target.offsetParent) {
+          // note: in 3.3.0 we switched target.offsetParent to _doc.body.contains(target) to avoid [sometimes unnecessary] MutationObserver calls but that wasn't adequate because there are edge cases where nested position: fixed elements need to get reparented to accurately sense transforms. See https://github.com/greensock/GSAP/issues/388 and https://github.com/greensock/GSAP/issues/375
+          addedToDOM = 1; //flag
+
+          nextSibling = target.nextSibling;
+
+          _docElement.appendChild(target); //we must add it to the DOM in order to get values properly
+
+        }
+
+        matrix = _getComputedTransformMatrixAsArray(target);
+        temp ? style.display = temp : _removeProperty(target, "display");
+
+        if (addedToDOM) {
+          nextSibling ? parent.insertBefore(target, nextSibling) : parent ? parent.appendChild(target) : _docElement.removeChild(target);
+        }
+      }
+
+      return force2D && matrix.length > 6 ? [matrix[0], matrix[1], matrix[4], matrix[5], matrix[12], matrix[13]] : matrix;
+    },
+        _applySVGOrigin = function _applySVGOrigin(target, origin, originIsAbsolute, smooth, matrixArray, pluginToAddPropTweensTo) {
+      var cache = target._gsap,
+          matrix = matrixArray || _getMatrix(target, true),
+          xOriginOld = cache.xOrigin || 0,
+          yOriginOld = cache.yOrigin || 0,
+          xOffsetOld = cache.xOffset || 0,
+          yOffsetOld = cache.yOffset || 0,
+          a = matrix[0],
+          b = matrix[1],
+          c = matrix[2],
+          d = matrix[3],
+          tx = matrix[4],
+          ty = matrix[5],
+          originSplit = origin.split(" "),
+          xOrigin = parseFloat(originSplit[0]) || 0,
+          yOrigin = parseFloat(originSplit[1]) || 0,
+          bounds,
+          determinant,
+          x,
+          y;
+
+      if (!originIsAbsolute) {
+        bounds = _getBBox(target);
+        xOrigin = bounds.x + (~originSplit[0].indexOf("%") ? xOrigin / 100 * bounds.width : xOrigin);
+        yOrigin = bounds.y + (~(originSplit[1] || originSplit[0]).indexOf("%") ? yOrigin / 100 * bounds.height : yOrigin);
+      } else if (matrix !== _identity2DMatrix && (determinant = a * d - b * c)) {
+        //if it's zero (like if scaleX and scaleY are zero), skip it to avoid errors with dividing by zero.
+        x = xOrigin * (d / determinant) + yOrigin * (-c / determinant) + (c * ty - d * tx) / determinant;
+        y = xOrigin * (-b / determinant) + yOrigin * (a / determinant) - (a * ty - b * tx) / determinant;
+        xOrigin = x;
+        yOrigin = y;
+      }
+
+      if (smooth || smooth !== false && cache.smooth) {
+        tx = xOrigin - xOriginOld;
+        ty = yOrigin - yOriginOld;
+        cache.xOffset = xOffsetOld + (tx * a + ty * c) - tx;
+        cache.yOffset = yOffsetOld + (tx * b + ty * d) - ty;
+      } else {
+        cache.xOffset = cache.yOffset = 0;
+      }
+
+      cache.xOrigin = xOrigin;
+      cache.yOrigin = yOrigin;
+      cache.smooth = !!smooth;
+      cache.origin = origin;
+      cache.originIsAbsolute = !!originIsAbsolute;
+      target.style[_transformOriginProp] = "0px 0px"; //otherwise, if someone sets  an origin via CSS, it will likely interfere with the SVG transform attribute ones (because remember, we're baking the origin into the matrix() value).
+
+      if (pluginToAddPropTweensTo) {
+        _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOrigin", xOriginOld, xOrigin);
+
+        _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOrigin", yOriginOld, yOrigin);
+
+        _addNonTweeningPT(pluginToAddPropTweensTo, cache, "xOffset", xOffsetOld, cache.xOffset);
+
+        _addNonTweeningPT(pluginToAddPropTweensTo, cache, "yOffset", yOffsetOld, cache.yOffset);
+      }
+
+      target.setAttribute("data-svg-origin", xOrigin + " " + yOrigin);
+    },
+        _parseTransform = function _parseTransform(target, uncache) {
+      var cache = target._gsap || new GSCache(target);
+
+      if ("x" in cache && !uncache && !cache.uncache) {
+        return cache;
+      }
+
+      var style = target.style,
+          invertedScaleX = cache.scaleX < 0,
+          px = "px",
+          deg = "deg",
+          origin = _getComputedProperty(target, _transformOriginProp) || "0",
+          x,
+          y,
+          z,
+          scaleX,
+          scaleY,
+          rotation,
+          rotationX,
+          rotationY,
+          skewX,
+          skewY,
+          perspective,
+          xOrigin,
+          yOrigin,
+          matrix,
+          angle,
+          cos,
+          sin,
+          a,
+          b,
+          c,
+          d,
+          a12,
+          a22,
+          t1,
+          t2,
+          t3,
+          a13,
+          a23,
+          a33,
+          a42,
+          a43,
+          a32;
+      x = y = z = rotation = rotationX = rotationY = skewX = skewY = perspective = 0;
+      scaleX = scaleY = 1;
+      cache.svg = !!(target.getCTM && _isSVG(target));
+      matrix = _getMatrix(target, cache.svg);
+
+      if (cache.svg) {
+        t1 = !cache.uncache && target.getAttribute("data-svg-origin");
+
+        _applySVGOrigin(target, t1 || origin, !!t1 || cache.originIsAbsolute, cache.smooth !== false, matrix);
+      }
+
+      xOrigin = cache.xOrigin || 0;
+      yOrigin = cache.yOrigin || 0;
+
+      if (matrix !== _identity2DMatrix) {
+        a = matrix[0]; //a11
+
+        b = matrix[1]; //a21
+
+        c = matrix[2]; //a31
+
+        d = matrix[3]; //a41
+
+        x = a12 = matrix[4];
+        y = a22 = matrix[5]; //2D matrix
+
+        if (matrix.length === 6) {
+          scaleX = Math.sqrt(a * a + b * b);
+          scaleY = Math.sqrt(d * d + c * c);
+          rotation = a || b ? _atan2(b, a) * _RAD2DEG : 0; //note: if scaleX is 0, we cannot accurately measure rotation. Same for skewX with a scaleY of 0. Therefore, we default to the previously recorded value (or zero if that doesn't exist).
+
+          skewX = c || d ? _atan2(c, d) * _RAD2DEG + rotation : 0;
+          skewX && (scaleY *= Math.cos(skewX * _DEG2RAD));
+
+          if (cache.svg) {
+            x -= xOrigin - (xOrigin * a + yOrigin * c);
+            y -= yOrigin - (xOrigin * b + yOrigin * d);
+          } //3D matrix
+
+        } else {
+          a32 = matrix[6];
+          a42 = matrix[7];
+          a13 = matrix[8];
+          a23 = matrix[9];
+          a33 = matrix[10];
+          a43 = matrix[11];
+          x = matrix[12];
+          y = matrix[13];
+          z = matrix[14];
+          angle = _atan2(a32, a33);
+          rotationX = angle * _RAD2DEG; //rotationX
+
+          if (angle) {
+            cos = Math.cos(-angle);
+            sin = Math.sin(-angle);
+            t1 = a12 * cos + a13 * sin;
+            t2 = a22 * cos + a23 * sin;
+            t3 = a32 * cos + a33 * sin;
+            a13 = a12 * -sin + a13 * cos;
+            a23 = a22 * -sin + a23 * cos;
+            a33 = a32 * -sin + a33 * cos;
+            a43 = a42 * -sin + a43 * cos;
+            a12 = t1;
+            a22 = t2;
+            a32 = t3;
+          } //rotationY
+
+
+          angle = _atan2(-c, a33);
+          rotationY = angle * _RAD2DEG;
+
+          if (angle) {
+            cos = Math.cos(-angle);
+            sin = Math.sin(-angle);
+            t1 = a * cos - a13 * sin;
+            t2 = b * cos - a23 * sin;
+            t3 = c * cos - a33 * sin;
+            a43 = d * sin + a43 * cos;
+            a = t1;
+            b = t2;
+            c = t3;
+          } //rotationZ
+
+
+          angle = _atan2(b, a);
+          rotation = angle * _RAD2DEG;
+
+          if (angle) {
+            cos = Math.cos(angle);
+            sin = Math.sin(angle);
+            t1 = a * cos + b * sin;
+            t2 = a12 * cos + a22 * sin;
+            b = b * cos - a * sin;
+            a22 = a22 * cos - a12 * sin;
+            a = t1;
+            a12 = t2;
+          }
+
+          if (rotationX && Math.abs(rotationX) + Math.abs(rotation) > 359.9) {
+            //when rotationY is set, it will often be parsed as 180 degrees different than it should be, and rotationX and rotation both being 180 (it looks the same), so we adjust for that here.
+            rotationX = rotation = 0;
+            rotationY = 180 - rotationY;
+          }
+
+          scaleX = _round(Math.sqrt(a * a + b * b + c * c));
+          scaleY = _round(Math.sqrt(a22 * a22 + a32 * a32));
+          angle = _atan2(a12, a22);
+          skewX = Math.abs(angle) > 0.0002 ? angle * _RAD2DEG : 0;
+          perspective = a43 ? 1 / (a43 < 0 ? -a43 : a43) : 0;
+        }
+
+        if (cache.svg) {
+          //sense if there are CSS transforms applied on an SVG element in which case we must overwrite them when rendering. The transform attribute is more reliable cross-browser, but we can't just remove the CSS ones because they may be applied in a CSS rule somewhere (not just inline).
+          t1 = target.getAttribute("transform");
+          cache.forceCSS = target.setAttribute("transform", "") || !_isNullTransform(_getComputedProperty(target, _transformProp));
+          t1 && target.setAttribute("transform", t1);
+        }
+      }
+
+      if (Math.abs(skewX) > 90 && Math.abs(skewX) < 270) {
+        if (invertedScaleX) {
+          scaleX *= -1;
+          skewX += rotation <= 0 ? 180 : -180;
+          rotation += rotation <= 0 ? 180 : -180;
+        } else {
+          scaleY *= -1;
+          skewX += skewX <= 0 ? 180 : -180;
+        }
+      }
+
+      cache.x = x - ((cache.xPercent = x && (cache.xPercent || (Math.round(target.offsetWidth / 2) === Math.round(-x) ? -50 : 0))) ? target.offsetWidth * cache.xPercent / 100 : 0) + px;
+      cache.y = y - ((cache.yPercent = y && (cache.yPercent || (Math.round(target.offsetHeight / 2) === Math.round(-y) ? -50 : 0))) ? target.offsetHeight * cache.yPercent / 100 : 0) + px;
+      cache.z = z + px;
+      cache.scaleX = _round(scaleX);
+      cache.scaleY = _round(scaleY);
+      cache.rotation = _round(rotation) + deg;
+      cache.rotationX = _round(rotationX) + deg;
+      cache.rotationY = _round(rotationY) + deg;
+      cache.skewX = skewX + deg;
+      cache.skewY = skewY + deg;
+      cache.transformPerspective = perspective + px;
+
+      if (cache.zOrigin = parseFloat(origin.split(" ")[2]) || 0) {
+        style[_transformOriginProp] = _firstTwoOnly(origin);
+      }
+
+      cache.xOffset = cache.yOffset = 0;
+      cache.force3D = _config.force3D;
+      cache.renderTransform = cache.svg ? _renderSVGTransforms : _supports3D ? _renderCSSTransforms : _renderNon3DTransforms;
+      cache.uncache = 0;
+      return cache;
+    },
+        _firstTwoOnly = function _firstTwoOnly(value) {
+      return (value = value.split(" "))[0] + " " + value[1];
+    },
+        //for handling transformOrigin values, stripping out the 3rd dimension
+    _addPxTranslate = function _addPxTranslate(target, start, value) {
+      var unit = getUnit(start);
+      return _round(parseFloat(start) + parseFloat(_convertToUnit(target, "x", value + "px", unit))) + unit;
+    },
+        _renderNon3DTransforms = function _renderNon3DTransforms(ratio, cache) {
+      cache.z = "0px";
+      cache.rotationY = cache.rotationX = "0deg";
+      cache.force3D = 0;
+
+      _renderCSSTransforms(ratio, cache);
+    },
+        _zeroDeg = "0deg",
+        _zeroPx = "0px",
+        _endParenthesis = ") ",
+        _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
+      var _ref = cache || this,
+          xPercent = _ref.xPercent,
+          yPercent = _ref.yPercent,
+          x = _ref.x,
+          y = _ref.y,
+          z = _ref.z,
+          rotation = _ref.rotation,
+          rotationY = _ref.rotationY,
+          rotationX = _ref.rotationX,
+          skewX = _ref.skewX,
+          skewY = _ref.skewY,
+          scaleX = _ref.scaleX,
+          scaleY = _ref.scaleY,
+          transformPerspective = _ref.transformPerspective,
+          force3D = _ref.force3D,
+          target = _ref.target,
+          zOrigin = _ref.zOrigin,
+          transforms = "",
+          use3D = force3D === "auto" && ratio && ratio !== 1 || force3D === true; // Safari has a bug that causes it not to render 3D transform-origin values properly, so we force the z origin to 0, record it in the cache, and then do the math here to offset the translate values accordingly (basically do the 3D transform-origin part manually)
+
+
+      if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
+        var angle = parseFloat(rotationY) * _DEG2RAD,
+            a13 = Math.sin(angle),
+            a33 = Math.cos(angle),
+            cos;
+
+        angle = parseFloat(rotationX) * _DEG2RAD;
+        cos = Math.cos(angle);
+        x = _addPxTranslate(target, x, a13 * cos * -zOrigin);
+        y = _addPxTranslate(target, y, -Math.sin(angle) * -zOrigin);
+        z = _addPxTranslate(target, z, a33 * cos * -zOrigin + zOrigin);
+      }
+
+      if (transformPerspective !== _zeroPx) {
+        transforms += "perspective(" + transformPerspective + _endParenthesis;
+      }
+
+      if (xPercent || yPercent) {
+        transforms += "translate(" + xPercent + "%, " + yPercent + "%) ";
+      }
+
+      if (use3D || x !== _zeroPx || y !== _zeroPx || z !== _zeroPx) {
+        transforms += z !== _zeroPx || use3D ? "translate3d(" + x + ", " + y + ", " + z + ") " : "translate(" + x + ", " + y + _endParenthesis;
+      }
+
+      if (rotation !== _zeroDeg) {
+        transforms += "rotate(" + rotation + _endParenthesis;
+      }
+
+      if (rotationY !== _zeroDeg) {
+        transforms += "rotateY(" + rotationY + _endParenthesis;
+      }
+
+      if (rotationX !== _zeroDeg) {
+        transforms += "rotateX(" + rotationX + _endParenthesis;
+      }
+
+      if (skewX !== _zeroDeg || skewY !== _zeroDeg) {
+        transforms += "skew(" + skewX + ", " + skewY + _endParenthesis;
+      }
+
+      if (scaleX !== 1 || scaleY !== 1) {
+        transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
+      }
+
+      target.style[_transformProp] = transforms || "translate(0, 0)";
+    },
+        _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
+      var _ref2 = cache || this,
+          xPercent = _ref2.xPercent,
+          yPercent = _ref2.yPercent,
+          x = _ref2.x,
+          y = _ref2.y,
+          rotation = _ref2.rotation,
+          skewX = _ref2.skewX,
+          skewY = _ref2.skewY,
+          scaleX = _ref2.scaleX,
+          scaleY = _ref2.scaleY,
+          target = _ref2.target,
+          xOrigin = _ref2.xOrigin,
+          yOrigin = _ref2.yOrigin,
+          xOffset = _ref2.xOffset,
+          yOffset = _ref2.yOffset,
+          forceCSS = _ref2.forceCSS,
+          tx = parseFloat(x),
+          ty = parseFloat(y),
+          a11,
+          a21,
+          a12,
+          a22,
+          temp;
+
+      rotation = parseFloat(rotation);
+      skewX = parseFloat(skewX);
+      skewY = parseFloat(skewY);
+
+      if (skewY) {
+        //for performance reasons, we combine all skewing into the skewX and rotation values. Remember, a skewY of 10 degrees looks the same as a rotation of 10 degrees plus a skewX of 10 degrees.
+        skewY = parseFloat(skewY);
+        skewX += skewY;
+        rotation += skewY;
+      }
+
+      if (rotation || skewX) {
+        rotation *= _DEG2RAD;
+        skewX *= _DEG2RAD;
+        a11 = Math.cos(rotation) * scaleX;
+        a21 = Math.sin(rotation) * scaleX;
+        a12 = Math.sin(rotation - skewX) * -scaleY;
+        a22 = Math.cos(rotation - skewX) * scaleY;
+
+        if (skewX) {
+          skewY *= _DEG2RAD;
+          temp = Math.tan(skewX - skewY);
+          temp = Math.sqrt(1 + temp * temp);
+          a12 *= temp;
+          a22 *= temp;
+
+          if (skewY) {
+            temp = Math.tan(skewY);
+            temp = Math.sqrt(1 + temp * temp);
+            a11 *= temp;
+            a21 *= temp;
+          }
+        }
+
+        a11 = _round(a11);
+        a21 = _round(a21);
+        a12 = _round(a12);
+        a22 = _round(a22);
+      } else {
+        a11 = scaleX;
+        a22 = scaleY;
+        a21 = a12 = 0;
+      }
+
+      if (tx && !~(x + "").indexOf("px") || ty && !~(y + "").indexOf("px")) {
+        tx = _convertToUnit(target, "x", x, "px");
+        ty = _convertToUnit(target, "y", y, "px");
+      }
+
+      if (xOrigin || yOrigin || xOffset || yOffset) {
+        tx = _round(tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset);
+        ty = _round(ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset);
+      }
+
+      if (xPercent || yPercent) {
+        //The SVG spec doesn't support percentage-based translation in the "transform" attribute, so we merge it into the translation to simulate it.
+        temp = target.getBBox();
+        tx = _round(tx + xPercent / 100 * temp.width);
+        ty = _round(ty + yPercent / 100 * temp.height);
+      }
+
+      temp = "matrix(" + a11 + "," + a21 + "," + a12 + "," + a22 + "," + tx + "," + ty + ")";
+      target.setAttribute("transform", temp);
+      forceCSS && (target.style[_transformProp] = temp); //some browsers prioritize CSS transforms over the transform attribute. When we sense that the user has CSS transforms applied, we must overwrite them this way (otherwise some browser simply won't render the  transform attribute changes!)
+    },
+        _addRotationalPropTween = function _addRotationalPropTween(plugin, target, property, startNum, endValue, relative) {
+      var cap = 360,
+          isString = _isString(endValue),
+          endNum = parseFloat(endValue) * (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1),
+          change = relative ? endNum * relative : endNum - startNum,
+          finalValue = startNum + change + "deg",
+          direction,
+          pt;
+
+      if (isString) {
+        direction = endValue.split("_")[1];
+
+        if (direction === "short") {
+          change %= cap;
+
+          if (change !== change % (cap / 2)) {
+            change += change < 0 ? cap : -cap;
+          }
+        }
+
+        if (direction === "cw" && change < 0) {
+          change = (change + cap * _bigNum$1) % cap - ~~(change / cap) * cap;
+        } else if (direction === "ccw" && change > 0) {
+          change = (change - cap * _bigNum$1) % cap - ~~(change / cap) * cap;
+        }
+      }
+
+      plugin._pt = pt = new PropTween(plugin._pt, target, property, startNum, change, _renderPropWithEnd);
+      pt.e = finalValue;
+      pt.u = "deg";
+
+      plugin._props.push(property);
+
+      return pt;
+    },
+        _addRawTransformPTs = function _addRawTransformPTs(plugin, transforms, target) {
+      //for handling cases where someone passes in a whole transform string, like transform: "scale(2, 3) rotate(20deg) translateY(30em)"
+      var style = _tempDivStyler.style,
+          startCache = target._gsap,
+          exclude = "perspective,force3D,transformOrigin,svgOrigin",
+          endCache,
+          p,
+          startValue,
+          endValue,
+          startNum,
+          endNum,
+          startUnit,
+          endUnit;
+      style.cssText = getComputedStyle(target).cssText + ";position:absolute;display:block;"; //%-based translations will fail unless we set the width/height to match the original target (and padding/borders can affect it)
+
+      style[_transformProp] = transforms;
+
+      _doc$1.body.appendChild(_tempDivStyler);
+
+      endCache = _parseTransform(_tempDivStyler, 1);
+
+      for (p in _transformProps) {
+        startValue = startCache[p];
+        endValue = endCache[p];
+
+        if (startValue !== endValue && exclude.indexOf(p) < 0) {
+          //tweening to no perspective gives very unintuitive results - just keep the same perspective in that case.
+          startUnit = getUnit(startValue);
+          endUnit = getUnit(endValue);
+          startNum = startUnit !== endUnit ? _convertToUnit(target, p, startValue, endUnit) : parseFloat(startValue);
+          endNum = parseFloat(endValue);
+          plugin._pt = new PropTween(plugin._pt, startCache, p, startNum, endNum - startNum, _renderCSSProp);
+          plugin._pt.u = endUnit || 0;
+
+          plugin._props.push(p);
+        }
+      }
+
+      _doc$1.body.removeChild(_tempDivStyler);
+    }; // handle splitting apart padding, margin, borderWidth, and borderRadius into their 4 components. Firefox, for example, won't report borderRadius correctly - it will only do borderTopLeftRadius and the other corners. We also want to handle paddingTop, marginLeft, borderRightWidth, etc.
+
+
+    _forEachName("padding,margin,Width,Radius", function (name, index) {
+      var t = "Top",
+          r = "Right",
+          b = "Bottom",
+          l = "Left",
+          props = (index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]).map(function (side) {
+        return index < 2 ? name + side : "border" + side + name;
+      });
+
+      _specialProps[index > 1 ? "border" + name : name] = function (plugin, target, property, endValue, tween) {
+        var a, vars;
+
+        if (arguments.length < 4) {
+          // getter, passed target, property, and unit (from _get())
+          a = props.map(function (prop) {
+            return _get(plugin, prop, property);
+          });
+          vars = a.join(" ");
+          return vars.split(a[0]).length === 5 ? a[0] : vars;
+        }
+
+        a = (endValue + "").split(" ");
+        vars = {};
+        props.forEach(function (prop, i) {
+          return vars[prop] = a[i] = a[i] || a[(i - 1) / 2 | 0];
+        });
+        plugin.init(target, vars, tween);
+      };
+    });
+
+    var CSSPlugin = {
+      name: "css",
+      register: _initCore,
+      targetTest: function targetTest(target) {
+        return target.style && target.nodeType;
+      },
+      init: function init(target, vars, tween, index, targets) {
+        var props = this._props,
+            style = target.style,
+            startAt = tween.vars.startAt,
+            startValue,
+            endValue,
+            endNum,
+            startNum,
+            type,
+            specialProp,
+            p,
+            startUnit,
+            endUnit,
+            relative,
+            isTransformRelated,
+            transformPropTween,
+            cache,
+            smooth,
+            hasPriority;
+        _pluginInitted || _initCore();
+
+        for (p in vars) {
+          if (p === "autoRound") {
+            continue;
+          }
+
+          endValue = vars[p];
+
+          if (_plugins[p] && _checkPlugin(p, vars, tween, index, target, targets)) {
+            // plugins
+            continue;
+          }
+
+          type = typeof endValue;
+          specialProp = _specialProps[p];
+
+          if (type === "function") {
+            endValue = endValue.call(tween, index, target, targets);
+            type = typeof endValue;
+          }
+
+          if (type === "string" && ~endValue.indexOf("random(")) {
+            endValue = _replaceRandom(endValue);
+          }
+
+          if (specialProp) {
+            specialProp(this, target, p, endValue, tween) && (hasPriority = 1);
+          } else if (p.substr(0, 2) === "--") {
+            //CSS variable
+            startValue = (getComputedStyle(target).getPropertyValue(p) + "").trim();
+            endValue += "";
+            startUnit = getUnit(startValue);
+            endUnit = getUnit(endValue);
+            endUnit ? startUnit !== endUnit && (startValue = _convertToUnit(target, p, startValue, endUnit) + endUnit) : startUnit && (endValue += startUnit);
+            this.add(style, "setProperty", startValue, endValue, index, targets, 0, 0, p);
+          } else if (type !== "undefined") {
+            if (startAt && p in startAt) {
+              // in case someone hard-codes a complex value as the start, like top: "calc(2vh / 2)". Without this, it'd use the computed value (always in px)
+              startValue = typeof startAt[p] === "function" ? startAt[p].call(tween, index, target, targets) : startAt[p];
+              p in _config.units && !getUnit(startValue) && (startValue += _config.units[p]); // for cases when someone passes in a unitless value like {x: 100}; if we try setting translate(100, 0px) it won't work.
+
+              (startValue + "").charAt(1) === "=" && (startValue = _get(target, p)); // can't work with relative values
+            } else {
+              startValue = _get(target, p);
+            }
+
+            startNum = parseFloat(startValue);
+            relative = type === "string" && endValue.charAt(1) === "=" ? +(endValue.charAt(0) + "1") : 0;
+            relative && (endValue = endValue.substr(2));
+            endNum = parseFloat(endValue);
+
+            if (p in _propertyAliases) {
+              if (p === "autoAlpha") {
+                //special case where we control the visibility along with opacity. We still allow the opacity value to pass through and get tweened.
+                if (startNum === 1 && _get(target, "visibility") === "hidden" && endNum) {
+                  //if visibility is initially set to "hidden", we should interpret that as intent to make opacity 0 (a convenience)
+                  startNum = 0;
+                }
+
+                _addNonTweeningPT(this, style, "visibility", startNum ? "inherit" : "hidden", endNum ? "inherit" : "hidden", !endNum);
+              }
+
+              if (p !== "scale" && p !== "transform") {
+                p = _propertyAliases[p];
+                ~p.indexOf(",") && (p = p.split(",")[0]);
+              }
+            }
+
+            isTransformRelated = p in _transformProps; //--- TRANSFORM-RELATED ---
+
+            if (isTransformRelated) {
+              if (!transformPropTween) {
+                cache = target._gsap;
+                cache.renderTransform && !vars.parseTransform || _parseTransform(target, vars.parseTransform); // if, for example, gsap.set(... {transform:"translateX(50vw)"}), the _get() call doesn't parse the transform, thus cache.renderTransform won't be set yet so force the parsing of the transform here.
+
+                smooth = vars.smoothOrigin !== false && cache.smooth;
+                transformPropTween = this._pt = new PropTween(this._pt, style, _transformProp, 0, 1, cache.renderTransform, cache, 0, -1); //the first time through, create the rendering PropTween so that it runs LAST (in the linked list, we keep adding to the beginning)
+
+                transformPropTween.dep = 1; //flag it as dependent so that if things get killed/overwritten and this is the only PropTween left, we can safely kill the whole tween.
+              }
+
+              if (p === "scale") {
+                this._pt = new PropTween(this._pt, cache, "scaleY", cache.scaleY, relative ? relative * endNum : endNum - cache.scaleY);
+                props.push("scaleY", p);
+                p += "X";
+              } else if (p === "transformOrigin") {
+                endValue = _convertKeywordsToPercentages(endValue); //in case something like "left top" or "bottom right" is passed in. Convert to percentages.
+
+                if (cache.svg) {
+                  _applySVGOrigin(target, endValue, 0, smooth, 0, this);
+                } else {
+                  endUnit = parseFloat(endValue.split(" ")[2]) || 0; //handle the zOrigin separately!
+
+                  endUnit !== cache.zOrigin && _addNonTweeningPT(this, cache, "zOrigin", cache.zOrigin, endUnit);
+
+                  _addNonTweeningPT(this, style, p, _firstTwoOnly(startValue), _firstTwoOnly(endValue));
+                }
+
+                continue;
+              } else if (p === "svgOrigin") {
+                _applySVGOrigin(target, endValue, 1, smooth, 0, this);
+
+                continue;
+              } else if (p in _rotationalProperties) {
+                _addRotationalPropTween(this, cache, p, startNum, endValue, relative);
+
+                continue;
+              } else if (p === "smoothOrigin") {
+                _addNonTweeningPT(this, cache, "smooth", cache.smooth, endValue);
+
+                continue;
+              } else if (p === "force3D") {
+                cache[p] = endValue;
+                continue;
+              } else if (p === "transform") {
+                _addRawTransformPTs(this, endValue, target);
+
+                continue;
+              }
+            } else if (!(p in style)) {
+              p = _checkPropPrefix(p) || p;
+            }
+
+            if (isTransformRelated || (endNum || endNum === 0) && (startNum || startNum === 0) && !_complexExp.test(endValue) && p in style) {
+              startUnit = (startValue + "").substr((startNum + "").length);
+              endNum || (endNum = 0); // protect against NaN
+
+              endUnit = getUnit(endValue) || (p in _config.units ? _config.units[p] : startUnit);
+              startUnit !== endUnit && (startNum = _convertToUnit(target, p, startValue, endUnit));
+              this._pt = new PropTween(this._pt, isTransformRelated ? cache : style, p, startNum, relative ? relative * endNum : endNum - startNum, !isTransformRelated && (endUnit === "px" || p === "zIndex") && vars.autoRound !== false ? _renderRoundedCSSProp : _renderCSSProp);
+              this._pt.u = endUnit || 0;
+
+              if (startUnit !== endUnit) {
+                //when the tween goes all the way back to the beginning, we need to revert it to the OLD/ORIGINAL value (with those units). We record that as a "b" (beginning) property and point to a render method that handles that. (performance optimization)
+                this._pt.b = startValue;
+                this._pt.r = _renderCSSPropWithBeginning;
+              }
+            } else if (!(p in style)) {
+              if (p in target) {
+                //maybe it's not a style - it could be a property added directly to an element in which case we'll try to animate that.
+                this.add(target, p, target[p], endValue, index, targets);
+              } else {
+                _missingPlugin(p, endValue);
+
+                continue;
+              }
+            } else {
+              _tweenComplexCSSString.call(this, target, p, startValue, endValue);
+            }
+
+            props.push(p);
+          }
+        }
+
+        hasPriority && _sortPropTweensByPriority(this);
+      },
+      get: _get,
+      aliases: _propertyAliases,
+      getSetter: function getSetter(target, property, plugin) {
+        //returns a setter function that accepts target, property, value and applies it accordingly. Remember, properties like "x" aren't as simple as target.style.property = value because they've got to be applied to a proxy object and then merged into a transform string in a renderer.
+        var p = _propertyAliases[property];
+        p && p.indexOf(",") < 0 && (property = p);
+        return property in _transformProps && property !== _transformOriginProp && (target._gsap.x || _get(target, "x")) ? plugin && _recentSetterPlugin === plugin ? property === "scale" ? _setterScale : _setterTransform : (_recentSetterPlugin = plugin || {}) && (property === "scale" ? _setterScaleWithRender : _setterTransformWithRender) : target.style && !_isUndefined(target.style[property]) ? _setterCSSStyle : ~property.indexOf("-") ? _setterCSSProp : _getSetter(target, property);
+      },
+      core: {
+        _removeProperty: _removeProperty,
+        _getMatrix: _getMatrix
+      }
+    };
+    gsap.utils.checkPrefix = _checkPropPrefix;
+
+    (function (positionAndScale, rotation, others, aliases) {
+      var all = _forEachName(positionAndScale + "," + rotation + "," + others, function (name) {
+        _transformProps[name] = 1;
+      });
+
+      _forEachName(rotation, function (name) {
+        _config.units[name] = "deg";
+        _rotationalProperties[name] = 1;
+      });
+
+      _propertyAliases[all[13]] = positionAndScale + "," + rotation;
+
+      _forEachName(aliases, function (name) {
+        var split = name.split(":");
+        _propertyAliases[split[1]] = all[split[0]];
+      });
+    })("x,y,z,scale,scaleX,scaleY,xPercent,yPercent", "rotation,rotationX,rotationY,skewX,skewY", "transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective", "0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY");
+
+    _forEachName("x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective", function (name) {
+      _config.units[name] = "px";
+    });
+
+    gsap.registerPlugin(CSSPlugin);
+
+    var gsapWithCSS = gsap.registerPlugin(CSSPlugin) || gsap,
+        // to protect from tree shaking
+    TweenMaxWithCSS = gsapWithCSS.core.Tween;
+
+    /* src\components\LeftArrow.svelte generated by Svelte v3.31.2 */
+    const file$3 = "src\\components\\LeftArrow.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[6] = list[i];
+    	return child_ctx;
+    }
+
+    // (23:2) {#each Array.from({ length: arrowCount }) as i}
+    function create_each_block(ctx) {
+    	let div;
+    	let div_style_value;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			attr_dev(div, "class", "arrow svelte-1c7m0z6");
+    			attr_dev(div, "style", div_style_value = `background:${/*color*/ ctx[0]};`);
+    			add_location(div, file$3, 23, 4, 902);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*color*/ 1 && div_style_value !== (div_style_value = `background:${/*color*/ ctx[0]};`)) {
+    				attr_dev(div, "style", div_style_value);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(23:2) {#each Array.from({ length: arrowCount }) as i}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$5(ctx) {
+    	let span;
+    	let each_value = Array.from({ length: arrowCount });
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(span, "class", "triple-arrow-right");
+    			add_location(span, file$3, 21, 0, 794);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(span, null);
+    			}
+
+    			/*span_binding*/ ctx[3](span);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*color*/ 1) {
+    				each_value = Array.from({ length: arrowCount });
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(span, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			destroy_each(each_blocks, detaching);
+    			/*span_binding*/ ctx[3](null);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const arrowCount = 3;
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("LeftArrow", slots, []);
+    	let { color } = $$props;
+    	let { hover = false } = $$props;
+    	let wrapper;
+    	let slideAnimation;
+
+    	onMount(() => {
+    		const arrows = wrapper.querySelectorAll(".arrow");
+
+    		slideAnimation = gsapWithCSS.timeline({ paused: true }).from(arrows, {
+    			translateX: -10,
+    			duration: 0.1,
+    			stagger: -0.1
+    		});
+
+    		gsapWithCSS.fromTo(arrows, { rotationX: 0 }, {
+    			rotationX: 180,
+    			stagger: -0.1,
+    			repeat: -1,
+    			repeatDelay: 15,
+    			delay: 10
+    		});
+
+    		animate(hover);
+    	});
+
+    	function animate(active) {
+    		active
+    		? slideAnimation === null || slideAnimation === void 0
+    			? void 0
+    			: slideAnimation.play()
+    		: slideAnimation === null || slideAnimation === void 0
+    			? void 0
+    			: slideAnimation.reverse();
+    	}
+
+    	const writable_props = ["color", "hover"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<LeftArrow> was created with unknown prop '${key}'`);
+    	});
+
+    	function span_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			wrapper = $$value;
+    			$$invalidate(1, wrapper);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("color" in $$props) $$invalidate(0, color = $$props.color);
+    		if ("hover" in $$props) $$invalidate(2, hover = $$props.hover);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		gsap: gsapWithCSS,
+    		color,
+    		hover,
+    		wrapper,
+    		arrowCount,
+    		slideAnimation,
+    		animate
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("color" in $$props) $$invalidate(0, color = $$props.color);
+    		if ("hover" in $$props) $$invalidate(2, hover = $$props.hover);
+    		if ("wrapper" in $$props) $$invalidate(1, wrapper = $$props.wrapper);
+    		if ("slideAnimation" in $$props) slideAnimation = $$props.slideAnimation;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*hover*/ 4) {
+    			 animate(hover);
+    		}
+    	};
+
+    	return [color, wrapper, hover, span_binding];
+    }
+
+    class LeftArrow extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, { color: 0, hover: 2 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "LeftArrow",
+    			options,
+    			id: create_fragment$5.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*color*/ ctx[0] === undefined && !("color" in props)) {
+    			console.warn("<LeftArrow> was created without expected prop 'color'");
+    		}
+    	}
+
+    	get color() {
+    		throw new Error("<LeftArrow>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set color(value) {
+    		throw new Error("<LeftArrow>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get hover() {
+    		throw new Error("<LeftArrow>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set hover(value) {
+    		throw new Error("<LeftArrow>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\card\CardBody.svelte generated by Svelte v3.31.2 */
+    const file$4 = "src\\components\\card\\CardBody.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[8] = list[i];
+    	return child_ctx;
+    }
+
+    // (66:8) {#each info.techList as tech}
+    function create_each_block$1(ctx) {
+    	let li;
+    	let t_value = /*tech*/ ctx[8] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			t = text(t_value);
+    			attr_dev(li, "class", "svelte-10z69cr");
+    			add_location(li, file$4, 66, 10, 2021);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*info*/ 1 && t_value !== (t_value = /*tech*/ ctx[8] + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(66:8) {#each info.techList as tech}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$6(ctx) {
+    	let div8;
+    	let div2;
+    	let div0;
+    	let t0_value = /*info*/ ctx[0].title + "";
+    	let t0;
+    	let t1;
+    	let div1;
+    	let leftarrow;
+    	let t2;
+    	let a;
+    	let t3;
+    	let a_href_value;
+    	let div2_style_value;
+    	let t4;
+    	let div7;
+    	let div3;
+    	let t5;
+    	let div3_style_value;
+    	let t6;
+    	let div4;
+    	let t7_value = /*info*/ ctx[0].body + "";
+    	let t7;
+    	let t8;
+    	let div5;
+    	let t9;
+    	let div5_style_value;
+    	let t10;
+    	let div6;
+    	let ul;
+    	let div7_style_value;
+    	let div8_style_value;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	leftarrow = new LeftArrow({
+    			props: {
+    				hover: /*hover*/ ctx[1],
+    				color: /*info*/ ctx[0].theme.tertiary
+    			},
+    			$$inline: true
+    		});
+
+    	let each_value = /*info*/ ctx[0].techList;
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div8 = element("div");
+    			div2 = element("div");
+    			div0 = element("div");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			div1 = element("div");
+    			create_component(leftarrow.$$.fragment);
+    			t2 = space();
+    			a = element("a");
+    			t3 = text("Visit");
+    			t4 = space();
+    			div7 = element("div");
+    			div3 = element("div");
+    			t5 = text("Summary");
+    			t6 = space();
+    			div4 = element("div");
+    			t7 = text(t7_value);
+    			t8 = space();
+    			div5 = element("div");
+    			t9 = text("Techlist/Source");
+    			t10 = space();
+    			div6 = element("div");
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div0, "class", "card-title");
+    			add_location(div0, file$4, 45, 4, 1222);
+    			attr_dev(a, "target", "_blank");
+    			attr_dev(a, "href", a_href_value = /*info*/ ctx[0].link);
+    			attr_dev(a, "class", "card-link");
+    			add_location(a, file$4, 52, 6, 1462);
+    			attr_dev(div1, "class", "card-link--wrapper");
+    			add_location(div1, file$4, 46, 4, 1269);
+    			attr_dev(div2, "class", "card-top");
+    			attr_dev(div2, "style", div2_style_value = `color:${/*info*/ ctx[0].theme.textMainHead}`);
+    			add_location(div2, file$4, 44, 2, 1152);
+    			attr_dev(div3, "class", "card-paragraph-title");
+    			attr_dev(div3, "style", div3_style_value = `color:${/*info*/ ctx[0].theme.textSubHead}`);
+    			add_location(div3, file$4, 56, 4, 1620);
+    			attr_dev(div4, "class", "card-paragraph-body");
+    			add_location(div4, file$4, 59, 4, 1726);
+    			attr_dev(div5, "class", "card-paragraph-title");
+    			attr_dev(div5, "style", div5_style_value = `color:${/*info*/ ctx[0].theme.textSubHead}`);
+    			add_location(div5, file$4, 60, 4, 1781);
+    			attr_dev(ul, "class", "card-paragraph-body-list");
+    			add_location(ul, file$4, 64, 6, 1935);
+    			attr_dev(div6, "class", "card-paragraph-body");
+    			add_location(div6, file$4, 63, 4, 1895);
+    			attr_dev(div7, "class", "card-paragraph");
+    			attr_dev(div7, "style", div7_style_value = `color:${/*info*/ ctx[0].theme.textBody}`);
+    			add_location(div7, file$4, 55, 2, 1548);
+    			attr_dev(div8, "style", div8_style_value = `--color:${/*info*/ ctx[0].theme.primary};--image:url(.${/*info*/ ctx[0].logo || defaultBackdrop});--color-marker:${/*info*/ ctx[0].theme.tertiary};`);
+    			attr_dev(div8, "class", "card-content svelte-10z69cr");
+    			add_location(div8, file$4, 37, 0, 961);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div8, anchor);
+    			append_dev(div8, div2);
+    			append_dev(div2, div0);
+    			append_dev(div0, t0);
+    			append_dev(div2, t1);
+    			append_dev(div2, div1);
+    			mount_component(leftarrow, div1, null);
+    			append_dev(div1, t2);
+    			append_dev(div1, a);
+    			append_dev(a, t3);
+    			append_dev(div8, t4);
+    			append_dev(div8, div7);
+    			append_dev(div7, div3);
+    			append_dev(div3, t5);
+    			append_dev(div7, t6);
+    			append_dev(div7, div4);
+    			append_dev(div4, t7);
+    			append_dev(div7, t8);
+    			append_dev(div7, div5);
+    			append_dev(div5, t9);
+    			append_dev(div7, t10);
+    			append_dev(div7, div6);
+    			append_dev(div6, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			/*div8_binding*/ ctx[7](div8);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div1, "mouseenter", /*mouseenter_handler*/ ctx[5], false, false, false),
+    					listen_dev(div1, "mouseleave", /*mouseleave_handler*/ ctx[6], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if ((!current || dirty & /*info*/ 1) && t0_value !== (t0_value = /*info*/ ctx[0].title + "")) set_data_dev(t0, t0_value);
+    			const leftarrow_changes = {};
+    			if (dirty & /*hover*/ 2) leftarrow_changes.hover = /*hover*/ ctx[1];
+    			if (dirty & /*info*/ 1) leftarrow_changes.color = /*info*/ ctx[0].theme.tertiary;
+    			leftarrow.$set(leftarrow_changes);
+
+    			if (!current || dirty & /*info*/ 1 && a_href_value !== (a_href_value = /*info*/ ctx[0].link)) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+
+    			if (!current || dirty & /*info*/ 1 && div2_style_value !== (div2_style_value = `color:${/*info*/ ctx[0].theme.textMainHead}`)) {
+    				attr_dev(div2, "style", div2_style_value);
+    			}
+
+    			if (!current || dirty & /*info*/ 1 && div3_style_value !== (div3_style_value = `color:${/*info*/ ctx[0].theme.textSubHead}`)) {
+    				attr_dev(div3, "style", div3_style_value);
+    			}
+
+    			if ((!current || dirty & /*info*/ 1) && t7_value !== (t7_value = /*info*/ ctx[0].body + "")) set_data_dev(t7, t7_value);
+
+    			if (!current || dirty & /*info*/ 1 && div5_style_value !== (div5_style_value = `color:${/*info*/ ctx[0].theme.textSubHead}`)) {
+    				attr_dev(div5, "style", div5_style_value);
+    			}
+
+    			if (dirty & /*info*/ 1) {
+    				each_value = /*info*/ ctx[0].techList;
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (!current || dirty & /*info*/ 1 && div7_style_value !== (div7_style_value = `color:${/*info*/ ctx[0].theme.textBody}`)) {
+    				attr_dev(div7, "style", div7_style_value);
+    			}
+
+    			if (!current || dirty & /*info*/ 1 && div8_style_value !== (div8_style_value = `--color:${/*info*/ ctx[0].theme.primary};--image:url(.${/*info*/ ctx[0].logo || defaultBackdrop});--color-marker:${/*info*/ ctx[0].theme.tertiary};`)) {
+    				attr_dev(div8, "style", div8_style_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(leftarrow.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(leftarrow.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div8);
+    			destroy_component(leftarrow);
+    			destroy_each(each_blocks, detaching);
+    			/*div8_binding*/ ctx[7](null);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$6.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const defaultBackdrop = "./assets/images/logo-backdrop.png";
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("CardBody", slots, []);
+    	
+    	let { info } = $$props;
+    	let { show = true } = $$props;
+    	let hover = false;
+    	let container;
+    	let animation;
+
+    	onMount(() => {
+    		$$invalidate(4, animation = gsapWithCSS.timeline({ paused: true }).from(container.querySelectorAll("div:not(.card-link--wrapper *)"), {
+    			x: -60,
+    			alpha: 0,
+    			duration: 0.3,
+    			stagger: 0.2
+    		}).from(
+    			container.querySelectorAll("li"),
+    			{
+    				x: -30,
+    				alpha: 0,
+    				duration: 0.15,
+    				stagger: 0.1
+    			},
+    			"-=0.3"
+    		).from(
+    			container.querySelectorAll(".arrow, .card-link"),
+    			{
+    				x: -60,
+    				alpha: 0,
+    				stagger: -0.15,
+    				scale: 1.5,
+    				duration: 0.6,
+    				ease: "expo.out"
+    			},
+    			"-=0.15"
+    		));
+    	});
+
+    	const writable_props = ["info", "show"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<CardBody> was created with unknown prop '${key}'`);
+    	});
+
+    	const mouseenter_handler = () => $$invalidate(1, hover = true);
+    	const mouseleave_handler = () => $$invalidate(1, hover = false);
+
+    	function div8_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			container = $$value;
+    			$$invalidate(2, container);
+    		});
+    	}
+
+    	$$self.$$set = $$props => {
+    		if ("info" in $$props) $$invalidate(0, info = $$props.info);
+    		if ("show" in $$props) $$invalidate(3, show = $$props.show);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		gsap: gsapWithCSS,
+    		onMount,
+    		LeftArrow,
+    		info,
+    		show,
+    		defaultBackdrop,
+    		hover,
+    		container,
+    		animation
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("info" in $$props) $$invalidate(0, info = $$props.info);
+    		if ("show" in $$props) $$invalidate(3, show = $$props.show);
+    		if ("hover" in $$props) $$invalidate(1, hover = $$props.hover);
+    		if ("container" in $$props) $$invalidate(2, container = $$props.container);
+    		if ("animation" in $$props) $$invalidate(4, animation = $$props.animation);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*show, animation*/ 24) {
+    			 show && animation && animation.play();
+    		}
+    	};
+
+    	return [
+    		info,
+    		hover,
+    		container,
+    		show,
+    		animation,
+    		mouseenter_handler,
+    		mouseleave_handler,
+    		div8_binding
+    	];
+    }
+
+    class CardBody extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, { info: 0, show: 3 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "CardBody",
+    			options,
+    			id: create_fragment$6.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*info*/ ctx[0] === undefined && !("info" in props)) {
+    			console.warn("<CardBody> was created without expected prop 'info'");
+    		}
+    	}
+
+    	get info() {
+    		throw new Error("<CardBody>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set info(value) {
+    		throw new Error("<CardBody>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get show() {
+    		throw new Error("<CardBody>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set show(value) {
+    		throw new Error("<CardBody>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\card\Card.svelte generated by Svelte v3.31.2 */
+    const file$5 = "src\\components\\card\\Card.svelte";
+
+    // (38:4) <StairCase       onBeforeEnd={() => {         hidden = false;         setTimeout(() => {           show = true;         }, 600 + 150);       }}       timeout={150}     >
+    function create_default_slot(ctx) {
+    	let cardbody;
+    	let current;
+
+    	cardbody = new CardBody({
+    			props: {
+    				info: /*info*/ ctx[2],
+    				show: /*show*/ ctx[1]
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(cardbody.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(cardbody, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const cardbody_changes = {};
+    			if (dirty & /*info*/ 4) cardbody_changes.info = /*info*/ ctx[2];
+    			if (dirty & /*show*/ 2) cardbody_changes.show = /*show*/ ctx[1];
+    			cardbody.$set(cardbody_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(cardbody.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(cardbody.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(cardbody, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(38:4) <StairCase       onBeforeEnd={() => {         hidden = false;         setTimeout(() => {           show = true;         }, 600 + 150);       }}       timeout={150}     >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$7(ctx) {
+    	let div1;
+    	let picture;
+    	let source;
+    	let source_srcset_value;
+    	let t0;
+    	let img;
+    	let img_src_value;
+    	let img_alt_value;
+    	let t1;
+    	let div0;
+    	let staircase;
+    	let div1_style_value;
+    	let div1_intro;
+    	let current;
+
+    	staircase = new StairCase({
+    			props: {
+    				onBeforeEnd: /*func*/ ctx[5],
+    				timeout: 150,
+    				$$slots: { default: [create_default_slot] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div1 = element("div");
+    			picture = element("picture");
+    			source = element("source");
+    			t0 = space();
+    			img = element("img");
+    			t1 = space();
+    			div0 = element("div");
+    			create_component(staircase.$$.fragment);
+    			attr_dev(source, "srcset", source_srcset_value = /*info*/ ctx[2].image + ".webp");
+    			add_location(source, file$5, 32, 4, 815);
+    			if (img.src !== (img_src_value = "../" + /*info*/ ctx[2].image + ".png")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "alt", img_alt_value = /*info*/ ctx[2].title);
+    			add_location(img, file$5, 33, 4, 860);
+    			attr_dev(picture, "class", "card-picture svelte-9ie5hn");
+    			toggle_class(picture, "hidden", /*hidden*/ ctx[0]);
+    			add_location(picture, file$5, 31, 2, 767);
+    			attr_dev(div0, "class", "outer-body svelte-9ie5hn");
+    			toggle_class(div0, "hidden", !/*show*/ ctx[1]);
+    			add_location(div0, file$5, 36, 2, 935);
+    			attr_dev(div1, "class", "card");
+    			attr_dev(div1, "style", div1_style_value = `background-color:${/*info*/ ctx[2].theme.tertiary}`);
+    			add_location(div1, file$5, 26, 0, 654);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, picture);
+    			append_dev(picture, source);
+    			append_dev(picture, t0);
+    			append_dev(picture, img);
+    			append_dev(div1, t1);
+    			append_dev(div1, div0);
+    			mount_component(staircase, div0, null);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!current || dirty & /*info*/ 4 && source_srcset_value !== (source_srcset_value = /*info*/ ctx[2].image + ".webp")) {
+    				attr_dev(source, "srcset", source_srcset_value);
+    			}
+
+    			if (!current || dirty & /*info*/ 4 && img.src !== (img_src_value = "../" + /*info*/ ctx[2].image + ".png")) {
+    				attr_dev(img, "src", img_src_value);
+    			}
+
+    			if (!current || dirty & /*info*/ 4 && img_alt_value !== (img_alt_value = /*info*/ ctx[2].title)) {
+    				attr_dev(img, "alt", img_alt_value);
+    			}
+
+    			if (dirty & /*hidden*/ 1) {
+    				toggle_class(picture, "hidden", /*hidden*/ ctx[0]);
+    			}
+
+    			const staircase_changes = {};
+    			if (dirty & /*hidden, show*/ 3) staircase_changes.onBeforeEnd = /*func*/ ctx[5];
+
+    			if (dirty & /*$$scope, info, show*/ 70) {
+    				staircase_changes.$$scope = { dirty, ctx };
+    			}
+
+    			staircase.$set(staircase_changes);
+
+    			if (dirty & /*show*/ 2) {
+    				toggle_class(div0, "hidden", !/*show*/ ctx[1]);
+    			}
+
+    			if (!current || dirty & /*info*/ 4 && div1_style_value !== (div1_style_value = `background-color:${/*info*/ ctx[2].theme.tertiary}`)) {
+    				attr_dev(div1, "style", div1_style_value);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(staircase.$$.fragment, local);
+
+    			if (!div1_intro) {
+    				add_render_callback(() => {
+    					div1_intro = create_in_transition(div1, fly, { x: 300, duration: 500 });
+    					div1_intro.start();
+    				});
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(staircase.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div1);
+    			destroy_component(staircase);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$7.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$7($$self, $$props, $$invalidate) {
+    	let info;
+    	let $cardData;
+    	let $selectedCard;
+    	validate_store(cardData, "cardData");
+    	component_subscribe($$self, cardData, $$value => $$invalidate(3, $cardData = $$value));
+    	validate_store(selectedCard, "selectedCard");
+    	component_subscribe($$self, selectedCard, $$value => $$invalidate(4, $selectedCard = $$value));
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Card", slots, []);
+    	let hidden = true;
+    	let show = false;
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Card> was created with unknown prop '${key}'`);
+    	});
+
+    	const func = () => {
+    		$$invalidate(0, hidden = false);
+
+    		setTimeout(
+    			() => {
+    				$$invalidate(1, show = true);
+    			},
+    			600 + 150
+    		);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		element,
+    		onMount,
+    		tick,
+    		fly,
+    		slide,
+    		cardData,
+    		selectedCard,
+    		StairCase,
+    		CardBody,
+    		hidden,
+    		show,
+    		info,
+    		$cardData,
+    		$selectedCard
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("hidden" in $$props) $$invalidate(0, hidden = $$props.hidden);
+    		if ("show" in $$props) $$invalidate(1, show = $$props.show);
+    		if ("info" in $$props) $$invalidate(2, info = $$props.info);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*$cardData, $selectedCard*/ 24) {
+    			 $$invalidate(2, info = $cardData[$selectedCard] || {
+    				body: "",
+    				foot: "",
+    				image: "",
+    				link: "",
+    				title: "",
+    				logo: "",
+    				techList: [],
+    				theme: {
+    					primary: "",
+    					secondary: "",
+    					tertiary: "",
+    					textBody: "",
+    					textMainHead: "",
+    					textSubHead: ""
+    				}
+    			});
+    		}
+    	};
+
+    	return [hidden, show, info, $cardData, $selectedCard, func];
+    }
+
+    class Card extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Card",
+    			options,
+    			id: create_fragment$7.name
+    		});
+    	}
+    }
+
+    const stickPath = `M407,76H105C47.109,76,0,123.109,0,181v150c0,57.891,47.109,105,105,105h302c57.891,0,105-47.109,105-105V181
+C512,123.109,464.891,76,407,76z`;
+    class Background {
+      constructor({
+        canvas,
+        colors = ['white', 'red', 'yellow', 'green', 'blue', 'pink'],
+        bgcolor,
+        scale = 1,
+        speed = 1,
+        sctickCountFactor = 3,
+        fps = 60,
+        offset = 300,
+      }) {
+        const cxt = canvas.getContext('2d');
+        if (!cxt || !(cxt instanceof CanvasRenderingContext2D)) {
+          throw new Error('Invalid canvas provided');
+        }
+        this.cv = canvas;
+        this.cxt = cxt;
+        this.speed = speed;
+        this.colors = colors;
+        this.bgcolor = bgcolor;
+        this.scale = scale;
+        this.sctickCountFactor = sctickCountFactor;
+        this.fps = fps;
+        this.nextFrame = 0;
+        this.offset = offset;
+        this.w = this.cv.width;
+        this.h = this.cv.height;
+      }
+      init() {
+        this.sticksCount = Math.round(
+          (this.sctickCountFactor / 100) * this.offset * 9,
+        );
+        const positions = Array(this.sticksCount)
+          .fill()
+          .map(
+            () =>
+              new Position({
+                ...this.getRandomPositionAndSpeed(
+                  -this.offset,
+                  -this.offset,
+                  this.scale,
+                  this.w + this.offset * 2,
+                  this.h + this.offset * 2,
+                  -this.speed,
+                  +this.speed,
+                ),
+                angle: -Math.PI / 4,
+                brightnessFactor: this.scale,
+              }),
+          );
+        positions.sort((p1, p2) => (p1.z < p2.z ? -1 : 1));
+        this.positions = positions;
+        this.sticks = positions.map(
+          (position) =>
+            new Stick({
+              color: this.colors[
+                Math.max(
+                  0,
+                  Math.min(
+                    this.colors.length - 1,
+                    Math.floor(Math.random() * this.colors.length),
+                  ),
+                )
+              ],
+              position,
+            }),
+        );
+      }
+      getRandomPositionAndSpeed = function (
+        x,
+        y,
+        z,
+        width,
+        height,
+        speedX,
+        speedY,
+      ) {
+        const speedMulti = 0.5 + Math.random() * 0.5;
+        const zMulti = 0.1 + Math.random() * 0.9;
+
+        return {
+          x: x + Math.random() * width,
+          y: y + Math.random() * height,
+          z: z * zMulti,
+          speedX: speedX * speedMulti,
+          speedY: speedY * speedMulti,
+          directionX: Math.random() > 0.5 ? 1 : -1,
+          directionY: Math.random() > 0.5 ? 1 : -1,
+        };
+      };
+      draw() {
+        this.init();
+        requestAnimationFrame(() => this.loop());
+      }
+      loop() {
+        this.sticks.forEach((stick) =>
+          stick.position.update(this.w, this.h, this.offset),
+        );
+        this.nextFrame += this.unit;
+        if (this.nextFrame >= 1) {
+          this.nextFrame -= 1;
+          if (this.bgcolor) {
+            this.cxt.fillStyle = this.bgcolor;
+            this.cxt.fillRect(0, 0, this.w, this.h);
+          } else {
+            this.cxt.clearRect(0, 0, this.w, this.h);
+          }
+          this.sticks.forEach((stick) => {
+            this.cxt.save();
+            stick.draw(this.cxt);
+          });
+        }
+        requestAnimationFrame(() => this.loop());
+      }
+
+      shift(deltaX, deltaY, minmax) {
+        const absminmax = Math.abs(minmax);
+        this.positions.forEach((position) => {
+          // eslint-disable-next-line no-param-reassign
+          position.deltaX = Math.min(
+            Math.max(deltaX + position.deltaX, -absminmax),
+            absminmax,
+          );
+          // eslint-disable-next-line no-param-reassign
+          position.deltaY = Math.min(
+            Math.max(deltaY + position.deltaY, -absminmax),
+            absminmax,
+          );
+        });
+      }
+
+      get unit() {
+        return Math.abs(this.fps / 60);
+      }
+    }
+
+    const Position = function ({
+      x,
+      y,
+      z,
+      speedX,
+      speedY,
+      angle,
+      brightnessFactor = 1,
+      directionX = 1,
+      directionY = 1,
+    }) {
+      this.x = x;
+      this.y = y;
+      this.z = z;
+      this.speedX = speedX;
+      this.speedY = speedY;
+      this.angle = angle;
+      this.deltaX = 0;
+      this.deltaY = 0;
+      this.brightness = 0.2 + 0.8 * normalize$1(this.z, 1 / brightnessFactor);
+      this.shiftAnimationId = null;
+      this.directionX = directionX;
+      this.directionY = directionY;
+    };
+    Position.prototype.update = function (width, height, offset) {
+      this.deltaX += this.speedX * 0.5 * this.directionX;
+      this.deltaY += this.speedY * 0.5 * this.directionY;
+      const stepX = this.deltaX * 0.07 * normalize$1(this.z, 5);
+      const stepY = this.deltaY * 0.07 * normalize$1(this.z, 5);
+      this.deltaX -= stepX;
+      this.deltaY -= stepY;
+      this.x += stepX;
+      this.y += stepY;
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < -offset) {
+        this.x = width + offset;
+      } else if (this.x > width + offset) {
+        this.x = -offset;
+      }
+      if (this.y < -offset) {
+        this.y = height + offset;
+      } else if (this.y > height + offset) {
+        this.y = -offset;
+      }
+    };
+    Position.prototype.apply = function (context) {
+      context.translate(this.x, this.y);
+      context.rotate(this.angle);
+      context.scale(this.z, this.z);
+      // context.globalAlpha = this.brightness;
+    };
+    const Stick = function ({ color, position }) {
+      this.color = color;
+      this.x = color;
+      this.position = position;
+      this.path = new Path2D(stickPath);
+    };
+    Stick.prototype.draw = function (context) {
+      context.fillStyle = this.color;
+      this.position.apply(context);
+      context.fill(this.path);
+      context.restore();
+    };
+
+    function normalize$1(x, factor) {
+      const e = Math.E;
+      return Math.abs((1 - e ** (factor * x)) / (1 + e ** (factor * x)));
+    }
+
+    let background;
+    function setBackground(backgroundArgs) {
+        if (background)
+            return;
+        background = new Background(backgroundArgs);
+        background.draw();
+    }
+    let paralaxIndex = null;
+    function shift(deltaX, deltaY, minmax) {
+        background && background.shift(deltaX, deltaY, minmax);
+    }
+    function resetParalax() {
+        paralaxIndex = null;
+    }
+    function handleParalax(index) {
+        if (paralaxIndex !== null) {
+            shift(0, 80 * (index - paralaxIndex), 100);
+        }
+        paralaxIndex = index;
+    }
+
+    function navigationSlide(node, [show, buttonElem]) {
+        let button = buttonElem;
+        const makeButtonAnimation = (btn) => gsapWithCSS.fromTo(btn, {
+            translateY: 0,
+            rotationX: 0,
+            ease: 'power4.in',
+            duration: 1,
+        }, {
+            translateY: '-100%',
+            rotationX: 180,
+            ease: 'power4.in',
+            duration: 1,
+        }).pause();
+        let buttonAnimation = button && makeButtonAnimation(button);
+        let nodeAnimation = gsapWithCSS.from(node, {
+            translateY: '120%',
+            ease: 'power4.in',
+            duration: 1,
+            onComplete: () => {
+                shift(0, -200, 200);
+            },
+        }).pause();
+        const showAnimation = () => {
+            nodeAnimation.timeScale(2).play();
+            buttonAnimation === null || buttonAnimation === void 0 ? void 0 : buttonAnimation.timeScale(2).play();
+        };
+        const hideAnimation = () => {
+            nodeAnimation.timeScale(1).reverse();
+            buttonAnimation === null || buttonAnimation === void 0 ? void 0 : buttonAnimation.timeScale(1).reverse();
+        };
+        show && showAnimation();
+        return {
+            update: ([newShow, newButtonElem]) => {
+                if (button !== newButtonElem) {
+                    button = newButtonElem;
+                    buttonAnimation = makeButtonAnimation(button);
+                }
+                newShow ? showAnimation() : hideAnimation();
+            }
+        };
+    }
+
+    /* src\components\nav\NavLink.svelte generated by Svelte v3.31.2 */
+    const file$6 = "src\\components\\nav\\NavLink.svelte";
+
+    function create_fragment$8(ctx) {
+    	let div;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[6].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[5], null);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			if (default_slot) default_slot.c();
+    			attr_dev(div, "class", "nav-block-list-item");
+    			toggle_class(div, "active", /*active*/ ctx[3]);
+    			add_location(div, file$6, 8, 0, 239);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(div, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div, "mouseenter", /*mouseenter_handler*/ ctx[7], false, false, false),
+    					listen_dev(div, "click", /*click_handler*/ ctx[8], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 32) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[5], dirty, null, null);
+    				}
+    			}
+
+    			if (dirty & /*active*/ 8) {
+    				toggle_class(div, "active", /*active*/ ctx[3]);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (default_slot) default_slot.d(detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let $currentRoute;
+    	validate_store(currentRoute, "currentRoute");
+    	component_subscribe($$self, currentRoute, $$value => $$invalidate(4, $currentRoute = $$value));
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("NavLink", slots, ['default']);
+    	let { index } = $$props;
+    	let { to = "default" } = $$props;
+
+    	let { onClick = () => {
+    		
+    	} } = $$props;
+
+    	let { active = false } = $$props;
+    	const writable_props = ["index", "to", "onClick", "active"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<NavLink> was created with unknown prop '${key}'`);
+    	});
+
+    	const mouseenter_handler = () => handleParalax(index);
+
+    	const click_handler = () => {
+    		onClick();
+    		set_store_value(currentRoute, $currentRoute = to, $currentRoute);
+    	};
+
+    	$$self.$$set = $$props => {
+    		if ("index" in $$props) $$invalidate(0, index = $$props.index);
+    		if ("to" in $$props) $$invalidate(1, to = $$props.to);
+    		if ("onClick" in $$props) $$invalidate(2, onClick = $$props.onClick);
+    		if ("active" in $$props) $$invalidate(3, active = $$props.active);
+    		if ("$$scope" in $$props) $$invalidate(5, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		currentRoute,
+    		handleParalax,
+    		index,
+    		to,
+    		onClick,
+    		active,
+    		$currentRoute
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("index" in $$props) $$invalidate(0, index = $$props.index);
+    		if ("to" in $$props) $$invalidate(1, to = $$props.to);
+    		if ("onClick" in $$props) $$invalidate(2, onClick = $$props.onClick);
+    		if ("active" in $$props) $$invalidate(3, active = $$props.active);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		index,
+    		to,
+    		onClick,
+    		active,
+    		$currentRoute,
+    		$$scope,
+    		slots,
+    		mouseenter_handler,
+    		click_handler
+    	];
+    }
+
+    class NavLink extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, { index: 0, to: 1, onClick: 2, active: 3 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "NavLink",
+    			options,
+    			id: create_fragment$8.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*index*/ ctx[0] === undefined && !("index" in props)) {
+    			console.warn("<NavLink> was created without expected prop 'index'");
+    		}
+    	}
+
+    	get index() {
+    		throw new Error("<NavLink>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set index(value) {
+    		throw new Error("<NavLink>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get to() {
+    		throw new Error("<NavLink>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set to(value) {
+    		throw new Error("<NavLink>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onClick() {
+    		throw new Error("<NavLink>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set onClick(value) {
+    		throw new Error("<NavLink>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get active() {
+    		throw new Error("<NavLink>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set active(value) {
+    		throw new Error("<NavLink>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\nav\Navigation.svelte generated by Svelte v3.31.2 */
+    const file$7 = "src\\components\\nav\\Navigation.svelte";
+
+    function get_each_context$2(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[14] = list[i];
+    	child_ctx[16] = i;
+    	return child_ctx;
+    }
+
+    // (60:12) <NavLink               active={$currentRoute === 'card' && index === $selectedCard}               {index}               to="card"               onClick={() => {                 navigationClick();                 selectCard(index);               }}             >
+    function create_default_slot_2(ctx) {
+    	let t0_value = /*data*/ ctx[14].title + "";
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			t0 = text(t0_value);
+    			t1 = space();
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, t1, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*$cardData*/ 32 && t0_value !== (t0_value = /*data*/ ctx[14].title + "")) set_data_dev(t0, t0_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(t1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2.name,
+    		type: "slot",
+    		source: "(60:12) <NavLink               active={$currentRoute === 'card' && index === $selectedCard}               {index}               to=\\\"card\\\"               onClick={() => {                 navigationClick();                 selectCard(index);               }}             >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (59:10) {#each $cardData as data, index (data.title)}
+    function create_each_block$2(key_1, ctx) {
+    	let first;
+    	let navlink;
+    	let current;
+
+    	function func() {
+    		return /*func*/ ctx[12](/*index*/ ctx[16]);
+    	}
+
+    	navlink = new NavLink({
+    			props: {
+    				active: /*$currentRoute*/ ctx[6] === "card" && /*index*/ ctx[16] === /*$selectedCard*/ ctx[4],
+    				index: /*index*/ ctx[16],
+    				to: "card",
+    				onClick: func,
+    				$$slots: { default: [create_default_slot_2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		key: key_1,
+    		first: null,
+    		c: function create() {
+    			first = empty();
+    			create_component(navlink.$$.fragment);
+    			this.first = first;
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, first, anchor);
+    			mount_component(navlink, target, anchor);
+    			current = true;
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const navlink_changes = {};
+    			if (dirty & /*$currentRoute, $cardData, $selectedCard*/ 112) navlink_changes.active = /*$currentRoute*/ ctx[6] === "card" && /*index*/ ctx[16] === /*$selectedCard*/ ctx[4];
+    			if (dirty & /*$cardData*/ 32) navlink_changes.index = /*index*/ ctx[16];
+    			if (dirty & /*$cardData*/ 32) navlink_changes.onClick = func;
+
+    			if (dirty & /*$$scope, $cardData*/ 131104) {
+    				navlink_changes.$$scope = { dirty, ctx };
+    			}
+
+    			navlink.$set(navlink_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(navlink.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(navlink.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(first);
+    			destroy_component(navlink, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$2.name,
+    		type: "each",
+    		source: "(59:10) {#each $cardData as data, index (data.title)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (77:10) <NavLink             index={$cardData.length}             onClick={navigationClick}             to="home"             active={$currentRoute === 'home'}           >
+    function create_default_slot_1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Home");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(77:10) <NavLink             index={$cardData.length}             onClick={navigationClick}             to=\\\"home\\\"             active={$currentRoute === 'home'}           >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (85:10) <NavLink             index={$cardData.length + 1}             onClick={navigationClick}             to="aboutMe"             active={$currentRoute === 'aboutMe'}           >
+    function create_default_slot$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("About Me");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$1.name,
+    		type: "slot",
+    		source: "(85:10) <NavLink             index={$cardData.length + 1}             onClick={navigationClick}             to=\\\"aboutMe\\\"             active={$currentRoute === 'aboutMe'}           >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$9(ctx) {
+    	let div0;
+    	let img0;
+    	let img0_src_value;
+    	let div0_style_value;
+    	let t0;
+    	let div12;
+    	let div1;
+    	let canvas;
+    	let t1;
+    	let nav;
+    	let div2;
+    	let t3;
+    	let div9;
+    	let div5;
+    	let div3;
+    	let t5;
+    	let div4;
+    	let each_blocks = [];
+    	let each_1_lookup = new Map();
+    	let t6;
+    	let div8;
+    	let div6;
+    	let t8;
+    	let div7;
+    	let navlink0;
+    	let t9;
+    	let navlink1;
+    	let t10;
+    	let div11;
+    	let div10;
+    	let a;
+    	let img1;
+    	let img1_src_value;
+    	let navigationSlide_action;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*$cardData*/ ctx[5];
+    	validate_each_argument(each_value);
+    	const get_key = ctx => /*data*/ ctx[14].title;
+    	validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		let child_ctx = get_each_context$2(ctx, each_value, i);
+    		let key = get_key(child_ctx);
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block$2(key, child_ctx));
+    	}
+
+    	navlink0 = new NavLink({
+    			props: {
+    				index: /*$cardData*/ ctx[5].length,
+    				onClick: /*navigationClick*/ ctx[8],
+    				to: "home",
+    				active: /*$currentRoute*/ ctx[6] === "home",
+    				$$slots: { default: [create_default_slot_1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	navlink1 = new NavLink({
+    			props: {
+    				index: /*$cardData*/ ctx[5].length + 1,
+    				onClick: /*navigationClick*/ ctx[8],
+    				to: "aboutMe",
+    				active: /*$currentRoute*/ ctx[6] === "aboutMe",
+    				$$slots: { default: [create_default_slot$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div0 = element("div");
+    			img0 = element("img");
+    			t0 = space();
+    			div12 = element("div");
+    			div1 = element("div");
+    			canvas = element("canvas");
+    			t1 = space();
+    			nav = element("nav");
+    			div2 = element("div");
+    			div2.textContent = "My Portfolio";
+    			t3 = space();
+    			div9 = element("div");
+    			div5 = element("div");
+    			div3 = element("div");
+    			div3.textContent = "Projects";
+    			t5 = space();
+    			div4 = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t6 = space();
+    			div8 = element("div");
+    			div6 = element("div");
+    			div6.textContent = "Other";
+    			t8 = space();
+    			div7 = element("div");
+    			create_component(navlink0.$$.fragment);
+    			t9 = space();
+    			create_component(navlink1.$$.fragment);
+    			t10 = space();
+    			div11 = element("div");
+    			div10 = element("div");
+    			a = element("a");
+    			img1 = element("img");
+    			if (img0.src !== (img0_src_value = "./assets/images/double-up-arrow.png")) attr_dev(img0, "src", img0_src_value);
+    			attr_dev(img0, "alt", "");
+    			add_location(img0, file$7, 46, 2, 1280);
+    			attr_dev(div0, "style", div0_style_value = `visibility:${/*showButton*/ ctx[1] ? "visible" : "hidden"}`);
+    			attr_dev(div0, "id", "nav-collapse--button");
+    			add_location(div0, file$7, 40, 0, 1124);
+    			attr_dev(canvas, "id", "background");
+    			attr_dev(canvas, "width", "464");
+    			attr_dev(canvas, "height", "1000");
+    			add_location(canvas, file$7, 50, 4, 1451);
+    			attr_dev(div1, "id", "background--wrapper");
+    			add_location(div1, file$7, 49, 2, 1416);
+    			attr_dev(div2, "class", "nav-top");
+    			add_location(div2, file$7, 53, 4, 1583);
+    			attr_dev(div3, "class", "nav-block-header");
+    			add_location(div3, file$7, 56, 8, 1688);
+    			attr_dev(div4, "class", "nav-block-list");
+    			add_location(div4, file$7, 57, 8, 1741);
+    			attr_dev(div5, "class", "nav-block");
+    			add_location(div5, file$7, 55, 6, 1656);
+    			attr_dev(div6, "class", "nav-block-header");
+    			add_location(div6, file$7, 74, 8, 2234);
+    			attr_dev(div7, "class", "nav-block-list");
+    			add_location(div7, file$7, 75, 8, 2284);
+    			attr_dev(div8, "class", "nav-block");
+    			add_location(div8, file$7, 73, 6, 2202);
+    			attr_dev(div9, "class", "nav-main");
+    			add_location(div9, file$7, 54, 4, 1627);
+    			if (img1.src !== (img1_src_value = "./assets/images/at.png")) attr_dev(img1, "src", img1_src_value);
+    			attr_dev(img1, "alt", "mail");
+    			add_location(img1, file$7, 98, 10, 2904);
+    			attr_dev(a, "href", "mailto:ah.alain.digmail.com");
+    			add_location(a, file$7, 97, 8, 2855);
+    			attr_dev(div10, "class", "icon-field");
+    			add_location(div10, file$7, 96, 6, 2822);
+    			attr_dev(div11, "id", "nav-footer");
+    			add_location(div11, file$7, 95, 4, 2794);
+    			attr_dev(nav, "id", "main-nav");
+    			add_location(nav, file$7, 52, 2, 1530);
+    			attr_dev(div12, "id", "main-nav--wrapper");
+    			add_location(div12, file$7, 48, 0, 1344);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div0, anchor);
+    			append_dev(div0, img0);
+    			/*div0_binding*/ ctx[10](div0);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, div12, anchor);
+    			append_dev(div12, div1);
+    			append_dev(div1, canvas);
+    			/*canvas_binding*/ ctx[11](canvas);
+    			append_dev(div12, t1);
+    			append_dev(div12, nav);
+    			append_dev(nav, div2);
+    			append_dev(nav, t3);
+    			append_dev(nav, div9);
+    			append_dev(div9, div5);
+    			append_dev(div5, div3);
+    			append_dev(div5, t5);
+    			append_dev(div5, div4);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div4, null);
+    			}
+
+    			append_dev(div9, t6);
+    			append_dev(div9, div8);
+    			append_dev(div8, div6);
+    			append_dev(div8, t8);
+    			append_dev(div8, div7);
+    			mount_component(navlink0, div7, null);
+    			append_dev(div7, t9);
+    			mount_component(navlink1, div7, null);
+    			append_dev(nav, t10);
+    			append_dev(nav, div11);
+    			append_dev(div11, div10);
+    			append_dev(div10, a);
+    			append_dev(a, img1);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(div0, "click", /*click_handler*/ ctx[9], false, false, false),
+    					listen_dev(nav, "mouseleave", resetParalax, false, false, false),
+    					action_destroyer(navigationSlide_action = navigationSlide.call(null, div12, [/*show*/ ctx[0], /*buttonElem*/ ctx[3]]))
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!current || dirty & /*showButton*/ 2 && div0_style_value !== (div0_style_value = `visibility:${/*showButton*/ ctx[1] ? "visible" : "hidden"}`)) {
+    				attr_dev(div0, "style", div0_style_value);
+    			}
+
+    			if (dirty & /*$currentRoute, $cardData, $selectedCard, navigationClick, selectCard*/ 496) {
+    				each_value = /*$cardData*/ ctx[5];
+    				validate_each_argument(each_value);
+    				group_outros();
+    				validate_each_keys(ctx, each_value, get_each_context$2, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value, each_1_lookup, div4, outro_and_destroy_block, create_each_block$2, null, get_each_context$2);
+    				check_outros();
+    			}
+
+    			const navlink0_changes = {};
+    			if (dirty & /*$cardData*/ 32) navlink0_changes.index = /*$cardData*/ ctx[5].length;
+    			if (dirty & /*$currentRoute*/ 64) navlink0_changes.active = /*$currentRoute*/ ctx[6] === "home";
+
+    			if (dirty & /*$$scope*/ 131072) {
+    				navlink0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			navlink0.$set(navlink0_changes);
+    			const navlink1_changes = {};
+    			if (dirty & /*$cardData*/ 32) navlink1_changes.index = /*$cardData*/ ctx[5].length + 1;
+    			if (dirty & /*$currentRoute*/ 64) navlink1_changes.active = /*$currentRoute*/ ctx[6] === "aboutMe";
+
+    			if (dirty & /*$$scope*/ 131072) {
+    				navlink1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			navlink1.$set(navlink1_changes);
+    			if (navigationSlide_action && is_function(navigationSlide_action.update) && dirty & /*show, buttonElem*/ 9) navigationSlide_action.update.call(null, [/*show*/ ctx[0], /*buttonElem*/ ctx[3]]);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(navlink0.$$.fragment, local);
+    			transition_in(navlink1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(navlink0.$$.fragment, local);
+    			transition_out(navlink1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div0);
+    			/*div0_binding*/ ctx[10](null);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(div12);
+    			/*canvas_binding*/ ctx[11](null);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].d();
+    			}
+
+    			destroy_component(navlink0);
+    			destroy_component(navlink1);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let $selectedCard;
+    	let $isSmallDevice;
+    	let $cardData;
+    	let $currentRoute;
+    	validate_store(selectedCard, "selectedCard");
+    	component_subscribe($$self, selectedCard, $$value => $$invalidate(4, $selectedCard = $$value));
+    	validate_store(isSmallDevice, "isSmallDevice");
+    	component_subscribe($$self, isSmallDevice, $$value => $$invalidate(13, $isSmallDevice = $$value));
+    	validate_store(cardData, "cardData");
+    	component_subscribe($$self, cardData, $$value => $$invalidate(5, $cardData = $$value));
+    	validate_store(currentRoute, "currentRoute");
+    	component_subscribe($$self, currentRoute, $$value => $$invalidate(6, $currentRoute = $$value));
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Navigation", slots, []);
+    	let show;
+    	let showButton;
+
+    	isSmallDevice.subscribe(smallDevice => {
+    		$$invalidate(0, show = !smallDevice);
+    		$$invalidate(1, showButton = smallDevice);
+    	});
+
+    	let cv;
+    	let buttonElem;
+
+    	onMount(() => {
+    		cardData.subscribe(datas => {
+    			if (datas.length) {
+    				const colors = new Set(datas.map(data => data.theme.primary));
+
+    				setBackground({
+    					bgcolor: null,
+    					canvas: cv,
+    					colors: Array.from(colors.values()),
+    					offset: 300,
+    					scale: 0.5,
+    					speed: 0.3,
+    					sctickCountFactor: 0.8,
+    					fps: 60
+    				});
+    			}
+    		});
+    	});
+
+    	function selectCard(index) {
+    		set_store_value(selectedCard, $selectedCard = index, $selectedCard);
+    	}
+
+    	function navigationClick() {
+    		if ($isSmallDevice) {
+    			$$invalidate(0, show = false);
+    		}
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Navigation> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = () => $$invalidate(0, show = !show);
+
+    	function div0_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			buttonElem = $$value;
+    			$$invalidate(3, buttonElem);
+    		});
+    	}
+
+    	function canvas_binding($$value) {
+    		binding_callbacks[$$value ? "unshift" : "push"](() => {
+    			cv = $$value;
+    			$$invalidate(2, cv);
+    		});
+    	}
+
+    	const func = index => {
+    		navigationClick();
+    		selectCard(index);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		onMount,
+    		navigationSlide,
+    		cardData,
+    		currentRoute,
+    		isSmallDevice,
+    		selectedCard,
+    		resetParalax,
+    		setBackground,
+    		NavLink,
+    		show,
+    		showButton,
+    		cv,
+    		buttonElem,
+    		selectCard,
+    		navigationClick,
+    		$selectedCard,
+    		$isSmallDevice,
+    		$cardData,
+    		$currentRoute
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("show" in $$props) $$invalidate(0, show = $$props.show);
+    		if ("showButton" in $$props) $$invalidate(1, showButton = $$props.showButton);
+    		if ("cv" in $$props) $$invalidate(2, cv = $$props.cv);
+    		if ("buttonElem" in $$props) $$invalidate(3, buttonElem = $$props.buttonElem);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		show,
+    		showButton,
+    		cv,
+    		buttonElem,
+    		$selectedCard,
+    		$cardData,
+    		$currentRoute,
+    		selectCard,
+    		navigationClick,
+    		click_handler,
+    		div0_binding,
+    		canvas_binding,
+    		func
+    	];
+    }
+
+    class Navigation extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$9, create_fragment$9, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Navigation",
+    			options,
+    			id: create_fragment$9.name
+    		});
+    	}
+    }
+
+    /* src\App.svelte generated by Svelte v3.31.2 */
+    const file$8 = "src\\App.svelte";
+
+    function create_fragment$a(ctx) {
+    	let navigation;
+    	let t;
+    	let div1;
+    	let div0;
+    	let switch_instance;
+    	let current;
+    	navigation = new Navigation({ $$inline: true });
+    	var switch_value = router[/*$currentRoute*/ ctx[0]];
+
+    	function switch_props(ctx) {
+    		return { $$inline: true };
+    	}
+
+    	if (switch_value) {
+    		switch_instance = new switch_value(switch_props());
+    	}
+
+    	const block = {
+    		c: function create() {
+    			create_component(navigation.$$.fragment);
+    			t = space();
+    			div1 = element("div");
+    			div0 = element("div");
+    			if (switch_instance) create_component(switch_instance.$$.fragment);
+    			attr_dev(div0, "id", "main-view");
+    			add_location(div0, file$8, 10, 2, 387);
+    			attr_dev(div1, "id", "main-view-wrapper");
+    			add_location(div1, file$8, 9, 0, 356);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(navigation, target, anchor);
+    			insert_dev(target, t, anchor);
+    			insert_dev(target, div1, anchor);
+    			append_dev(div1, div0);
+
+    			if (switch_instance) {
+    				mount_component(switch_instance, div0, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (switch_value !== (switch_value = router[/*$currentRoute*/ ctx[0]])) {
+    				if (switch_instance) {
+    					group_outros();
+    					const old_component = switch_instance;
+
+    					transition_out(old_component.$$.fragment, 1, 0, () => {
+    						destroy_component(old_component, 1);
+    					});
+
+    					check_outros();
+    				}
+
+    				if (switch_value) {
+    					switch_instance = new switch_value(switch_props());
+    					create_component(switch_instance.$$.fragment);
+    					transition_in(switch_instance.$$.fragment, 1);
+    					mount_component(switch_instance, div0, null);
+    				} else {
+    					switch_instance = null;
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(navigation.$$.fragment, local);
+    			if (switch_instance) transition_in(switch_instance.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(navigation.$$.fragment, local);
+    			if (switch_instance) transition_out(switch_instance.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(navigation, detaching);
+    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(div1);
+    			if (switch_instance) destroy_component(switch_instance);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$a($$self, $$props, $$invalidate) {
+    	let $currentRoute;
+    	validate_store(currentRoute, "currentRoute");
+    	component_subscribe($$self, currentRoute, $$value => $$invalidate(0, $currentRoute = $$value));
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("App", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		fly,
+    		StairCase,
+    		Card,
+    		Navigation,
+    		currentRoute,
+    		router,
+    		selectedCard,
+    		$currentRoute
+    	});
+
+    	return [$currentRoute];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment$a.name
+    		});
+    	}
+    }
+
+    const app = new App({
+        target: document.body,
+        intro: true
+    });
+
+    return app;
+
+}());

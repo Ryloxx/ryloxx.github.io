@@ -2,7 +2,7 @@
   {
     "image": "./assets/images/rock-paper-scissors",
     "title": "Rock-Paper-Scissors",
-    "body": "Rock paper scissors game against AI",
+    "body": "Rock paper scissors game against AI.",
     "techList": ["Svelte", "Surge(host)", "HTML", "CSS", "JavaScript"],
     "link": "http://rps-rylox.surge.sh",
     "logo": "./assets/images/rock-paper-scissors-logo.png",
@@ -18,7 +18,7 @@
   {
     "image": "./assets/images/game-io",
     "title": "Game IO",
-    "body": "Website that host lobbies where people can gather and play games together, it is still WIP",
+    "body": "Website that host lobbies where people can gather and play games together, it is still WIP.",
     "techList": [
       "Svelte/Smelte/Tailwind(Front)",
       "NodeJS/ExpressJS/SocketIO (Back)",
@@ -140,14 +140,8 @@
   {
     "image": "./assets/images/translation_app",
     "title": "Translation App",
-    "body": "Basic one way translation app from French to English using IBM Translate API.",
-    "techList": [
-      "IBM Translate API",
-      "Bootstrap",
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ],
+    "body": "Translation application using IBM Translate API.",
+    "techList": ["IBM Translate API", "Bootstrap", "HTML", "CSS", "JavaScript"],
     "logo": "./assets/images/translate-logo.png",
     "link": "./projects/translation_app/index.html",
     "theme": {
