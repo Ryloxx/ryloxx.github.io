@@ -1,5 +1,21 @@
 [
   {
+    "image": "./assets/images/fluid-simulation",
+    "title": "Fluid Simulation",
+    "body": "Engine that simulate fluid behavior to a certain extent, still work in progress.",
+    "techList": ["Svelte", "Surge(host)", "HTML", "CSS", "JavaScript"],
+    "link": "http://fluid-simulation-rylox.surge.sh",
+    "logo": "",
+    "theme": {
+      "primary": "#bbff00",
+      "secondary": "#121212",
+      "tertiary": "#ffeede",
+      "textMainHead": "#121212",
+      "textSubHead": "#111111",
+      "textBody": "#000000"
+    }
+  },
+  {
     "image": "./assets/images/rock-paper-scissors",
     "title": "Rock-Paper-Scissors",
     "body": "Rock paper scissors game against AI.",
