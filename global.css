@@ -138,6 +138,7 @@ button {
 
 * {
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
@@ -233,7 +234,6 @@ button {
   display: flex;
   flex-direction: column;
   justify-items: center;
-  backdrop-filter: blur(2px);
 }
 
 .nav-main * {
@@ -349,6 +349,20 @@ button {
   font-size: 2em;
 }
 
+/* NAV/BACKGROUND */
+#background {
+  filter: blur(2px);
+}
+
+@supports (backdrop-filter: blur(2px)) {
+  #main-nav {
+    backdrop-filter: blur(2px);
+  }
+
+  #background {
+    filter: none;
+  }
+}
 /* MAIN VIEW */
 #main-view {
   transition: background-color 150ms ease-in;
