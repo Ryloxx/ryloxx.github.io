@@ -1,5 +1,9 @@
 [
   {
+    "0": "%projectname% might take some time to load due to website host free tier restriction. So please wait.",
+    "1": "You need a recent web browser such as Chrome or Firefox for %projectname% to work optimally."
+  },
+  {
     "image": "./assets/images/fluid-simulation",
     "title": "Fluid Simulation",
     "body": "Engine that simulate fluid behavior to a certain extent, still work in progress. I made one that use the Canvas2D api and another using WebGL.",
@@ -64,7 +68,8 @@
       "textSubHead": "#222222",
       "textBody": "#222222"
     },
-    "code": ""
+    "code": "",
+    "note": ["0"]
   },
   {
     "image": "./assets/images/movie_database",
@@ -86,6 +91,7 @@
       "Cloudinary",
       "The Movie Database API",
       "Heroku",
+      "Auth0",
       "HTML",
       "CSS",
       "JavaScript"
@@ -101,12 +107,13 @@
       "textSubHead": "#de9840",
       "textBody": "#bd8642"
     },
-    "code": ""
+    "code": "",
+    "note": ["0"]
   },
   {
     "image": "./assets/images/manga_reader",
     "title": "Manga Reader",
-    "body": "This website gather manga data by scraping some other website because of that it is meant for personal use which is why registration is off. I provide nonethless an account to let you see how the website look and feel. Username:\"visitor\", Password:\"visitor1234\"",
+    "body": "This website gather manga data by scraping some other website because of that it is meant for personal use which is why registration is off. I provide nonethless an account to let you see how the website look and feel. Username:\"visitor\", Password:\".V1234567\"",
     "features": [
       "Authentification",
       "Manga search",
@@ -125,6 +132,7 @@
       "ExpressJS",
       "MongoDB",
       "Heroku",
+      "Auth0",
       "HTML",
       "CSS",
       "JavaScript"
@@ -140,7 +148,8 @@
       "textSubHead": "#d3dee6",
       "textBody": "#d3dee6"
     },
-    "code": ""
+    "code": "",
+    "note": ["0"]
   },
   {
     "image": "./assets/images/trending_evil_alien",
@@ -169,7 +178,8 @@
       "textSubHead": "#eb653b",
       "textBody": "#ff7145"
     },
-    "code": ""
+    "code": "",
+    "note": ["0"]
   },
   {
     "image": "./assets/images/spell_it",
@@ -195,7 +205,8 @@
       "textSubHead": "#f3bad6",
       "textBody": "#ffffff"
     },
-    "code": "https://github.com/Ryloxx/Spell-It"
+    "code": "https://github.com/Ryloxx/Spell-It",
+    "note": ["0", "1"]
   },
   {
     "image": "./assets/images/translation_app",
