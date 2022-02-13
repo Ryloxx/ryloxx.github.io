@@ -1,0 +1,106 @@
+local_backend: true
+backend:
+  name: github
+  repo: Ryloxx/ryloxx.github.io
+  branch: master
+  api_root: 'https://api.github.com'
+  base_url: 'https://api.netlify.com'
+  auth_endpoint: auth
+
+media_folder: static/images/uploads
+site_url: https://ryloxx.github.io
+display_url: https://ryloxx.github.io
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: c66bhz8dnq7
+    api_key: 465797591824591
+
+collections:
+  - label: 'Data Files'
+    name: 'dataFiles'
+    files:
+      - label: 'Project Data'
+        name: 'projectData'
+        file: 'projectData.json'
+        fields:
+          - label: Project List
+            name: projectList
+            widget: list
+            default: []
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Image
+                name: image
+                widget: image
+                media_library:
+                  config:
+                    default_transformations:
+                      - - fetch_format: auto
+                          width: 1500
+                          height: 600
+                          quality: auto
+                          crop: fill
+              - label: Logo
+                name: logo
+                widget: image
+                required: false
+                media_library:
+                  config:
+                    default_transformations:
+                      - - fetch_format: auto
+                          width: 1500
+                          height: 600
+                          quality: auto
+                          crop: fill
+              - { label: Body, name: body, widget: text }
+              - { label: Link, name: link, widget: string }
+              - {
+                  label: Code Link,
+                  name: code,
+                  widget: string,
+                  default: '',
+                  required: false,
+                }
+              - label: Notes
+                name: note
+                widget: list
+                default: []
+              - label: Theme
+                name: theme
+                widget: object
+                fields:
+                  - label: Primary
+                    name: primary
+                    widget: color
+                  - label: Secondary
+                    name: secondary
+                    widget: color
+                  - label: Tertiary
+                    name: tertiary
+                    widget: color
+                  - label: Text Main Head
+                    name: textMainHead
+                    widget: color
+                  - label: Text Sub Head
+                    name: textSubHead
+                    widget: color
+                  - label: Text Body
+                    name: textBody
+                    widget: color
+              - label: Tech List
+                name: techList
+                widget: list
+                default: []
+                fields:
+                  - { label: Tech Name, name: techName, widget: string }
+              - label: Feature List
+                name: featureList
+                widget: list
+                default: []
+                fields:
+                  - { label: Feature Name, name: featureName, widget: string }
+          - label: Notes
+            name: notes
+            widget: list
+            default: []
