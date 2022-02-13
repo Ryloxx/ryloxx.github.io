@@ -17,11 +17,21 @@
       "logo": "",
       "code": "https://github.com/Ryloxx/fluid-simulation",
       "techList": [
-        { "techName": "Svelte" },
-        { "techName": "Surge" },
-        { "techName": "HTML" },
-        { "techName": "CSS" },
-        { "techName": "JavaScript" }
+        {
+          "techName": "Svelte"
+        },
+        {
+          "techName": "Surge"
+        },
+        {
+          "techName": "HTML"
+        },
+        {
+          "techName": "CSS"
+        },
+        {
+          "techName": "JavaScript"
+        }
       ],
       "featureList": [
         {
@@ -82,7 +92,9 @@
         "textBody": "#222222"
       },
       "code": "",
-      "note": ["0"],
+      "note": [
+        "0"
+      ],
       "techList": [
         {
           "techName": "Svelte"
@@ -140,7 +152,9 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543113/portfolio-assets/movie-database-logo_y3wsxr.png",
       "code": "",
       "foot": "REST API / Mobile Ready",
-      "note": ["0"],
+      "note": [
+        "0"
+      ],
       "techList": [
         {
           "techName": "ReactJS"
@@ -213,7 +227,9 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543112/portfolio-assets/manga-reader-logo_zvzmx0.png",
       "code": "",
       "foot": "Scraping / Mobile Ready",
-      "note": ["0"],
+      "note": [
+        "0"
+      ],
       "techList": [
         {
           "techName": "ReactJS"
@@ -292,7 +308,9 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543109/portfolio-assets/trending-evil-alien-logo_mqijjp.png",
       "code": "",
       "foot": "REST API / Mobile Ready",
-      "note": ["0"],
+      "note": [
+        "0"
+      ],
       "techList": [
         {
           "techName": "ReactJS"
@@ -343,7 +361,10 @@
       },
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/spell-it-logo_t9mval.png",
       "code": "https://github.com/Ryloxx/Spell-It",
-      "note": ["0", "1"],
+      "note": [
+        "0",
+        "1"
+      ],
       "techList": [
         {
           "techName": "ReactJS"
@@ -438,7 +459,7 @@
           "techName": "JavaScript"
         }
       ],
-      "link": "./projects/qrcode_badge_generator/index.html",
+      "link": "./projects/qr_code_badge_generator/index.html",
       "theme": {
         "primary": "#fabc73",
         "secondary": "#869ccb",
