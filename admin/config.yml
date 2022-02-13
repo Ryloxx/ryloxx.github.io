@@ -3,6 +3,7 @@ backend:
   name: github
   repo: Ryloxx/ryloxx.github.io
   branch: master
+  site_domain: gifted-jones-bd395f.netlify.app
 
 media_folder: static/images/uploads
 site_url: https://ryloxx.github.io
