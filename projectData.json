@@ -51,7 +51,7 @@
     {
       "title": "Rock-Paper-Scissors",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/rock-paper-scissors_pdncnf.webp",
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/rock-paper-scissors-logo_vlkqp0.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/v1644543108/portfolio-assets/rock-paper-scissors-logo_vlkqp0.png",
       "body": "Rock paper scissors game against AI picking randomly.",
       "link": "http://rps-rylox.surge.sh",
       "code": "https://github.com/Ryloxx/Rock-Paper-Scissors",
@@ -149,7 +149,7 @@
         "textSubHead": "#de9840",
         "textBody": "#bd8642"
       },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543113/portfolio-assets/movie-database-logo_y3wsxr.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543113/portfolio-assets/movie-database-logo_y3wsxr.png",
       "code": "",
       "foot": "REST API / Mobile Ready",
       "note": [
@@ -224,7 +224,7 @@
         "textSubHead": "#d3dee6",
         "textBody": "#d3dee6"
       },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543112/portfolio-assets/manga-reader-logo_zvzmx0.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543112/portfolio-assets/manga-reader-logo_zvzmx0.png",
       "code": "",
       "foot": "Scraping / Mobile Ready",
       "note": [
@@ -305,7 +305,7 @@
         "textSubHead": "#eb653b",
         "textBody": "#ff7145"
       },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543109/portfolio-assets/trending-evil-alien-logo_mqijjp.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543109/portfolio-assets/trending-evil-alien-logo_mqijjp.png",
       "code": "",
       "foot": "REST API / Mobile Ready",
       "note": [
@@ -359,7 +359,7 @@
         "textSubHead": "#f3bad6",
         "textBody": "#ffffff"
       },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/spell-it-logo_t9mval.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543108/portfolio-assets/spell-it-logo_t9mval.png",
       "code": "https://github.com/Ryloxx/Spell-It",
       "note": [
         "0",
@@ -421,7 +421,7 @@
           "techName": "JavaScript"
         }
       ],
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/translate-logo_y71arg.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543108/portfolio-assets/translate-logo_y71arg.png",
       "link": "./projects/translation_app/index.html",
       "theme": {
         "primary": "#ebebeb",
