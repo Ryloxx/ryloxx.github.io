@@ -160,12 +160,6 @@
           "techName": "ReactJS"
         },
         {
-          "techName": "Redux"
-        },
-        {
-          "techName": "Material-UI"
-        },
-        {
           "techName": "NodeJS"
         },
         {
@@ -199,9 +193,6 @@
       "featureList": [
         {
           "featureName": "Authentification"
-        },
-        {
-          "featureName": "Reviews + Comments"
         },
         {
           "featureName": "Watchlist creation"
