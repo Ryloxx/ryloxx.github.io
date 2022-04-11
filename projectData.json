@@ -14,7 +14,7 @@
         "textSubHead": "#ffffff",
         "textBody": "#ffffff"
       },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/o_30/c_fill,f_auto,h_250,q_auto,w_250/v1649678892/portfolio-assets/output-onlinepngtools_cedh3k.png",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_scale,q_auto:best,w_250/c_fill,f_auto,h_250,q_auto,w_250/v1649678892/portfolio-assets/output-onlinepngtools_cedh3k.webp",
       "code": "https://github.com/Ryloxx/fluid-simulation",
       "techList": [
         {
@@ -49,7 +49,7 @@
       ],
       "title": "Fluid Simulation",
       "link": "http://fluid-simulation-rylox.surge.sh",
-      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/v1649678660/portfolio-assets/fluid-simulation-eater-animation-wide_satw8z.png"
+      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_crop,h_500,q_auto:good,w_1600/c_fill,f_auto,h_600,q_auto,w_1500/v1649678660/portfolio-assets/fluid-simulation-eater-animation-wide_satw8z.webp"
     },
     {
       "title": "Rock-Paper-Scissors",
