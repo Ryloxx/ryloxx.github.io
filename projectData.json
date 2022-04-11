@@ -7,14 +7,14 @@
     {
       "body": "Engine that simulate fluid behavior to a certain extent, still work in progress. I made one that use the Canvas2D api and another using WebGL. ",
       "theme": {
-        "primary": "#bbff00",
-        "secondary": "#121212",
-        "tertiary": "#ffeede",
-        "textMainHead": "#121212",
-        "textSubHead": "#111111",
-        "textBody": "#000000"
+        "primary": "#181818",
+        "secondary": "#ffffff",
+        "tertiary": "#1e3449",
+        "textMainHead": "#ffffff",
+        "textSubHead": "#ffffff",
+        "textBody": "#ffffff"
       },
-      "logo": "",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1649678892/portfolio-assets/output-onlinepngtools_cedh3k.png",
       "code": "https://github.com/Ryloxx/fluid-simulation",
       "techList": [
         {
@@ -42,11 +42,14 @@
         },
         {
           "featureName": "Premade simulation animations"
+        },
+        {
+          "featureName": "Drawing"
         }
       ],
       "title": "Fluid Simulation",
       "link": "http://fluid-simulation-rylox.surge.sh",
-      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543110/portfolio-assets/fluid-simulation_zz53pd.webp"
+      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/v1649678660/portfolio-assets/fluid-simulation-eater-animation-wide_satw8z.png"
     },
     {
       "title": "Rock-Paper-Scissors",
