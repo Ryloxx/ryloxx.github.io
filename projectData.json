@@ -14,7 +14,7 @@
         "textSubHead": "#ffffff",
         "textBody": "#ffffff"
       },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_scale,q_auto:best,w_250/c_fill,f_auto,h_250,q_auto,w_250/v1649678892/portfolio-assets/output-onlinepngtools_cedh3k.webp",
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_scale,o_10,q_auto:good,w_250/v1649678892/portfolio-assets/output-onlinepngtools_cedh3k.webp",
       "code": "https://github.com/Ryloxx/fluid-simulation",
       "techList": [
         {
@@ -466,7 +466,7 @@
     },
     {
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543110/portfolio-assets/card_memory_game_d1hkyo.webp",
-      "title": "Card Game Memory",
+      "title": "Card Memory Game",
       "body": "The famous card memory game, nothing really new about.",
       "featureList": [
         {
