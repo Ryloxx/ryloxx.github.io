@@ -94,10 +94,9 @@
         "textSubHead": "#222222",
         "textBody": "#222222"
       },
+      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/o_30/c_fill,f_auto,h_250,q_auto,w_250/v1668946475/portfolio-assets/logo_1_elnpwm.png",
       "code": "",
-      "note": [
-        "0"
-      ],
+      "note": [],
       "techList": [
         {
           "techName": "Svelte"
@@ -138,9 +137,9 @@
           "featureName": "Game invitation"
         }
       ],
-      "title": "Game IO",
-      "link": "http://game-io.rylox.surge.sh",
-      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543111/portfolio-assets/game-io_tokciy.webp"
+      "title": "gio",
+      "link": "https://gio-ryloxx.koyeb.app/",
+      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1668946301/portfolio-assets/FireShot_Capture_051_-_-_gio-ryloxx.koyeb.app_ugkr6b.png"
     },
     {
       "body": "Website that present data (title, synopsys, videos, images,...) on films/tv-shows/people.",
@@ -155,9 +154,7 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543113/portfolio-assets/movie-database-logo_y3wsxr.png",
       "code": "",
       "foot": "REST API / Mobile Ready",
-      "note": [
-        "0"
-      ],
+      "note": [],
       "techList": [
         {
           "techName": "ReactJS"
@@ -205,7 +202,7 @@
         }
       ],
       "title": "Movie Database",
-      "link": "https://movie-database-rylox.herokuapp.com",
+      "link": "https://moviedatabase-prod-rylox-ntp6wb.mo1.mogenius.io/",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644731444/portfolio-assets/FireShot_Capture_042_-_Movie_Database_-_movie-database-rylox.herokuapp.com_1_aupcye.png"
     },
     {
@@ -221,9 +218,7 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543112/portfolio-assets/manga-reader-logo_zvzmx0.png",
       "code": "",
       "foot": "Scraping / Mobile Ready",
-      "note": [
-        "0"
-      ],
+      "note": [],
       "techList": [
         {
           "techName": "ReactJS"
@@ -286,62 +281,8 @@
         }
       ],
       "title": "Manga Reader",
-      "link": "https://manga-reader-rylox.herokuapp.com",
+      "link": "https://mangareader-prod-rylox-ntp6wb.mo1.mogenius.io/",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644732836/portfolio-assets/FireShot_Capture_043_-_Manga_Reader_-_manga-reader-rylox.herokuapp.com_dhx4bi.png"
-    },
-    {
-      "body": "Made for a Topcoder.com challenge, it's basically a reddit search tool.",
-      "theme": {
-        "primary": "#2c3b53",
-        "secondary": "#767e92",
-        "tertiary": "#dc725a",
-        "textMainHead": "#ff754a",
-        "textSubHead": "#eb653b",
-        "textBody": "#ff7145"
-      },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543109/portfolio-assets/trending-evil-alien-logo_mqijjp.png",
-      "code": "",
-      "foot": "REST API / Mobile Ready",
-      "note": [
-        "0"
-      ],
-      "techList": [
-        {
-          "techName": "ReactJS"
-        },
-        {
-          "techName": "Bootstrap"
-        },
-        {
-          "techName": "NodeJS"
-        },
-        {
-          "techName": "ExpressJS"
-        },
-        {
-          "techName": "Heroku"
-        },
-        {
-          "techName": "Reddit API"
-        },
-        {
-          "techName": "HTML"
-        },
-        {
-          "techName": "CSS"
-        },
-        {
-          "techName": "JavaScript"
-        }
-      ],
-      "featureList": [
-        {
-          "featureName": "Search with filter options"
-        }
-      ],
-      "title": "Trending Evil Alien",
-      "link": "https://trending-evil-alien.herokuapp.com",
-      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543109/portfolio-assets/trending_evil_alien_dhvkg2.webp"
     },
     {
       "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.",
@@ -356,7 +297,6 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543108/portfolio-assets/spell-it-logo_t9mval.png",
       "code": "https://github.com/Ryloxx/Spell-It",
       "note": [
-        "0",
         "1"
       ],
       "techList": [
@@ -391,7 +331,7 @@
         }
       ],
       "title": "Spell it",
-      "link": "https://spell-it-rylox.herokuapp.com",
+      "link": "https://spell-it.up.railway.app/",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/spell_it_v4xlgv.webp"
     },
     {
