@@ -47,7 +47,7 @@
           "featureName": "Drawing"
         }
       ],
-      "title": "Fluid Simulation",
+      "title": "Simulations",
       "link": "http://fluid-simulation-rylox.surge.sh",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_crop,h_500,q_auto:good,w_1600/c_fill,f_auto,h_600,q_auto,w_1500/v1649678660/portfolio-assets/fluid-simulation-eater-animation-wide_satw8z.webp"
     },
@@ -99,7 +99,7 @@
       "note": [],
       "techList": [
         {
-          "techName": "Svelte"
+          "techName": "SvelteKit"
         },
         {
           "techName": "Tailwind"
@@ -114,10 +114,7 @@
           "techName": "SocketIO"
         },
         {
-          "techName": "Surge"
-        },
-        {
-          "techName": "Glitch"
+          "techName": "Koyeb"
         },
         {
           "techName": "HTML"
@@ -129,14 +126,7 @@
           "techName": "JavaScript"
         }
       ],
-      "featureList": [
-        {
-          "featureName": "Chat rooms"
-        },
-        {
-          "featureName": "Game invitation"
-        }
-      ],
+      "featureList": [],
       "title": "gio",
       "link": "https://gio-ryloxx.koyeb.app/",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1668946301/portfolio-assets/FireShot_Capture_051_-_-_gio-ryloxx.koyeb.app_ugkr6b.png"
@@ -175,7 +165,7 @@
           "techName": "The Movie Database API"
         },
         {
-          "techName": "Heroku"
+          "techName": "Mogenius"
         },
         {
           "techName": "Auth0"
@@ -236,7 +226,7 @@
           "techName": "MongoDB"
         },
         {
-          "techName": "Heroku"
+          "techName": "Mogenius"
         },
         {
           "techName": "Auth0"
@@ -310,7 +300,7 @@
           "techName": "Bootstrap"
         },
         {
-          "techName": "Heroku"
+          "techName": "Railway"
         },
         {
           "techName": "HTML"
