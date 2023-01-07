@@ -275,56 +275,6 @@
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644732836/portfolio-assets/FireShot_Capture_043_-_Manga_Reader_-_manga-reader-rylox.herokuapp.com_dhx4bi.png"
     },
     {
-      "body": "Game of spell it, to be honest this game is much funnier that I thought it would be. It uses the Web Speech API to read words.",
-      "theme": {
-        "primary": "#1f739c",
-        "secondary": "#6da2ac",
-        "tertiary": "#74cccb",
-        "textMainHead": "#e05297",
-        "textSubHead": "#f3bad6",
-        "textBody": "#ffffff"
-      },
-      "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543108/portfolio-assets/spell-it-logo_t9mval.png",
-      "code": "https://github.com/Ryloxx/Spell-It",
-      "note": [
-        "1"
-      ],
-      "techList": [
-        {
-          "techName": "ReactJS"
-        },
-        {
-          "techName": "Redux"
-        },
-        {
-          "techName": "Bootstrap"
-        },
-        {
-          "techName": "Railway"
-        },
-        {
-          "techName": "HTML"
-        },
-        {
-          "techName": "CSS"
-        },
-        {
-          "techName": "JavaScript"
-        }
-      ],
-      "featureList": [
-        {
-          "featureName": "Multiple difficulties"
-        },
-        {
-          "featureName": "Error and missed words feedback"
-        }
-      ],
-      "title": "Spell it",
-      "link": "https://spell-it.up.railway.app/",
-      "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/spell_it_v4xlgv.webp"
-    },
-    {
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644543108/portfolio-assets/translation_app_ioc4i9.webp",
       "title": "Translation App",
       "body": "Translation application using IBM Translate API.",
