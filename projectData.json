@@ -42,9 +42,6 @@
         },
         {
           "featureName": "Premade simulation animations"
-        },
-        {
-          "featureName": "Drawing"
         }
       ],
       "title": "Simulations",
@@ -144,7 +141,9 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543113/portfolio-assets/movie-database-logo_y3wsxr.png",
       "code": "",
       "foot": "REST API / Mobile Ready",
-      "note": [],
+      "note": [
+        "0"
+      ],
       "techList": [
         {
           "techName": "ReactJS"
@@ -165,7 +164,7 @@
           "techName": "The Movie Database API"
         },
         {
-          "techName": "Mogenius"
+          "techName": "Render"
         },
         {
           "techName": "Auth0"
@@ -192,7 +191,7 @@
         }
       ],
       "title": "Movie Database",
-      "link": "https://moviedatabase-prod-rylox-ntp6wb.mo1.mogenius.io/",
+      "link": "https://moviedatabase.onrender.com/",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644731444/portfolio-assets/FireShot_Capture_042_-_Movie_Database_-_movie-database-rylox.herokuapp.com_1_aupcye.png"
     },
     {
@@ -208,7 +207,9 @@
       "logo": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_250,q_auto,w_250/v1644543112/portfolio-assets/manga-reader-logo_zvzmx0.png",
       "code": "",
       "foot": "Scraping / Mobile Ready",
-      "note": [],
+      "note": [
+        "0"
+      ],
       "techList": [
         {
           "techName": "ReactJS"
@@ -226,7 +227,7 @@
           "techName": "MongoDB"
         },
         {
-          "techName": "Mogenius"
+          "techName": "Render"
         },
         {
           "techName": "Auth0"
@@ -271,7 +272,7 @@
         }
       ],
       "title": "Manga Reader",
-      "link": "https://mangareader-prod-rylox-ntp6wb.mo1.mogenius.io/",
+      "link": "https://mangareader-ancv.onrender.com/",
       "image": "https://res.cloudinary.com/c66bhz8dnq7/image/upload/c_fill,f_auto,h_600,q_auto,w_1500/v1644732836/portfolio-assets/FireShot_Capture_043_-_Manga_Reader_-_manga-reader-rylox.herokuapp.com_dhx4bi.png"
     },
     {
