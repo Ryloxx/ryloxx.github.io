@@ -1,1 +1,0 @@
-import{P as c}from"../chunks/_page.Z2c-c_VN.js";const r=async({fetch:a,params:n})=>{let e={page:1,hasNext:!1,list:[],next:null,prev:null};try{const t=+n.page;e=await a(`/data/projects/listing/${t}.json`).then(o=>o.json())}catch{}return e},l=Object.freeze(Object.defineProperty({__proto__:null,load:r},Symbol.toStringTag,{value:"Module"}));export{c as component,l as universal};
