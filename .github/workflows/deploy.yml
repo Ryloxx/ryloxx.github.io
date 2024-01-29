@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: npm run listing
       - name: Copy to "build"
-        run: rsync -a --exclude={'*.github','package.json','listing.js'} . build/
+        run: rsync -a --exclude={'*.github','.git','package.json','listing.js'} . build/
       - name: Deploy "build"
         uses: s0/git-publish-subdir-action@develop
         env:
