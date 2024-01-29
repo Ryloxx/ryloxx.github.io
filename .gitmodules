@@ -1,9 +1,0 @@
-[submodule "projects/card_memory_game"]
-	path = projects/card_memory_game
-	url = https://github.com/Ryloxx/Card-Memory-Game.git
-[submodule "projects/translation_app"]
-	path = projects/translation_app
-	url = https://github.com/Ryloxx/Translation-App.git
-[submodule "projects/qr_code_badge_generator"]
-	path = projects/qr_code_badge_generator
-	url = https://github.com/Ryloxx/QRCode-Badge-Generator.git
