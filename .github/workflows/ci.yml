@@ -9,8 +9,7 @@ jobs:
     name: DISPATCH DEPLOY
     runs-on: ubuntu-latest
     steps:
-      - name: Dispatching 'deploy' repository event
-        uses: peter-evans/repository-dispatch@v1
+      - name: Dispatching 'deploy-gh-pages' repository event
+        uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           event-type: deploy-gh-pages
