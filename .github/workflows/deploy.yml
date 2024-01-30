@@ -10,28 +10,28 @@ jobs:
     steps:
       - name: Checkout master
         uses: actions/checkout@v4
-        with:
-          ref: master
-          path: master
       - name: Checkout decap
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           ref: decap
           path: decap
       - name: Move decap into master
-        run: "mv decap/* master && rm -rf decap"
+        run: |
+          touch decap/to-delete
+          mv decap/* .
+          rm -rf decap
+          rm to-delete
       - name: Set up Node.js environment
         uses: actions/setup-node@v2
         with:
           node-version: 18
       - name: Build
-        run: |
-          cd master
-          npm run build
-      - name: Deploy "build"
+        run: npm run build
+      - name: Deploy build
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
           BRANCH: gh-pages
-          FOLDER: "master/build"
+          FOLDER: build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
