@@ -4,6 +4,7 @@ backend:
   repo: Ryloxx/ryloxx.github.io
   branch: master
   site_domain: gifted-jones-bd395f.netlify.app
+  squash_merges: true
 
 media_folder: images/uploads
 site_url: https://ryloxx.github.io
@@ -13,7 +14,7 @@ media_library:
   config:
     cloud_name: c66bhz8dnq7
     api_key: 465797591824591
-
+publish_mode: editorial_workflow
 collections:
   - label: 'Projects'
     name: 'project'
