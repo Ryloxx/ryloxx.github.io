@@ -1,23 +1,30 @@
 name: Build and Deploy
-
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+  repository_dispatch:
+    types: [deploy-gh-pages]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Checkout decap
+        uses: actions/checkout@v4
+        with:
+          ref: decap
+          path: decap
+      - name: Move decap into root
+          run: "mv decap/* . && rm -rf decap"
       - name: Set up Node.js environment
         uses: actions/setup-node@v2
         with:
           node-version: 18
       - name: Build
-        run: npm run listing
-      - name: Copy to "build"
-        run: rsync -a --exclude={'*.github','package.json','listing.js'} . build/
+        run: npm run build
       - name: Deploy "build"
         uses: s0/git-publish-subdir-action@develop
         env:
