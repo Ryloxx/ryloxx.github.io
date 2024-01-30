@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout master
         uses: actions/checkout@v4
-        with:
-          ref: master
       - name: Checkout decap
         uses: actions/checkout@v4
         with:
@@ -19,14 +17,14 @@ jobs:
           ref: decap
           path: decap
       - name: Move decap into master
-        run: "mv decap/* . && rm -rf decap"
+        run: mv decap/* . && rm -rf decap
       - name: Set up Node.js environment
         uses: actions/setup-node@v2
         with:
           node-version: 18
       - name: Build
         run: npm run build
-      - name: Deploy "build"
+      - name: Deploy build
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
