@@ -18,8 +18,10 @@ jobs:
           path: decap
       - name: Move decap into master
         run: |
+          touch decap/to-delete
           mv decap/* .
           rm -rf decap
+          rm to-delete
       - name: Set up Node.js environment
         uses: actions/setup-node@v2
         with:
