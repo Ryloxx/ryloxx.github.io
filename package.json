@@ -1,8 +1,0 @@
-{
-  "name": "rylox-gh-pages",
-  "version": "1.0",
-  "scripts": {
-    "listing": "rm -rf data/projects/listing && mkdir -p data/projects/listing && find data/projects -maxdepth 1 -type f | node listing.js",
-    "build": "npm run listing && rsync -a --exclude={'*.github','.git','package.json','listing.js'} . build/"
-  }
-}

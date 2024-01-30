@@ -1,1 +1,0 @@
-export const env={"PUBLIC_PATH":"https://res.cloudinary.com/c66bhz8dnq7/raw/upload/v1681338121/gio-games"}
