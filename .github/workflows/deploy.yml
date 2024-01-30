@@ -16,10 +16,8 @@ jobs:
           fetch-depth: 0
           ref: decap
           path: decap
-      - name: debug
-        run: echo "::debug::`ls -alh .`"
       - name: Move decap into master
-        run: mv decap/* . && rm -rf decap
+        run: mv "decap/"* . && rm -rf decap
       - name: Set up Node.js environment
         uses: actions/setup-node@v2
         with:
